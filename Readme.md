@@ -1,6 +1,6 @@
 # Projet CSD
-- Nathan Barloy
+- Nathan BARLOY
 - Valentin CRÔNE
-- Johan Tombre
+- Johan TOMBRE
 
 Développement en cours, de futures informations seront ajoutées par la suite.
