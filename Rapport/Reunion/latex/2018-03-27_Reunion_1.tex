@@ -1,0 +1,72 @@
+\documentclass[11pt]{meetingmins}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcommittee{Compte rendu de réunion 1}
+
+\setdate {March 27, 2017, 16h00 - 50mins}
+\setmembers{
+	Nathan BARLOY,
+	\chair {Valentin CRÔNE},
+	Johan TOMBRE
+}
+\absent{aucun}
+
+\begin{document}
+\maketitle
+
+\section {Annonces}
+
+\begin{hiddenitems}
+	\item Nous avons commencé par désigner le chef de projet, qui sera désormais Valentin CRÔNE.
+\end{hiddenitems}
+
+\section {Compte rendu}
+\begin{flushleft}
+	La réunion démarre à 16h00, nous avons d'abord désigné le chef de projet (Valentin CRÔNE), puis nous avons chacun proposé un point sur lequel discuter.
+	\begin{items}
+		\item Johan à proposé qu'on réfléchisse aux différentes tâches à réaliser.
+		\item Nathan à proposé qu'on réfléchisse à la répartition des tâches.
+		\item Valentin à abordé la manière de travailler de manière flexible, en faisant des petits commits propres pour revenir facilement en arrière en cas de problème.
+	\end{items}
+	Les moyens de communication utilisés seront: Telegram pour les échanges, et Discord pour les éventuelles réunions à distance, ces moyens de communications avaient été définis avant cette réunion.\par
+
+
+	Nous en avons convenus qu'il était pertinent de d'abord rechercher les différents algorithmes et idées proposées existantes à partir de recherches effectuées par des experts du domaine, afin de pouvoir rédiger un état de l'art, et prendre le meilleur et le plus adapté pour concevoir un programme capable de répondre aux besoins du client.
+	\par
+	Nous avons évoqué différentes idées qui pourraient intervenir dans le programme, au niveau de la recommandation, de l'interface graphique, etc...\footnote{cf: Brainstorming}
+
+	\par
+	Durant cette réunion, Valentin CRÔNE à fait une explication a tout le groupe sur le format JSON, pour que tout le monde sache l'utiliser. Il a aussi été choisi d'utiliser une bibliothèque JSON compatible C/C++ développée par Valentin CRÔNE par le passé.
+\end{flushleft}
+
+\section {Idées proposées (brainstorming)}
+\begin{items}
+	\item Comptes utilisateur
+	\item Recommandation générale (utilisateur non connecté/utilisateur pour lequel on a pas d'info)
+	\item Sondage d'inscription (netflix?)/régulier (interoger l'utilisateur sur ses préférences de manière naturelle et non intrusive, \og Aimez vous tel ou tel film \fg)
+	\item Distance entre 2 films
+	\item Boutons j'aime/j'aime pas
+	\item Par rapport aux autres utilisateurs qui aiment un contenu similaire
+	\item Date limite de validité des données (pour garder un algorithme de recommandation qui s'adapte aux changements d'envies de l'utilisateur)
+	\item Compteur de fois affichées, ne plus proposer un film si il a été affiché trop de fois sans attirer l'utilisateur, classer/positionner correctement pour attirer le regard avant d'enlever le film des propositions.
+\end{items}
+
+\section {Ordre du jour}
+\begin{items}
+	\item Désignation du chef de projet
+	\item Désignation des voies de recherches à explorer
+	\item Formation rapide JSON
+\end{items}
+
+\section {A faire pour la prochaine réunion}
+\begin{items}
+	\item Trouver des documents de recherche sur les algorithmes de recommandation (Tous)
+	\item Essayer de transformer la BD en JSON (Valentin CRÔNE)
+	\item Rédiger le compte rendu propre de la réunion en latex (Valentin CRÔNE)
+	\item Commencer/finir la rédaction de l'état de l'art (Tous)
+\end{items}
+\vspace{1cm}
+\nextmeeting {April 12, 12h00}
+
+\end{document}
