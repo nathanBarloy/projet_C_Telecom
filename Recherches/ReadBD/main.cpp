@@ -17,7 +17,7 @@ private:
 		set("Genres", new JSONArray());
 		set("Duration", 0);
 		set("Year", 0);
-		set("Director", string());
+		set("Directors", new JSONArray());
 		set("Type", string("Film"));
 	}
 public:
@@ -81,13 +81,9 @@ public:
 	{
 		return intValue("Year");
 	}
-	void setDirector(string d)
+	JSONArray* directors()
 	{
-		set("Director", d);
-	}
-	string getDirector()
-	{
-		return stringValue("Director");
+		return dynamic_cast<JSONArray*>(get("Directors"));
 	}
 	void setType(string t)
 	{
@@ -137,10 +133,11 @@ int main()
 	{
 		Film *f = 0;
 		string line;
-		int mode = 0;
+		int mode = 0, ln = 0;
 		while(getline(i, line))
 		{
-			if(line != "")
+			++ln;
+			if(clearSpace(line) != "")
 			{
 				if(mode == 0)
 				{
@@ -150,12 +147,17 @@ int main()
 					}
 					string sid;
 					int c = 0;
-					while(c < line.size() && line[c] != '.')
+					while(c < line.size() && line[c] != '.' && line[c] != ' ')
 					{
-						sid += line[c];
+						if(line[c] >= 0)//3 octets négatifs en début de fichier
+						{
+							sid += line[c];
+						}
 						++c;
 					}
-					f->setId(atoi(sid.c_str()));
+					int id = atoi(sid.c_str());
+					//cout << "ID: " << sid << "," << sid.size() << " - " << sid.c_str() << "," << strlen(sid.c_str()) << " - " << id << endl;
+					f->setId(id);
 					c += 2;
 					string title;
 					while(c < line.size())
@@ -199,11 +201,15 @@ int main()
 							type += line[c];
 							++c;
 						}
-						f->setType(clearSpace(type));
+						type = clearSpace(type);
+						if(type != "")
+						{
+							f->setType(type);
+						}
 					}
 					mode = 1;
 				}
-				else if(mode == 2)
+				else if(mode == 1 || mode == 2)
 				{
 					f->setDescription(clearSpace(line));
 					mode = 3;
@@ -219,14 +225,25 @@ int main()
 					}
 					if(delimiter == "Director")
 					{
-						++c;
+						//cout << "Director, line: " << ln << endl;
+						c += 3;
 						string director;
 						while(c < line.size())
 						{
-							director += line[c];
+							if(line[c] != ',')
+							{
+								director += line[c];
+							}
+							else
+							{
+								f->directors()->add(clearSpace(director));
+								director.clear();
+								++c;
+							}
 							++c;
 						}
-						f->setDirector(clearSpace(director));
+						f->directors()->add(clearSpace(director));
+						director.clear();
 					}
 					else if(delimiter == "With")
 					{
@@ -273,7 +290,7 @@ int main()
 							genre.clear();
 							if(c < line.size() - 1 && line[c + 1] != '|')
 							{
-								++c;
+								//++c;
 							}
 							else
 							{
@@ -303,9 +320,13 @@ int main()
 						++c;
 					}
 					f->setDuration(atoi(mins.c_str()));
+					arr->add(f);
+					f = 0;
+					mode = 0;
 				}
 				else
 				{
+					//cout << "RESET MODE ! line: " << ln << endl;
 					mode = 0;
 				}
 
@@ -319,6 +340,7 @@ int main()
 				}
 				else
 				{
+					//cout << "RESET MODE 2 ! line: " << ln << endl;
 					mode = 0;
 				}
 			}
@@ -338,7 +360,8 @@ int main()
 		}
 		i.close();
 		JSONParser::saveFile(arr, "bd.json");
-		cout << arr->asString() << endl;
+		//cout << arr->asString() << endl;
+		cout << "Output written in bd.json" << endl;
 	}
 	else
 	{
