@@ -11,14 +11,14 @@ private:
 	void init()
 	{
 		set("Id", 0);
-		set("Title", "");
-		set("Description", "");
+		set("Title", string());
+		set("Description", string());
 		set("Actors", new JSONArray());
 		set("Genres", new JSONArray());
 		set("Duration", 0);
 		set("Year", 0);
-		set("Director", "");
-		set("Type", "Film");
+		set("Director", string());
+		set("Type", string("Film"));
 	}
 public:
 	Film()
@@ -98,6 +98,37 @@ public:
 		return stringValue("Type");
 	}
 };
+string clearSpace(string str)
+{
+	string s;
+	int c = 0, m = 0, e = 0;
+	while(c < str.size())
+	{
+		if(str[c] != ' ')
+		{
+			break;
+		}
+		++c;
+	}
+	m = c;
+	c = str.size() - 1;
+	while(c > m)
+	{
+		if(str[c]  != ' ')
+		{
+			break;
+		}
+		--c;
+	}
+	e = c;
+	c = m;
+	while(c <= e)
+	{
+		s += str[c];
+		++c;
+	}
+	return s;
+}
 int main()
 {
 	JSONArray *arr = new JSONArray();
@@ -151,7 +182,7 @@ int main()
 						}
 						++c;
 					}
-					f->setTitle(title);
+					f->setTitle(clearSpace(title));
 					if(c < line.size())
 					{
 						string year;
@@ -168,13 +199,13 @@ int main()
 							type += line[c];
 							++c;
 						}
-						f->setType(type);
+						f->setType(clearSpace(type));
 					}
 					mode = 1;
 				}
 				else if(mode == 2)
 				{
-					f->setDescription(line);
+					f->setDescription(clearSpace(line));
 					mode = 3;
 				}
 				else if(mode == 3)
@@ -195,7 +226,7 @@ int main()
 							director += line[c];
 							++c;
 						}
-						f->setDirector(director);
+						f->setDirector(clearSpace(director));
 					}
 					else if(delimiter == "With")
 					{
@@ -205,7 +236,7 @@ int main()
 						{
 							if(line[c] == ',')
 							{
-								f->actors()->add(actor);
+								f->actors()->add(clearSpace(actor));
 								actor.clear();
 								++c;
 							}
@@ -217,7 +248,7 @@ int main()
 						}
 						if(actor != "")
 						{
-							f->actors()->add(actor);
+							f->actors()->add(clearSpace(actor));
 						}
 						mode = 4;
 					}
@@ -238,7 +269,7 @@ int main()
 						}
 						if(line[c] == ' ')
 						{
-							f->genres()->add(genre);
+							f->genres()->add(clearSpace(genre));
 							genre.clear();
 							if(c < line.size() - 1 && line[c + 1] != '|')
 							{
@@ -246,20 +277,24 @@ int main()
 							}
 							else
 							{
-								c += 3;
+								c += 2;
 							}
 						}
 						else if(line[c] == '|')
 						{
-							f->genres()->add(genre);
+							f->genres()->add(clearSpace(genre));
 							genre.clear();
-							c += 2;
+							c += 1;
+						}
+						else
+						{
+							genre += line[c];
 						}
 						++c;
 					}
 					if(genre != "")
 					{
-						f->genres()->add(genre);
+						f->genres()->add(clearSpace(genre));
 					}
 					string mins;
 					while(c < line.size() && line[c] >= '0' && line[c] <= '9')
@@ -289,8 +324,11 @@ int main()
 			}
 			if(mode == 0)
 			{
-				arr->add(f);
-				f = 0;
+				if(f != 0)
+				{
+					arr->add(f);
+					f = 0;
+				}
 			}
 		}
 		if(f != 0)
