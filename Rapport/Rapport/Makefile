@@ -1,6 +1,6 @@
 all: Rapport.pdf
 %.pdf: %.tex
-	latexmk -lualatex -silent $^
+	latexmk -f -lualatex -silent $^
 	find . -iname `echo $< | rev | cut -d '.' -f 2 | rev`."*" ! -iname "*.pdf" ! -iname "*.tex" -print -delete
 .PHONY: clean
 clean:
