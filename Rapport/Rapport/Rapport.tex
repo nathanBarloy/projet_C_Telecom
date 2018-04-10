@@ -49,4 +49,46 @@
 \newpage
 \tableofcontents
 \chapter{Etat de l'art}
+\section{Introduction}
+\subsection{Qu'est ce qu'un système de recommandation?}
+Un système de recommandation a pour but de founir des recommendation de résultats pertinentes à un utilisateur, en fonction de différents paramètres comme ses préférences, son historique, le temps passé sur le contenu, etc.., afin de lui proposer directement un contenu ciblé sans efforts de sa part.
+
+Un algorithme de recommandation peut de ce fait être utilisé pour faciliter les recherches de contenus sur un thème donné, ce qui est bénéfique pour l'utilisateur car il aura plus d'informations pertinentes à regarder, et permettre aux gérants de la plateforme de fidéliser la clientèle.\par
+
+Prenons un exemple, un site de e-commerce sur lequel on trouve facile des articles en rapport avec l'article que l'on est en train de consulter rendra plus facile la recherche, et donc aidera le client a trouver rapidement le produit adéquat, ce qui réduira le temps nécessaire à l'achat, et évitera la perte du client.
+Un autre exemple est une plateforme de visionnage de vidéos en ligne, qui génère des bénéfices grâce a la publicité, un tel système proposera du contenu ciblé interessant pour l'utilisateur, qui consultera un plus grand nombre de vidéos sur le site, ce qui permet à la fois de satisfaire l'utilisateur et améliorer la génération de revenus liés à la publicité.
+Ces effets sont liés au fait que l'utilisateur reçoit des suggestions pertinentes de la part du système de recommendation auxquelle il n'aurait pas forcément pu prêter attention autrement.\par
+
+\newpage
+\subsection{La place des systèmes de recommandation dans la recherche d'information}
+
+La recherche d'information sur internet est fondée sur un principe d'indexation des données. Afin de pouvoir répondre aux requêtes des utilisateurs dans un temps raisonnable, on indexe les données dans une base de données, et on les filtre en fonction de la quête des utilisateurs. Les requêtes sont entrées à partir de mots clés (requêtes ad hoc), et le moteur de recherche va alors retourner les résultats qui correspondent.
+Le nombre conséquent de résultats obligera le moteur de recherche a limiter la quantité d'informations retournée en limitant un certain nombre de résultats par page.
+Ce système fonctionne plutôt bien, mais nécessite que l'utilisateur traite lui même un grand nombre de résultats, ce qui peut se limiter a la ou les premières pages car il lui est impossible de tout traiter.
+On cherche donc à rendre les résultats de la première page plus pertinents. On fait alors immédiatement le lien avec les systèmes de recommandation, car au lieu de filtrer par mots clés, on va pouvoir rechercher des contenus à thème proche, date proche, et personnaliser les résultats en fonction des habitudes de l'utilisateur.\par
+
+Ces exemples montrent un certain nombre de cas où l'utilisation d'un système de recommandation s'avère utile. Cependant il en existe de nombreux autres, car leur champ d'application est immense, c'est pourquoi il est interessant de s'interesser aux systèmes existants pour tenter de les reproduire et les améliorer.
+
+\subsection{Historique}
+A mettre ou pas?
+
+\newpage
+\subsection{Classer les différents systèmes de recommandation}
+Il existe différents types de systèmes de recommandation, en fonction du type de données à classer, de la puissance disponible, de activités utilisateurs, des besoins de l'entreprise, et de nombreux autres facteurs.
+Les facteurs principaux à retenir sont:
+\begin{itemize}
+	\item La connaissance des préférences utilisateur.
+	\item La similarité entre les utilisateurs, les uns par rapport aux autres. (Métrique)
+	\item La connaissance d'informations sur des données à recommander
+	\item La connaissance d'informations de regroupement sur des données à recommander
+\end{itemize}
+
+A partir de ces facteurs on produit différents types de recommandations.
+Les systèmes les plus utilisés sont le filtrage basé sur le contenu, et le filtrage collaboratif.
+
+\subsubsection{Le filtrage basé sur le contenu}
+Le filtrage basé sur le contenu va essayer d'associer un utilisateur à un ensemble de données proche de ses préférences. On va alors rechercher des données qui pourraient l'interesser en tenant compte uniquement de lui-même, et de ce qu'il a consulté.
+\subsubsection{Le filtrage collaboratif}
+Le filtrage collaboratif va mesurer une certaine distance entre un utilisateur donné, et tous les autres utilisateurs pour selectionner les utilisateurs les plus proches uniquement.
+On utilisera alors le profil de ces utilisateurs proches pour regarder les données qui les ont interessées pour les recommander à notre utilisateur initial.
 \end{document}
