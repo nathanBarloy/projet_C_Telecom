@@ -13,13 +13,14 @@ Toutes les requêtes doivent suivre le format suivant:
 - Query contient l'objet json des données de la requête
 ## Réponse
 ```
+{
 	"Id" : 0,//RequeteId
 	"Type" : "",
 	"Time" : 0,
 	"Status" : 0,
 	"Error" : "",
 	"Answer" : {answerObject}
-
+}
 ```
 - Id correspond l'id de la reponse
 - Type correspond au type de réponse
