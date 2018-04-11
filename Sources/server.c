@@ -30,6 +30,7 @@ int main()
 	{
 		printf("Une erreur est survenue pendant l'execution du serveur.\nLa base de donnée n'a pas été sauvegardée suite à l'arrêt d'urgence du serveur.\n");
 	}
+	BDD_free(bdd);
 	freeAutoString();
 	return 0;
 }
