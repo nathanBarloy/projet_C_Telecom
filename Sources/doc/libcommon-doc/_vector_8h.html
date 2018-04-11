@@ -1,0 +1,1081 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcommon: Référence du fichier Vector/Vector.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcommon
+   </div>
+   <div id="projectbrief">Common lib for C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_vector_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier Vector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="_types_8h_source.html">Types/Types.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Vector.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_vector_8h__incl.png" border="0" usemap="#_vector_2_vector_8h" alt=""/></div>
+<map name="_vector_2_vector_8h" id="_vector_2_vector_8h">
+<area shape="rect" id="node3" href="_types_8h.html" title="Types/Types.h" alt="" coords="93,80,203,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="_vector_8h__dep__incl.png" border="0" usemap="#_vector_2_vector_8hdep" alt=""/></div>
+<map name="_vector_2_vector_8hdep" id="_vector_2_vector_8hdep">
+<area shape="rect" id="node2" href="_map_8h.html" title="Map/Map.h" alt="" coords="5,80,91,107"/><area shape="rect" id="node3" href="_auto_string_8h.html" title="String/AutoString.h" alt="" coords="115,80,247,107"/></map>
+</div>
+</div>
+<p><a href="_vector_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_vector.html">Vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure représentant un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> (ArrayList) Il n'est pas conseillé d'y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure.  <a href="struct_vector.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:acc570730bde528fcd7159f3b37640e47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#acc570730bde528fcd7159f3b37640e47">VECTOR_BASE_SIZE</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:acc570730bde528fcd7159f3b37640e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille de base du tableau contenu dans <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>.  <a href="#acc570730bde528fcd7159f3b37640e47">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acc570730bde528fcd7159f3b37640e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4e8af14d4d38a21fd30ddcdbb54e0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#aed4e8af14d4d38a21fd30ddcdbb54e0b">Vector</a>(a)&#160;&#160;&#160;(<a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a>)(a)</td></tr>
+<tr class="memdesc:aed4e8af14d4d38a21fd30ddcdbb54e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour caster en Vector_t.  <a href="#aed4e8af14d4d38a21fd30ddcdbb54e0b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aed4e8af14d4d38a21fd30ddcdbb54e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376f7ec2b4bd6ae78d4783645194e682"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a376f7ec2b4bd6ae78d4783645194e682">fVector</a>(a)&#160;&#160;&#160;a = <a class="el" href="_vector_8h.html#a6921905e0c0bb564caa762e04825f7f2">freeVector</a>(a);</td></tr>
+<tr class="memdesc:a376f7ec2b4bd6ae78d4783645194e682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour un free basique.  <a href="#a376f7ec2b4bd6ae78d4783645194e682">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a376f7ec2b4bd6ae78d4783645194e682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a56850a9131bc54f1be8b5c548e97c5bc"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a></td></tr>
+<tr class="memdesc:a56850a9131bc54f1be8b5c548e97c5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant la structure de <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>.  <a href="#a56850a9131bc54f1be8b5c548e97c5bc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a56850a9131bc54f1be8b5c548e97c5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a3fdc9af3f58f5e091c0d5fe72e02e67b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a3fdc9af3f58f5e091c0d5fe72e02e67b">newVector</a> ()</td></tr>
+<tr class="memdesc:a3fdc9af3f58f5e091c0d5fe72e02e67b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>.  <a href="#a3fdc9af3f58f5e091c0d5fe72e02e67b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3fdc9af3f58f5e091c0d5fe72e02e67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af62d8444d571c863c6781ac84fa8e96d"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#af62d8444d571c863c6781ac84fa8e96d">newVectorFromVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector2)</td></tr>
+<tr class="memdesc:af62d8444d571c863c6781ac84fa8e96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> a partir d'un autre.  <a href="#af62d8444d571c863c6781ac84fa8e96d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af62d8444d571c863c6781ac84fa8e96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6921905e0c0bb564caa762e04825f7f2"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a6921905e0c0bb564caa762e04825f7f2">freeVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector)</td></tr>
+<tr class="memdesc:a6921905e0c0bb564caa762e04825f7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>.  <a href="#a6921905e0c0bb564caa762e04825f7f2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6921905e0c0bb564caa762e04825f7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac09eece73aba6b0f8ade4b4ffd0e387d"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#ac09eece73aba6b0f8ade4b4ffd0e387d">freeVectorWithPtr</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:ac09eece73aba6b0f8ade4b4ffd0e387d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> et le pointeur des valeurs.  <a href="#ac09eece73aba6b0f8ade4b4ffd0e387d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac09eece73aba6b0f8ade4b4ffd0e387d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a22dad41be50fd0029a203ab09dc69"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a18a22dad41be50fd0029a203ab09dc69">clearVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector)</td></tr>
+<tr class="memdesc:a18a22dad41be50fd0029a203ab09dc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>.  <a href="#a18a22dad41be50fd0029a203ab09dc69">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a18a22dad41be50fd0029a203ab09dc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f92302239950db223153a07c5696d9f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a8f92302239950db223153a07c5696d9f">clearVectorWithPtr</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a8f92302239950db223153a07c5696d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> et le pointeur des valeurs.  <a href="#a8f92302239950db223153a07c5696d9f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8f92302239950db223153a07c5696d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d648e0a9608dc2761f0b18c3ba879ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a9d648e0a9608dc2761f0b18c3ba879ad">addToVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, void *e)</td></tr>
+<tr class="memdesc:a9d648e0a9608dc2761f0b18c3ba879ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un élement au vector.  <a href="#a9d648e0a9608dc2761f0b18c3ba879ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9d648e0a9608dc2761f0b18c3ba879ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4c02a3d1d85f194476908035351009"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#aee4c02a3d1d85f194476908035351009">delFromVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, void *e)</td></tr>
+<tr class="memdesc:aee4c02a3d1d85f194476908035351009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève un élement du vector.  <a href="#aee4c02a3d1d85f194476908035351009">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aee4c02a3d1d85f194476908035351009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58d667c9d63cd6f28355d8356acfdea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#ab58d667c9d63cd6f28355d8356acfdea">eraseOnVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t index)</td></tr>
+<tr class="memdesc:ab58d667c9d63cd6f28355d8356acfdea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève un élement du vector.  <a href="#ab58d667c9d63cd6f28355d8356acfdea">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab58d667c9d63cd6f28355d8356acfdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ea7318d20615e1b4e25b5908135e68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a61ea7318d20615e1b4e25b5908135e68">freeOnVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t index)</td></tr>
+<tr class="memdesc:a61ea7318d20615e1b4e25b5908135e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un élement du vector.  <a href="#a61ea7318d20615e1b4e25b5908135e68">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a61ea7318d20615e1b4e25b5908135e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bd0c03f371fb7dd09007e5ffe860d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#aa6bd0c03f371fb7dd09007e5ffe860d2">setOnVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t index, void *e)</td></tr>
+<tr class="memdesc:aa6bd0c03f371fb7dd09007e5ffe860d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place un élement dans vector.  <a href="#aa6bd0c03f371fb7dd09007e5ffe860d2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa6bd0c03f371fb7dd09007e5ffe860d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233cae184317605a447d4c948063c8b6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a233cae184317605a447d4c948063c8b6">getFromVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t index)</td></tr>
+<tr class="memdesc:a233cae184317605a447d4c948063c8b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère un élement du vector.  <a href="#a233cae184317605a447d4c948063c8b6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a233cae184317605a447d4c948063c8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69ea9de07309317f574ccfba1a61dfd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#ac69ea9de07309317f574ccfba1a61dfd">appendVectorToVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, struct <a class="el" href="struct_vector.html">Vector</a> *nv)</td></tr>
+<tr class="memdesc:ac69ea9de07309317f574ccfba1a61dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute le contenu d'un vector dans le vector.  <a href="#ac69ea9de07309317f574ccfba1a61dfd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac69ea9de07309317f574ccfba1a61dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9520f4fe4f66a402bd31b251467e128d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a9520f4fe4f66a402bd31b251467e128d">appendVectorCopyToVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, struct <a class="el" href="struct_vector.html">Vector</a> *nv)</td></tr>
+<tr class="memdesc:a9520f4fe4f66a402bd31b251467e128d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute le contenu d'un vector dans le vector.  <a href="#a9520f4fe4f66a402bd31b251467e128d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9520f4fe4f66a402bd31b251467e128d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918ac6109ec66abf2f302582556ca0f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a4918ac6109ec66abf2f302582556ca0f">splitVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos)</td></tr>
+<tr class="memdesc:a4918ac6109ec66abf2f302582556ca0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sépare le vector a la position donnée.  <a href="#a4918ac6109ec66abf2f302582556ca0f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4918ac6109ec66abf2f302582556ca0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c84ec44e334c44fae8a81fe4d5242b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#ae3c84ec44e334c44fae8a81fe4d5242b">splitAreaOfVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos, size_t size)</td></tr>
+<tr class="memdesc:ae3c84ec44e334c44fae8a81fe4d5242b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sépare une zone du vector a la position donnée d'une taille donnée.  <a href="#ae3c84ec44e334c44fae8a81fe4d5242b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae3c84ec44e334c44fae8a81fe4d5242b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7067c1ebc563842d24dbc556565a551f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a7067c1ebc563842d24dbc556565a551f">removeAreaFromVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos, size_t size)</td></tr>
+<tr class="memdesc:a7067c1ebc563842d24dbc556565a551f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève une zone du vector a la position donnée d'une taille donnée.  <a href="#a7067c1ebc563842d24dbc556565a551f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7067c1ebc563842d24dbc556565a551f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0734d730aa5dc892b1d67a8faeb4511"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#ad0734d730aa5dc892b1d67a8faeb4511">removeAfterVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos)</td></tr>
+<tr class="memdesc:ad0734d730aa5dc892b1d67a8faeb4511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève une zone du vector a la position donnée.  <a href="#ad0734d730aa5dc892b1d67a8faeb4511">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad0734d730aa5dc892b1d67a8faeb4511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b46bdebbb3182a32e06a73a33205a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#aa9b46bdebbb3182a32e06a73a33205a3">freeAreaFromVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos, size_t size, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:aa9b46bdebbb3182a32e06a73a33205a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève une zone du vector a la position donnée d'une taille donnée libère les données.  <a href="#aa9b46bdebbb3182a32e06a73a33205a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa9b46bdebbb3182a32e06a73a33205a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4015877a149b55a0206ce6e1576621cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a4015877a149b55a0206ce6e1576621cb">freeAfterVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector, size_t pos, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a4015877a149b55a0206ce6e1576621cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève une zone du vector a la position donnée, libère les données.  <a href="#a4015877a149b55a0206ce6e1576621cb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4015877a149b55a0206ce6e1576621cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96f8be91de1fab631bc22f4b2483e88"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#af96f8be91de1fab631bc22f4b2483e88">sizeOfVector</a> (struct <a class="el" href="struct_vector.html">Vector</a> *vector)</td></tr>
+<tr class="memdesc:af96f8be91de1fab631bc22f4b2483e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la taille occupée d'un vector.  <a href="#af96f8be91de1fab631bc22f4b2483e88">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af96f8be91de1fab631bc22f4b2483e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8715e62698ec00fcac67e130fe6543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_8h.html#a0d8715e62698ec00fcac67e130fe6543">freeVoidVector</a> (void *ptr)</td></tr>
+<tr class="memdesc:a0d8715e62698ec00fcac67e130fe6543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant de supprimer des vector dans des vectors.  <a href="#a0d8715e62698ec00fcac67e130fe6543">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0d8715e62698ec00fcac67e130fe6543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a376f7ec2b4bd6ae78d4783645194e682"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define fVector</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = <a class="el" href="_vector_8h.html#a6921905e0c0bb564caa762e04825f7f2">freeVector</a>(a);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour un free basique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> à libérer Equivalent à: a = freeVector(a); </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_vector_8h_source.html#l00173">173</a> du fichier <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed4e8af14d4d38a21fd30ddcdbb54e0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="struct_vector.html">Vector</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a>)(a)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour caster en Vector_t. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_vector_8h_source.html#l00023">23</a> du fichier <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc570730bde528fcd7159f3b37640e47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VECTOR_BASE_SIZE&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taille de base du tableau contenu dans <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>. </p>
+<p>Par défaut 50. Le tableau augmentera par multiples de 2, et diminuera par divisions de 2. </p>
+
+<p>Définition à la ligne <a class="el" href="_vector_8h_source.html#l00006">6</a> du fichier <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a56850a9131bc54f1be8b5c548e97c5bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_vector.html">Vector</a>* <a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant la structure de <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_vector_8h_source.html#l00019">19</a> du fichier <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a9d648e0a9608dc2761f0b18c3ba879ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addToVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un élement au vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">e</td><td>Element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9520f4fe4f66a402bd31b251467e128d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int appendVectorCopyToVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>nv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute le contenu d'un vector dans le vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">nv</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> depuis lequel copier les données Les données ne sont pas retirées du vector nv. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac69ea9de07309317f574ccfba1a61dfd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int appendVectorToVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>nv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute le contenu d'un vector dans le vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">nv</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> depuis lequel copier les données Les données sont retirées du vector nv. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a18a22dad41be50fd0029a203ab09dc69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* clearVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vide un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Objet à vider </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f92302239950db223153a07c5696d9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* clearVectorWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vide un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> et le pointeur des valeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Objet à vider </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction à appeller pour libérer les pointeurs des valeurs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee4c02a3d1d85f194476908035351009"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int delFromVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève un élement du vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">e</td><td>Element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. Ne libère pas le pointeur </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab58d667c9d63cd6f28355d8356acfdea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eraseOnVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève un élement du vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">index</td><td>Position dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4015877a149b55a0206ce6e1576621cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freeAfterVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève une zone du vector a la position donnée, libère les données. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussite, 0 en cas d'échec Libère les pointeurs des données </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa9b46bdebbb3182a32e06a73a33205a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freeAreaFromVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève une zone du vector a la position donnée d'une taille donnée libère les données. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+    <tr><td class="paramname">size</td><td>Taille à couper </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussite, 0 en cas d'échec Libère le pointeur des données associées </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a61ea7318d20615e1b4e25b5908135e68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freeOnVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un élement du vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">index</td><td>Position dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6921905e0c0bb564caa762e04825f7f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* freeVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Objet à libérer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac09eece73aba6b0f8ade4b4ffd0e387d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* freeVectorWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> et le pointeur des valeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction à appeller pour libérer les pointeurs des valeurs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0d8715e62698ec00fcac67e130fe6543"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeVoidVector </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction permettant de supprimer des vector dans des vectors. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> à supprimer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a233cae184317605a447d4c948063c8b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* getFromVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère un élement du vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">index</td><td>Position dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3fdc9af3f58f5e091c0d5fe72e02e67b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* newVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau vector </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af62d8444d571c863c6781ac84fa8e96d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* newVectorFromVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector2</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> a partir d'un autre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector2</td><td>Autre vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau vector </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad0734d730aa5dc892b1d67a8faeb4511"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeAfterVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève une zone du vector a la position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussite, 0 en cas d'échec </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7067c1ebc563842d24dbc556565a551f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeAreaFromVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enlève une zone du vector a la position donnée d'une taille donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+    <tr><td class="paramname">size</td><td>Taille à couper </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussite, 0 en cas d'échec </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa6bd0c03f371fb7dd09007e5ffe860d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setOnVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place un élement dans vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">e</td><td>Element </td></tr>
+    <tr><td class="paramname">index</td><td>Index dans lequel l'élement doit être placé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af96f8be91de1fab631bc22f4b2483e88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeOfVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la taille occupée d'un vector. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Taille occupée </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae3c84ec44e334c44fae8a81fe4d5242b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* splitAreaOfVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sépare une zone du vector a la position donnée d'une taille donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+    <tr><td class="paramname">size</td><td>Taille à couper </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouveau vector contenant les données de zone découpée </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4918ac6109ec66abf2f302582556ca0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_vector.html">Vector</a>* splitVector </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sépare le vector a la position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> concerné </td></tr>
+    <tr><td class="paramname">pos</td><td>Position donnée dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouveau vector contenant les données de la position pos jusqu'a la fin. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6f539ff7f1e57d810587ac57a02ef21e.html">Vector</a></li><li class="navelem"><a class="el" href="_vector_8h.html">Vector.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

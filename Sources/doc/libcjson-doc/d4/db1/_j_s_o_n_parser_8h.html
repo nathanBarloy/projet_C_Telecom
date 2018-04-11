@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcjson: Référence du fichier JSONParser.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcjson
+   </div>
+   <div id="projectbrief">C JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4/db1/_j_s_o_n_parser_8h.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier JSONParser.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/da9/_j_s_o_n_object_8h_source.html">JSONObject.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe des dépendances par inclusion de JSONParser.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d44/_j_s_o_n_parser_8h__incl.png" border="0" usemap="#_j_s_o_n_parser_8h" alt=""/></div>
+<map name="_j_s_o_n_parser_8h" id="_j_s_o_n_parser_8h">
+<area shape="rect" id="node2" href="../../db/da9/_j_s_o_n_object_8h.html" title="JSONObject.h" alt="" coords="123,80,229,107"/><area shape="rect" id="node6" href="../../d3/d04/_j_s_o_n_tuple_8h.html" title="JSONTuple.h" alt="" coords="192,155,293,181"/></map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d57/_j_s_o_n_parser_8h__dep__incl.png" border="0" usemap="#_j_s_o_n_parser_8hdep" alt=""/></div>
+<map name="_j_s_o_n_parser_8hdep" id="_j_s_o_n_parser_8hdep">
+<area shape="rect" id="node2" href="../../d6/d87/_j_s_o_n_all_8h.html" title="JSONAll.h" alt="" coords="17,80,100,107"/></map>
+</div>
+</div>
+<p><a href="../../d4/db1/_j_s_o_n_parser_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab055be0303d6606449e3501b066de484"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#ab055be0303d6606449e3501b066de484">JSONPARSER_DEFAULT_EXIT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ab055be0303d6606449e3501b066de484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af342183d81add7dcfdfb1615611a5d89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#af342183d81add7dcfdfb1615611a5d89">JSONParser_parse</a> (const char *str)</td></tr>
+<tr class="memdesc:af342183d81add7dcfdfb1615611a5d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de parser une chaine JSON en Arbre JSON.  <a href="#af342183d81add7dcfdfb1615611a5d89">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af342183d81add7dcfdfb1615611a5d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff544c771d477fe594ba19f4acb41d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#aeff544c771d477fe594ba19f4acb41d1">JSONParser_parseString</a> (String_t str)</td></tr>
+<tr class="memdesc:aeff544c771d477fe594ba19f4acb41d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de parser une chaine JSON en Arbre JSON.  <a href="#aeff544c771d477fe594ba19f4acb41d1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aeff544c771d477fe594ba19f4acb41d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1b0c642c0f9196527e7a5f88d8a09f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#a9a1b0c642c0f9196527e7a5f88d8a09f">JSONParser_parseFile</a> (const char *fileName)</td></tr>
+<tr class="memdesc:a9a1b0c642c0f9196527e7a5f88d8a09f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de parser un fichier JSON.  <a href="#a9a1b0c642c0f9196527e7a5f88d8a09f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9a1b0c642c0f9196527e7a5f88d8a09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd095b595fb645de1dd840a9b490f9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#a4bd095b595fb645de1dd840a9b490f9f">JSONParser_parseFileString</a> (String_t fileName)</td></tr>
+<tr class="memdesc:a4bd095b595fb645de1dd840a9b490f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de parser un fichier JSON.  <a href="#a4bd095b595fb645de1dd840a9b490f9f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4bd095b595fb645de1dd840a9b490f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0d6025650c25000464c1ac55035901"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#a6c0d6025650c25000464c1ac55035901">JSONParser_saveFile</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj, const char *fileName)</td></tr>
+<tr class="memdesc:a6c0d6025650c25000464c1ac55035901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sauvegarder un arbre JSON dans un fichier.  <a href="#a6c0d6025650c25000464c1ac55035901">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6c0d6025650c25000464c1ac55035901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b8dcf085b83b81115686846bd47574"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#ac2b8dcf085b83b81115686846bd47574">JSONParser_saveFileString</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj, String_t fileName)</td></tr>
+<tr class="memdesc:ac2b8dcf085b83b81115686846bd47574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sauvegarder un arbre JSON dans un fichier.  <a href="#ac2b8dcf085b83b81115686846bd47574">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac2b8dcf085b83b81115686846bd47574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9791c70947512b1b2898a2ebc80c9f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#af9791c70947512b1b2898a2ebc80c9f4">JSONParser_privateExit</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> nv, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> modify)</td></tr>
+<tr class="memdesc:af9791c70947512b1b2898a2ebc80c9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction interne a la bibliothèque, ne pas utiliser.  <a href="#af9791c70947512b1b2898a2ebc80c9f4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af9791c70947512b1b2898a2ebc80c9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae961e6ea7ff942a460d183248dc3aad8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#ae961e6ea7ff942a460d183248dc3aad8">JSONParser_willExitOnException</a> ()</td></tr>
+<tr class="memdesc:ae961e6ea7ff942a460d183248dc3aad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de savoir si le programme s'arrêtera ou non en cas d'exception.  <a href="#ae961e6ea7ff942a460d183248dc3aad8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae961e6ea7ff942a460d183248dc3aad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad48a27c34f4c6a16d9e3b04b7f4521ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html#ad48a27c34f4c6a16d9e3b04b7f4521ca">JSONParser_setExitOnException</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> value)</td></tr>
+<tr class="memdesc:ad48a27c34f4c6a16d9e3b04b7f4521ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de définir si le programme doit quitter ou non.  <a href="#ad48a27c34f4c6a16d9e3b04b7f4521ca">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad48a27c34f4c6a16d9e3b04b7f4521ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="ab055be0303d6606449e3501b066de484"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSONPARSER_DEFAULT_EXIT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="af342183d81add7dcfdfb1615611a5d89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONParser_parse </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de parser une chaine JSON en Arbre JSON. </p>
+<p>La chaine entrée doit être un JSON Valide, sinon une exception sera lancée. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9a1b0c642c0f9196527e7a5f88d8a09f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONParser_parseFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de parser un fichier JSON. </p>
+<p>Le fichier doit contenir un JSON Valide sinon une exception sera lancée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine a parser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>JSONObject_t représentant l'arbre JSON, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4bd095b595fb645de1dd840a9b490f9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONParser_parseFileString </td>
+          <td>(</td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de parser un fichier JSON. </p>
+<p>Le fichier doit contenir un JSON Valide sinon une exception sera lancée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nom du fichier à parser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>JSONObject_t représentant l'arbre JSON, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeff544c771d477fe594ba19f4acb41d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONParser_parseString </td>
+          <td>(</td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de parser une chaine JSON en Arbre JSON. </p>
+<p>La chaine entrée doit être un JSON Valide, sinon une exception sera lancée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine a parser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>JSONObject_t représentant l'arbre JSON, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af9791c70947512b1b2898a2ebc80c9f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONParser_privateExit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>nv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>modify</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction interne a la bibliothèque, ne pas utiliser. </p>
+<p>Permet de modifier l'état de privateExit. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6c0d6025650c25000464c1ac55035901"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONParser_saveFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de sauvegarder un arbre JSON dans un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>Arbre JSON a sauvegarder. </td></tr>
+    <tr><td class="paramname">fileName</td><td>Nom du fichier de sortie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac2b8dcf085b83b81115686846bd47574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONParser_saveFileString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de sauvegarder un arbre JSON dans un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>Arbre JSON a sauvegarder. </td></tr>
+    <tr><td class="paramname">fileName</td><td>Nom du fichier de sortie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 en cas de réussie, 0 en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad48a27c34f4c6a16d9e3b04b7f4521ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONParser_setExitOnException </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de définir si le programme doit quitter ou non. </p>
+<p>Par défaut, en cas d'exception, le programme s'arrêtera. Sinon, l'exception sera gérée par libcjson et continuera. Les fonctions ayant provoquée une exception retourneront 0 a la place d'un quelconque pointeur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>true/1 pour quitter en cas d'exception, false/0 sinon. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae961e6ea7ff942a460d183248dc3aad8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONParser_willExitOnException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de savoir si le programme s'arrêtera ou non en cas d'exception. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nv</td><td>Nouvelle valeur </td></tr>
+    <tr><td class="paramname">modify</td><td>Modifier la valeur si true/1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne 1 si oui, 0 sinon. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/db1/_j_s_o_n_parser_8h.html">JSONParser.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:40 pour libcjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

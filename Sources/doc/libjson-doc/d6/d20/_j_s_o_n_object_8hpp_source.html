@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libjson:  Fichier source de JSONObject.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libjson
+   </div>
+   <div id="projectbrief">C++ JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d6/d20/_j_s_o_n_object_8hpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">JSONObject.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*******************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">********************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">******************        libjson, C++  Library        *************************</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">******************     ©2017 - 2018 Valentin CRÔNE     *************************</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">******************         All Rights Reserved         *************************</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">****************** This is a part of the JSON project. *************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">********************************************************************************</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">********************************************************************************</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*******************************************************************************/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef JSONOBJECT_HPP</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define JSONOBJECT_HPP</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#include &quot;JSONMap.hpp&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//#include &quot;JSONTuple.hpp&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>JSONMap;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d97/class_j_s_o_n_tuple.html">JSONTuple</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d23/class_j_s_o_n_int.html">JSONInt</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d4a/class_j_s_o_n_string.html">JSONString</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d56/class_j_s_o_n_double.html">JSONDouble</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d0d/class_j_s_o_n_boolean.html">JSONBoolean</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/dfe/class_j_s_o_n_array.html">JSONArray</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../db/d78/class_j_s_o_n_object.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../db/d78/class_j_s_o_n_object.html#ab753eb18d1c8f5c18e4cd50189cc2b56">   47</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        OBJECT, ARRAY, VALUE, STRING, INT, DOUBLE, BOOLEAN, NULLOBJ</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }  <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ab753eb18d1c8f5c18e4cd50189cc2b56">JSONType</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> ignoreDead;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> imDead(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *child);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> newParent(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* np);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ab753eb18d1c8f5c18e4cd50189cc2b56">JSONType</a> type;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">friend</span> <a class="code" href="../../d1/dfe/class_j_s_o_n_array.html">JSONArray</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* parent;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    JSONMap* childs;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a>(std::string name, <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* child);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a>(std::string name, <span class="keywordtype">int</span> child);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a>(std::string name, <span class="keywordtype">double</span> child);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a>(std::string name, std::string child);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a>(std::string name, <span class="keywordtype">bool</span> child);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <span class="keyword">remove</span>(std::string name, <span class="keywordtype">bool</span> destruct=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <span class="keyword">remove</span>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* obj, <span class="keywordtype">bool</span> destruct=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ab0b0b7b2153ba82575aefd395a9f3b10">detach</a>(std::string name);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ab0b0b7b2153ba82575aefd395a9f3b10">detach</a>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* obj);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#afc2f0e844b27b7da2e564b8e20e8004b">detachAll</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    std::string <span class="keyword">get</span>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* child);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* <span class="keyword">get</span>(std::string name);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../dd/d23/class_j_s_o_n_int.html">JSONInt</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#aa77aefa9596ef56d1a755d57ece113d0">getInt</a>(std::string name);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d7/d4a/class_j_s_o_n_string.html">JSONString</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a68e2c7c0c6b585b14b42de51c61fa8c4">getString</a>(std::string name);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../da/d56/class_j_s_o_n_double.html">JSONDouble</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ac7f58689946fe61e30dd9a106f8d1a57">getDouble</a>(std::string name);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d0/d0d/class_j_s_o_n_boolean.html">JSONBoolean</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a6baff119659f8e18dcfb3831ef86980a">getBoolean</a>(std::string name);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d1/dfe/class_j_s_o_n_array.html">JSONArray</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a5583d7b2968106a5c9d0e85fa8bd1c8e">getArray</a>(std::string name);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="../../db/d78/class_j_s_o_n_object.html#adc18fb464efe2445a9f88f5ba7636dcd">stringValue</a>(std::string name);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a96d36a8a918cc91cdaf9a241c3bc5bc6">intValue</a>(std::string name);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ad548f205d46e24e83448d18e70181c18">doubleValue</a>(std::string name);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a2369e77a26b757da8ae27b2440107045">booleanValue</a>(std::string name);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="../../db/d78/class_j_s_o_n_object.html#adc18fb464efe2445a9f88f5ba7636dcd">stringValue</a>();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a96d36a8a918cc91cdaf9a241c3bc5bc6">intValue</a>();</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ad548f205d46e24e83448d18e70181c18">doubleValue</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a2369e77a26b757da8ae27b2440107045">booleanValue</a>();</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a585baafff48706961082d3209e25b297">asString</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tabs=0);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a4f36bf182177bf79706452281c51196e">getParent</a>();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a6f36b3399ed36631c83e788014af3392">hasParent</a>();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keyword">virtual</span> std::vector&lt;JSONTuple&gt; <a class="code" href="../../db/d78/class_j_s_o_n_object.html#aeeb92cf76c338f721001cb7cbfb8e974">asVector</a>();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <a class="code" href="../../db/d78/class_j_s_o_n_object.html#ab753eb18d1c8f5c18e4cd50189cc2b56">JSONType</a> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#aa306779b103c2d0deb5541cdfac558fa">getType</a>();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#aad9cc167a70da3b316923ddf0b585624">equals</a>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* obj);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a0635f789398303e172a6af3728d3b729">clear</a>();</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#afe6ddcde8342d4b042a0a5fa632947db">assign</a>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *obj);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html#a2455dad9f39136fd264346f898d18b98">assignArray</a>(std::vector&lt;JSONTuple&gt;&amp; arr);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;};</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_j_s_o_n_int_html"><div class="ttname"><a href="../../dd/d23/class_j_s_o_n_int.html">JSONInt</a></div><div class="ttdoc">JSONInt représente un objet integer. Correspond a un nombre entier sous forme de texte dans une repré...</div><div class="ttdef"><b>Definition:</b> JSONInt.hpp:19</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_aad9cc167a70da3b316923ddf0b585624"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#aad9cc167a70da3b316923ddf0b585624">JSONObject::equals</a></div><div class="ttdeci">virtual bool equals(JSONObject *obj)</div><div class="ttdoc">Teste l&#39;égalité de 2 JSONObject Permet de tester si les données contenues sont identiques ou non...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_afc2f0e844b27b7da2e564b8e20e8004b"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#afc2f0e844b27b7da2e564b8e20e8004b">JSONObject::detachAll</a></div><div class="ttdeci">virtual void detachAll()</div><div class="ttdoc">Détache tous les objets Détache tous les objets contenus et les libère de la mémoire. </div></div>
+<div class="ttc" id="class_j_s_o_n_boolean_html"><div class="ttname"><a href="../../d0/d0d/class_j_s_o_n_boolean.html">JSONBoolean</a></div><div class="ttdoc">JSONBoolean représente un objet booleen. Correspond a true ou false sous forme de texte dans une repr...</div><div class="ttdef"><b>Definition:</b> JSONBoolean.hpp:19</div></div>
+<div class="ttc" id="class_j_s_o_n_double_html"><div class="ttname"><a href="../../da/d56/class_j_s_o_n_double.html">JSONDouble</a></div><div class="ttdoc">JSONDouble représente un objet double. Correspond a un nombre décimal sous forme de texte dans une re...</div><div class="ttdef"><b>Definition:</b> JSONDouble.hpp:19</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a585baafff48706961082d3209e25b297"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a585baafff48706961082d3209e25b297">JSONObject::asString</a></div><div class="ttdeci">virtual std::string asString(unsigned int tabs=0)</div><div class="ttdoc">Transforme l&#39;objet en JSON (texte) L&#39;objet ainsi que son contenu sera transformé dans sa représentati...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_ac7f58689946fe61e30dd9a106f8d1a57"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#ac7f58689946fe61e30dd9a106f8d1a57">JSONObject::getDouble</a></div><div class="ttdeci">virtual JSONDouble * getDouble(std::string name)</div><div class="ttdoc">Obtenir la valeur d&#39;une clé Permet d&#39;obtenir la valeur d&#39;une clé, retourne 0 si la clé n&#39;existe pas...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_ab0b0b7b2153ba82575aefd395a9f3b10"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#ab0b0b7b2153ba82575aefd395a9f3b10">JSONObject::detach</a></div><div class="ttdeci">virtual void detach(std::string name)</div><div class="ttdoc">Détache un objet d&#39;une clé Equivalent de remove avec detruct=true. </div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a2369e77a26b757da8ae27b2440107045"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a2369e77a26b757da8ae27b2440107045">JSONObject::booleanValue</a></div><div class="ttdeci">virtual bool booleanValue()</div><div class="ttdoc">Retourne le type primitif correspondant pour l&#39;objet actuel Permet d&#39;obtenir la représentation de la ...</div></div>
+<div class="ttc" id="class_j_s_o_n_tuple_html"><div class="ttname"><a href="../../d1/d97/class_j_s_o_n_tuple.html">JSONTuple</a></div><div class="ttdoc">JSONTuple représente un couple de clé/valeur. </div><div class="ttdef"><b>Definition:</b> JSONTuple.hpp:18</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_aa77aefa9596ef56d1a755d57ece113d0"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#aa77aefa9596ef56d1a755d57ece113d0">JSONObject::getInt</a></div><div class="ttdeci">virtual JSONInt * getInt(std::string name)</div><div class="ttdoc">Obtenir la valeur d&#39;une clé Permet d&#39;obtenir la valeur d&#39;une clé, retourne 0 si la clé n&#39;existe pas...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a13193d893bd9ce228df2739d3f5d9759"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">JSONObject::set</a></div><div class="ttdeci">void set(std::string name, JSONObject *child)</div><div class="ttdoc">Changer la valeur d&#39;une clé La clé est mise à jour, ou crée si inexistante. </div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a6baff119659f8e18dcfb3831ef86980a"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a6baff119659f8e18dcfb3831ef86980a">JSONObject::getBoolean</a></div><div class="ttdeci">virtual JSONBoolean * getBoolean(std::string name)</div><div class="ttdoc">Obtenir la valeur d&#39;une clé Permet d&#39;obtenir la valeur d&#39;une clé, retourne 0 si la clé n&#39;existe pas...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_afe6ddcde8342d4b042a0a5fa632947db"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#afe6ddcde8342d4b042a0a5fa632947db">JSONObject::assign</a></div><div class="ttdeci">virtual bool assign(JSONObject *obj)</div><div class="ttdoc">Assigner un JSONObject à un autre Permet de transférer le contenu d&#39;un JSONObject à un autre...</div></div>
+<div class="ttc" id="class_j_s_o_n_array_html"><div class="ttname"><a href="../../d1/dfe/class_j_s_o_n_array.html">JSONArray</a></div><div class="ttdoc">JSONArray Représente un tableau en JSON. </div><div class="ttdef"><b>Definition:</b> JSONArray.hpp:19</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a2455dad9f39136fd264346f898d18b98"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a2455dad9f39136fd264346f898d18b98">JSONObject::assignArray</a></div><div class="ttdeci">virtual bool assignArray(std::vector&lt; JSONTuple &gt; &amp;arr)</div><div class="ttdoc">Assigner un tableau exporté a un JSONObject Permet de réintégrer un tableau de données dans un JSONOb...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_ad548f205d46e24e83448d18e70181c18"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#ad548f205d46e24e83448d18e70181c18">JSONObject::doubleValue</a></div><div class="ttdeci">virtual double doubleValue()</div><div class="ttdoc">Retourne le type primitif correspondant pour l&#39;objet actuel Permet d&#39;obtenir la représentation de la ...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_adc18fb464efe2445a9f88f5ba7636dcd"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#adc18fb464efe2445a9f88f5ba7636dcd">JSONObject::stringValue</a></div><div class="ttdeci">virtual std::string stringValue()</div><div class="ttdoc">Retourne le type primitif correspondant pour l&#39;objet actuel Permet d&#39;obtenir la représentation de la ...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a0635f789398303e172a6af3728d3b729"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a0635f789398303e172a6af3728d3b729">JSONObject::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdoc">Nettoie l&#39;objet Nettoie les associations clés/valeurs, ou un tableau dans le cas d&#39;un JSONArray...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a68e2c7c0c6b585b14b42de51c61fa8c4"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a68e2c7c0c6b585b14b42de51c61fa8c4">JSONObject::getString</a></div><div class="ttdeci">virtual JSONString * getString(std::string name)</div><div class="ttdoc">Obtenir la valeur d&#39;une clé Permet d&#39;obtenir la valeur d&#39;une clé, retourne 0 si la clé n&#39;existe pas...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a></div><div class="ttdoc">JSONObject représente un noeud JSON. </div><div class="ttdef"><b>Definition:</b> JSONObject.hpp:40</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a6f36b3399ed36631c83e788014af3392"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a6f36b3399ed36631c83e788014af3392">JSONObject::hasParent</a></div><div class="ttdeci">bool hasParent()</div><div class="ttdoc">Tester l&#39;existance d&#39;un parent. </div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_aeeb92cf76c338f721001cb7cbfb8e974"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#aeeb92cf76c338f721001cb7cbfb8e974">JSONObject::asVector</a></div><div class="ttdeci">virtual std::vector&lt; JSONTuple &gt; asVector()</div><div class="ttdoc">Exporter la liste associative sous forme de tableau Permet d&#39;obtenir un tableau contenant les associa...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_ab753eb18d1c8f5c18e4cd50189cc2b56"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#ab753eb18d1c8f5c18e4cd50189cc2b56">JSONObject::JSONType</a></div><div class="ttdeci">JSONType</div><div class="ttdoc">JSONType représente un type d&#39;objet JSON. </div><div class="ttdef"><b>Definition:</b> JSONObject.hpp:47</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a4f36bf182177bf79706452281c51196e"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a4f36bf182177bf79706452281c51196e">JSONObject::getParent</a></div><div class="ttdeci">JSONObject * getParent()</div><div class="ttdoc">Retourne le parent. </div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_aa306779b103c2d0deb5541cdfac558fa"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#aa306779b103c2d0deb5541cdfac558fa">JSONObject::getType</a></div><div class="ttdeci">JSONType getType()</div><div class="ttdoc">Obtenir le type JSONType de l&#39;objet Retourne le type de l&#39;objet, permettant des filtrages simplifiés...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a96d36a8a918cc91cdaf9a241c3bc5bc6"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a96d36a8a918cc91cdaf9a241c3bc5bc6">JSONObject::intValue</a></div><div class="ttdeci">virtual int intValue()</div><div class="ttdoc">Retourne le type primitif correspondant pour l&#39;objet actuel Permet d&#39;obtenir la représentation de la ...</div></div>
+<div class="ttc" id="class_j_s_o_n_object_html_a5583d7b2968106a5c9d0e85fa8bd1c8e"><div class="ttname"><a href="../../db/d78/class_j_s_o_n_object.html#a5583d7b2968106a5c9d0e85fa8bd1c8e">JSONObject::getArray</a></div><div class="ttdeci">virtual JSONArray * getArray(std::string name)</div><div class="ttdoc">Obtenir la valeur d&#39;une clé Permet d&#39;obtenir la valeur d&#39;une clé, retourne 0 si la clé n&#39;existe pas...</div></div>
+<div class="ttc" id="class_j_s_o_n_string_html"><div class="ttname"><a href="../../d7/d4a/class_j_s_o_n_string.html">JSONString</a></div><div class="ttdoc">JSONString représente un objet string. Correspond a une chaine "" sous forme de texte dans une représ...</div><div class="ttdef"><b>Definition:</b> JSONString.hpp:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>JSONObject.hpp</b></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:00 pour libjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

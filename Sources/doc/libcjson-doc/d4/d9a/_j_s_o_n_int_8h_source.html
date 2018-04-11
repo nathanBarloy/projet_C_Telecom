@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcjson:  Fichier source de JSONInt.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcjson
+   </div>
+   <div id="projectbrief">C JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4/d9a/_j_s_o_n_int_8h_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">JSONInt.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d9a/_j_s_o_n_int_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JSONINT_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JSONINT_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d20/_j_s_o_n_value_8h.html">JSONValue.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;JSONAll.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#aaaef865fa5053f5f2b8dc5bc6466c185">JSONInt_new</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a22cd4659881fe84e42db4d0a165cb940">JSONInt_delete</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#aee716c5d5089645dfab4ad89202ba9f0">JSONInt_getParent</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#ad40ea8ab95bd5f3ee165bb8e97ae5aac">JSONInt_hasParent</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;String_t <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#af90d68acaaabb6013b3cc0194392a786">JSONInt_asString</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tabs);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a3be1aa6429d180ea365d73342fc7b0ba">JSONInt_get</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a50ac94c7ad530579290ebcc071f4224b">JSONInt_set</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a3b26bee6aaef24481dbf1ad7006c1fe5">JSONInt_equals</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a63f29accc60b1692009e5f17390e8a13">JSONInt_clear</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a2d53aa8d10df680e03e80a80fcf33ef5">JSONInt_assign</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a44081acd916148d5df99eb295183e5e2">JSONInt_assignArray</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>, Vector_t arr);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a368967282e12a3fd412ce5ca94f6b7f7">JSONInt_intValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#a371e1c6582880824713c9a0adcd197c0">JSONInt_doubleValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/_j_s_o_n_int_8h.html#adb1fd9cf5544489a100d1bd4d14d17f5">JSONInt_booleanValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a63f29accc60b1692009e5f17390e8a13"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a63f29accc60b1692009e5f17390e8a13">JSONInt_clear</a></div><div class="ttdeci">void JSONInt_clear(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_clear() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_adb1fd9cf5544489a100d1bd4d14d17f5"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#adb1fd9cf5544489a100d1bd4d14d17f5">JSONInt_booleanValue</a></div><div class="ttdeci">bool JSONInt_booleanValue(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_booleanValue() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a2d53aa8d10df680e03e80a80fcf33ef5"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a2d53aa8d10df680e03e80a80fcf33ef5">JSONInt_assign</a></div><div class="ttdeci">bool JSONInt_assign(JSONInt_t self, JSONObject_t obj)</div><div class="ttdoc">Voir JSONObject_assign() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_ad40ea8ab95bd5f3ee165bb8e97ae5aac"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#ad40ea8ab95bd5f3ee165bb8e97ae5aac">JSONInt_hasParent</a></div><div class="ttdeci">bool JSONInt_hasParent(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_hasParent() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a368967282e12a3fd412ce5ca94f6b7f7"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a368967282e12a3fd412ce5ca94f6b7f7">JSONInt_intValue</a></div><div class="ttdeci">int JSONInt_intValue(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_intValue() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_aee716c5d5089645dfab4ad89202ba9f0"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#aee716c5d5089645dfab4ad89202ba9f0">JSONInt_getParent</a></div><div class="ttdeci">JSONObject_t JSONInt_getParent(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_getParent() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a22cd4659881fe84e42db4d0a165cb940"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a22cd4659881fe84e42db4d0a165cb940">JSONInt_delete</a></div><div class="ttdeci">JSONInt_t JSONInt_delete(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_delete() </div></div>
+<div class="ttc" id="_j_s_o_n_value_8h_html"><div class="ttname"><a href="../../d6/d20/_j_s_o_n_value_8h.html">JSONValue.h</a></div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_af90d68acaaabb6013b3cc0194392a786"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#af90d68acaaabb6013b3cc0194392a786">JSONInt_asString</a></div><div class="ttdeci">String_t JSONInt_asString(JSONInt_t self, unsigned int tabs)</div><div class="ttdoc">Voir JSONObject_asString() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a44081acd916148d5df99eb295183e5e2"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a44081acd916148d5df99eb295183e5e2">JSONInt_assignArray</a></div><div class="ttdeci">bool JSONInt_assignArray(JSONInt_t self, Vector_t arr)</div><div class="ttdoc">Voir JSONObject_assignArray() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a371e1c6582880824713c9a0adcd197c0"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a371e1c6582880824713c9a0adcd197c0">JSONInt_doubleValue</a></div><div class="ttdeci">double JSONInt_doubleValue(JSONInt_t self)</div><div class="ttdoc">Voir JSONObject_doubleValue() </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a3047c7896b67e57259a041cdf9eb0bb0"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></div><div class="ttdeci">void * JSONObject_t</div><div class="ttdoc">JSONObject_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:51</div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a3b26bee6aaef24481dbf1ad7006c1fe5"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a3b26bee6aaef24481dbf1ad7006c1fe5">JSONInt_equals</a></div><div class="ttdeci">bool JSONInt_equals(JSONInt_t self, JSONObject_t obj)</div><div class="ttdoc">Voir JSONObject_equals() </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a10663664d4be0792cb16a1c8f31998a3"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a></div><div class="ttdeci">void * JSONInt_t</div><div class="ttdoc">JSONInt_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:56</div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_aaaef865fa5053f5f2b8dc5bc6466c185"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#aaaef865fa5053f5f2b8dc5bc6466c185">JSONInt_new</a></div><div class="ttdeci">JSONInt_t JSONInt_new(int i)</div><div class="ttdoc">Voir JSONObject_new() </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a50ac94c7ad530579290ebcc071f4224b"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a50ac94c7ad530579290ebcc071f4224b">JSONInt_set</a></div><div class="ttdeci">void JSONInt_set(JSONInt_t self, int i)</div><div class="ttdoc">Assigne la valeur du type demandé à l&#39;objet JSON. </div></div>
+<div class="ttc" id="_j_s_o_n_int_8h_html_a3be1aa6429d180ea365d73342fc7b0ba"><div class="ttname"><a href="../../d4/d9a/_j_s_o_n_int_8h.html#a3be1aa6429d180ea365d73342fc7b0ba">JSONInt_get</a></div><div class="ttdeci">int JSONInt_get(JSONInt_t self)</div><div class="ttdoc">Retoure la valeur du type demandé </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/d9a/_j_s_o_n_int_8h.html">JSONInt.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:40 pour libcjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

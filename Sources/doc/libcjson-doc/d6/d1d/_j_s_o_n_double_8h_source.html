@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcjson:  Fichier source de JSONDouble.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcjson
+   </div>
+   <div id="projectbrief">C JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d6/d1d/_j_s_o_n_double_8h_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">JSONDouble.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d1d/_j_s_o_n_double_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JSONDOUBLE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JSONDOUBLE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d20/_j_s_o_n_value_8h.html">JSONValue.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;JSONAll.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a1f29aa127b1121d60c8c25027d4bf0d1">JSONDouble_new</a>(<span class="keywordtype">double</span> i);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a61a8f9d7e132756fa3376f9814ed7307">JSONDouble_delete</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a4e88b5851f41486428c852c0665125b9">JSONDouble_getParent</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a3f74ec473dce22aa8ad6d01404b191ad">JSONDouble_hasParent</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;String_t <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a96352bcde213053f4823e710f4b847d5">JSONDouble_asString</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tabs);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a4f943770a193ddcb6c02a88ba211e850">JSONDouble_get</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#ab2f473f4df4cdfa0b711354d1e46fbcd">JSONDouble_set</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>, <span class="keywordtype">double</span> i);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a49faf0d1510c29a87e05362413da84bb">JSONDouble_equals</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#ae512201d5cab72a6de6addddbdb2a1bb">JSONDouble_clear</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a88dc49fa11256747bfa37a6590e0dbed">JSONDouble_assign</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a1ab29251ddc8388e7f8864a7e207c1a3">JSONDouble_assignArray</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>, Vector_t arr);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a1ca12e27a06a7f81cbb532cb0495be77">JSONDouble_intValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a100484f04d32b6eb155a1c0cbbac5f4c">JSONDouble_doubleValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/_j_s_o_n_double_8h.html#a074d9c7af8d452fb5759fb339768a04d">JSONDouble_booleanValue</a>(<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a3f74ec473dce22aa8ad6d01404b191ad"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a3f74ec473dce22aa8ad6d01404b191ad">JSONDouble_hasParent</a></div><div class="ttdeci">bool JSONDouble_hasParent(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_hasParent() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a074d9c7af8d452fb5759fb339768a04d"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a074d9c7af8d452fb5759fb339768a04d">JSONDouble_booleanValue</a></div><div class="ttdeci">bool JSONDouble_booleanValue(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_booleanValue() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a1ab29251ddc8388e7f8864a7e207c1a3"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a1ab29251ddc8388e7f8864a7e207c1a3">JSONDouble_assignArray</a></div><div class="ttdeci">bool JSONDouble_assignArray(JSONDouble_t self, Vector_t arr)</div><div class="ttdoc">Voir JSONObject_assignArray() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a61a8f9d7e132756fa3376f9814ed7307"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a61a8f9d7e132756fa3376f9814ed7307">JSONDouble_delete</a></div><div class="ttdeci">JSONDouble_t JSONDouble_delete(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_delete() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a100484f04d32b6eb155a1c0cbbac5f4c"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a100484f04d32b6eb155a1c0cbbac5f4c">JSONDouble_doubleValue</a></div><div class="ttdeci">double JSONDouble_doubleValue(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_doubleValue() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_ab2f473f4df4cdfa0b711354d1e46fbcd"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#ab2f473f4df4cdfa0b711354d1e46fbcd">JSONDouble_set</a></div><div class="ttdeci">void JSONDouble_set(JSONDouble_t self, double i)</div><div class="ttdoc">Assigne la valeur du type demandé à l&#39;objet JSON. </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a1ca12e27a06a7f81cbb532cb0495be77"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a1ca12e27a06a7f81cbb532cb0495be77">JSONDouble_intValue</a></div><div class="ttdeci">int JSONDouble_intValue(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_intValue() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a1f29aa127b1121d60c8c25027d4bf0d1"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a1f29aa127b1121d60c8c25027d4bf0d1">JSONDouble_new</a></div><div class="ttdeci">JSONDouble_t JSONDouble_new(double i)</div><div class="ttdoc">Voir JSONObject_new() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a96352bcde213053f4823e710f4b847d5"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a96352bcde213053f4823e710f4b847d5">JSONDouble_asString</a></div><div class="ttdeci">String_t JSONDouble_asString(JSONDouble_t self, unsigned int tabs)</div><div class="ttdoc">Voir JSONObject_asString() </div></div>
+<div class="ttc" id="_j_s_o_n_value_8h_html"><div class="ttname"><a href="../../d6/d20/_j_s_o_n_value_8h.html">JSONValue.h</a></div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a4e88b5851f41486428c852c0665125b9"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a4e88b5851f41486428c852c0665125b9">JSONDouble_getParent</a></div><div class="ttdeci">JSONObject_t JSONDouble_getParent(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_getParent() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a88dc49fa11256747bfa37a6590e0dbed"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a88dc49fa11256747bfa37a6590e0dbed">JSONDouble_assign</a></div><div class="ttdeci">bool JSONDouble_assign(JSONDouble_t self, JSONObject_t obj)</div><div class="ttdoc">Voir JSONObject_assign() </div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a4f943770a193ddcb6c02a88ba211e850"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a4f943770a193ddcb6c02a88ba211e850">JSONDouble_get</a></div><div class="ttdeci">double JSONDouble_get(JSONDouble_t self)</div><div class="ttdoc">Retoure la valeur du type demandé </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a3047c7896b67e57259a041cdf9eb0bb0"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></div><div class="ttdeci">void * JSONObject_t</div><div class="ttdoc">JSONObject_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:51</div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_ae512201d5cab72a6de6addddbdb2a1bb"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#ae512201d5cab72a6de6addddbdb2a1bb">JSONDouble_clear</a></div><div class="ttdeci">void JSONDouble_clear(JSONDouble_t self)</div><div class="ttdoc">Voir JSONObject_clear() </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a5b52a55e427fd37f5ceeabad3d861416"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a></div><div class="ttdeci">void * JSONDouble_t</div><div class="ttdoc">JSONDouble_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:66</div></div>
+<div class="ttc" id="_j_s_o_n_double_8h_html_a49faf0d1510c29a87e05362413da84bb"><div class="ttname"><a href="../../d6/d1d/_j_s_o_n_double_8h.html#a49faf0d1510c29a87e05362413da84bb">JSONDouble_equals</a></div><div class="ttdeci">bool JSONDouble_equals(JSONDouble_t self, JSONObject_t obj)</div><div class="ttdoc">Voir JSONObject_equals() </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d6/d1d/_j_s_o_n_double_8h.html">JSONDouble.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:40 pour libcjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

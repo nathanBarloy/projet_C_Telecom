@@ -1,0 +1,6 @@
+<map id="JSONPOCOArray" name="JSONPOCOArray">
+<area shape="rect" id="node2" href="$d1/dfe/class_j_s_o_n_array.html" title="JSONArray Représente un tableau en JSON. " alt="" coords="9,155,97,181"/>
+<area shape="rect" id="node3" href="$de/d7b/class_j_s_o_n_value.html" title="JSONValue représente un valeur en JSON. Cette classe sert de tronc commun a toutes les valeurs en JSO..." alt="" coords="8,80,99,107"/>
+<area shape="rect" id="node4" href="$db/d78/class_j_s_o_n_object.html" title="JSONObject représente un noeud JSON. " alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node5" href="$df/d38/class_j_s_o_n_p_o_c_o_base.html" title="JSONPOCOBase sert de tronc commun entre les classes POCO POCO pour plain old C++ Object, similaire au POJO. Cette classe permet d&#39;avoir un tronc commun entre les 2 classes de base servant au POCO. Cela permet d&#39;avoir un type statique commun n&#39;étant pas un JSONObject et concernant uniquement les classes POCO. " alt="" coords="122,155,248,181"/>
+</map>

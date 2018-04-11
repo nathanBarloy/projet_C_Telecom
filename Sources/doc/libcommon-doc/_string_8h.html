@@ -1,0 +1,1214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcommon: Référence du fichier String/String.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcommon
+   </div>
+   <div id="projectbrief">Common lib for C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_string_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier String.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="_types_8h_source.html">Types/Types.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de String.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_string_8h__incl.png" border="0" usemap="#_string_2_string_8h" alt=""/></div>
+<map name="_string_2_string_8h" id="_string_2_string_8h">
+<area shape="rect" id="node4" href="_types_8h.html" title="Types/Types.h" alt="" coords="179,80,288,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="_string_8h__dep__incl.png" border="0" usemap="#_string_2_string_8hdep" alt=""/></div>
+<map name="_string_2_string_8hdep" id="_string_2_string_8hdep">
+<area shape="rect" id="node2" href="_map_8h.html" title="Map/Map.h" alt="" coords="5,80,91,107"/><area shape="rect" id="node3" href="_auto_string_8h.html" title="String/AutoString.h" alt="" coords="115,80,247,107"/></map>
+</div>
+</div>
+<p><a href="_string_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_string.html">String</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure représentant un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> (Chaine de caractères) Il n'est pas conseillé d'y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure.  <a href="struct_string.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afe4aa877c34a4fa96902c4c36f2e3108"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#afe4aa877c34a4fa96902c4c36f2e3108">String</a>(a)&#160;&#160;&#160;(struct <a class="el" href="struct_string.html">String</a>*)(a)</td></tr>
+<tr class="memdesc:afe4aa877c34a4fa96902c4c36f2e3108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour le cast en <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#afe4aa877c34a4fa96902c4c36f2e3108">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afe4aa877c34a4fa96902c4c36f2e3108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4448d6e3653b63b2d6e5e1efef2ec0bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a4448d6e3653b63b2d6e5e1efef2ec0bc">fString</a>(a)&#160;&#160;&#160;a = <a class="el" href="_string_8h.html#a643f7870d6e5df78e29ceedcbe0ecbb3">freeString</a>(a);</td></tr>
+<tr class="memdesc:a4448d6e3653b63b2d6e5e1efef2ec0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour le freeString.  <a href="#a4448d6e3653b63b2d6e5e1efef2ec0bc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4448d6e3653b63b2d6e5e1efef2ec0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed4dc71e53a4ffd72877d026dce0385"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a6ed4dc71e53a4ffd72877d026dce0385">dString</a>(a)&#160;&#160;&#160;printf(&quot;%s\n&quot;, cString(a));</td></tr>
+<tr class="memdesc:a6ed4dc71e53a4ffd72877d026dce0385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour afficher une chaine.  <a href="#a6ed4dc71e53a4ffd72877d026dce0385">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6ed4dc71e53a4ffd72877d026dce0385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a7c7804d7f1f6a535d58835748c2001ee"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a></td></tr>
+<tr class="memdesc:a7c7804d7f1f6a535d58835748c2001ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant la structure de <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a7c7804d7f1f6a535d58835748c2001ee">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7c7804d7f1f6a535d58835748c2001ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acc9b3ac39f625bff3d5f44c89e91a956"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#acc9b3ac39f625bff3d5f44c89e91a956">newString</a> ()</td></tr>
+<tr class="memdesc:acc9b3ac39f625bff3d5f44c89e91a956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#acc9b3ac39f625bff3d5f44c89e91a956">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acc9b3ac39f625bff3d5f44c89e91a956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeb49f762ea740e68c49e7cdd7f23b36"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#afeb49f762ea740e68c49e7cdd7f23b36">newStringFromString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:afeb49f762ea740e68c49e7cdd7f23b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#afeb49f762ea740e68c49e7cdd7f23b36">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afeb49f762ea740e68c49e7cdd7f23b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5ab67f11ace99218ff0ed1b1c28420"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a0a5ab67f11ace99218ff0ed1b1c28420">newStringFromCharStar</a> (const char *str)</td></tr>
+<tr class="memdesc:a0a5ab67f11ace99218ff0ed1b1c28420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a0a5ab67f11ace99218ff0ed1b1c28420">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0a5ab67f11ace99218ff0ed1b1c28420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82729574bbcb0f688f66e44d680e4556"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a82729574bbcb0f688f66e44d680e4556">newStringFromCharStarSize</a> (const char *str, size_t size)</td></tr>
+<tr class="memdesc:a82729574bbcb0f688f66e44d680e4556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en spécifiant la longueur max.  <a href="#a82729574bbcb0f688f66e44d680e4556">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a82729574bbcb0f688f66e44d680e4556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2557833ef391fbcf64ec89411101297"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#ac2557833ef391fbcf64ec89411101297">newStringFromChar</a> (const char c)</td></tr>
+<tr class="memdesc:ac2557833ef391fbcf64ec89411101297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un char.  <a href="#ac2557833ef391fbcf64ec89411101297">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac2557833ef391fbcf64ec89411101297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8488d011da4e3dc7a6c04ff2a5f5f813"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a8488d011da4e3dc7a6c04ff2a5f5f813">newLowerString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a8488d011da4e3dc7a6c04ff2a5f5f813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en lowercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a8488d011da4e3dc7a6c04ff2a5f5f813">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8488d011da4e3dc7a6c04ff2a5f5f813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2f8d39b4134f0000715ce7172c73bf"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a7b2f8d39b4134f0000715ce7172c73bf">newUpperString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a7b2f8d39b4134f0000715ce7172c73bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en uppercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a7b2f8d39b4134f0000715ce7172c73bf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7b2f8d39b4134f0000715ce7172c73bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c53194323c6977602bfba26678641b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#af7c53194323c6977602bfba26678641b">newInvertCaseString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:af7c53194323c6977602bfba26678641b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> avec invercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#af7c53194323c6977602bfba26678641b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af7c53194323c6977602bfba26678641b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c54c97ab957c74606cd80ca26160401"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a0c54c97ab957c74606cd80ca26160401">newReverseString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a0c54c97ab957c74606cd80ca26160401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir du reverse d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a0c54c97ab957c74606cd80ca26160401">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0c54c97ab957c74606cd80ca26160401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643f7870d6e5df78e29ceedcbe0ecbb3"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a643f7870d6e5df78e29ceedcbe0ecbb3">freeString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a643f7870d6e5df78e29ceedcbe0ecbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a643f7870d6e5df78e29ceedcbe0ecbb3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a643f7870d6e5df78e29ceedcbe0ecbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a49dbcbfc15fca38e15f2ddf2948a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#aa5a49dbcbfc15fca38e15f2ddf2948a5">setString</a> (struct <a class="el" href="struct_string.html">String</a> *str, struct <a class="el" href="struct_string.html">String</a> *value)</td></tr>
+<tr class="memdesc:aa5a49dbcbfc15fca38e15f2ddf2948a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigne la valeur d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a un autre.  <a href="#aa5a49dbcbfc15fca38e15f2ddf2948a5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa5a49dbcbfc15fca38e15f2ddf2948a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731386a7314ea40350151c05644bb47b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a731386a7314ea40350151c05644bb47b">emptyString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a731386a7314ea40350151c05644bb47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide une chaine de caractère.  <a href="#a731386a7314ea40350151c05644bb47b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a731386a7314ea40350151c05644bb47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84434afbb9627764e6ab2e8f9ebf134"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#ac84434afbb9627764e6ab2e8f9ebf134">sizeOfString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:ac84434afbb9627764e6ab2e8f9ebf134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la longueur d'une chaine.  <a href="#ac84434afbb9627764e6ab2e8f9ebf134">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac84434afbb9627764e6ab2e8f9ebf134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f29071a02325c3b231a9a2ea3cbf97e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a4f29071a02325c3b231a9a2ea3cbf97e">cString</a> (const struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a4f29071a02325c3b231a9a2ea3cbf97e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'équivalent en char* (C <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>, chaine C standard)  <a href="#a4f29071a02325c3b231a9a2ea3cbf97e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4f29071a02325c3b231a9a2ea3cbf97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5537e036fdd2e9c4c571b06f62b42d6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a5537e036fdd2e9c4c571b06f62b42d6b">concatString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const struct <a class="el" href="struct_string.html">String</a> *str2)</td></tr>
+<tr class="memdesc:a5537e036fdd2e9c4c571b06f62b42d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concaténer 2 chaines.  <a href="#a5537e036fdd2e9c4c571b06f62b42d6b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5537e036fdd2e9c4c571b06f62b42d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189fb065ee29f0b6ea79eb02ef649ca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a189fb065ee29f0b6ea79eb02ef649ca8">concatMString</a> (struct <a class="el" href="struct_string.html">String</a> *str, int n,...)</td></tr>
+<tr class="memdesc:a189fb065ee29f0b6ea79eb02ef649ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concaténer N chaines.  <a href="#a189fb065ee29f0b6ea79eb02ef649ca8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a189fb065ee29f0b6ea79eb02ef649ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c75c89d1371b2632b363a473359932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a23c75c89d1371b2632b363a473359932">copyString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const struct <a class="el" href="struct_string.html">String</a> *str2)</td></tr>
+<tr class="memdesc:a23c75c89d1371b2632b363a473359932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie une chaine dans une autre.  <a href="#a23c75c89d1371b2632b363a473359932">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a23c75c89d1371b2632b363a473359932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25959fa5c0a7c6465dd113938d50450f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a25959fa5c0a7c6465dd113938d50450f">cutString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const size_t pos)</td></tr>
+<tr class="memdesc:a25959fa5c0a7c6465dd113938d50450f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coupe une chaine a la position donnée.  <a href="#a25959fa5c0a7c6465dd113938d50450f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a25959fa5c0a7c6465dd113938d50450f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6a4a384f9f4c63d975f6690d55b33e1"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_string.html">String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#ae6a4a384f9f4c63d975f6690d55b33e1">cutAreaOfString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const size_t pos, const size_t size)</td></tr>
+<tr class="memdesc:ae6a4a384f9f4c63d975f6690d55b33e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Couper une zone d'une chaine.  <a href="#ae6a4a384f9f4c63d975f6690d55b33e1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae6a4a384f9f4c63d975f6690d55b33e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd49ffaed6577cfce13be0dabba9cb3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#afd49ffaed6577cfce13be0dabba9cb3f">reduceString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const size_t pos)</td></tr>
+<tr class="memdesc:afd49ffaed6577cfce13be0dabba9cb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réduit une chaine a la position donnée (longueur)  <a href="#afd49ffaed6577cfce13be0dabba9cb3f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd49ffaed6577cfce13be0dabba9cb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397f838c7dac78c49238f01154716311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a397f838c7dac78c49238f01154716311">reduceAreaOfString</a> (struct <a class="el" href="struct_string.html">String</a> *str, const size_t pos, const size_t size)</td></tr>
+<tr class="memdesc:a397f838c7dac78c49238f01154716311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réduire une zone d'une chaine (libérer une zone d'une chaine)  <a href="#a397f838c7dac78c49238f01154716311">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a397f838c7dac78c49238f01154716311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a544a17cde6bea15fcc04d2cdd8287c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a1a544a17cde6bea15fcc04d2cdd8287c">upperString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a1a544a17cde6bea15fcc04d2cdd8287c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met la chaine en uppercase.  <a href="#a1a544a17cde6bea15fcc04d2cdd8287c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1a544a17cde6bea15fcc04d2cdd8287c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cba1d6da3a7f875b6280744b6faa3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#af6cba1d6da3a7f875b6280744b6faa3a">lowerString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:af6cba1d6da3a7f875b6280744b6faa3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met la chaine en lowercase.  <a href="#af6cba1d6da3a7f875b6280744b6faa3a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af6cba1d6da3a7f875b6280744b6faa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303708b0407c399a53f8f9e7cdffff08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a303708b0407c399a53f8f9e7cdffff08">invertCaseString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a303708b0407c399a53f8f9e7cdffff08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met la chaine en invertcase (inverse miniscules et majuscules)  <a href="#a303708b0407c399a53f8f9e7cdffff08">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a303708b0407c399a53f8f9e7cdffff08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468ce1d879234964aaa78a153b0e99c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a468ce1d879234964aaa78a153b0e99c5">reverseString</a> (struct <a class="el" href="struct_string.html">String</a> *str)</td></tr>
+<tr class="memdesc:a468ce1d879234964aaa78a153b0e99c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met la chaine en reversestring (inverse le sens de la chaine)  <a href="#a468ce1d879234964aaa78a153b0e99c5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a468ce1d879234964aaa78a153b0e99c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b054cb7533c6c12d2e2740a2bcbe43a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a3b054cb7533c6c12d2e2740a2bcbe43a">equalsString</a> (const struct <a class="el" href="struct_string.html">String</a> *str, const struct <a class="el" href="struct_string.html">String</a> *str2)</td></tr>
+<tr class="memdesc:a3b054cb7533c6c12d2e2740a2bcbe43a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'égalité entre 2 chaines.  <a href="#a3b054cb7533c6c12d2e2740a2bcbe43a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3b054cb7533c6c12d2e2740a2bcbe43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb9e8da1e17f88124adab97f328a6751"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#acb9e8da1e17f88124adab97f328a6751">equalsMString</a> (int n,...)</td></tr>
+<tr class="memdesc:acb9e8da1e17f88124adab97f328a6751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'égalité entre N chaines.  <a href="#acb9e8da1e17f88124adab97f328a6751">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acb9e8da1e17f88124adab97f328a6751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5e0a8a36c36f0985446bdf646f92cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a7b5e0a8a36c36f0985446bdf646f92cc">fmString</a> (int n,...)</td></tr>
+<tr class="memdesc:a7b5e0a8a36c36f0985446bdf646f92cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer N chaines.  <a href="#a7b5e0a8a36c36f0985446bdf646f92cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7b5e0a8a36c36f0985446bdf646f92cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94159f51597d12ec5ba7edfdc487b0a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_string_8h.html#a94159f51597d12ec5ba7edfdc487b0a2">freeVoidString</a> (void *str)</td></tr>
+<tr class="memdesc:a94159f51597d12ec5ba7edfdc487b0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer une chaine avec WithPtr.  <a href="#a94159f51597d12ec5ba7edfdc487b0a2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a94159f51597d12ec5ba7edfdc487b0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a6ed4dc71e53a4ffd72877d026dce0385"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define dString</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;printf(&quot;%s\n&quot;, cString(a));</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour afficher une chaine. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> Note: Affiche la chaine dans le terminal, puis passe une ligne. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_string_8h_source.html#l00193">193</a> du fichier <a class="el" href="_string_8h_source.html">String.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4448d6e3653b63b2d6e5e1efef2ec0bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define fString</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = <a class="el" href="_string_8h.html#a643f7870d6e5df78e29ceedcbe0ecbb3">freeString</a>(a);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour le freeString. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur Note: Equivalent a: a = freeString(a); </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_string_8h_source.html#l00187">187</a> du fichier <a class="el" href="_string_8h_source.html">String.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe4aa877c34a4fa96902c4c36f2e3108"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="struct_string.html">String</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(struct <a class="el" href="struct_string.html">String</a>*)(a)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour le cast en <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_string_8h_source.html#l00181">181</a> du fichier <a class="el" href="_string_8h_source.html">String.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a7c7804d7f1f6a535d58835748c2001ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_string.html">String</a>* <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant la structure de <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_string_8h_source.html#l00015">15</a> du fichier <a class="el" href="_string_8h_source.html">String.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a189fb065ee29f0b6ea79eb02ef649ca8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void concatMString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concaténer N chaines. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée (reçoit le total) </td></tr>
+    <tr><td class="paramname">n</td><td>Nombre de chaines a concaténer </td></tr>
+    <tr><td class="paramname">...</td><td>Chaines a ajouter à la précédente, respecter le nombre saisi précédement </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5537e036fdd2e9c4c571b06f62b42d6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void concatString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concaténer 2 chaines. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée (reçoit le total) </td></tr>
+    <tr><td class="paramname">str2</td><td>Chaine a ajouter à la précédente </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a23c75c89d1371b2632b363a473359932"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void copyString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copie une chaine dans une autre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée (reçoit la valeur) </td></tr>
+    <tr><td class="paramname">str2</td><td>Chaine sourcée (ne sera pas modifiée) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f29071a02325c3b231a9a2ea3cbf97e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* cString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie l'équivalent en char* (C <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>, chaine C standard) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur de chaine standard pour la chaine. Note: Pointeur interne, sa modification peut entrainer des erreurs dans la structure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6a4a384f9f4c63d975f6690d55b33e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* cutAreaOfString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Couper une zone d'une chaine. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée pour être coupée </td></tr>
+    <tr><td class="paramname">pos</td><td>Position de base de la coupure </td></tr>
+    <tr><td class="paramname">size</td><td>Longueur de la coupure (zone a couper) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouvelle chaine contenant la zone coupée </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a25959fa5c0a7c6465dd113938d50450f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* cutString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coupe une chaine a la position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée pour être coupée </td></tr>
+    <tr><td class="paramname">pos</td><td>Position de coupe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouvelle chaine contenant la partie coupée (après la position de coupe) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a731386a7314ea40350151c05644bb47b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emptyString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vide une chaine de caractère. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acb9e8da1e17f88124adab97f328a6751"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equalsMString </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste l'égalité entre N chaines. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Nombre de chaines a comparer </td></tr>
+    <tr><td class="paramname">...</td><td>Chaines servant de comparaison </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si toutes égales, 0 sinon. Note: Pour comparer 2 chaines il faut entrer 2 pour n, et entrer le nom des 2 chaines. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b054cb7533c6c12d2e2740a2bcbe43a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equalsString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste l'égalité entre 2 chaines. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+    <tr><td class="paramname">str2</td><td>Chaine servant de comparaison </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si égales, 0 sinon. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7b5e0a8a36c36f0985446bdf646f92cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fmString </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer N chaines. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Nombre de chaines a libérer </td></tr>
+    <tr><td class="paramname">...</td><td>Chaines à libérer Note: Pour libérer 2 chaines il faut entrer 2 pour n, et entrer le nom des 2 chaines. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a643f7870d6e5df78e29ceedcbe0ecbb3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* freeString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Objet à libérer Libère le <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a94159f51597d12ec5ba7edfdc487b0a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeVoidString </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer une chaine avec WithPtr. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine a libérer Note: Cette fonction est prévue pour être utilisée avec <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>, <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>, <a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a>, etc... dans les fonctions free...WithPtr, elle permet de libérer proprement des <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a303708b0407c399a53f8f9e7cdffff08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invertCaseString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met la chaine en invertcase (inverse miniscules et majuscules) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af6cba1d6da3a7f875b6280744b6faa3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lowerString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met la chaine en lowercase. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af7c53194323c6977602bfba26678641b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newInvertCaseString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> avec invercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8488d011da4e3dc7a6c04ff2a5f5f813"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newLowerString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en lowercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0c54c97ab957c74606cd80ca26160401"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newReverseString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir du reverse d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc9b3ac39f625bff3d5f44c89e91a956"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac2557833ef391fbcf64ec89411101297"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newStringFromChar </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un char. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Char </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0a5ab67f11ace99218ff0ed1b1c28420"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newStringFromCharStar </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a82729574bbcb0f688f66e44d680e4556"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newStringFromCharStarSize </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en spécifiant la longueur max. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+    <tr><td class="paramname">size</td><td>Longueur max a recopier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afeb49f762ea740e68c49e7cdd7f23b36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newStringFromString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7b2f8d39b4134f0000715ce7172c73bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_string.html">String</a>* newUpperString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> en uppercase a partir d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a397f838c7dac78c49238f01154716311"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reduceAreaOfString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réduire une zone d'une chaine (libérer une zone d'une chaine) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée pour être coupée </td></tr>
+    <tr><td class="paramname">pos</td><td>Position de base de la coupure </td></tr>
+    <tr><td class="paramname">size</td><td>Longueur de la coupure (zone a couper) Le morceau coupé est libéré de la mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afd49ffaed6577cfce13be0dabba9cb3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reduceString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réduit une chaine a la position donnée (longueur) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée pour être coupée </td></tr>
+    <tr><td class="paramname">pos</td><td>Position de coupe (longueur restante) Le morceau restant est libéré de la mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a468ce1d879234964aaa78a153b0e99c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reverseString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met la chaine en reversestring (inverse le sens de la chaine) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa5a49dbcbfc15fca38e15f2ddf2948a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigne la valeur d'un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a un autre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> concerné </td></tr>
+    <tr><td class="paramname">value</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> a copier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac84434afbb9627764e6ab2e8f9ebf134"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeOfString </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie la longueur d'une chaine. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Longueur de la chaine </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1a544a17cde6bea15fcc04d2cdd8287c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void upperString </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_string.html">String</a> *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met la chaine en uppercase. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d742525bc285934d0a803d8e05dabfd0.html">String</a></li><li class="navelem"><a class="el" href="_string_8h.html">String.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

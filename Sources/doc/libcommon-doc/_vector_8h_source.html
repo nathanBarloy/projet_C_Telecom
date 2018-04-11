@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcommon:  Fichier source de Vector/Vector.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcommon
+   </div>
+   <div id="projectbrief">Common lib for C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_vector_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Vector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_vector_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VECTOR_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VECTOR_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_vector_8h.html#acc570730bde528fcd7159f3b37640e47">    6</a></span>&#160;<span class="preprocessor">#define VECTOR_BASE_SIZE 50</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_types_8h.html">Types/Types.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="struct_vector.html">   12</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="struct_vector.html#a854352f53b148adc24983a58a1866d66">   14</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="struct_vector.html#a854352f53b148adc24983a58a1866d66">size</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="struct_vector.html#ae1bb12c74f8787980ecef2b1f772239b">   15</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="struct_vector.html#ae1bb12c74f8787980ecef2b1f772239b">allocated</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="struct_vector.html#a2d79efa09314aa9c70b607c8736dc05c">   16</a></span>&#160;    <span class="keywordtype">void</span>** <a class="code" href="struct_vector.html#a2d79efa09314aa9c70b607c8736dc05c">array</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_vector_8h.html#aed4e8af14d4d38a21fd30ddcdbb54e0b">   23</a></span>&#160;<span class="preprocessor">#define Vector(a) (Vector_t)(a)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a3fdc9af3f58f5e091c0d5fe72e02e67b">newVector</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#af62d8444d571c863c6781ac84fa8e96d">newVectorFromVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector2);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a6921905e0c0bb564caa762e04825f7f2">freeVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#ac09eece73aba6b0f8ade4b4ffd0e387d">freeVectorWithPtr</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">void</span> (*freeFunc)(<span class="keywordtype">void</span>*));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a18a22dad41be50fd0029a203ab09dc69">clearVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector);<span class="comment">//Empty the vector</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a8f92302239950db223153a07c5696d9f">clearVectorWithPtr</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">void</span> (*freeFunc)(<span class="keywordtype">void</span>*));<span class="comment">//Empty the vector and the elements</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#a9d648e0a9608dc2761f0b18c3ba879ad">addToVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">void</span>* e);<span class="comment">//Add an element to the vector (Caution: make size change)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#aee4c02a3d1d85f194476908035351009">delFromVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">void</span>* e);<span class="comment">//Remove an element from the vector (Caution: make size change)</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#ab58d667c9d63cd6f28355d8356acfdea">eraseOnVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> index);<span class="comment">//Remove an index from the vector (Caution: Make size change)</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#a61ea7318d20615e1b4e25b5908135e68">freeOnVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> index);<span class="comment">//Free an index from the vector (Caution: Make size change)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#aa6bd0c03f371fb7dd09007e5ffe860d2">setOnVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> index, <span class="keywordtype">void</span>* e);<span class="comment">//Set a value on the vector</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span><span class="keywordtype">void</span>* <a class="code" href="_vector_8h.html#a233cae184317605a447d4c948063c8b6">getFromVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> index);<span class="comment">//Get a value from vector</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#ac69ea9de07309317f574ccfba1a61dfd">appendVectorToVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* nv);<span class="comment">//NV is free</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#a9520f4fe4f66a402bd31b251467e128d">appendVectorCopyToVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* nv);<span class="comment">//NV is not free</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#a4918ac6109ec66abf2f302582556ca0f">splitVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos);<span class="comment">//Return the rest, caution: change vector size</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="struct_vector.html">Vector</a>* <a class="code" href="_vector_8h.html#ae3c84ec44e334c44fae8a81fe4d5242b">splitAreaOfVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> <a class="code" href="struct_vector.html#a854352f53b148adc24983a58a1866d66">size</a>);<span class="comment">//Return the area, caution: change vector size</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#a7067c1ebc563842d24dbc556565a551f">removeAreaFromVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> size);<span class="comment">//Remove the selected area, caution: change vector size</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#ad0734d730aa5dc892b1d67a8faeb4511">removeAfterVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos);<span class="comment">//Remove all elements after the position, caution: change vector size</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#aa9b46bdebbb3182a32e06a73a33205a3">freeAreaFromVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> size, <span class="keywordtype">void</span> (*freeFunc)(<span class="keywordtype">void</span>*));<span class="comment">//Free the selected area, caution: change vector size</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="_vector_8h.html#a4015877a149b55a0206ce6e1576621cb">freeAfterVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector, <span class="keywordtype">size_t</span> pos, <span class="keywordtype">void</span> (*freeFunc)(<span class="keywordtype">void</span>*));<span class="comment">//Free all elements after the position, caution: change vector size</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span><span class="keywordtype">size_t</span> <a class="code" href="_vector_8h.html#af96f8be91de1fab631bc22f4b2483e88">sizeOfVector</a>(<span class="keyword">struct</span> <a class="code" href="struct_vector.html">Vector</a>* vector);<span class="comment">//Return vector size</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="_vector_8h.html#a0d8715e62698ec00fcac67e130fe6543">freeVoidVector</a>(<span class="keywordtype">void</span>* ptr);<span class="comment">//Free pour freeFunc</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="_vector_8h.html#a376f7ec2b4bd6ae78d4783645194e682">  173</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define fVector(a) a = freeVector(a);</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_vector_8h_html_a9520f4fe4f66a402bd31b251467e128d"><div class="ttname"><a href="_vector_8h.html#a9520f4fe4f66a402bd31b251467e128d">appendVectorCopyToVector</a></div><div class="ttdeci">int appendVectorCopyToVector(struct Vector *vector, struct Vector *nv)</div><div class="ttdoc">Ajoute le contenu d&#39;un vector dans le vector. </div></div>
+<div class="ttc" id="_vector_8h_html_ae3c84ec44e334c44fae8a81fe4d5242b"><div class="ttname"><a href="_vector_8h.html#ae3c84ec44e334c44fae8a81fe4d5242b">splitAreaOfVector</a></div><div class="ttdeci">struct Vector * splitAreaOfVector(struct Vector *vector, size_t pos, size_t size)</div><div class="ttdoc">Sépare une zone du vector a la position donnée d&#39;une taille donnée. </div></div>
+<div class="ttc" id="_vector_8h_html_a4015877a149b55a0206ce6e1576621cb"><div class="ttname"><a href="_vector_8h.html#a4015877a149b55a0206ce6e1576621cb">freeAfterVector</a></div><div class="ttdeci">int freeAfterVector(struct Vector *vector, size_t pos, void(*freeFunc)(void *))</div><div class="ttdoc">Enlève une zone du vector a la position donnée, libère les données. </div></div>
+<div class="ttc" id="struct_vector_html"><div class="ttname"><a href="struct_vector.html">Vector</a></div><div class="ttdoc">Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. </div><div class="ttdef"><b>Definition:</b> <a href="_vector_8h_source.html#l00012">Vector.h:12</a></div></div>
+<div class="ttc" id="_types_8h_html"><div class="ttname"><a href="_types_8h.html">Types.h</a></div></div>
+<div class="ttc" id="_vector_8h_html_ac09eece73aba6b0f8ade4b4ffd0e387d"><div class="ttname"><a href="_vector_8h.html#ac09eece73aba6b0f8ade4b4ffd0e387d">freeVectorWithPtr</a></div><div class="ttdeci">struct Vector * freeVectorWithPtr(struct Vector *vector, void(*freeFunc)(void *))</div><div class="ttdoc">Libère un Vector et le pointeur des valeurs. </div></div>
+<div class="ttc" id="_vector_8h_html_a8f92302239950db223153a07c5696d9f"><div class="ttname"><a href="_vector_8h.html#a8f92302239950db223153a07c5696d9f">clearVectorWithPtr</a></div><div class="ttdeci">struct Vector * clearVectorWithPtr(struct Vector *vector, void(*freeFunc)(void *))</div><div class="ttdoc">Vide un Vector et le pointeur des valeurs. </div></div>
+<div class="ttc" id="_vector_8h_html_a7067c1ebc563842d24dbc556565a551f"><div class="ttname"><a href="_vector_8h.html#a7067c1ebc563842d24dbc556565a551f">removeAreaFromVector</a></div><div class="ttdeci">int removeAreaFromVector(struct Vector *vector, size_t pos, size_t size)</div><div class="ttdoc">Enlève une zone du vector a la position donnée d&#39;une taille donnée. </div></div>
+<div class="ttc" id="_vector_8h_html_af62d8444d571c863c6781ac84fa8e96d"><div class="ttname"><a href="_vector_8h.html#af62d8444d571c863c6781ac84fa8e96d">newVectorFromVector</a></div><div class="ttdeci">struct Vector * newVectorFromVector(struct Vector *vector2)</div><div class="ttdoc">Alloue un nouveau Vector a partir d&#39;un autre. </div></div>
+<div class="ttc" id="_vector_8h_html_a4918ac6109ec66abf2f302582556ca0f"><div class="ttname"><a href="_vector_8h.html#a4918ac6109ec66abf2f302582556ca0f">splitVector</a></div><div class="ttdeci">struct Vector * splitVector(struct Vector *vector, size_t pos)</div><div class="ttdoc">Sépare le vector a la position donnée. </div></div>
+<div class="ttc" id="struct_vector_html_a2d79efa09314aa9c70b607c8736dc05c"><div class="ttname"><a href="struct_vector.html#a2d79efa09314aa9c70b607c8736dc05c">Vector::array</a></div><div class="ttdeci">void ** array</div><div class="ttdef"><b>Definition:</b> <a href="_vector_8h_source.html#l00016">Vector.h:16</a></div></div>
+<div class="ttc" id="struct_vector_html_ae1bb12c74f8787980ecef2b1f772239b"><div class="ttname"><a href="struct_vector.html#ae1bb12c74f8787980ecef2b1f772239b">Vector::allocated</a></div><div class="ttdeci">size_t allocated</div><div class="ttdef"><b>Definition:</b> <a href="_vector_8h_source.html#l00015">Vector.h:15</a></div></div>
+<div class="ttc" id="struct_vector_html_a854352f53b148adc24983a58a1866d66"><div class="ttname"><a href="struct_vector.html#a854352f53b148adc24983a58a1866d66">Vector::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> <a href="_vector_8h_source.html#l00014">Vector.h:14</a></div></div>
+<div class="ttc" id="_vector_8h_html_a6921905e0c0bb564caa762e04825f7f2"><div class="ttname"><a href="_vector_8h.html#a6921905e0c0bb564caa762e04825f7f2">freeVector</a></div><div class="ttdeci">struct Vector * freeVector(struct Vector *vector)</div><div class="ttdoc">Libère un Vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a56850a9131bc54f1be8b5c548e97c5bc"><div class="ttname"><a href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a></div><div class="ttdeci">struct Vector * Vector_t</div><div class="ttdoc">Type représentant la structure de Vector. </div><div class="ttdef"><b>Definition:</b> <a href="_vector_8h_source.html#l00019">Vector.h:19</a></div></div>
+<div class="ttc" id="_vector_8h_html_aa9b46bdebbb3182a32e06a73a33205a3"><div class="ttname"><a href="_vector_8h.html#aa9b46bdebbb3182a32e06a73a33205a3">freeAreaFromVector</a></div><div class="ttdeci">int freeAreaFromVector(struct Vector *vector, size_t pos, size_t size, void(*freeFunc)(void *))</div><div class="ttdoc">Enlève une zone du vector a la position donnée d&#39;une taille donnée libère les données. </div></div>
+<div class="ttc" id="_vector_8h_html_ad0734d730aa5dc892b1d67a8faeb4511"><div class="ttname"><a href="_vector_8h.html#ad0734d730aa5dc892b1d67a8faeb4511">removeAfterVector</a></div><div class="ttdeci">int removeAfterVector(struct Vector *vector, size_t pos)</div><div class="ttdoc">Enlève une zone du vector a la position donnée. </div></div>
+<div class="ttc" id="_vector_8h_html_a0d8715e62698ec00fcac67e130fe6543"><div class="ttname"><a href="_vector_8h.html#a0d8715e62698ec00fcac67e130fe6543">freeVoidVector</a></div><div class="ttdeci">void freeVoidVector(void *ptr)</div><div class="ttdoc">Fonction permettant de supprimer des vector dans des vectors. </div></div>
+<div class="ttc" id="_vector_8h_html_ab58d667c9d63cd6f28355d8356acfdea"><div class="ttname"><a href="_vector_8h.html#ab58d667c9d63cd6f28355d8356acfdea">eraseOnVector</a></div><div class="ttdeci">int eraseOnVector(struct Vector *vector, size_t index)</div><div class="ttdoc">Enlève un élement du vector. </div></div>
+<div class="ttc" id="_vector_8h_html_aee4c02a3d1d85f194476908035351009"><div class="ttname"><a href="_vector_8h.html#aee4c02a3d1d85f194476908035351009">delFromVector</a></div><div class="ttdeci">int delFromVector(struct Vector *vector, void *e)</div><div class="ttdoc">Enlève un élement du vector. </div></div>
+<div class="ttc" id="_vector_8h_html_af96f8be91de1fab631bc22f4b2483e88"><div class="ttname"><a href="_vector_8h.html#af96f8be91de1fab631bc22f4b2483e88">sizeOfVector</a></div><div class="ttdeci">size_t sizeOfVector(struct Vector *vector)</div><div class="ttdoc">Retourne la taille occupée d&#39;un vector. </div></div>
+<div class="ttc" id="_vector_8h_html_aa6bd0c03f371fb7dd09007e5ffe860d2"><div class="ttname"><a href="_vector_8h.html#aa6bd0c03f371fb7dd09007e5ffe860d2">setOnVector</a></div><div class="ttdeci">int setOnVector(struct Vector *vector, size_t index, void *e)</div><div class="ttdoc">Place un élement dans vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a18a22dad41be50fd0029a203ab09dc69"><div class="ttname"><a href="_vector_8h.html#a18a22dad41be50fd0029a203ab09dc69">clearVector</a></div><div class="ttdeci">struct Vector * clearVector(struct Vector *vector)</div><div class="ttdoc">Vide un Vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a61ea7318d20615e1b4e25b5908135e68"><div class="ttname"><a href="_vector_8h.html#a61ea7318d20615e1b4e25b5908135e68">freeOnVector</a></div><div class="ttdeci">int freeOnVector(struct Vector *vector, size_t index)</div><div class="ttdoc">Libère un élement du vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a233cae184317605a447d4c948063c8b6"><div class="ttname"><a href="_vector_8h.html#a233cae184317605a447d4c948063c8b6">getFromVector</a></div><div class="ttdeci">void * getFromVector(struct Vector *vector, size_t index)</div><div class="ttdoc">Récupère un élement du vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a3fdc9af3f58f5e091c0d5fe72e02e67b"><div class="ttname"><a href="_vector_8h.html#a3fdc9af3f58f5e091c0d5fe72e02e67b">newVector</a></div><div class="ttdeci">struct Vector * newVector()</div><div class="ttdoc">Alloue un nouveau Vector. </div></div>
+<div class="ttc" id="_vector_8h_html_a9d648e0a9608dc2761f0b18c3ba879ad"><div class="ttname"><a href="_vector_8h.html#a9d648e0a9608dc2761f0b18c3ba879ad">addToVector</a></div><div class="ttdeci">int addToVector(struct Vector *vector, void *e)</div><div class="ttdoc">Ajoute un élement au vector. </div></div>
+<div class="ttc" id="_vector_8h_html_ac69ea9de07309317f574ccfba1a61dfd"><div class="ttname"><a href="_vector_8h.html#ac69ea9de07309317f574ccfba1a61dfd">appendVectorToVector</a></div><div class="ttdeci">int appendVectorToVector(struct Vector *vector, struct Vector *nv)</div><div class="ttdoc">Ajoute le contenu d&#39;un vector dans le vector. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6f539ff7f1e57d810587ac57a02ef21e.html">Vector</a></li><li class="navelem"><a class="el" href="_vector_8h.html">Vector.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

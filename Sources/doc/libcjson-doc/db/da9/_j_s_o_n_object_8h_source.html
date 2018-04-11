@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcjson:  Fichier source de JSONObject.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcjson
+   </div>
+   <div id="projectbrief">C JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('db/da9/_j_s_o_n_object_8h_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">JSONObject.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/da9/_j_s_o_n_object_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JSONOBJECT_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JSONOBJECT_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;String/String.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;Vector/Vector.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;String/AutoString.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d04/_j_s_o_n_tuple_8h.html">JSONTuple.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;JSONAll.hpp&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define S_JSONObject(a) static_cast&lt;JSONObject*&gt;(a)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define S_JSONInt(a) static_cast&lt;JSONInt*&gt;(a)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define S_JSONString(a) static_cast&lt;JSONString*&gt;(a)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define S_JSONDouble(a) static_cast&lt;JSONDouble*&gt;(a)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define S_JSONBoolean(a) static_cast&lt;JSONBoolean*&gt;(a)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define S_JSONArray(a) static_cast&lt;JSONArray*&gt;(a)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define S_JSONNull(a) static_cast&lt;JSONNull*&gt;(a)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define S_JSONValue(a) static_cast&lt;JSONValue*&gt;(a)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef __cplusplus</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">   31</a></span>&#160;<span class="preprocessor">#define true 1</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a65e9886d74aaee76545e83dd09011727">   33</a></span>&#160;<span class="preprocessor">#define false 0</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">   43</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff">   45</a></span>&#160;    <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a6f78e99ade8d62ec44d30013723e6e75">OBJECT</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a1e029fbf0c881b85d80fc8e89b753688">ARRAY</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff">VALUE</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0aee847e634a4297b274316de8a8ca9921">STRING</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0afd5a5f51ce25953f3db2c7e93eb7864a">INT</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a33465d1d419b1074fb259ef444609e92">DOUBLE</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a8a583f16e8d237a423c8c1d9087a4c72">BOOLEAN</a>, <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a13109ea44ac532180a67f0f47d6bd24f">NULLOBJ</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}  <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">   56</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">   61</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">   66</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">   71</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">   76</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#aeb23264995be87f65087d5f992ecbdb2">   81</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aeb23264995be87f65087d5f992ecbdb2">JSONNull_t</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../db/da9/_j_s_o_n_object_8h.html#a88bf7ed28627feefef922733ce63a5b8">   86</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span>* <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a88bf7ed28627feefef922733ce63a5b8">JSONValue_t</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;JSONObject_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#abb450cb0fe13e5433dd524a15d31cc23">JSONObject_new</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;JSONObject_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ad1c5f50bdadba083a3a9ea407f7570f8">JSONObject_delete</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a514fae5a25c316735a6d408e78222e25">JSONObject_set</a>(JSONObject_t <span class="keyword">self</span>, String_t name, JSONObject_t child);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a4814feaa598614161f71329be48cf255">JSONObject_setInt</a>(JSONObject_t <span class="keyword">self</span>, String_t name, <span class="keywordtype">int</span> child);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aba306db611cb5975f1e006c6d7046605">JSONObject_setDouble</a>(JSONObject_t <span class="keyword">self</span>, String_t name, <span class="keywordtype">double</span> child);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a0601e20716b4c60774b5dca083f99ad7">JSONObject_setString</a>(JSONObject_t <span class="keyword">self</span>, String_t name, String_t child);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aee92ac6851d59c1d5f4cc687535b5df8">JSONObject_setBoolean</a>(JSONObject_t <span class="keyword">self</span>, String_t name, <span class="keywordtype">bool</span> child);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a3cbe2d3dd60577da76b04ce9739ac63f">JSONObject_remove</a>(JSONObject_t <span class="keyword">self</span>, String_t name, <span class="keywordtype">bool</span> destruct);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab40c6fb94d72a98cf68c27954e4e6a55">JSONObject_removeObject</a>(JSONObject_t <span class="keyword">self</span>, JSONObject_t obj, <span class="keywordtype">bool</span> destruct);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a1a4f1755703dec5cbcb8793039d6dd14">JSONObject_detach</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ae4a7efb8f9c6861113a842c520801445">JSONObject_detachObject</a>(JSONObject_t <span class="keyword">self</span>, JSONObject_t obj);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a2858276d6079e7d8c6e93fa6e4c1bca9">JSONObject_detachAll</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;String_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#af979c24195d78a6f94b885586a2a07cc">JSONObject_get</a>(JSONObject_t <span class="keyword">self</span>, JSONObject_t child);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;JSONObject_t <span class="keyword">get</span>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;JSONInt_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a65511822e6ca363cfb1d821c2a702182">JSONObject_getInt</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;JSONString_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab48e807af185a3277d8738886f3134c2">JSONObject_getString</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;JSONDouble_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ac5a5fa7286772bc7eee3bf3058753016">JSONObject_getDouble</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;JSONBoolean_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a7eb4b8cccea89c264659e58de0188f93">JSONObject_getBoolean</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;JSONArray_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aab7d41e3e61d1252d84e44382e1ee273">JSONObject_getArray</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;String_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ad7562360a79ff42d205c8039d3f42054">JSONObject_stringValueOf</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ac97551ea5ab47e56e073f4f76dba1058">JSONObject_intValueOf</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a15af38858c50758bbff14d856cc04f04">JSONObject_doubleValueOf</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a220c366c4630e906e1fcf5835d646666">JSONObject_booleanValueOf</a>(JSONObject_t <span class="keyword">self</span>, String_t name);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;String_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab7d14813cc3bf675849a162dc4efcc73">JSONObject_stringValue</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aeaf64d8adf27860fcdbca8b21e9126a1">JSONObject_intValue</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a266d89f9b170d263edf400a773344c88">JSONObject_doubleValue</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a1f62200215e94f56c8f9e1c6308faf60">JSONObject_booleanValue</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;String_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ac4c91a8814ba20b4f6af61a0d8671102">JSONObject_asString</a>(JSONObject_t <span class="keyword">self</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tabs);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;JSONObject_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a1ff504bb698a7f0b7bd8b32ae17990ae">JSONObject_getParent</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a76933ba5d6f68c40fdc1a6a3e2f758b1">JSONObject_hasParent</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;Vector_t <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a9d353addb191677d83d4bdcc0cfa641c">JSONObject_asVector</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a7b9853fa4cde808c33a3f94ad5ec90b3">JSONObject_getType</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a9df6211464f32f39838ddcb5f6a2944d">JSONObject_equals</a>(JSONObject_t <span class="keyword">self</span>, JSONObject_t obj);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#aada0185d26feb9ab4702a92aca6b3510">JSONObject_clear</a>(JSONObject_t <span class="keyword">self</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a7238232a1d2f9e24d87631b10cc3d6d5">JSONObject_assign</a>(JSONObject_t <span class="keyword">self</span>, JSONObject_t obj);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/da9/_j_s_o_n_object_8h.html#a204b5c71d81d2fb7a9f94660e6d3efc2">JSONObject_assignArray</a>(JSONObject_t <span class="keyword">self</span>, Vector_t arr);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ad7562360a79ff42d205c8039d3f42054"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ad7562360a79ff42d205c8039d3f42054">JSONObject_stringValueOf</a></div><div class="ttdeci">String_t JSONObject_stringValueOf(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_af979c24195d78a6f94b885586a2a07cc"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#af979c24195d78a6f94b885586a2a07cc">JSONObject_get</a></div><div class="ttdeci">String_t JSONObject_get(JSONObject_t self, JSONObject_t child)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ac4c91a8814ba20b4f6af61a0d8671102"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ac4c91a8814ba20b4f6af61a0d8671102">JSONObject_asString</a></div><div class="ttdeci">String_t JSONObject_asString(JSONObject_t self, unsigned int tabs)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a65511822e6ca363cfb1d821c2a702182"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a65511822e6ca363cfb1d821c2a702182">JSONObject_getInt</a></div><div class="ttdeci">JSONInt_t JSONObject_getInt(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0a6f78e99ade8d62ec44d30013723e6e75"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a6f78e99ade8d62ec44d30013723e6e75">OBJECT</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a1ff504bb698a7f0b7bd8b32ae17990ae"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a1ff504bb698a7f0b7bd8b32ae17990ae">JSONObject_getParent</a></div><div class="ttdeci">JSONObject_t JSONObject_getParent(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a204b5c71d81d2fb7a9f94660e6d3efc2"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a204b5c71d81d2fb7a9f94660e6d3efc2">JSONObject_assignArray</a></div><div class="ttdeci">bool JSONObject_assignArray(JSONObject_t self, Vector_t arr)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a7eb4b8cccea89c264659e58de0188f93"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a7eb4b8cccea89c264659e58de0188f93">JSONObject_getBoolean</a></div><div class="ttdeci">JSONBoolean_t JSONObject_getBoolean(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a7238232a1d2f9e24d87631b10cc3d6d5"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a7238232a1d2f9e24d87631b10cc3d6d5">JSONObject_assign</a></div><div class="ttdeci">bool JSONObject_assign(JSONObject_t self, JSONObject_t obj)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0afd5a5f51ce25953f3db2c7e93eb7864a"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0afd5a5f51ce25953f3db2c7e93eb7864a">INT</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a15af38858c50758bbff14d856cc04f04"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a15af38858c50758bbff14d856cc04f04">JSONObject_doubleValueOf</a></div><div class="ttdeci">double JSONObject_doubleValueOf(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aba306db611cb5975f1e006c6d7046605"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aba306db611cb5975f1e006c6d7046605">JSONObject_setDouble</a></div><div class="ttdeci">void JSONObject_setDouble(JSONObject_t self, String_t name, double child)</div><div class="ttdoc">Définir la valeur d&#39;une clé Voir JSONObject::set. </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aeaf64d8adf27860fcdbca8b21e9126a1"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aeaf64d8adf27860fcdbca8b21e9126a1">JSONObject_intValue</a></div><div class="ttdeci">int JSONObject_intValue(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab40c6fb94d72a98cf68c27954e4e6a55"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab40c6fb94d72a98cf68c27954e4e6a55">JSONObject_removeObject</a></div><div class="ttdeci">void JSONObject_removeObject(JSONObject_t self, JSONObject_t obj, bool destruct)</div><div class="ttdoc">Supprimer une clé et sa valeur a partir de la valeur Voir JSONObject::remove Supprime la clé...</div></div>
+<div class="ttc" id="_j_s_o_n_tuple_8h_html"><div class="ttname"><a href="../../d3/d04/_j_s_o_n_tuple_8h.html">JSONTuple.h</a></div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a2858276d6079e7d8c6e93fa6e4c1bca9"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a2858276d6079e7d8c6e93fa6e4c1bca9">JSONObject_detachAll</a></div><div class="ttdeci">void JSONObject_detachAll(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aab7d41e3e61d1252d84e44382e1ee273"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aab7d41e3e61d1252d84e44382e1ee273">JSONObject_getArray</a></div><div class="ttdeci">JSONArray_t JSONObject_getArray(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a3cbe2d3dd60577da76b04ce9739ac63f"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a3cbe2d3dd60577da76b04ce9739ac63f">JSONObject_remove</a></div><div class="ttdeci">void JSONObject_remove(JSONObject_t self, String_t name, bool destruct)</div><div class="ttdoc">Supprimer une clé et sa valeur Voir JSONObject::remove Supprime la clé, et libère la mémoire de la va...</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a9df6211464f32f39838ddcb5f6a2944d"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a9df6211464f32f39838ddcb5f6a2944d">JSONObject_equals</a></div><div class="ttdeci">bool JSONObject_equals(JSONObject_t self, JSONObject_t obj)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a></div><div class="ttdeci">JSONType_t</div><div class="ttdoc">JSONType_t représente le type de l&#39;objet JSON pointé Ce type est 100% compatible avec celui de libjso...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:43</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0aee847e634a4297b274316de8a8ca9921"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0aee847e634a4297b274316de8a8ca9921">STRING</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a88bf7ed28627feefef922733ce63a5b8"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a88bf7ed28627feefef922733ce63a5b8">JSONValue_t</a></div><div class="ttdeci">void * JSONValue_t</div><div class="ttdoc">JSONValue_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:86</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a25c7765b3f008a80386a5df9621f56d9"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a></div><div class="ttdeci">void * JSONBoolean_t</div><div class="ttdoc">JSONBoolean_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:71</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0a1e029fbf0c881b85d80fc8e89b753688"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a1e029fbf0c881b85d80fc8e89b753688">ARRAY</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a1f62200215e94f56c8f9e1c6308faf60"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a1f62200215e94f56c8f9e1c6308faf60">JSONObject_booleanValue</a></div><div class="ttdeci">bool JSONObject_booleanValue(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aeb23264995be87f65087d5f992ecbdb2"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aeb23264995be87f65087d5f992ecbdb2">JSONNull_t</a></div><div class="ttdeci">void * JSONNull_t</div><div class="ttdoc">JSONNull_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:81</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff">VALUE</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a7b9853fa4cde808c33a3f94ad5ec90b3"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a7b9853fa4cde808c33a3f94ad5ec90b3">JSONObject_getType</a></div><div class="ttdeci">JSONType_t JSONObject_getType(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ac97551ea5ab47e56e073f4f76dba1058"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ac97551ea5ab47e56e073f4f76dba1058">JSONObject_intValueOf</a></div><div class="ttdeci">int JSONObject_intValueOf(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a76933ba5d6f68c40fdc1a6a3e2f758b1"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a76933ba5d6f68c40fdc1a6a3e2f758b1">JSONObject_hasParent</a></div><div class="ttdeci">bool JSONObject_hasParent(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aee92ac6851d59c1d5f4cc687535b5df8"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aee92ac6851d59c1d5f4cc687535b5df8">JSONObject_setBoolean</a></div><div class="ttdeci">void JSONObject_setBoolean(JSONObject_t self, String_t name, bool child)</div><div class="ttdoc">Définir la valeur d&#39;une clé Voir JSONObject::set. </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a3047c7896b67e57259a041cdf9eb0bb0"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></div><div class="ttdeci">void * JSONObject_t</div><div class="ttdoc">JSONObject_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:51</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ac9de64e6679c0336ef6e36a570873869"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a></div><div class="ttdeci">void * JSONArray_t</div><div class="ttdoc">JSONArray_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:76</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a9d353addb191677d83d4bdcc0cfa641c"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a9d353addb191677d83d4bdcc0cfa641c">JSONObject_asVector</a></div><div class="ttdeci">Vector_t JSONObject_asVector(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a10663664d4be0792cb16a1c8f31998a3"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a></div><div class="ttdeci">void * JSONInt_t</div><div class="ttdoc">JSONInt_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:56</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a1a4f1755703dec5cbcb8793039d6dd14"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a1a4f1755703dec5cbcb8793039d6dd14">JSONObject_detach</a></div><div class="ttdeci">void JSONObject_detach(JSONObject_t self, String_t name)</div><div class="ttdoc">Détacher un objet d&#39;une clé, et libérer la mémoire Equivalent de JSONObject_remove avec destruct=true...</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a266d89f9b170d263edf400a773344c88"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a266d89f9b170d263edf400a773344c88">JSONObject_doubleValue</a></div><div class="ttdeci">double JSONObject_doubleValue(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0a33465d1d419b1074fb259ef444609e92"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a33465d1d419b1074fb259ef444609e92">DOUBLE</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab7d14813cc3bf675849a162dc4efcc73"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab7d14813cc3bf675849a162dc4efcc73">JSONObject_stringValue</a></div><div class="ttdeci">String_t JSONObject_stringValue(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ac5a5fa7286772bc7eee3bf3058753016"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ac5a5fa7286772bc7eee3bf3058753016">JSONObject_getDouble</a></div><div class="ttdeci">JSONDouble_t JSONObject_getDouble(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a0601e20716b4c60774b5dca083f99ad7"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a0601e20716b4c60774b5dca083f99ad7">JSONObject_setString</a></div><div class="ttdeci">void JSONObject_setString(JSONObject_t self, String_t name, String_t child)</div><div class="ttdoc">Définir la valeur d&#39;une clé Voir JSONObject::set. </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_aada0185d26feb9ab4702a92aca6b3510"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#aada0185d26feb9ab4702a92aca6b3510">JSONObject_clear</a></div><div class="ttdeci">void JSONObject_clear(JSONObject_t self)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a5b52a55e427fd37f5ceeabad3d861416"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a></div><div class="ttdeci">void * JSONDouble_t</div><div class="ttdoc">JSONDouble_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:66</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_abb450cb0fe13e5433dd524a15d31cc23"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#abb450cb0fe13e5433dd524a15d31cc23">JSONObject_new</a></div><div class="ttdeci">JSONObject_t JSONObject_new()</div><div class="ttdoc">Instancie un nouveau JSONObject* L&#39;objet C++ instancié sera récupéré sous forme de JSONObject_t...</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a4814feaa598614161f71329be48cf255"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a4814feaa598614161f71329be48cf255">JSONObject_setInt</a></div><div class="ttdeci">void JSONObject_setInt(JSONObject_t self, String_t name, int child)</div><div class="ttdoc">Définir la valeur d&#39;une clé Voir JSONObject::set. </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a1062901a7428fdd9c7f180f5e01ea056"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a></div><div class="ttdeci">int bool</div><div class="ttdoc">Définition du type bool en C Le type bool n&#39;existe pas en C, il est pourtant utilisé par libjson en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:38</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a514fae5a25c316735a6d408e78222e25"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a514fae5a25c316735a6d408e78222e25">JSONObject_set</a></div><div class="ttdeci">void JSONObject_set(JSONObject_t self, String_t name, JSONObject_t child)</div><div class="ttdoc">Définir la valeur d&#39;une clé Voir JSONObject::set. </div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ad1c5f50bdadba083a3a9ea407f7570f8"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ad1c5f50bdadba083a3a9ea407f7570f8">JSONObject_delete</a></div><div class="ttdeci">JSONObject_t JSONObject_delete(JSONObject_t self)</div><div class="ttdoc">Libère la mémoire d&#39;un JSONObject_t Libère aussi la mémoire de n&#39;importe quel autre objet...</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0a13109ea44ac532180a67f0f47d6bd24f"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a13109ea44ac532180a67f0f47d6bd24f">NULLOBJ</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a49f58ae50beaa93c73be6725f6345c9a"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a></div><div class="ttdeci">void * JSONString_t</div><div class="ttdoc">JSONString_t représente un objet JSON en C Il représente d&#39;ailleurs n&#39;importe quel objet JSON en C...</div><div class="ttdef"><b>Definition:</b> JSONObject.h:61</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ae4a7efb8f9c6861113a842c520801445"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ae4a7efb8f9c6861113a842c520801445">JSONObject_detachObject</a></div><div class="ttdeci">void JSONObject_detachObject(JSONObject_t self, JSONObject_t obj)</div><div class="ttdoc">Détacher un objet d&#39;une clé, et libérer la mémoire Equivalent de JSONObject_removeObject avec destruc...</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab48e807af185a3277d8738886f3134c2"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab48e807af185a3277d8738886f3134c2">JSONObject_getString</a></div><div class="ttdeci">JSONString_t JSONObject_getString(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_a220c366c4630e906e1fcf5835d646666"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#a220c366c4630e906e1fcf5835d646666">JSONObject_booleanValueOf</a></div><div class="ttdeci">bool JSONObject_booleanValueOf(JSONObject_t self, String_t name)</div></div>
+<div class="ttc" id="_j_s_o_n_object_8h_html_ab6b3f5d2ad50d89339f0af6a894c2ac0a8a583f16e8d237a423c8c1d9087a4c72"><div class="ttname"><a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a8a583f16e8d237a423c8c1d9087a4c72">BOOLEAN</a></div><div class="ttdef"><b>Definition:</b> JSONObject.h:45</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html">JSONObject.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:40 pour libcjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

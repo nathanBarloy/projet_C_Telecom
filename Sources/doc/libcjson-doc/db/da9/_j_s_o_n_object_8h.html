@@ -1,0 +1,1439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcjson: Référence du fichier JSONObject.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcjson
+   </div>
+   <div id="projectbrief">C JSON Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="../../globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('db/da9/_j_s_o_n_object_8h.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier JSONObject.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;String/String.h&gt;</code><br />
+<code>#include &lt;Vector/Vector.h&gt;</code><br />
+<code>#include &lt;String/AutoString.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d04/_j_s_o_n_tuple_8h_source.html">JSONTuple.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe des dépendances par inclusion de JSONObject.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d4e/_j_s_o_n_object_8h__incl.png" border="0" usemap="#_j_s_o_n_object_8h" alt=""/></div>
+<map name="_j_s_o_n_object_8h" id="_j_s_o_n_object_8h">
+<area shape="rect" id="node5" href="../../d3/d04/_j_s_o_n_tuple_8h.html" title="JSONTuple.h" alt="" coords="192,80,293,107"/></map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d9e/_j_s_o_n_object_8h__dep__incl.png" border="0" usemap="#_j_s_o_n_object_8hdep" alt=""/></div>
+<map name="_j_s_o_n_object_8hdep" id="_j_s_o_n_object_8hdep">
+<area shape="rect" id="node2" href="../../d6/d87/_j_s_o_n_all_8h.html" title="JSONAll.h" alt="" coords="183,229,266,256"/><area shape="rect" id="node3" href="../../d4/db1/_j_s_o_n_parser_8h.html" title="JSONParser.h" alt="" coords="21,80,127,107"/><area shape="rect" id="node4" href="../../d6/d20/_j_s_o_n_value_8h.html" title="JSONValue.h" alt="" coords="297,80,399,107"/><area shape="rect" id="node5" href="../../d4/d9a/_j_s_o_n_int_8h.html" title="JSONInt.h" alt="" coords="123,155,206,181"/><area shape="rect" id="node6" href="../../d6/d1d/_j_s_o_n_double_8h.html" title="JSONDouble.h" alt="" coords="231,155,341,181"/><area shape="rect" id="node7" href="../../d2/d1c/_j_s_o_n_null_8h.html" title="JSONNull.h" alt="" coords="365,155,457,181"/><area shape="rect" id="node8" href="../../d2/d4e/_j_s_o_n_string_8h.html" title="JSONString.h" alt="" coords="481,155,583,181"/><area shape="rect" id="node9" href="../../d3/d99/_j_s_o_n_array_8h.html" title="JSONArray.h" alt="" coords="608,155,707,181"/><area shape="rect" id="node10" href="../../d7/d1c/_j_s_o_n_boolean_8h.html" title="JSONBoolean.h" alt="" coords="732,155,847,181"/></map>
+</div>
+</div>
+<p><a href="../../db/da9/_j_s_o_n_object_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a41f9c5fb8b08eb5dc3edce4dcb37fee7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a41f9c5fb8b08eb5dc3edce4dcb37fee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente le vrai d'un booleen.  <a href="#a41f9c5fb8b08eb5dc3edce4dcb37fee7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a41f9c5fb8b08eb5dc3edce4dcb37fee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e9886d74aaee76545e83dd09011727"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a65e9886d74aaee76545e83dd09011727">false</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a65e9886d74aaee76545e83dd09011727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente le faux d'un booleen.  <a href="#a65e9886d74aaee76545e83dd09011727">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a65e9886d74aaee76545e83dd09011727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a1062901a7428fdd9c7f180f5e01ea056"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a></td></tr>
+<tr class="memdesc:a1062901a7428fdd9c7f180f5e01ea056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente.  <a href="#a1062901a7428fdd9c7f180f5e01ea056">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1062901a7428fdd9c7f180f5e01ea056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3047c7896b67e57259a041cdf9eb0bb0"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></td></tr>
+<tr class="memdesc:a3047c7896b67e57259a041cdf9eb0bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONObject_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a3047c7896b67e57259a041cdf9eb0bb0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3047c7896b67e57259a041cdf9eb0bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10663664d4be0792cb16a1c8f31998a3"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a></td></tr>
+<tr class="memdesc:a10663664d4be0792cb16a1c8f31998a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONInt_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a10663664d4be0792cb16a1c8f31998a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a10663664d4be0792cb16a1c8f31998a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f58ae50beaa93c73be6725f6345c9a"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a></td></tr>
+<tr class="memdesc:a49f58ae50beaa93c73be6725f6345c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONString_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a49f58ae50beaa93c73be6725f6345c9a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a49f58ae50beaa93c73be6725f6345c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b52a55e427fd37f5ceeabad3d861416"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a></td></tr>
+<tr class="memdesc:a5b52a55e427fd37f5ceeabad3d861416"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONDouble_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a5b52a55e427fd37f5ceeabad3d861416">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5b52a55e427fd37f5ceeabad3d861416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c7765b3f008a80386a5df9621f56d9"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a></td></tr>
+<tr class="memdesc:a25c7765b3f008a80386a5df9621f56d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONBoolean_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a25c7765b3f008a80386a5df9621f56d9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a25c7765b3f008a80386a5df9621f56d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9de64e6679c0336ef6e36a570873869"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a></td></tr>
+<tr class="memdesc:ac9de64e6679c0336ef6e36a570873869"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONArray_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#ac9de64e6679c0336ef6e36a570873869">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac9de64e6679c0336ef6e36a570873869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb23264995be87f65087d5f992ecbdb2"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aeb23264995be87f65087d5f992ecbdb2">JSONNull_t</a></td></tr>
+<tr class="memdesc:aeb23264995be87f65087d5f992ecbdb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONNull_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#aeb23264995be87f65087d5f992ecbdb2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aeb23264995be87f65087d5f992ecbdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88bf7ed28627feefef922733ce63a5b8"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a88bf7ed28627feefef922733ce63a5b8">JSONValue_t</a></td></tr>
+<tr class="memdesc:a88bf7ed28627feefef922733ce63a5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONValue_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a88bf7ed28627feefef922733ce63a5b8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a88bf7ed28627feefef922733ce63a5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ab6b3f5d2ad50d89339f0af6a894c2ac0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a> { <br />
+&#160;&#160;<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a6f78e99ade8d62ec44d30013723e6e75">OBJECT</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a1e029fbf0c881b85d80fc8e89b753688">ARRAY</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff">VALUE</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0aee847e634a4297b274316de8a8ca9921">STRING</a>, 
+<br />
+&#160;&#160;<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0afd5a5f51ce25953f3db2c7e93eb7864a">INT</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a33465d1d419b1074fb259ef444609e92">DOUBLE</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a8a583f16e8d237a423c8c1d9087a4c72">BOOLEAN</a>, 
+<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0a13109ea44ac532180a67f0f47d6bd24f">NULLOBJ</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ab6b3f5d2ad50d89339f0af6a894c2ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONType_t représente le type de l'objet JSON pointé Ce type est 100% compatible avec celui de libjson, il permet de tester le type d'un objet JSON.  <a href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab6b3f5d2ad50d89339f0af6a894c2ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:abb450cb0fe13e5433dd524a15d31cc23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#abb450cb0fe13e5433dd524a15d31cc23">JSONObject_new</a> ()</td></tr>
+<tr class="memdesc:abb450cb0fe13e5433dd524a15d31cc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancie un nouveau JSONObject* L'objet C++ instancié sera récupéré sous forme de JSONObject_t.  <a href="#abb450cb0fe13e5433dd524a15d31cc23">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abb450cb0fe13e5433dd524a15d31cc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c5f50bdadba083a3a9ea407f7570f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ad1c5f50bdadba083a3a9ea407f7570f8">JSONObject_delete</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="memdesc:ad1c5f50bdadba083a3a9ea407f7570f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire d'un JSONObject_t Libère aussi la mémoire de n'importe quel autre objet. Utilisation conséillée: <code>a = JSONObject_delete(a);</code>  <a href="#ad1c5f50bdadba083a3a9ea407f7570f8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad1c5f50bdadba083a3a9ea407f7570f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514fae5a25c316735a6d408e78222e25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a514fae5a25c316735a6d408e78222e25">JSONObject_set</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> child)</td></tr>
+<tr class="memdesc:a514fae5a25c316735a6d408e78222e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir la valeur d'une clé Voir JSONObject::set.  <a href="#a514fae5a25c316735a6d408e78222e25">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a514fae5a25c316735a6d408e78222e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4814feaa598614161f71329be48cf255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a4814feaa598614161f71329be48cf255">JSONObject_setInt</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, int child)</td></tr>
+<tr class="memdesc:a4814feaa598614161f71329be48cf255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir la valeur d'une clé Voir JSONObject::set.  <a href="#a4814feaa598614161f71329be48cf255">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4814feaa598614161f71329be48cf255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba306db611cb5975f1e006c6d7046605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aba306db611cb5975f1e006c6d7046605">JSONObject_setDouble</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, double child)</td></tr>
+<tr class="memdesc:aba306db611cb5975f1e006c6d7046605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir la valeur d'une clé Voir JSONObject::set.  <a href="#aba306db611cb5975f1e006c6d7046605">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aba306db611cb5975f1e006c6d7046605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0601e20716b4c60774b5dca083f99ad7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a0601e20716b4c60774b5dca083f99ad7">JSONObject_setString</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, String_t child)</td></tr>
+<tr class="memdesc:a0601e20716b4c60774b5dca083f99ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir la valeur d'une clé Voir JSONObject::set.  <a href="#a0601e20716b4c60774b5dca083f99ad7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0601e20716b4c60774b5dca083f99ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee92ac6851d59c1d5f4cc687535b5df8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aee92ac6851d59c1d5f4cc687535b5df8">JSONObject_setBoolean</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> child)</td></tr>
+<tr class="memdesc:aee92ac6851d59c1d5f4cc687535b5df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir la valeur d'une clé Voir JSONObject::set.  <a href="#aee92ac6851d59c1d5f4cc687535b5df8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aee92ac6851d59c1d5f4cc687535b5df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbe2d3dd60577da76b04ce9739ac63f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3cbe2d3dd60577da76b04ce9739ac63f">JSONObject_remove</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> destruct)</td></tr>
+<tr class="memdesc:a3cbe2d3dd60577da76b04ce9739ac63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprimer une clé et sa valeur Voir JSONObject::remove Supprime la clé, et libère la mémoire de la valeur si destruct=true.  <a href="#a3cbe2d3dd60577da76b04ce9739ac63f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3cbe2d3dd60577da76b04ce9739ac63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40c6fb94d72a98cf68c27954e4e6a55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab40c6fb94d72a98cf68c27954e4e6a55">JSONObject_removeObject</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> destruct)</td></tr>
+<tr class="memdesc:ab40c6fb94d72a98cf68c27954e4e6a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprimer une clé et sa valeur a partir de la valeur Voir JSONObject::remove Supprime la clé, et libère la mémoire de la valeur si destruct=true.  <a href="#ab40c6fb94d72a98cf68c27954e4e6a55">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab40c6fb94d72a98cf68c27954e4e6a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4f1755703dec5cbcb8793039d6dd14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1a4f1755703dec5cbcb8793039d6dd14">JSONObject_detach</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="memdesc:a1a4f1755703dec5cbcb8793039d6dd14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détacher un objet d'une clé, et libérer la mémoire Equivalent de JSONObject_remove avec destruct=true.  <a href="#a1a4f1755703dec5cbcb8793039d6dd14">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1a4f1755703dec5cbcb8793039d6dd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4a7efb8f9c6861113a842c520801445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ae4a7efb8f9c6861113a842c520801445">JSONObject_detachObject</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj)</td></tr>
+<tr class="memdesc:ae4a7efb8f9c6861113a842c520801445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détacher un objet d'une clé, et libérer la mémoire Equivalent de JSONObject_removeObject avec destruct=true.  <a href="#ae4a7efb8f9c6861113a842c520801445">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae4a7efb8f9c6861113a842c520801445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2858276d6079e7d8c6e93fa6e4c1bca9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a2858276d6079e7d8c6e93fa6e4c1bca9">JSONObject_detachAll</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a2858276d6079e7d8c6e93fa6e4c1bca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af979c24195d78a6f94b885586a2a07cc"><td class="memItemLeft" align="right" valign="top">String_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#af979c24195d78a6f94b885586a2a07cc">JSONObject_get</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> child)</td></tr>
+<tr class="separator:af979c24195d78a6f94b885586a2a07cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e6c9364b0202327062ec3806c8255d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a12e6c9364b0202327062ec3806c8255d">get</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:a12e6c9364b0202327062ec3806c8255d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65511822e6ca363cfb1d821c2a702182"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a65511822e6ca363cfb1d821c2a702182">JSONObject_getInt</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:a65511822e6ca363cfb1d821c2a702182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48e807af185a3277d8738886f3134c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab48e807af185a3277d8738886f3134c2">JSONObject_getString</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:ab48e807af185a3277d8738886f3134c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a5fa7286772bc7eee3bf3058753016"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac5a5fa7286772bc7eee3bf3058753016">JSONObject_getDouble</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:ac5a5fa7286772bc7eee3bf3058753016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb4b8cccea89c264659e58de0188f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a7eb4b8cccea89c264659e58de0188f93">JSONObject_getBoolean</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:a7eb4b8cccea89c264659e58de0188f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7d41e3e61d1252d84e44382e1ee273"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aab7d41e3e61d1252d84e44382e1ee273">JSONObject_getArray</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:aab7d41e3e61d1252d84e44382e1ee273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7562360a79ff42d205c8039d3f42054"><td class="memItemLeft" align="right" valign="top">String_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ad7562360a79ff42d205c8039d3f42054">JSONObject_stringValueOf</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:ad7562360a79ff42d205c8039d3f42054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97551ea5ab47e56e073f4f76dba1058"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac97551ea5ab47e56e073f4f76dba1058">JSONObject_intValueOf</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:ac97551ea5ab47e56e073f4f76dba1058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15af38858c50758bbff14d856cc04f04"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a15af38858c50758bbff14d856cc04f04">JSONObject_doubleValueOf</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:a15af38858c50758bbff14d856cc04f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220c366c4630e906e1fcf5835d646666"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a220c366c4630e906e1fcf5835d646666">JSONObject_booleanValueOf</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, String_t name)</td></tr>
+<tr class="separator:a220c366c4630e906e1fcf5835d646666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d14813cc3bf675849a162dc4efcc73"><td class="memItemLeft" align="right" valign="top">String_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab7d14813cc3bf675849a162dc4efcc73">JSONObject_stringValue</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:ab7d14813cc3bf675849a162dc4efcc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf64d8adf27860fcdbca8b21e9126a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aeaf64d8adf27860fcdbca8b21e9126a1">JSONObject_intValue</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:aeaf64d8adf27860fcdbca8b21e9126a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266d89f9b170d263edf400a773344c88"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a266d89f9b170d263edf400a773344c88">JSONObject_doubleValue</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a266d89f9b170d263edf400a773344c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f62200215e94f56c8f9e1c6308faf60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1f62200215e94f56c8f9e1c6308faf60">JSONObject_booleanValue</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a1f62200215e94f56c8f9e1c6308faf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c91a8814ba20b4f6af61a0d8671102"><td class="memItemLeft" align="right" valign="top">String_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac4c91a8814ba20b4f6af61a0d8671102">JSONObject_asString</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, unsigned int tabs)</td></tr>
+<tr class="separator:ac4c91a8814ba20b4f6af61a0d8671102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff504bb698a7f0b7bd8b32ae17990ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1ff504bb698a7f0b7bd8b32ae17990ae">JSONObject_getParent</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a1ff504bb698a7f0b7bd8b32ae17990ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76933ba5d6f68c40fdc1a6a3e2f758b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a76933ba5d6f68c40fdc1a6a3e2f758b1">JSONObject_hasParent</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a76933ba5d6f68c40fdc1a6a3e2f758b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d353addb191677d83d4bdcc0cfa641c"><td class="memItemLeft" align="right" valign="top">Vector_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a9d353addb191677d83d4bdcc0cfa641c">JSONObject_asVector</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a9d353addb191677d83d4bdcc0cfa641c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9853fa4cde808c33a3f94ad5ec90b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a7b9853fa4cde808c33a3f94ad5ec90b3">JSONObject_getType</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:a7b9853fa4cde808c33a3f94ad5ec90b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df6211464f32f39838ddcb5f6a2944d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a9df6211464f32f39838ddcb5f6a2944d">JSONObject_equals</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj)</td></tr>
+<tr class="separator:a9df6211464f32f39838ddcb5f6a2944d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada0185d26feb9ab4702a92aca6b3510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aada0185d26feb9ab4702a92aca6b3510">JSONObject_clear</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self)</td></tr>
+<tr class="separator:aada0185d26feb9ab4702a92aca6b3510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7238232a1d2f9e24d87631b10cc3d6d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a7238232a1d2f9e24d87631b10cc3d6d5">JSONObject_assign</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj)</td></tr>
+<tr class="separator:a7238232a1d2f9e24d87631b10cc3d6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204b5c71d81d2fb7a9f94660e6d3efc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a204b5c71d81d2fb7a9f94660e6d3efc2">JSONObject_assignArray</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, Vector_t arr)</td></tr>
+<tr class="separator:a204b5c71d81d2fb7a9f94660e6d3efc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a65e9886d74aaee76545e83dd09011727"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define false&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Représente le faux d'un booleen. </p>
+
+</div>
+</div>
+<a class="anchor" id="a41f9c5fb8b08eb5dc3edce4dcb37fee7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define true&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Représente le vrai d'un booleen. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a1062901a7428fdd9c7f180f5e01ea056"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac9de64e6679c0336ef6e36a570873869"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONArray_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a25c7765b3f008a80386a5df9621f56d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONBoolean_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5b52a55e427fd37f5ceeabad3d861416"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONDouble_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a10663664d4be0792cb16a1c8f31998a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONInt_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="aeb23264995be87f65087d5f992ecbdb2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#aeb23264995be87f65087d5f992ecbdb2">JSONNull_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONNull_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3047c7896b67e57259a041cdf9eb0bb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONObject_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a49f58ae50beaa93c73be6725f6345c9a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONString_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<a class="anchor" id="a88bf7ed28627feefef922733ce63a5b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a88bf7ed28627feefef922733ce63a5b8">JSONValue_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONValue_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>JSONType_t représente le type de l'objet JSON pointé Ce type est 100% compatible avec celui de libjson, il permet de tester le type d'un objet JSON. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0a6f78e99ade8d62ec44d30013723e6e75"></a>OBJECT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0a1e029fbf0c881b85d80fc8e89b753688"></a>ARRAY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0ad3a10aa8b647d6a6db651ef882ff8bff"></a>VALUE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0aee847e634a4297b274316de8a8ca9921"></a>STRING&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0afd5a5f51ce25953f3db2c7e93eb7864a"></a>INT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0a33465d1d419b1074fb259ef444609e92"></a>DOUBLE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0a8a583f16e8d237a423c8c1d9087a4c72"></a>BOOLEAN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab6b3f5d2ad50d89339f0af6a894c2ac0a13109ea44ac532180a67f0f47d6bd24f"></a>NULLOBJ&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a12e6c9364b0202327062ec3806c8255d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7238232a1d2f9e24d87631b10cc3d6d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_assign </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a204b5c71d81d2fb7a9f94660e6d3efc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_assignArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector_t&#160;</td>
+          <td class="paramname"><em>arr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac4c91a8814ba20b4f6af61a0d8671102"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String_t JSONObject_asString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>tabs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9d353addb191677d83d4bdcc0cfa641c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector_t JSONObject_asVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1f62200215e94f56c8f9e1c6308faf60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_booleanValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a220c366c4630e906e1fcf5835d646666"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_booleanValueOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aada0185d26feb9ab4702a92aca6b3510"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad1c5f50bdadba083a3a9ea407f7570f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONObject_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire d'un JSONObject_t Libère aussi la mémoire de n'importe quel autre objet. Utilisation conséillée: <code>a = JSONObject_delete(a);</code> </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet à libérer de la mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1a4f1755703dec5cbcb8793039d6dd14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_detach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détacher un objet d'une clé, et libérer la mémoire Equivalent de JSONObject_remove avec destruct=true. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Object à modifier </td></tr>
+    <tr><td class="paramname">name</td><td>clé à détacher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2858276d6079e7d8c6e93fa6e4c1bca9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_detachAll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae4a7efb8f9c6861113a842c520801445"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_detachObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détacher un objet d'une clé, et libérer la mémoire Equivalent de JSONObject_removeObject avec destruct=true. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Object à modifier </td></tr>
+    <tr><td class="paramname">obj</td><td>Objet à détacher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a266d89f9b170d263edf400a773344c88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double JSONObject_doubleValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a15af38858c50758bbff14d856cc04f04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double JSONObject_doubleValueOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9df6211464f32f39838ddcb5f6a2944d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_equals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af979c24195d78a6f94b885586a2a07cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String_t JSONObject_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aab7d41e3e61d1252d84e44382e1ee273"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ac9de64e6679c0336ef6e36a570873869">JSONArray_t</a> JSONObject_getArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7eb4b8cccea89c264659e58de0188f93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a25c7765b3f008a80386a5df9621f56d9">JSONBoolean_t</a> JSONObject_getBoolean </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac5a5fa7286772bc7eee3bf3058753016"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a5b52a55e427fd37f5ceeabad3d861416">JSONDouble_t</a> JSONObject_getDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a65511822e6ca363cfb1d821c2a702182"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a10663664d4be0792cb16a1c8f31998a3">JSONInt_t</a> JSONObject_getInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1ff504bb698a7f0b7bd8b32ae17990ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONObject_getParent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab48e807af185a3277d8738886f3134c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a49f58ae50beaa93c73be6725f6345c9a">JSONString_t</a> JSONObject_getString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7b9853fa4cde808c33a3f94ad5ec90b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ab6b3f5d2ad50d89339f0af6a894c2ac0">JSONType_t</a> JSONObject_getType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a76933ba5d6f68c40fdc1a6a3e2f758b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JSONObject_hasParent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aeaf64d8adf27860fcdbca8b21e9126a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JSONObject_intValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac97551ea5ab47e56e073f4f76dba1058"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JSONObject_intValueOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abb450cb0fe13e5433dd524a15d31cc23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONObject_new </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instancie un nouveau JSONObject* L'objet C++ instancié sera récupéré sous forme de JSONObject_t. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouvel objet </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3cbe2d3dd60577da76b04ce9739ac63f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>destruct</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprimer une clé et sa valeur Voir JSONObject::remove Supprime la clé, et libère la mémoire de la valeur si destruct=true. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet à modifier </td></tr>
+    <tr><td class="paramname">name</td><td>Clé </td></tr>
+    <tr><td class="paramname">destruct</td><td>Si true, libère la mémoire de l'objet associé a la clé. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab40c6fb94d72a98cf68c27954e4e6a55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_removeObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>destruct</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprimer une clé et sa valeur a partir de la valeur Voir JSONObject::remove Supprime la clé, et libère la mémoire de la valeur si destruct=true. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet à modifier </td></tr>
+    <tr><td class="paramname">obj</td><td>Valeur (ptr) </td></tr>
+    <tr><td class="paramname">destruct</td><td>Si true, libère la mémoire de l'objet associé a la clé. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a514fae5a25c316735a6d408e78222e25"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définir la valeur d'une clé Voir JSONObject::set. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet dans lequel modifier la clé </td></tr>
+    <tr><td class="paramname">name</td><td>Nom de la clé </td></tr>
+    <tr><td class="paramname">child</td><td>Nouvelle valeur pour la clé Note: Ne libère pas la mémoire de la précédente valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aee92ac6851d59c1d5f4cc687535b5df8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_setBoolean </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définir la valeur d'une clé Voir JSONObject::set. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet dans lequel modifier la clé </td></tr>
+    <tr><td class="paramname">name</td><td>Nom de la clé </td></tr>
+    <tr><td class="paramname">child</td><td>Nouvelle valeur pour la clé Note: Ne libère pas la mémoire de la précédente valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aba306db611cb5975f1e006c6d7046605"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_setDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définir la valeur d'une clé Voir JSONObject::set. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet dans lequel modifier la clé </td></tr>
+    <tr><td class="paramname">name</td><td>Nom de la clé </td></tr>
+    <tr><td class="paramname">child</td><td>Nouvelle valeur pour la clé Note: Ne libère pas la mémoire de la précédente valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4814feaa598614161f71329be48cf255"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_setInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définir la valeur d'une clé Voir JSONObject::set. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet dans lequel modifier la clé </td></tr>
+    <tr><td class="paramname">name</td><td>Nom de la clé </td></tr>
+    <tr><td class="paramname">child</td><td>Nouvelle valeur pour la clé Note: Ne libère pas la mémoire de la précédente valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0601e20716b4c60774b5dca083f99ad7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSONObject_setString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>child</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définir la valeur d'une clé Voir JSONObject::set. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Objet dans lequel modifier la clé </td></tr>
+    <tr><td class="paramname">name</td><td>Nom de la clé </td></tr>
+    <tr><td class="paramname">child</td><td>Nouvelle valeur pour la clé Note: Ne libère pas la mémoire de la précédente valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7d14813cc3bf675849a162dc4efcc73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String_t JSONObject_stringValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad7562360a79ff42d205c8039d3f42054"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String_t JSONObject_stringValueOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String_t&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html">JSONObject.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:40 pour libcjson par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

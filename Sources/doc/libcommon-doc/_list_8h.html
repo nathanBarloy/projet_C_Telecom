@@ -1,0 +1,1609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcommon: Référence du fichier List/List.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcommon
+   </div>
+   <div id="projectbrief">Common lib for C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_list_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier List.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="_types_8h_source.html">Types/Types.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de List.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_list_8h__incl.png" border="0" usemap="#_list_2_list_8h" alt=""/></div>
+<map name="_list_2_list_8h" id="_list_2_list_8h">
+<area shape="rect" id="node3" href="_types_8h.html" title="Types/Types.h" alt="" coords="93,80,203,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="_list_8h__dep__incl.png" border="0" usemap="#_list_2_list_8hdep" alt=""/></div>
+<map name="_list_2_list_8hdep" id="_list_2_list_8hdep">
+<area shape="rect" id="node2" href="_map_8h.html" title="Map/Map.h" alt="" coords="5,80,91,107"/></map>
+</div>
+</div>
+<p><a href="_list_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html">List</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure représentant une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> (Liste doublement chainée) Il n'est pas conseillé d'y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure.  <a href="struct_list.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a914c2e31b62c24589e5a23ae7921242f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a914c2e31b62c24589e5a23ae7921242f">List</a>(a)&#160;&#160;&#160;(struct <a class="el" href="struct_list.html">List</a>*)(a)</td></tr>
+<tr class="memdesc:a914c2e31b62c24589e5a23ae7921242f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour le cast en List_t.  <a href="#a914c2e31b62c24589e5a23ae7921242f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a914c2e31b62c24589e5a23ae7921242f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73857e1b9b1309f2ad1ec33a82ff6c28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a73857e1b9b1309f2ad1ec33a82ff6c28">fList</a>(a)&#160;&#160;&#160;a = <a class="el" href="_list_8h.html#a1cf4afe1ec1b5d3000e4dd533069e2fb">freeFullList</a>(a);</td></tr>
+<tr class="memdesc:a73857e1b9b1309f2ad1ec33a82ff6c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour free une liste entièrement.  <a href="#a73857e1b9b1309f2ad1ec33a82ff6c28">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73857e1b9b1309f2ad1ec33a82ff6c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6fe99e0000dfb7b9df80dc811fc96fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ab6fe99e0000dfb7b9df80dc811fc96fb">nList</a>(a)&#160;&#160;&#160;a = a-&gt;next;</td></tr>
+<tr class="memdesc:ab6fe99e0000dfb7b9df80dc811fc96fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour l'élement suivant dans une liste.  <a href="#ab6fe99e0000dfb7b9df80dc811fc96fb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab6fe99e0000dfb7b9df80dc811fc96fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8416d18cdb20c9fb428c03465fff6d85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a8416d18cdb20c9fb428c03465fff6d85">pList</a>(a)&#160;&#160;&#160;a = a-&gt;prev;</td></tr>
+<tr class="memdesc:a8416d18cdb20c9fb428c03465fff6d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour l'élement précédent dans une liste.  <a href="#a8416d18cdb20c9fb428c03465fff6d85">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8416d18cdb20c9fb428c03465fff6d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a4d4f6777ae9965903cf0c7316c3b32a9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a></td></tr>
+<tr class="memdesc:a4d4f6777ae9965903cf0c7316c3b32a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant la structure de <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#a4d4f6777ae9965903cf0c7316c3b32a9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4d4f6777ae9965903cf0c7316c3b32a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a5af269bbf55d038bc3a1afd3948e220b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a5af269bbf55d038bc3a1afd3948e220b">newList</a> ()</td></tr>
+<tr class="memdesc:a5af269bbf55d038bc3a1afd3948e220b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue une nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#a5af269bbf55d038bc3a1afd3948e220b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5af269bbf55d038bc3a1afd3948e220b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adc1e5d2192367e34be7e730091236c"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a1adc1e5d2192367e34be7e730091236c">newListFromPtr</a> (void *ptr)</td></tr>
+<tr class="memdesc:a1adc1e5d2192367e34be7e730091236c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue une nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> a partir d'une autre.  <a href="#a1adc1e5d2192367e34be7e730091236c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1adc1e5d2192367e34be7e730091236c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e63473983cd2aef3af47bbf039e8249"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a9e63473983cd2aef3af47bbf039e8249">freeList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a9e63473983cd2aef3af47bbf039e8249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#a9e63473983cd2aef3af47bbf039e8249">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9e63473983cd2aef3af47bbf039e8249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cf4afe1ec1b5d3000e4dd533069e2fb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a1cf4afe1ec1b5d3000e4dd533069e2fb">freeFullList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a1cf4afe1ec1b5d3000e4dd533069e2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#a1cf4afe1ec1b5d3000e4dd533069e2fb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1cf4afe1ec1b5d3000e4dd533069e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65218009a96b8d0207ec358f7a2a739f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a65218009a96b8d0207ec358f7a2a739f">freeNextList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a65218009a96b8d0207ec358f7a2a739f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#a65218009a96b8d0207ec358f7a2a739f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a65218009a96b8d0207ec358f7a2a739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2211cf02c4b8c164ba6979bbabeb908"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ae2211cf02c4b8c164ba6979bbabeb908">freePrevList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:ae2211cf02c4b8c164ba6979bbabeb908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#ae2211cf02c4b8c164ba6979bbabeb908">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae2211cf02c4b8c164ba6979bbabeb908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab132a4eab12d402251c687ff0838046a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ab132a4eab12d402251c687ff0838046a">freeListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:ab132a4eab12d402251c687ff0838046a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#ab132a4eab12d402251c687ff0838046a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab132a4eab12d402251c687ff0838046a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942bc2e539faa3235a097d6b72316aee"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a942bc2e539faa3235a097d6b72316aee">freeFullListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a942bc2e539faa3235a097d6b72316aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#a942bc2e539faa3235a097d6b72316aee">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a942bc2e539faa3235a097d6b72316aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03346ae5c979b9dbe424d5129892e3b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ad03346ae5c979b9dbe424d5129892e3b">freeNextListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:ad03346ae5c979b9dbe424d5129892e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#ad03346ae5c979b9dbe424d5129892e3b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad03346ae5c979b9dbe424d5129892e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a09e29e45686e03b2ba080d0b8b3c6"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a41a09e29e45686e03b2ba080d0b8b3c6">freePrevListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a41a09e29e45686e03b2ba080d0b8b3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une Liste.  <a href="#a41a09e29e45686e03b2ba080d0b8b3c6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a41a09e29e45686e03b2ba080d0b8b3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabea8d76c51f2354146ebc64b369a428"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aabea8d76c51f2354146ebc64b369a428">detachList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:aabea8d76c51f2354146ebc64b369a428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détache une Liste.  <a href="#aabea8d76c51f2354146ebc64b369a428">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aabea8d76c51f2354146ebc64b369a428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a5487a575f40af71f138ba3ef7bbdb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a09a5487a575f40af71f138ba3ef7bbdb">detachListPrev</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a09a5487a575f40af71f138ba3ef7bbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détache la Liste précédente.  <a href="#a09a5487a575f40af71f138ba3ef7bbdb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a09a5487a575f40af71f138ba3ef7bbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a595d949b6926f3bda4609593e18a5ddb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a595d949b6926f3bda4609593e18a5ddb">detachListNext</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a595d949b6926f3bda4609593e18a5ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détache la Liste suivante.  <a href="#a595d949b6926f3bda4609593e18a5ddb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a595d949b6926f3bda4609593e18a5ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a249b916bb031fad1525d9d8ae41e09cb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a249b916bb031fad1525d9d8ae41e09cb">connectAsNextList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *next)</td></tr>
+<tr class="memdesc:a249b916bb031fad1525d9d8ae41e09cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connecte comme element suivant direct, remplace le suivant.  <a href="#a249b916bb031fad1525d9d8ae41e09cb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a249b916bb031fad1525d9d8ae41e09cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d25abe0de3f19cbbc1d7a4b984a563"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ac8d25abe0de3f19cbbc1d7a4b984a563">connectAsPrevList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *prev)</td></tr>
+<tr class="memdesc:ac8d25abe0de3f19cbbc1d7a4b984a563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connecte comme element précédent direct, remplace le précédent.  <a href="#ac8d25abe0de3f19cbbc1d7a4b984a563">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac8d25abe0de3f19cbbc1d7a4b984a563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9bfa5a73a598f519780961cd0e038dc"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ad9bfa5a73a598f519780961cd0e038dc">connectList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *nl)</td></tr>
+<tr class="memdesc:ad9bfa5a73a598f519780961cd0e038dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connecte 2 listes ensemble.  <a href="#ad9bfa5a73a598f519780961cd0e038dc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad9bfa5a73a598f519780961cd0e038dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3939fb5e54e289135aec0d1cf77298fd"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a3939fb5e54e289135aec0d1cf77298fd">joinList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *next, struct <a class="el" href="struct_list.html">List</a> *prev)</td></tr>
+<tr class="memdesc:a3939fb5e54e289135aec0d1cf77298fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connecte comme element précédent et suivant direct, remplace le précédent et le suivant.  <a href="#a3939fb5e54e289135aec0d1cf77298fd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3939fb5e54e289135aec0d1cf77298fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef21ed42fcc5108ed16a3e831390639"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aaef21ed42fcc5108ed16a3e831390639">lastList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:aaef21ed42fcc5108ed16a3e831390639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le dernier element de la liste.  <a href="#aaef21ed42fcc5108ed16a3e831390639">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaef21ed42fcc5108ed16a3e831390639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae289cda7788810f9baec9d18e6dc3832"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ae289cda7788810f9baec9d18e6dc3832">firstList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:ae289cda7788810f9baec9d18e6dc3832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le premier element de la liste.  <a href="#ae289cda7788810f9baec9d18e6dc3832">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae289cda7788810f9baec9d18e6dc3832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcaea883548c2ecea6ce3e3d822076ae"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#afcaea883548c2ecea6ce3e3d822076ae">copyList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:afcaea883548c2ecea6ce3e3d822076ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie une liste (1 seul élement)  <a href="#afcaea883548c2ecea6ce3e3d822076ae">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afcaea883548c2ecea6ce3e3d822076ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7920112e489472fc65246227bbeb4f2"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ae7920112e489472fc65246227bbeb4f2">copyFullList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:ae7920112e489472fc65246227bbeb4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie une liste (Tous les élements)  <a href="#ae7920112e489472fc65246227bbeb4f2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae7920112e489472fc65246227bbeb4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c033fd99c3cf5960a94f3500171640"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a48c033fd99c3cf5960a94f3500171640">nextList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a48c033fd99c3cf5960a94f3500171640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'élement suivant.  <a href="#a48c033fd99c3cf5960a94f3500171640">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a48c033fd99c3cf5960a94f3500171640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa597fa78902806cbeeb5bf3ef9de7c7"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aaa597fa78902806cbeeb5bf3ef9de7c7">prevList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:aaa597fa78902806cbeeb5bf3ef9de7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'élement précédent.  <a href="#aaa597fa78902806cbeeb5bf3ef9de7c7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa597fa78902806cbeeb5bf3ef9de7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ac25b7390a4a95ef99d636cd7c1540"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a79ac25b7390a4a95ef99d636cd7c1540">hasNextList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a79ac25b7390a4a95ef99d636cd7c1540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester l'existance d'un suivant.  <a href="#a79ac25b7390a4a95ef99d636cd7c1540">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79ac25b7390a4a95ef99d636cd7c1540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb105bcfd8bf01c73ff52bc3fb11793d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#abb105bcfd8bf01c73ff52bc3fb11793d">hasPrevList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:abb105bcfd8bf01c73ff52bc3fb11793d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester l'existance d'un précédent.  <a href="#abb105bcfd8bf01c73ff52bc3fb11793d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abb105bcfd8bf01c73ff52bc3fb11793d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab216011f3a838660614d6e7a2a87655f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ab216011f3a838660614d6e7a2a87655f">equalsOneList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *ptr2)</td></tr>
+<tr class="memdesc:ab216011f3a838660614d6e7a2a87655f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparer 2 élements d'une liste.  <a href="#ab216011f3a838660614d6e7a2a87655f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab216011f3a838660614d6e7a2a87655f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bbd706594d147ac4bc146142a5ac1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a00bbd706594d147ac4bc146142a5ac1c">equalsList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *ptr2)</td></tr>
+<tr class="memdesc:a00bbd706594d147ac4bc146142a5ac1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparer toute une liste, élément par élément.  <a href="#a00bbd706594d147ac4bc146142a5ac1c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a00bbd706594d147ac4bc146142a5ac1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73259227ba91f8f2fbb2fdd524dc7af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ab73259227ba91f8f2fbb2fdd524dc7af">equalsListWithoutSize</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, struct <a class="el" href="struct_list.html">List</a> *ptr2)</td></tr>
+<tr class="memdesc:ab73259227ba91f8f2fbb2fdd524dc7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparer toute une liste, élément par élément.  <a href="#ab73259227ba91f8f2fbb2fdd524dc7af">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab73259227ba91f8f2fbb2fdd524dc7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb4fd99a0493aa79933e4cd436b9832"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a2cb4fd99a0493aa79933e4cd436b9832">sizeOfList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a2cb4fd99a0493aa79933e4cd436b9832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la longueur d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#a2cb4fd99a0493aa79933e4cd436b9832">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2cb4fd99a0493aa79933e4cd436b9832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6d941cfb1eb511432be8dbeff8b2ae4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ad6d941cfb1eb511432be8dbeff8b2ae4">sizeToEndList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:ad6d941cfb1eb511432be8dbeff8b2ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la longueur de la Liste de la position actuelle à la fin.  <a href="#ad6d941cfb1eb511432be8dbeff8b2ae4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad6d941cfb1eb511432be8dbeff8b2ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23000a8ad522371b683c8273542dd9a8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a23000a8ad522371b683c8273542dd9a8">sizeToBeginList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a23000a8ad522371b683c8273542dd9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la longueur de la Liste de la position actuelle au début.  <a href="#a23000a8ad522371b683c8273542dd9a8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a23000a8ad522371b683c8273542dd9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e8751f8ea6789422b3e1e8b4e26ed1"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a41e8751f8ea6789422b3e1e8b4e26ed1">detachNextNList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n)</td></tr>
+<tr class="memdesc:a41e8751f8ea6789422b3e1e8b4e26ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détacher les N élements suivants.  <a href="#a41e8751f8ea6789422b3e1e8b4e26ed1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a41e8751f8ea6789422b3e1e8b4e26ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4d3edc9a6a268a8b007d10122abcd9"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aef4d3edc9a6a268a8b007d10122abcd9">detachPrevNList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n)</td></tr>
+<tr class="memdesc:aef4d3edc9a6a268a8b007d10122abcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détacher les N élements précédents.  <a href="#aef4d3edc9a6a268a8b007d10122abcd9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef4d3edc9a6a268a8b007d10122abcd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d011b44622952306bce454e35eab4e5"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a9d011b44622952306bce454e35eab4e5">freeNextNList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n)</td></tr>
+<tr class="memdesc:a9d011b44622952306bce454e35eab4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer les N élements suivants.  <a href="#a9d011b44622952306bce454e35eab4e5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9d011b44622952306bce454e35eab4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf6da2667bcc9abb57717eca0293cec"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a2bf6da2667bcc9abb57717eca0293cec">freePrevNList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n)</td></tr>
+<tr class="memdesc:a2bf6da2667bcc9abb57717eca0293cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer les N élements précédents.  <a href="#a2bf6da2667bcc9abb57717eca0293cec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2bf6da2667bcc9abb57717eca0293cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9e37fb3d4de3f875bfb3abf19ba00a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aee9e37fb3d4de3f875bfb3abf19ba00a">freeNextNListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:aee9e37fb3d4de3f875bfb3abf19ba00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer les N élements suivants et les pointeurs de valeurs.  <a href="#aee9e37fb3d4de3f875bfb3abf19ba00a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aee9e37fb3d4de3f875bfb3abf19ba00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabd362055bc8a0c11b11267612a056e"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#aaabd362055bc8a0c11b11267612a056e">freePrevNListWithPtr</a> (struct <a class="el" href="struct_list.html">List</a> *ptr, size_t n, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:aaabd362055bc8a0c11b11267612a056e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer les N élements précédents et les pointeurs de valeurs.  <a href="#aaabd362055bc8a0c11b11267612a056e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaabd362055bc8a0c11b11267612a056e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdca52afefaedae5e979542fded4814d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#acdca52afefaedae5e979542fded4814d">valueOfList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:acdca52afefaedae5e979542fded4814d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur de l'élément d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#acdca52afefaedae5e979542fded4814d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acdca52afefaedae5e979542fded4814d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d59e8920da154bc42615dbb350c8ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#a4d59e8920da154bc42615dbb350c8ed4">freeVoidList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:a4d59e8920da154bc42615dbb350c8ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer un élement (fonction prévue pour fonctionner comme freeFunc)  <a href="#a4d59e8920da154bc42615dbb350c8ed4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4d59e8920da154bc42615dbb350c8ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b204f9471514c96607a0cbfbba4bf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_list_8h.html#ac8b204f9471514c96607a0cbfbba4bf7">freeVoidFullList</a> (struct <a class="el" href="struct_list.html">List</a> *ptr)</td></tr>
+<tr class="memdesc:ac8b204f9471514c96607a0cbfbba4bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> complète (fonction prévue pour fonctionner comme freeFunc)  <a href="#ac8b204f9471514c96607a0cbfbba4bf7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac8b204f9471514c96607a0cbfbba4bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a73857e1b9b1309f2ad1ec33a82ff6c28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define fList</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = <a class="el" href="_list_8h.html#a1cf4afe1ec1b5d3000e4dd533069e2fb">freeFullList</a>(a);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour free une liste entièrement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>List_t Equivalent à: a = freeFullList(a); </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_list_8h_source.html#l00310">310</a> du fichier <a class="el" href="_list_8h_source.html">List.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a914c2e31b62c24589e5a23ae7921242f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="struct_list.html">List</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(struct <a class="el" href="struct_list.html">List</a>*)(a)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour le cast en List_t. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_list_8h_source.html#l00020">20</a> du fichier <a class="el" href="_list_8h_source.html">List.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6fe99e0000dfb7b9df80dc811fc96fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define nList</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = a-&gt;next;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour l'élement suivant dans une liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>List_t Remplace l'element actuel par son suivant. Equivalent a: a = a-&gt;next; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_list_8h_source.html#l00317">317</a> du fichier <a class="el" href="_list_8h_source.html">List.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8416d18cdb20c9fb428c03465fff6d85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define pList</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = a-&gt;prev;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour l'élement précédent dans une liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>List_t Remplace l'element actuel par son précédent. Equivalent a: a = a-&gt;prev; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_list_8h_source.html#l00324">324</a> du fichier <a class="el" href="_list_8h_source.html">List.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a4d4f6777ae9965903cf0c7316c3b32a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_list.html">List</a>* <a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant la structure de <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_list_8h_source.html#l00015">15</a> du fichier <a class="el" href="_list_8h_source.html">List.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a249b916bb031fad1525d9d8ae41e09cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* connectAsNextList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>next</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Connecte comme element suivant direct, remplace le suivant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concernée </td></tr>
+    <tr><td class="paramname">next</td><td>Element a mettre comme suivant </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>ptr Déconnecte le suivant, et le remplace: Attention, ne libère pas la mémoire du suivant, remplace TOUTE LA LISTE SUIVANTE. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8d25abe0de3f19cbbc1d7a4b984a563"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* connectAsPrevList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>prev</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Connecte comme element précédent direct, remplace le précédent. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concernée </td></tr>
+    <tr><td class="paramname">prev</td><td>Element a mettre comme précédent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>ptr Déconnecte le précédent, et le remplace: Attention, ne libère pas la mémoire du précédent, remplace TOUTE LA LISTE SUIVANTE. Voir <a class="el" href="_list_8h.html#ad9bfa5a73a598f519780961cd0e038dc" title="Connecte 2 listes ensemble. ">connectList()</a> pour ajouter une liste à la suite. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9bfa5a73a598f519780961cd0e038dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* connectList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>nl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Connecte 2 listes ensemble. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste </td></tr>
+    <tr><td class="paramname">nl</td><td>Liste à connecter a la suite Connecte la fin de la première liste au début de la suivante. Voir <a class="el" href="_list_8h.html#ad9bfa5a73a598f519780961cd0e038dc" title="Connecte 2 listes ensemble. ">connectList()</a> pour ajouter une liste à la suite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7920112e489472fc65246227bbeb4f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* copyFullList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copie une liste (Tous les élements) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste à cloner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Clone complet de la liste, en reproduisant les liaisons et en conservant l'ordre des valeurs dans la liste. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afcaea883548c2ecea6ce3e3d822076ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* copyList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copie une liste (1 seul élement) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Element à cloner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Clone de 1 <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. Un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>, ici 1 seul élement, sans ses liaisons. Voir <a class="el" href="_list_8h.html#ae7920112e489472fc65246227bbeb4f2" title="Copie une liste (Tous les élements) ">copyFullList()</a> pour copier toute une liste. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aabea8d76c51f2354146ebc64b369a428"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* detachList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détache une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à détacher Ne détache que l'élement courant, et accroche les précédents et suivants entre eux pour reboucher le "trou" dans la liste si nécessaire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>ptr </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a595d949b6926f3bda4609593e18a5ddb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* detachListNext </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détache la Liste suivante. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à détacher Ne détache que les élements suivants </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Liste suivants (peut être 0) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09a5487a575f40af71f138ba3ef7bbdb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* detachListPrev </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détache la Liste précédente. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à détacher Ne détache que les élements précédents </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Liste précédente (peut être 0) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a41e8751f8ea6789422b3e1e8b4e26ed1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* detachNextNList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détacher les N élements suivants. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Liste contenant les N éléments suivants. Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant). Cette fonction permet d'exporter une zone d'une liste dans une autre Liste. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aef4d3edc9a6a268a8b007d10122abcd9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* detachPrevNList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détacher les N élements précédents. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Liste contenant les N éléments précédents. Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent). Cette fonction permet d'exporter une zone d'une liste dans une autre Liste. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a00bbd706594d147ac4bc146142a5ac1c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equalsList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparer toute une liste, élément par élément. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> 1 </td></tr>
+    <tr><td class="paramname">ptr2</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si les 2 listes ont même taille, et les élements aux mêmes positions ont les mêmes pointeurs de valeur, 0 sinon. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab73259227ba91f8f2fbb2fdd524dc7af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equalsListWithoutSize </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparer toute une liste, élément par élément. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> 1 </td></tr>
+    <tr><td class="paramname">ptr2</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si les élements aux mêmes positions ont les mêmes pointeurs de valeur, 0 sinon. Note: Ignore la longueur des listes, et s'arrête de comparer une fois la liste la plus courte parcourue. Considère comme identique tout ce qui n'a pas pu être comparé. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab216011f3a838660614d6e7a2a87655f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equalsOneList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparer 2 élements d'une liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Element 1 </td></tr>
+    <tr><td class="paramname">ptr2</td><td>Element 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si les 2 pointeurs de valeurs sont égaux, 0 sinon. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae289cda7788810f9baec9d18e6dc3832"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* firstList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie le premier element de la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Premier élement de ptr, peut être ptr. Si ptr != 0 alors ne renvoie pas 0. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1cf4afe1ec1b5d3000e4dd533069e2fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeFullList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer Libère les élements précédents et suivants, ne libère pas la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a942bc2e539faa3235a097d6b72316aee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeFullListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Libère l'élement courant, ainsi que les précédents et suivants, libère aussi le pointeur de la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9e63473983cd2aef3af47bbf039e8249"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer Ne libère ni les suivants, ni les précédents. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab132a4eab12d402251c687ff0838046a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Ne libère ni les suivants, ni les précédents, libère aussi le pointeur de la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a65218009a96b8d0207ec358f7a2a739f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeNextList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer Libère uniquement les éléments suivants, ne libère pas la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad03346ae5c979b9dbe424d5129892e3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeNextListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Ne libère que les élements suivants, libère aussi le pointeur de la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9d011b44622952306bce454e35eab4e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeNextNList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer les N élements suivants. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant). Cette fonction permet de couper une zone dans une liste. Les éléments selectionnés sont libérés, pas le pointeur de leurs valeurs. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee9e37fb3d4de3f875bfb3abf19ba00a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freeNextNListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer les N élements suivants et les pointeurs de valeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer le pointeur de la valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant). Cette fonction permet de couper une zone dans une liste. Les éléments selectionnés sont libérés, le pointeur de leurs valeurs aussi. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae2211cf02c4b8c164ba6979bbabeb908"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freePrevList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer Libère uniquement les éléments précédents, ne libère pas la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a41a09e29e45686e03b2ba080d0b8b3c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freePrevListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une Liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Ne libère que les élements précédents, libère aussi le pointeur de la valeur associée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2bf6da2667bcc9abb57717eca0293cec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freePrevNList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer les N élements précédents. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent). Cette fonction permet de couper une zone dans une liste. Les éléments selectionnés sont libérés, pas le pointeur de leurs valeurs. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaabd362055bc8a0c11b11267612a056e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* freePrevNListWithPtr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer les N élements précédents et les pointeurs de valeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (élement) </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer le pointeur de la valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent). Cette fonction permet de couper une zone dans une liste. Les éléments selectionnés sont libérés, le pointeur de leurs valeurs aussi. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8b204f9471514c96607a0cbfbba4bf7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeVoidFullList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> complète (fonction prévue pour fonctionner comme freeFunc) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Pointeur vers un List_t Fonction a passer aux fonctions free...WithPtr si valeur a supprimer est une structure de type <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> (1 seul élément ou une liste complète) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4d59e8920da154bc42615dbb350c8ed4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeVoidList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libérer un élement (fonction prévue pour fonctionner comme freeFunc) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Pointeur vers un List_t Fonction a passer aux fonctions free...WithPtr si valeur a supprimer est une structure de type <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> (1 seul élément) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a79ac25b7390a4a95ef99d636cd7c1540"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hasNextList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tester l'existance d'un suivant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la liste à un suivant, 0 sinon. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abb105bcfd8bf01c73ff52bc3fb11793d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hasPrevList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tester l'existance d'un précédent. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la liste à un précédent, 0 sinon. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3939fb5e54e289135aec0d1cf77298fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* joinList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>next</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>prev</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Connecte comme element précédent et suivant direct, remplace le précédent et le suivant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concernée </td></tr>
+    <tr><td class="paramname">next</td><td>Element a mettre comme suivant </td></tr>
+    <tr><td class="paramname">prev</td><td>Element a mettre comme précédent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>ptr Déconnecte le précédent et le suivant, et les remplacent: Attention, ne libère pas la mémoire du précédent ni du suivant, remplace TOUTE LA LISTE SUIVANTE et TOUTE LA LISTE PRECEDENTE. Voir <a class="el" href="_list_8h.html#ad9bfa5a73a598f519780961cd0e038dc" title="Connecte 2 listes ensemble. ">connectList()</a> pour ajouter une liste à la suite. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaef21ed42fcc5108ed16a3e831390639"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* lastList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie le dernier element de la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Dernier élement de ptr, peut être ptr. Si ptr != 0 alors ne renvoie pas 0. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5af269bbf55d038bc3a1afd3948e220b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* newList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue une nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur de la nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1adc1e5d2192367e34be7e730091236c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* newListFromPtr </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue une nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> a partir d'une autre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Autre <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur de la nouvelle <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a48c033fd99c3cf5960a94f3500171640"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* nextList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie l'élement suivant. </p>
+<p>Permet d'accéder à l'élement suivant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Element suivant (0 si aucun suivant) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaa597fa78902806cbeeb5bf3ef9de7c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_list.html">List</a>* prevList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie l'élement précédent. </p>
+<p>Permet d'accéder à l'élement précédent. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Element suivant (0 si aucun précédent) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2cb4fd99a0493aa79933e4cd436b9832"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeOfList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie la longueur d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Longueur de la liste </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a23000a8ad522371b683c8273542dd9a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeToBeginList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie la longueur de la Liste de la position actuelle au début. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Longueur de la liste jusqu'au début depuis l'élement actuel. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad6d941cfb1eb511432be8dbeff8b2ae4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeToEndList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie la longueur de la Liste de la position actuelle à la fin. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Liste concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Longueur de la liste jusqu'a la fin depuis l'élement actuel. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acdca52afefaedae5e979542fded4814d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* valueOfList </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la valeur de l'élément d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> concerné (element) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void* Pointeur sur la valeur </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d3587ea34575ba69a6f17dbf2376cb3e.html">List</a></li><li class="navelem"><a class="el" href="_list_8h.html">List.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>libcommon: Référence du fichier Map/Map.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libcommon
+   </div>
+   <div id="projectbrief">Common lib for C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_map_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier Map.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="_types_8h_source.html">Types/Types.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_string_8h_source.html">String/String.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_list_8h_source.html">List/List.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_vector_8h_source.html">Vector/Vector.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Map.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_map_8h__incl.png" border="0" usemap="#_map_2_map_8h" alt=""/></div>
+<map name="_map_2_map_8h" id="_map_2_map_8h">
+<area shape="rect" id="node2" href="_types_8h.html" title="Types/Types.h" alt="" coords="11,155,121,181"/><area shape="rect" id="node3" href="_string_8h.html" title="String/String.h" alt="" coords="263,80,367,107"/><area shape="rect" id="node6" href="_list_8h.html" title="List/List.h" alt="" coords="23,80,101,107"/><area shape="rect" id="node7" href="_vector_8h.html" title="Vector/Vector.h" alt="" coords="125,80,238,107"/></map>
+</div>
+</div>
+<p><a href="_map_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_map_object.html">MapObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure représentant un Objet contenu dans <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> Il n'est pas conseillé d'y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. Cet objet a été prévu pour une utilisation interne par cette bibliothèque, il n'est pas conseillé de l'utiliser directement. Cet objet intervient dans la structure interne de <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="struct_map_object.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_map.html">Map</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure représentant une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> (Dictionnaire, Tableau associatif) Il n'est pas conseillé d'y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure.  <a href="struct_map.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0f563b57af7e2365bd442ae5b2e0e88c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a0f563b57af7e2365bd442ae5b2e0e88c">MAP_DEFAULT_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a0f563b57af7e2365bd442ae5b2e0e88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille par défaut du tableau contenant les listes chainées dans <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#a0f563b57af7e2365bd442ae5b2e0e88c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0f563b57af7e2365bd442ae5b2e0e88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccbda838a833a5a91e49d76a10f88a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a4ccbda838a833a5a91e49d76a10f88a4">Map</a>(a)&#160;&#160;&#160;(struct <a class="el" href="struct_map.html">Map</a>*)(a)</td></tr>
+<tr class="memdesc:a4ccbda838a833a5a91e49d76a10f88a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour le cast en Map_t.  <a href="#a4ccbda838a833a5a91e49d76a10f88a4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4ccbda838a833a5a91e49d76a10f88a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af42ade507e956bcace3ba1548c1e4477"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#af42ade507e956bcace3ba1548c1e4477">MapObject</a>(a)&#160;&#160;&#160;(struct <a class="el" href="struct_map_object.html">MapObject</a>*)(a)</td></tr>
+<tr class="memdesc:af42ade507e956bcace3ba1548c1e4477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour le cast en MapObject_t.  <a href="#af42ade507e956bcace3ba1548c1e4477">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af42ade507e956bcace3ba1548c1e4477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ceb2c87252544007af04284809c8b82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a3ceb2c87252544007af04284809c8b82">fMap</a>(a)&#160;&#160;&#160;a = <a class="el" href="_map_8h.html#ab1826fd05572bb80419247895b8efc70">freeMap</a>(a);</td></tr>
+<tr class="memdesc:a3ceb2c87252544007af04284809c8b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour free une map.  <a href="#a3ceb2c87252544007af04284809c8b82">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3ceb2c87252544007af04284809c8b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3182197b8bc8e17cd2e3cc10855241dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a3182197b8bc8e17cd2e3cc10855241dc">ffMap</a>(a, f)&#160;&#160;&#160;a = <a class="el" href="_map_8h.html#aacaa3591ab6b553da85180aa2475db27">freeMapWithPtr</a>(a, f);</td></tr>
+<tr class="memdesc:a3182197b8bc8e17cd2e3cc10855241dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour free une map avec libération de pointeurs.  <a href="#a3182197b8bc8e17cd2e3cc10855241dc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3182197b8bc8e17cd2e3cc10855241dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29f6a4da23dfc91654cb16490e65b0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ab29f6a4da23dfc91654cb16490e65b0f">dMapObject</a>(a)&#160;&#160;&#160;printf(&quot;[MapObject_t: %s = %p]\n&quot;, cString((*a).name), (*a).value);</td></tr>
+<tr class="memdesc:ab29f6a4da23dfc91654cb16490e65b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour afficher un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>.  <a href="#ab29f6a4da23dfc91654cb16490e65b0f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab29f6a4da23dfc91654cb16490e65b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a54bdb983e089bef13e171ad229776"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a94a54bdb983e089bef13e171ad229776">dsMapObject</a>(a)&#160;&#160;&#160;printf(&quot;[MapObject_t: %s = %s]\n&quot;, cString((*a).name), <a class="el" href="_string_8h.html#a4f29071a02325c3b231a9a2ea3cbf97e">cString</a>(<a class="el" href="struct_string.html">String</a>((*a).value)));</td></tr>
+<tr class="memdesc:a94a54bdb983e089bef13e171ad229776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourci pour afficher un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> contenant un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a94a54bdb983e089bef13e171ad229776">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a94a54bdb983e089bef13e171ad229776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:ad4c7fc326c769a9299a3486cdef61ddb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_map_object.html">MapObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a></td></tr>
+<tr class="memdesc:ad4c7fc326c769a9299a3486cdef61ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant la structure de <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>.  <a href="#ad4c7fc326c769a9299a3486cdef61ddb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad4c7fc326c769a9299a3486cdef61ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33328a876bc5536257a86a8ad13667cf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_map.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a></td></tr>
+<tr class="memdesc:a33328a876bc5536257a86a8ad13667cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant la structure de <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#a33328a876bc5536257a86a8ad13667cf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a33328a876bc5536257a86a8ad13667cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae194cb9eceea15e7d01d47c8afcaa07e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ae194cb9eceea15e7d01d47c8afcaa07e">newMap</a> ()</td></tr>
+<tr class="memdesc:ae194cb9eceea15e7d01d47c8afcaa07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue une nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#ae194cb9eceea15e7d01d47c8afcaa07e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae194cb9eceea15e7d01d47c8afcaa07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a564e9d16c1cf9db6d1d52d68a20f2eb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a564e9d16c1cf9db6d1d52d68a20f2eb0">newMapWithSize</a> (size_t size)</td></tr>
+<tr class="memdesc:a564e9d16c1cf9db6d1d52d68a20f2eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue une nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> a partir d'une taille.  <a href="#a564e9d16c1cf9db6d1d52d68a20f2eb0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a564e9d16c1cf9db6d1d52d68a20f2eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1826fd05572bb80419247895b8efc70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ab1826fd05572bb80419247895b8efc70">freeMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map)</td></tr>
+<tr class="memdesc:ab1826fd05572bb80419247895b8efc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#ab1826fd05572bb80419247895b8efc70">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab1826fd05572bb80419247895b8efc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacaa3591ab6b553da85180aa2475db27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#aacaa3591ab6b553da85180aa2475db27">freeMapWithPtr</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:aacaa3591ab6b553da85180aa2475db27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#aacaa3591ab6b553da85180aa2475db27">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aacaa3591ab6b553da85180aa2475db27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94156d4981508abf173bca8511c35a3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a94156d4981508abf173bca8511c35a3d">emptyMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map)</td></tr>
+<tr class="memdesc:a94156d4981508abf173bca8511c35a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vider une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#a94156d4981508abf173bca8511c35a3d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a94156d4981508abf173bca8511c35a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39526dea3c012f72050ad1c9cd1242e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a39526dea3c012f72050ad1c9cd1242e8">emptyMapWithPtr</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a39526dea3c012f72050ad1c9cd1242e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vider une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#a39526dea3c012f72050ad1c9cd1242e8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a39526dea3c012f72050ad1c9cd1242e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955a39ed2675d4e88b500c5995e4ac76"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a955a39ed2675d4e88b500c5995e4ac76">hashMap</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str)</td></tr>
+<tr class="memdesc:a955a39ed2675d4e88b500c5995e4ac76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le hash pour la map, en utilisant la méthode LoseLose.  <a href="#a955a39ed2675d4e88b500c5995e4ac76">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a955a39ed2675d4e88b500c5995e4ac76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f665e0f74380939910a9fcfda2f00ad"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a0f665e0f74380939910a9fcfda2f00ad">getMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str)</td></tr>
+<tr class="memdesc:a0f665e0f74380939910a9fcfda2f00ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir une valeur a partir de sa clé  <a href="#a0f665e0f74380939910a9fcfda2f00ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0f665e0f74380939910a9fcfda2f00ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e04451a14a026477430e609ae197a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ae5e04451a14a026477430e609ae197a3">setMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str, void *e)</td></tr>
+<tr class="memdesc:ae5e04451a14a026477430e609ae197a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigner une valeur à une clé  <a href="#ae5e04451a14a026477430e609ae197a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae5e04451a14a026477430e609ae197a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35a91b0edc49f1dac9339376b499ee77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a35a91b0edc49f1dac9339376b499ee77">removeFromMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str)</td></tr>
+<tr class="memdesc:a35a91b0edc49f1dac9339376b499ee77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retirer une valeur a partir de sa clé  <a href="#a35a91b0edc49f1dac9339376b499ee77">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a35a91b0edc49f1dac9339376b499ee77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56102e726dc5930aa6fe77f6e13812cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a56102e726dc5930aa6fe77f6e13812cc">removeFromMapWithPtr</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a56102e726dc5930aa6fe77f6e13812cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retirer une valeur a partir de sa clé et libérer le pointeur de la valeur.  <a href="#a56102e726dc5930aa6fe77f6e13812cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a56102e726dc5930aa6fe77f6e13812cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c930e043045fa0979a8a40662a4c80"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a07c930e043045fa0979a8a40662a4c80">sizeOfMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map)</td></tr>
+<tr class="memdesc:a07c930e043045fa0979a8a40662a4c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'élements dans la map.  <a href="#a07c930e043045fa0979a8a40662a4c80">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a07c930e043045fa0979a8a40662a4c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f3f62a2c0ab5957557320df7476872"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ad5f3f62a2c0ab5957557320df7476872">vectorFromMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map)</td></tr>
+<tr class="memdesc:ad5f3f62a2c0ab5957557320df7476872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un vector a partir d'une map.  <a href="#ad5f3f62a2c0ab5957557320df7476872">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad5f3f62a2c0ab5957557320df7476872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef9dfe5f46de1d8c62830b048350c21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a1ef9dfe5f46de1d8c62830b048350c21">mapFromVector</a> (<a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a> arr)</td></tr>
+<tr class="memdesc:a1ef9dfe5f46de1d8c62830b048350c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une map a partir d'un tableau.  <a href="#a1ef9dfe5f46de1d8c62830b048350c21">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1ef9dfe5f46de1d8c62830b048350c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e64df6b202823532b7d71f5f79cec42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a3e64df6b202823532b7d71f5f79cec42">listFromMap</a> (<a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> map)</td></tr>
+<tr class="memdesc:a3e64df6b202823532b7d71f5f79cec42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> a partir d'une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>.  <a href="#a3e64df6b202823532b7d71f5f79cec42">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3e64df6b202823532b7d71f5f79cec42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fa1bf7cff21427478d75cbe93e9128"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a69fa1bf7cff21427478d75cbe93e9128">mapFromList</a> (<a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a> list)</td></tr>
+<tr class="memdesc:a69fa1bf7cff21427478d75cbe93e9128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une map a partir d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> de MapObject_t.  <a href="#a69fa1bf7cff21427478d75cbe93e9128">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a69fa1bf7cff21427478d75cbe93e9128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ac2e8a1f3127210b795074ab8c343b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a46ac2e8a1f3127210b795074ab8c343b">newMapObject</a> ()</td></tr>
+<tr class="memdesc:a46ac2e8a1f3127210b795074ab8c343b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>.  <a href="#a46ac2e8a1f3127210b795074ab8c343b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a46ac2e8a1f3127210b795074ab8c343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c85114adb1ccf4a93dcef9f0554fce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ac3c85114adb1ccf4a93dcef9f0554fce">newMapObjectWithName</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> name)</td></tr>
+<tr class="memdesc:ac3c85114adb1ccf4a93dcef9f0554fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> avec un nom de clé  <a href="#ac3c85114adb1ccf4a93dcef9f0554fce">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac3c85114adb1ccf4a93dcef9f0554fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a902f467689308d73fb5bb974fb710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a48a902f467689308d73fb5bb974fb710">newMapObjectFull</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> name, void *e)</td></tr>
+<tr class="memdesc:a48a902f467689308d73fb5bb974fb710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> avec un nom de clé et une valeur.  <a href="#a48a902f467689308d73fb5bb974fb710">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a48a902f467689308d73fb5bb974fb710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33191c45c17c2357594f26722dd709d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ac33191c45c17c2357594f26722dd709d">freeMapObject</a> (<a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> obj)</td></tr>
+<tr class="memdesc:ac33191c45c17c2357594f26722dd709d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>.  <a href="#ac33191c45c17c2357594f26722dd709d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac33191c45c17c2357594f26722dd709d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836ef0d66cf439db9e422a8f420ebf9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a836ef0d66cf439db9e422a8f420ebf9e">freeMapObjectWithPtr</a> (<a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> obj, void(*freeFunc)(void *))</td></tr>
+<tr class="memdesc:a836ef0d66cf439db9e422a8f420ebf9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>.  <a href="#a836ef0d66cf439db9e422a8f420ebf9e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a836ef0d66cf439db9e422a8f420ebf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519c92c38469cc7ae182724fa0a33d6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#a519c92c38469cc7ae182724fa0a33d6e">getMapObjectOccurence</a> (<a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a> list, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> name)</td></tr>
+<tr class="memdesc:a519c92c38469cc7ae182724fa0a33d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir le <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> correspondant a une clé dans un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#a519c92c38469cc7ae182724fa0a33d6e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a519c92c38469cc7ae182724fa0a33d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85a9402edc207e91f7d7b293f6e37c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_8h.html#ae85a9402edc207e91f7d7b293f6e37c1">getMapObjectOccurenceList</a> (<a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a> list, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> name)</td></tr>
+<tr class="memdesc:ae85a9402edc207e91f7d7b293f6e37c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir le <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> contenant le <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> correspondant a une clé dans un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>.  <a href="#ae85a9402edc207e91f7d7b293f6e37c1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae85a9402edc207e91f7d7b293f6e37c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="ab29f6a4da23dfc91654cb16490e65b0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define dMapObject</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;printf(&quot;[MapObject_t: %s = %p]\n&quot;, cString((*a).name), (*a).value);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour afficher un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> a afficher Fonctionne avec n'importe quel valeur contenue </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00211">211</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a94a54bdb983e089bef13e171ad229776"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define dsMapObject</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;printf(&quot;[MapObject_t: %s = %s]\n&quot;, cString((*a).name), <a class="el" href="_string_8h.html#a4f29071a02325c3b231a9a2ea3cbf97e">cString</a>(<a class="el" href="struct_string.html">String</a>((*a).value)));</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour afficher un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> contenant un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> a afficher Fonctionne seulement si la valeur contenue est un <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00217">217</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3182197b8bc8e17cd2e3cc10855241dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ffMap</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">f&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;a = <a class="el" href="_map_8h.html#aacaa3591ab6b553da85180aa2475db27">freeMapWithPtr</a>(a, f);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour free une map avec libération de pointeurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+    <tr><td class="paramname">f</td><td>Fonction permettant de libérer les valeurs</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Equivalent de a = freeMapWithPtr(a, f); </p>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00205">205</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ceb2c87252544007af04284809c8b82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define fMap</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;a = <a class="el" href="_map_8h.html#ab1826fd05572bb80419247895b8efc70">freeMap</a>(a);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour free une map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Equivalent de a = freeMap(a); </p>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00197">197</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ccbda838a833a5a91e49d76a10f88a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="struct_map.html">Map</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(struct <a class="el" href="struct_map.html">Map</a>*)(a)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour le cast en Map_t. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00185">185</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f563b57af7e2365bd442ae5b2e0e88c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_DEFAULT_SIZE&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taille par défaut du tableau contenant les listes chainées dans <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<p>Modifiable via <a class="el" href="_map_8h.html#a564e9d16c1cf9db6d1d52d68a20f2eb0" title="Alloue une nouvelle Map a partir d&#39;une taille. ">newMapWithSize()</a> lors de l'allocation d'une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> </p>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00010">10</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af42ade507e956bcace3ba1548c1e4477"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="struct_map_object.html">MapObject</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(struct <a class="el" href="struct_map_object.html">MapObject</a>*)(a)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourci pour le cast en MapObject_t. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Pointeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00190">190</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a33328a876bc5536257a86a8ad13667cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_map.html">Map</a>* <a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant la structure de <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00031">31</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4c7fc326c769a9299a3486cdef61ddb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_map_object.html">MapObject</a>* <a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant la structure de <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_map_8h_source.html#l00021">21</a> du fichier <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a94156d4981508abf173bca8511c35a3d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> emptyMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vider une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Objet à libérer Vider la map, ne libère pas les pointeurs des valeurs associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a39526dea3c012f72050ad1c9cd1242e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> emptyMapWithPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vider une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Vider la map, libère les pointeurs des valeurs associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab1826fd05572bb80419247895b8efc70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> freeMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Objet à libérer Libère la map, ne libère pas les pointeurs des valeurs associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac33191c45c17c2357594f26722dd709d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> freeMapObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Ne libère pas la mémoire de la valeur (pointeur). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a836ef0d66cf439db9e422a8f420ebf9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> freeMapObjectWithPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère un <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> concerné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 Ne libère pas la mémoire de la valeur (pointeur). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aacaa3591ab6b553da85180aa2475db27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> freeMapWithPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Objet à libérer </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction a appeler pour libérer la valeur associée Libère la map, libère les pointeurs des valeurs associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f665e0f74380939910a9fcfda2f00ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* getMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir une valeur a partir de sa clé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+    <tr><td class="paramname">str</td><td>Clé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur se trouvant à cette clé, 0 si la clé n'existe pas </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a519c92c38469cc7ae182724fa0a33d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> getMapObjectOccurence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a>&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir le <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> correspondant a une clé dans un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>clé </td></tr>
+    <tr><td class="paramname">list</td><td>Liste </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> correspondant Note: Fonction interne, ne pas utiliser a moins de savoir ce que vous faites. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae85a9402edc207e91f7d7b293f6e37c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a> getMapObjectOccurenceList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a>&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir le <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> contenant le <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> correspondant a une clé dans un <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>clé </td></tr>
+    <tr><td class="paramname">list</td><td>Liste </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> correspondante Note: Fonction interne, ne pas utiliser a moins de savoir ce que vous faites. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a955a39ed2675d4e88b500c5995e4ac76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long hashMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule le hash pour la map, en utilisant la méthode LoseLose. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td><a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Hash (nombre) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3e64df6b202823532b7d71f5f79cec42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a> listFromMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> a partir d'une <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> contenant des MapObject_t pour les associations. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69fa1bf7cff21427478d75cbe93e9128"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> mapFromList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9">List_t</a>&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une map a partir d'une <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> de MapObject_t. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td><a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> contenant des MapObject_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouvelle map contenant les associations de <a class="el" href="struct_list.html" title="Structure représentant une List (Liste doublement chainée) Il n&#39;est pas conseillé d&#39;y accéder directe...">List</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1ef9dfe5f46de1d8c62830b048350c21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> mapFromVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a>&#160;</td>
+          <td class="paramname"><em>arr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une map a partir d'un tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>Tableau contenant des MapObject_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> contenant les associations </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae194cb9eceea15e7d01d47c8afcaa07e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> newMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue une nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a>. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur de la nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a46ac2e8a1f3127210b795074ab8c343b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> newMapObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a>. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a48a902f467689308d73fb5bb974fb710"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> newMapObjectFull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> avec un nom de clé et une valeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Nom de clé </td></tr>
+    <tr><td class="paramname">e</td><td>Valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3c85114adb1ccf4a93dcef9f0554fce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb">MapObject_t</a> newMapObjectWithName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue un nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> avec un nom de clé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Nom de clé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur du nouveau <a class="el" href="struct_map_object.html" title="Structure représentant un Objet contenu dans Map Il n&#39;est pas conseillé d&#39;y accéder directement...">MapObject</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a564e9d16c1cf9db6d1d52d68a20f2eb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> newMapWithSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue une nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> a partir d'une taille. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Taille initiale de tableau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur de la nouvelle <a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a35a91b0edc49f1dac9339376b499ee77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> removeFromMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retirer une valeur a partir de sa clé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+    <tr><td class="paramname">str</td><td>Clé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>map Note: La mémoire n'est pas libérée pour le pointeur de la valeur </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a56102e726dc5930aa6fe77f6e13812cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> removeFromMapWithPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>freeFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retirer une valeur a partir de sa clé et libérer le pointeur de la valeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+    <tr><td class="paramname">str</td><td>Clé </td></tr>
+    <tr><td class="paramname">freeFunc</td><td>Fonction à appeler pour libérer le pointeur de la valeur de la mémoire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>map Note: La mémoire est libérée pour le pointeur de la valeur </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae5e04451a14a026477430e609ae197a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a> setMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigner une valeur à une clé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+    <tr><td class="paramname">str</td><td>Clé </td></tr>
+    <tr><td class="paramname">e</td><td>Valeur a mettre dans la clé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>map </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a07c930e043045fa0979a8a40662a4c80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeOfMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nombre d'élements dans la map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre d'élements dans la map </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad5f3f62a2c0ab5957557320df7476872"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_vector_8h.html#a56850a9131bc54f1be8b5c548e97c5bc">Vector_t</a> vectorFromMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_8h.html#a33328a876bc5536257a86a8ad13667cf">Map_t</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un vector a partir d'une map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td><a class="el" href="struct_map.html" title="Structure représentant une Map (Dictionnaire, Tableau associatif) Il n&#39;est pas conseillé d&#39;y accéder ...">Map</a> concernée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_vector.html" title="Structure représentant un Vector (ArrayList) Il n&#39;est pas conseillé d&#39;y accéder directement. Un ensemble de fonction permet de réaliser toutes les opérations nécessaires sur cette structure. ">Vector</a> contenant les associations clés/valeurs de la map (type MapObject_t) </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_95c9c9bead5808cc0bb4e78e340041f8.html">Map</a></li><li class="navelem"><a class="el" href="_map_8h.html">Map.h</a></li>
+    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>
