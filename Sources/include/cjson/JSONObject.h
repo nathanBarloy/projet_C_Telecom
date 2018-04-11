@@ -163,30 +163,173 @@ void JSONObject_detach(JSONObject_t self, String_t name);
 * \param self Object à modifier
 * \param obj Objet à détacher */
 void JSONObject_detachObject(JSONObject_t self, JSONObject_t obj);
+/*! \brief Détacher tous les objets du JSONObject
+*
+* Ne libère pas la mémoire.
+* \param self Object concerné
+*/
 void JSONObject_detachAll(JSONObject_t self);
-String_t JSONObject_get(JSONObject_t self, JSONObject_t child);
-JSONObject_t get(JSONObject_t self, String_t name);
+/*! \brief Obtenir un JSONObject de valeur pour une clé
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
+JSONObject_t JSONObject_get(JSONObject_t self, String_t name);
+/*! \brief Obtenir un String_t correspondant au nom de la clé pour la valeur donnée (pointeur)
+*
+* \param self Object concerné
+* \param child Valeur dans l'objet
+* \return String_t correspondant au nom de la clé
+*/
+String_t JSONObject_getKey(JSONObject_t self, JSONObject_t child);
+/*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
 JSONInt_t JSONObject_getInt(JSONObject_t self, String_t name);
+/*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
 JSONString_t JSONObject_getString(JSONObject_t self, String_t name);
+/*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
 JSONDouble_t JSONObject_getDouble(JSONObject_t self, String_t name);
+/*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
 JSONBoolean_t JSONObject_getBoolean(JSONObject_t self, String_t name);
+/*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return JSONObject correspondant a la valeur de la clé
+*/
 JSONArray_t JSONObject_getArray(JSONObject_t self, String_t name);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité pour une clé donnée
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return Type correspondant au type souhaité, valeur de la clé
+*/
 String_t JSONObject_stringValueOf(JSONObject_t self, String_t name);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité pour une clé donnée
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return Type correspondant au type souhaité, valeur de la clé
+*/
 int JSONObject_intValueOf(JSONObject_t self, String_t name);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité pour une clé donnée
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return Type correspondant au type souhaité, valeur de la clé
+*/
 double JSONObject_doubleValueOf(JSONObject_t self, String_t name);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité pour une clé donnée
+*
+* \param self Object concerné
+* \param name Clé dans l'objet
+* \return Type correspondant au type souhaité, valeur de la clé
+*/
 bool JSONObject_booleanValueOf(JSONObject_t self, String_t name);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité
+*
+* \param self Object concerné
+* \return Type correspondant au type souhaité
+*/
 String_t JSONObject_stringValue(JSONObject_t self);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité
+*
+* \param self Object concerné
+* \return Type correspondant au type souhaité
+*/
 int JSONObject_intValue(JSONObject_t self);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité
+*
+* \param self Object concerné
+* \return Type correspondant au type souhaité
+*/
 double JSONObject_doubleValue(JSONObject_t self);
+/*! \brief Obtenir la valeur de l'objet dans le type souhaité
+*
+* \param self Object concerné
+* \return Type correspondant au type souhaité
+*/
 bool JSONObject_booleanValue(JSONObject_t self);
+/*! \brief Convertir en texte JSON
+*
+* Parse n'importe quel JSONObject en String_t.
+* Permet d'avoir la chaine JSON correspondant à l'arbre.
+* \param self Objet concerné
+* \return String_t équivalent de l'arbre JSON en chaine de caractères.
+*/
 String_t JSONObject_asString(JSONObject_t self, unsigned int tabs);
+/*! \brief Renvoie le parent
+*
+* \param self Objet concerné
+* \return Parent
+*/
 JSONObject_t JSONObject_getParent(JSONObject_t self);
+/*! \brief Vérifier si l'objet à un parent
+*
+* \param self Objet concerné
+* \return true/1 si l'objet à un parent, false/0 sinon.
+*/
 bool JSONObject_hasParent(JSONObject_t self);
+/*! \brief Transformer l'objet JSON en Vector de JSONTuple_t
+*
+* \param self Objet concerné
+* \return Vector_t Array contenant des JSONTuples_t formant les couples.
+*/
 Vector_t JSONObject_asVector(JSONObject_t self);
+/*! \brief Retourne le type de l'objet sous forme de JSONType_t
+* \param self Objet concerné
+* \return Type de l'objet
+*/
 JSONType_t JSONObject_getType(JSONObject_t self);
+/*! \brief Compare 2 objets de type JSONObject entre eux.
+*
+* \param self Objet concerné
+* \param obj Objet avec lequel le comparer
+* Compare les valeurs contenues, et les valeurs de tous les enfants.
+*/
 bool JSONObject_equals(JSONObject_t self, JSONObject_t obj);
+/*! \brief Nettoyer l'objet, le remettre à son état par défaut
+*
+* \param self Objet concerné
+* Supprime toutes les clés
+* Note: Ne libère pas la mémoire des clés libérées.
+*/
 void JSONObject_clear(JSONObject_t self);
+/*! \brief Assigner un autre objet à celui ci
+*
+* \param self Objet concerné (destination)
+* \param obj Objet servant de source
+* Ajoute les valeurs de l'objet obj dans l'objet concerné (self)
+* Ne supprime pas les valeurs déjà présents dans l'objet.
+*/
 bool JSONObject_assign(JSONObject_t self, JSONObject_t obj);
+/*! \brief Assigner un tableau de couples JSONTuples_t à celui ci
+*
+* \param self Objet concerné (destination)
+* \param arr Tableau servant de source
+* Ajoute les valeurs du tableau dans l'objet concerné (self)
+* Ne supprime pas les valeurs déjà présents dans l'objet.
+*/
 bool JSONObject_assignArray(JSONObject_t self, Vector_t arr);
 #ifdef __cplusplus
 }
