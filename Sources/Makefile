@@ -1,17 +1,17 @@
 PROG=server client
 all: $(PROG)
-INCLUDE=-Iinclude/common/ -Iinclude/
+INCLUDE=-Iinclude/common/ -Iinclude/cjson/
 LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/
 DEBUG=
 DBG=
-ALL_O=
+ALL_O=utils/BDD.o sys/ServerRunner.o
 CLIENT_O=$(ALL_O) client.o
 SERVER_O=$(ALL_O) server.o
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
 debug: libcommon-dbg.so libcjson-dbg.so libjson-dbg.so
 debug: all
-LINK=-lcommon$(DBG) -lcjson$(DBG) -ljson$(DBG)
+LINK=-lcommon$(DBG) -lcjson$(DBG) -ljson$(DBG) -pthread
 SO=libcommon$(DBG).so libcjson$(DBG).so libjson$(DBG).so
 CC=gcc $(DEBUG) -o $@ $(INCLUDE) -O2
 libcommon.so: lib/libcommon/libcommon.so

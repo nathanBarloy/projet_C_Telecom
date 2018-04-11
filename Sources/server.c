@@ -1,14 +1,35 @@
-#include <cjson/JSONAll.h>
+#include <JSONAll.h>
 #include <String/AutoString.h>
+#include "utils/BDD.h"
 int main()
 {
-	JSONObject_t bdd = JSONObject_new();
-	JSONObject_t films = JSONParser_parseFile("data/bd.json");
-	JSONObject_set(bdd, autoString("Films"), films);
-	JSONArray_t users = JSONArray_new();
-	JSONObject_set(bdd, autoString("Users"), users);
-	printf("%s\n", cString(JSONObject_asString(bdd, 0)));
-	bdd = JSONObject_delete(bdd);
+	printf("Démarre du programme...\nChargement de la base de données...\n");
+	BDD bdd = BDD_load();
+	printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));
+	/*printf("Sauvegarde...");//Test
+	int a = JSONParser_saveFile(bdd->json, "data/test.json");
+	printf("Code de retour: %d\n", a);*/
+	//printf("Export:\n");//Test
+	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
+	int r = serverRunner(bdd);
+	printf("Le serveur à terminé avec le code: %d\n", r);
+	if(r >= 0)
+	{
+		printf("Sauvegarde de la base de données...\n");
+		r = BDD_save(bdd);
+		if(r)
+		{
+			printf("Base de données sauvegardée.\n");
+		}
+		else
+		{
+			printf("Une erreur est survenue lors de l'enregistrement de la base de données !\n");
+		}
+	}
+	else
+	{
+		printf("Une erreur est survenue pendant l'execution du serveur.\nLa base de donnée n'a pas été sauvegardée suite à l'arrêt d'urgence du serveur.\n");
+	}
 	freeAutoString();
 	return 0;
 }
