@@ -1,0 +1,54 @@
+\documentclass[11pt]{meetingmins}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcommittee{Compte rendu de réunion 2}
+
+\setdate{April 12, 2018, 12h00 - 50mins}
+\setmembers{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\setpresent{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\absent{aucun}
+
+\begin{document}
+\maketitle
+
+\section{Ordre du jour}
+Les éléments discutés lors de cette réunion ont été :
+\begin{hiddenitems}
+	\item L'avancement du projet, ce qui comprend :
+	\begin{itemize}
+		\item Détails sur le code produit, fonctionnement des librairies.
+		\item Discussion sur la structure interne des différents objets.
+		\item Choix du type d'interface graphique à utiliser.
+	\end{itemize}
+	\item Rappel sur l'importance d'un travail régulier.
+	\item Discussion sur comment être plus efficace sur ce projet.
+\end{hiddenitems}
+
+\section {Compte rendu}
+	La base de données a été transformé en JSON (Valentin) selon un schéma décrit dans la structure interne.
+	Il a également été décidé que ce format de données sera celui utilisé pour toutes les informations à stocker. Valentin a donc expliqué au reste du groupe le fonctionnement de la librairie libcjson que nous utiliserons à l'avenir.\par
+	Nous avons ensuite échangé sur la structure interne de la base de donnée JSON du serveur.
+	Nathan a fait remarquer qu'il est intéressant de ne calculer qu'une seule fois les similarités entre films au lancement du serveur puis de les stocker.\par
+	Le client nous a donné son accord pour l'utilisation de libcommon, libcjson, et libjson, un modèle client/serveur multiutilisateur, ainsi qu'un client graphique utilisant WebkitWebView de WebkitGTK+.\par
+	Nous avons conclu par un recadrage de l'équipe suite au déséquilibre de la proportion du travail effectué par chaque membre du groupe. Il a été décidé qu'il fallait effectuer un travail plus régulier. De plus, le groupe se réunira à présent 2 fois par semaine lors des réunions plus courtes pour faire le point ainsi qu'établir de nouveaux objectifs (réalistes) à réaliser pour la prochaine fois.
+
+\section{A faire pour la prochaine réunion}
+\begin{items}
+	\item Rédiger le compte rendu propre dela réunion (Johan TOMBRE)
+	\item Amorcer le code pour la mesure de similarités entre films (Nathan BARLOY)
+	\item Rédaction de l'état de l'art(Johan TOMBRE)
+	\item Continuer le code serveur / client (Valentin CRÔNE)
+\end{items}
+\vspace{1cm}
+\nextmeeting {April 16, 2018, 12h00}
+
+\end{document}
