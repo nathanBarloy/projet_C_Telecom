@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <Vector/Vector.h>
 #include "../utils/Client.h"
+#include "ClientHandler.h"
 int global_serverRunnerContinue(int set, int nvalue)
 {
 	static int init = 1;
@@ -98,7 +99,23 @@ int serverRunner(BDD bdd)
 		}
 		else
 		{
-			printf("Nouveau client: connexion acceptée. (%d)\n", session_fd);
+			Client cl = newClient(session_fd, bdd);
+			lock(bdd);
+			lock(cl);
+			int r = pthread_create(&cl->thread, 0, clientHandler, (void*) cl);
+			if(r == 0)
+			{
+				printf("Nouveau client: Connexion acceptée. (%d)\n", session_fd);
+				addToVector(bdd->clients, cl);
+				unlock(cl);
+			}
+			else
+			{
+				printf("Nouveau client: Impossible d'accepter la connexion. Creation du thread impossible. (%d, errno: %d)\n", session_fd, errno);
+				close(session_fd);
+				cl = freeClient(cl);
+			}
+			unlock(bdd);
 
 		}
 		usleep(10000);
@@ -106,5 +123,19 @@ int serverRunner(BDD bdd)
 	printf("Arrêt du serveur...\n");
 	//Nettoyage
 	close(server_fd);
+	size_t c = 0;
+	Client client;
+	printf("- Déconnexion des clients...\n");
+	while(c < sizeOfVector(bdd->clients))
+	{
+		client = ((Client)getFromVector(bdd->clients, c));
+		printf("\t- Client: %d\n", client->fd);
+		lock(client);
+		close(client->fd);
+		client->fd = 0;
+		unlock(client);
+		++c;
+	}
+	printf("- Terminé\n");
 	return 0;
 }
