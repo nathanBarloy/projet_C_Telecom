@@ -2,10 +2,12 @@
 #define BDD_H
 #include <pthread.h>
 #include <JSONAll.h>
+#include <Vector/Vector.h>
 struct BDD
 {
 	JSONObject_t* json;
 	pthread_mutex_t mutex;
+	Vector_t clients;
 };
 typedef struct BDD* BDD;
 #define lock(a) pthread_mutex_lock(&a->mutex);

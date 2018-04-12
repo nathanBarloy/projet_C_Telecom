@@ -7,6 +7,8 @@
 #include <netinet/in.h>
 #include <time.h>
 #include <signal.h>
+#include <Vector/Vector.h>
+#include "../utils/Client.h"
 int global_serverRunnerContinue(int set, int nvalue)
 {
 	static int init = 1;
@@ -81,6 +83,9 @@ int serverRunner(BDD bdd)
 		printf("Impossible d'écouter le port. Erreur: %d. (errno)\n", errno);
 		global_serverRunnerContinue(1, 0);
 	}
+	//Tableau gérant les clients
+	bdd->clients = newVector();
+	//Boucle principale
 	while(global_serverRunnerContinue(0, 0))
 	{
 		int session_fd = accept(server_fd, 0, 0);
@@ -94,10 +99,12 @@ int serverRunner(BDD bdd)
 		else
 		{
 			printf("Nouveau client: connexion acceptée. (%d)\n", session_fd);
+
 		}
 		usleep(10000);
 	}
 	printf("Arrêt du serveur...\n");
+	//Nettoyage
 	close(server_fd);
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include "BDD.h"
-
+#include <Vector/Vector.h>
+#include "Client.h"
 BDD BDD_load()
 {
 	JSONParser_setExitOnException(false);
@@ -25,12 +26,17 @@ BDD BDD_new()
 	BDD bdd = (BDD) malloc(sizeof(struct BDD));
 	bdd->json = 0;
 	pthread_mutex_init(&bdd->mutex, 0);
+	bdd->clients = 0;
 	return bdd;
 }
 BDD BDD_free(BDD bdd)
 {
 	pthread_mutex_lock(&bdd->mutex);
 	JSONObject_delete(bdd->json);
+	if(bdd->clients != 0)
+	{
+		freeVectorWithPtr(bdd->clients, freeClient2);
+	}
 	pthread_mutex_unlock(&bdd->mutex);
 	free(bdd);
 	return 0;
