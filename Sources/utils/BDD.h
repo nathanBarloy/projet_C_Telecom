@@ -3,11 +3,13 @@
 #include <pthread.h>
 #include <JSONAll.h>
 #include <Vector/Vector.h>
+#include <Map/Map.h>
 struct BDD
 {
 	JSONObject_t* json;
 	pthread_mutex_t mutex;
 	Vector_t clients;
+	Map_t requests;//Défini les liens vers les requêtes
 };
 typedef struct BDD* BDD;
 #define lock(a) pthread_mutex_lock(&a->mutex);

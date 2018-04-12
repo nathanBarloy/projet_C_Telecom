@@ -4,9 +4,9 @@ INCLUDE=-Iinclude/common/ -Iinclude/cjson/
 LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/
 DEBUG=
 DBG=
-ALL_O=utils/BDD.o utils/Client.o sys/ServerRunner.o sys/ClientHandler.o
+ALL_O=
 CLIENT_O=$(ALL_O) client.o
-SERVER_O=$(ALL_O) server.o
+SERVER_O=$(ALL_O) server.o sys/ServerRunner.o sys/ClientHandler.o utils/BDD.o utils/Client.o sys/Requests.o
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
 debug: libcommon-dbg.so libcjson-dbg.so libjson-dbg.so

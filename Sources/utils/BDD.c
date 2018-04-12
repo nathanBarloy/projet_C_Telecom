@@ -27,6 +27,7 @@ BDD BDD_new()
 	bdd->json = 0;
 	pthread_mutex_init(&bdd->mutex, 0);
 	bdd->clients = 0;
+	bdd->requests = 0;
 	return bdd;
 }
 BDD BDD_free(BDD bdd)
@@ -36,6 +37,10 @@ BDD BDD_free(BDD bdd)
 	if(bdd->clients != 0)
 	{
 		freeVectorWithPtr(bdd->clients, freeClient2);
+	}
+	if(bdd->requests != 0)
+	{
+		freeMapWithPtr(bdd->requests, freeVoidString);
 	}
 	pthread_mutex_unlock(&bdd->mutex);
 	free(bdd);
