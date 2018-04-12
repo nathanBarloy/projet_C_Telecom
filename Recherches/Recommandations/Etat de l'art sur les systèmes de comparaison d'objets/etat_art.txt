@@ -1,0 +1,7 @@
+Pour le filtrage par contenu (ou recommandation objet), on a forcement besoin de pouvoir comparer deux films entre eux, de connaitre leur similarité. Il faut donc créer un algorithme qui met un chiffre sur la similitude ou la "distance" entre deux films.
+
+Il existe déjà des formules pour cela : on peut notamment citer le coefficient de Dice ; c'est un nombre entre 0 et 1 qui représente la similarité entre 2 ensembles différents. On a s = 2*|X inter Y|/(|X|+|Y|).
+Une autre formule connue est la distance de Jaccard, qui ressemble un peu au la formule précédente. Elle donne une distance entre 2 ensembles, au sens mathématique du terme, c'est à dire une application à valeur positive qui vérifie les propriétés de symétrie, de séparation, ainsi que l'inégalité triangulaire.
+
+Le problème de telles méthodes est qu'on accorde la même importance à chaque information, et qu'on compare les attributs simplement en regardant s'ils sont égaux ou non, ce qui n'est pas vraiment représentatif de la réalité. On peut donc donner des poids à chaque information, ainsi qu'une notion de distance entre 2 attributs au sein même de la distance entre 2 objets.
+
