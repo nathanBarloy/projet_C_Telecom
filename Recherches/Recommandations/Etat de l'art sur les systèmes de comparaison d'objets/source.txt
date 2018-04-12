@@ -1,0 +1,10 @@
+un article a la fois simple et complet sur les differents filtrages :
+https://www.podcastscience.fm/dossiers/2012/04/25/les-algorithmes-de-recommandation/
+
+des coefficients de similarité :
+https://fr.wikipedia.org/wiki/Indice_de_S%C3%B8rensen-Dice
+https://fr.wikipedia.org/wiki/Indice_et_distance_de_Jaccard
+
+à voir :  méthode de retour de pertinence de Rocchio :
+https://en.wikipedia.org/wiki/Rocchio_algorithm
+
