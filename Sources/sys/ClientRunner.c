@@ -18,7 +18,7 @@ int clientRunner(ClientSock_t clientSock)
 {
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);
-	global_clientRunnerContinue(1, 0);
+	global_clientRunnerContinue(1, 1);
 	while(global_clientRunnerContinue(0, 0))
 	{
 		usleep(10000);
