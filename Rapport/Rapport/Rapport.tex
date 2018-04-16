@@ -94,5 +94,23 @@ Le filtrage collaboratif va mesurer une certaine distance entre un utilisateur d
 On utilisera alors le profil de ces utilisateurs proches pour regarder les données qui les ont interessés pour les recommander à notre utilisateur initial.
 L'avantage de ce filtrage est qu'il ne nécéssite pas de créer un algorithme qui détermine si deux données sont proches ou non. Cependant, si la base de donnée des utilisateurs n'est pas assez fournie, ce filtrage ne sera que très peu efficace.\par
 Evidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédement, de manière à en tirer les avantages.
-\end{document}
 
+\chapter{Rapport}
+
+\section{Amélioration de la base de données}
+
+\subsection{Liens des bandes annonces}
+Afin d'améliorer l'expérience de l'utilisateur, nous souhaitons lui proposer pour chaque film consulté, la bande annonce de ce dernier.
+Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur YouTube avec la bande annonce.
+Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne.\par
+Comme ces liens seront stockés dans la base de donnée JSON des films, il n'est nécessaire d'exécuter ce programme qu'une seule fois. Nous avons donc optés pour un script python qui est plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne. Le résultat de cette exécution sera ensuite stocké dans un fichier texte avant d'inclure les liens au fichier JSON par l'intermédiaire d'un programme C++.\par
+\vspace{1cm}
+Ce script se décompose en trois étapes.
+  Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=  suivi du contenu de la recherche avec des "+" remplaçant les espaces.
+Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce carctère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
+Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
+La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
+Pour terminer, on sauvgarde recréer le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
+
+
+\end{document}
