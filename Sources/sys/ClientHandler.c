@@ -3,18 +3,24 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include "Requests.h"
+#include <time.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <errno.h>
 void* clientHandler(void* arg)
 {
 	Client client = (Client) arg;
-	lock(client);
 	//printf("Thread pour client (%d)\n", client->fd);
 	size_t r = 0;
 	char l[2];
 	l[1] = 0;
 	String_t request = newString();
-	while(1)
+	while(global_serverRunnerContinue(0,0))
 	{
+		lock(client);
 		r = recv(client->fd, l, 1, MSG_NOSIGNAL);
+		unlock(client);
+		printf("Running...\n");
 		if(r == 1)
 		{
 			if(l[0] == 0)
@@ -33,15 +39,23 @@ void* clientHandler(void* arg)
 				q = freeRequestQuery(q);
 				req = JSONObject_delete(req);
 				String_t data = JSONObject_asString(rep->obj, 0);//autoString, pas besoin de free
+				lock(client);
 				r = send(client->fd, cString(data), sizeOfString(data), MSG_NOSIGNAL);
+				unlock(client);
 				if(r != sizeOfString(data))
 				{
+					lock(client);
 					printf("Erreur d'envoi de réponse au client %d, %ld != %ld\n", client->fd, sizeOfString(data), r);
+					unlock(client);
 				}
+				lock(client);
 				r = send(client->fd, l + 1, 1, MSG_NOSIGNAL);//Envoi du 0
+				unlock(client);
 				if(r != 1)
 				{
+					lock(client);
 					printf("Erreur d'envoi de réponse au client %d, %ld != %ld\n", client->fd, 1l, r);
+					unlock(client);
 				}
 			}
 			else
@@ -51,11 +65,19 @@ void* clientHandler(void* arg)
 		}
 		else
 		{
-			break;
+			if(errno != EAGAIN && errno != EWOULDBLOCK)
+			{
+				printf("BREAK\n");
+				break;
+			}
+			else
+			{
+				perror("Recv Wait...");
+				usleep(10000);
+			}
 		}
 	}
 	fString(request);
-	unlock(client);
 	clientHandlerClose(client);
 	return 0;//Ne pas récupérer la valeur, pas de pthread_exit(0)
 }
@@ -75,5 +97,6 @@ void clientHandlerClose(Client client)
 		++c;
 	}
 	unlock(client->bdd);
+	unlock(client);
 	freeClient(client);
 }

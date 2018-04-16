@@ -10,6 +10,8 @@
 #include <Vector/Vector.h>
 #include "../utils/Client.h"
 #include "ClientHandler.h"
+#include <fcntl.h>
+
 int global_serverRunnerContinue(int set, int nvalue)
 {
 	static int init = 1;
@@ -102,6 +104,10 @@ int serverRunner(BDD bdd)
 			Client cl = newClient(session_fd, bdd);
 			lock(bdd);
 			lock(cl);
+			{//Non bloquant
+				int flags = fcntl(cl->fd, F_GETFL, 0);
+				fcntl(cl->fd, F_SETFL, flags | O_NONBLOCK);
+			}
 			int r = pthread_create(&cl->thread, 0, clientHandler, (void*) cl);
 			if(r == 0)
 			{
@@ -126,16 +132,22 @@ int serverRunner(BDD bdd)
 	size_t c = 0;
 	Client client;
 	printf("- Déconnexion des clients...\n");
-	while(c < sizeOfVector(bdd->clients))
+	size_t last = sizeOfVector(bdd->clients);
+	printf("\t - Reste %4ld\r", last);
+	lock(bdd);
+	while(sizeOfVector(bdd->clients) > 0)
 	{
-		client = ((Client)getFromVector(bdd->clients, c));
-		printf("\t- Client: %d\n", client->fd);
-		lock(client);
-		close(client->fd);
-		client->fd = 0;
-		unlock(client);
-		++c;
+		if(sizeOfVector(bdd->clients) < last)
+		{
+			last = sizeOfVector(bdd->clients);
+		}
+		unlock(bdd);
+		printf("\t - Reste %4ld\r", last);
+		usleep(10000);
+		lock(bdd);
 	}
+	unlock(bdd);
+	printf("\t - Reste aucun - OK\r", last);
 	printf("- Terminé\n");
 	return 0;
 }
