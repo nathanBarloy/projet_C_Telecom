@@ -2,19 +2,7 @@
 #include <stdlib.h>
 #include <JSONAll.h>
 #include <String/String.h>
-ClientSock_t newClientSock(int sock)
-{
-	ClientSock_t s = (ClientSock_t) malloc(sizeof(struct ClientSock));
-	pthread_mutex_init(&s->mutex, 0);
-	s->sock = sock;
-	return s;
-}
-ClientSock_t freeClientSock(ClientSock_t clientSock)
-{
-	free(clientSock);
-	return clientSock;
-}
-int clientRunner(ClientSock_t clientSock)
+int clientRunner()
 {
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);
