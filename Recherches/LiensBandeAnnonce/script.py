@@ -19,8 +19,8 @@ def youtubeSearch(query):
         for letter in query:
             if letter == " ":
                 request = request + "+"
-                request = request + "%26"
             elif letter == "&":
+                request = request + "%26"
             else:
                 request = request + letter
         url = url + request
