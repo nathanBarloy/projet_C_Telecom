@@ -11,7 +11,7 @@ void* clientHandler(void* arg)
 {
 	Client client = (Client) arg;
 	//printf("Thread pour client (%d)\n", client->fd);
-	size_t r = 0;
+	int r = 0;
 	char l[2];
 	l[1] = 0;
 	String_t request = newString();
@@ -20,8 +20,8 @@ void* clientHandler(void* arg)
 		lock(client);
 		r = recv(client->fd, l, 1, MSG_NOSIGNAL);
 		unlock(client);
-		printf("Running...\n");
-		if(r == 1)
+		printf("Running... %d\n", r);
+		if(r > 0)
 		{
 			if(l[0] == 0)
 			{
@@ -54,7 +54,7 @@ void* clientHandler(void* arg)
 				if(r != 1)
 				{
 					lock(client);
-					printf("Erreur d'envoi de réponse au client %d, %ld != %ld\n", client->fd, 1l, r);
+					printf("Erreur d'envoi de réponse au client %d, %d != %d\n", client->fd, 1, r);
 					unlock(client);
 				}
 			}
@@ -63,7 +63,7 @@ void* clientHandler(void* arg)
 				concatString(request, autoString(l));
 			}
 		}
-		else
+		else if(r < 0)
 		{
 			if(errno != EAGAIN && errno != EWOULDBLOCK)
 			{
@@ -75,6 +75,11 @@ void* clientHandler(void* arg)
 				perror("Recv Wait...");
 				usleep(10000);
 			}
+		}
+		else//r = 0
+		{
+			printf("DISCONNECT %d !\n", r);
+			break;
 		}
 	}
 	fString(request);
