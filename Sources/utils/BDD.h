@@ -4,6 +4,7 @@
 #include <JSONAll.h>
 #include <Vector/Vector.h>
 #include <Map/Map.h>
+#include "PthreadShortcut.h"
 struct BDD
 {
 	JSONObject_t* json;
@@ -12,8 +13,7 @@ struct BDD
 	Map_t requests;//Défini les liens vers les requêtes
 };
 typedef struct BDD* BDD;
-#define lock(a) pthread_mutex_lock(&a->mutex);
-#define unlock(a) pthread_mutex_unlock(&a->mutex);
+
 BDD BDD_load();
 int BDD_save(BDD bdd);
 BDD BDD_new();
