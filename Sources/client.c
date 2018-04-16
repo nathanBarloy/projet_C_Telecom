@@ -2,7 +2,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-#include <sys/socket.h>
 #include <stdio.h>
 #include <String/AutoString.h>
 #include "sys/ClientRunner.h"
