@@ -45,5 +45,7 @@ RequestAnswer prints(Client client, RequestQuery request);
 //Pour RequestQuery request, crée la variable du nom défini par le paramètre varName a partir de la clé "keyName" (char*) de JSONObject_t obj.
 #define RequestObject(request,obj,keyName,varName) JSONObject_t varName = JSONObject_get(obj, autoString(keyName)); if(varName == 0){return newRequestAnswer(5, newJSONRequestAnswer(request->id, 5, autoConcatNString(3, "Impossible de trouver l'attribut de requête: ", keyName, "."), JSONObject_new()));}
 //Pour RequestQuery request, et JSONObject_t content (peut être nul), retourner une réponse affirmative a un client.
-#define RequestAnswerOk(request,content) return newRequestAnswer(0, newJSONRequestAnswer(request->id, 0, autoString(""), (content == 0 ? JSONObject_new() : content)));
+#define RequestAnswerOk(request,content) newRequestAnswer(0, newJSONRequestAnswer(request->id, 0, autoString(""), (content == 0 ? JSONObject_new() : content)));
+//Pour RequestQuery request, et JSONObject_t content (peut être nul), errorCode (int), errorString String_t, retourner une réponse négative avec un code d'erreur et un message d'erreur
+#define RequestAnswerError(request,content,errorCode, errorString) newRequestAnswer(errorCode, newJSONRequestAnswer(request->id, 0, errorString, (content == 0 ? JSONObject_new() : content)));
 #endif

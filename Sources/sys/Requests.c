@@ -83,5 +83,5 @@ RequestAnswer prints(Client client, RequestQuery request)
 	lock(client);
 	printf("Prints from Client %2d: \"%s\"\n", client->fd, cString(JSONObject_stringValue(message)));
 	unlock(client);
-	RequestAnswerOk(request,0);
+	return RequestAnswerOk(request,0);
 }
