@@ -8,39 +8,7 @@ Map_t getRequestsMap()
 	//Fin des associations
 	return r;
 }
-//Construction/destruction
-RequestAnswer newRequestAnswer(int code, JSONObject_t obj)
-{
-	RequestAnswer r = (RequestAnswer) malloc(sizeof(struct RequestAnswer));
-	r->code = code;
-	r->obj = obj;
-	return r;
-}
-RequestAnswer freeRequestAnswer(RequestAnswer r)
-{
-	if(r->obj != 0)
-	{
-		r->obj = JSONObject_delete(r->obj);
-	}
-	free(r);
-	return 0;
-}
-RequestQuery newRequestQuery(int id, JSONObject_t obj)
-{
-	RequestQuery r = (RequestQuery) malloc(sizeof(struct RequestQuery));
-	r->id = id;
-	r->obj = obj;
-	return r;
-}
-RequestQuery freeRequestQuery(RequestQuery r)
-{
-	if(r->obj != 0)
-	{
-		r->obj = JSONObject_delete(r->obj);
-	}
-	free(r);
-	return 0;
-}
+
 
 //Génération de JSON
 JSONObject_t newJSONRequestAnswer(int id, int code, String_t error, JSONObject_t content)

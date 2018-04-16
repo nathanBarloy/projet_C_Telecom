@@ -45,7 +45,7 @@ void* clientHandler(void* arg)
 				if(r != sizeOfString(data))
 				{
 					lock(client);
-					printf("Erreur d'envoi de réponse au client %d, %ld != %ld\n", client->fd, sizeOfString(data), r);
+					printf("Erreur d'envoi de réponse au client %d, %ld != %d\n", client->fd, sizeOfString(data), r);
 					unlock(client);
 				}
 				lock(client);

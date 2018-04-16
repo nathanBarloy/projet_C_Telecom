@@ -147,7 +147,7 @@ int serverRunner(BDD bdd)
 		lock(bdd);
 	}
 	unlock(bdd);
-	printf("\t - Reste aucun - OK\r", last);
+	printf("\t - Reste aucun - OK\r");
 	printf("- Terminé\n");
 	return 0;
 }

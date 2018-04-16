@@ -2,7 +2,7 @@
 #define CLIENT_RUNNER
 #include <pthread.h>
 #include "../utils/PthreadShortcut.h"
-
+#include "RequestTypes.h"
 struct ClientSock
 {
 	int sock;
