@@ -20,13 +20,13 @@ void* clientHandler(void* arg)
 		lock(client);
 		r = recv(client->fd, l, 1, MSG_NOSIGNAL);
 		unlock(client);
-		printf("Running... %d\n", r);
+		//printf("Running... %d\n", r);
 		if(r > 0)
 		{
 			if(l[0] == 0)
 			{
 				JSONObject_t req = JSONParser_parseString(request);
-				printf("Req: %p\n", req);
+				//printf("Req: %p\n", req);
 				if(req != 0)
 				{
 					printf("%s\n", cString(JSONObject_asString(req, 0)));
@@ -48,7 +48,7 @@ void* clientHandler(void* arg)
 				lock(client);
 				r = send(client->fd, cString(data), sizeOfString(data), MSG_NOSIGNAL);
 				unlock(client);
-				printf("Send: %d\n", r);
+				//printf("Send: %d\n", r);
 				if(r != sizeOfString(data))
 				{
 					lock(client);
@@ -58,10 +58,10 @@ void* clientHandler(void* arg)
 				lock(client);
 				r = send(client->fd, l + 1, 1, MSG_NOSIGNAL);//Envoi du 0
 				unlock(client);
-				printf("Send: %d\n", r);
+				//printf("Send: %d\n", r);
 				if(r != 1)
 				{
-					perror("Send");
+					//perror("Send");
 					lock(client);
 					printf("Erreur d'envoi de réponse au client %d, %d != %d, fin de protocole.\n", client->fd, 1, r);
 					unlock(client);
@@ -76,18 +76,18 @@ void* clientHandler(void* arg)
 		{
 			if(errno != EAGAIN && errno != EWOULDBLOCK)
 			{
-				printf("BREAK\n");
+				//printf("BREAK\n");
 				break;
 			}
 			else
 			{
-				perror("Recv Wait...");
+				//perror("Recv Wait...");
 				usleep(10000);
 			}
 		}
 		else//r = 0
 		{
-			printf("DISCONNECT %d !\n", r);
+			//printf("DISCONNECT %d !\n", r);
 			break;
 		}
 	}
