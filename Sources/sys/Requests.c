@@ -4,7 +4,7 @@ Map_t getRequestsMap()
 {
 	Map_t r = newMap();
 	//Insérer ici les associations
-	setMap(r, autoString("prints"), (void*) prints);
+	setMap(r, autoString("prints"), (void*) ServerRequest_prints);
 	//Fin des associations
 	return r;
 }
@@ -43,7 +43,7 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 }
 
 //Requêtes
-RequestAnswer prints(Client client, RequestQuery request)
+RequestAnswer ServerRequest_prints(Client client, RequestQuery request)
 {
 
 	RequestQuery(request,query);

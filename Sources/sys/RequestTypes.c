@@ -32,3 +32,11 @@ RequestQuery freeRequestQuery(RequestQuery r)
 	free(r);
 	return 0;
 }
+JSONObject_t newJSONRequestQuery(String_t sid, String_t type, JSONObject_t data)
+{
+	JSONObject_t obj = JSONObject_new();
+	JSONObject_set(obj, autoString("Sid"), JSONString_new(sid));
+	JSONObject_set(obj, autoString("Type"), JSONString_new(type));
+	JSONObject_set(obj, autoString("Query"), JSONString_new(data));
+	return obj;
+}

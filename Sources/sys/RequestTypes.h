@@ -1,6 +1,8 @@
 #ifndef REQUEST_TYPES_H
 #define REQUEST_TYPES_H
 #include <JSONAll.h>
+#include <String/String.h>
+#include <String/AutoString.h>
 //Définition de types
 struct RequestAnswer//Type permettant le retour d'une réponse
 {
@@ -20,4 +22,6 @@ RequestAnswer newRequestAnswer(int code, JSONObject_t obj);//Génère une struct
 RequestAnswer freeRequestAnswer(RequestAnswer r);//Libère une structure de réponse
 RequestQuery newRequestQuery(int id, JSONObject_t obj);//Génère une structure de requête
 RequestQuery freeRequestQuery(RequestQuery r);//Libère une structure de réponse
+
+JSONObject_t newJSONRequestQuery(String_t sid, String_t type, JSONObject_t data);
 #endif
