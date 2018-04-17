@@ -111,6 +111,7 @@ int serverRunner(BDD bdd)
 			int r = pthread_create(&cl->thread, 0, clientHandler, (void*) cl);
 			if(r == 0)
 			{
+				pthread_detach(cl->thread);//On détache le thread pour libérer la mémoire de la pile des threads
 				printf("Nouveau client: Connexion acceptée. (%d)\n", session_fd);
 				addToVector(bdd->clients, cl);
 				unlock(cl);

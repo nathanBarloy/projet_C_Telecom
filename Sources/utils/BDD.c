@@ -40,7 +40,7 @@ BDD BDD_free(BDD bdd)
 	}
 	if(bdd->requests != 0)
 	{
-		freeMapWithPtr(bdd->requests, freeVoidString);
+		freeMap(bdd->requests);
 	}
 	pthread_mutex_unlock(&bdd->mutex);
 	free(bdd);

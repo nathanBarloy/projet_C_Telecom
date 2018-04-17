@@ -66,6 +66,7 @@ void* clientHandler(void* arg)
 					printf("Erreur d'envoi de réponse au client %d, %d != %d, fin de protocole.\n", client->fd, 1, r);
 					unlock(client);
 				}
+				freeRequestAnswer(rep);
 			}
 			else
 			{
