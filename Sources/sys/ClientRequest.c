@@ -72,10 +72,12 @@ RequestAnswer clientRequestGetAnswer(int sock, RequestQuery query)
 				{
 					if(l[0] != 0)
 					{
+						printf("%c - %d\n", l[0], (int) l[0]);
 						concatString(str, autoString(l));
 					}
 					else
 					{
+						printf("String:\n%s\n", cString(str));
 						obj = JSONParser_parseString(str);
 						if(obj != 0)
 						{

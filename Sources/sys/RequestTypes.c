@@ -37,6 +37,6 @@ JSONObject_t newJSONRequestQuery(String_t sid, String_t type, JSONObject_t data)
 	JSONObject_t obj = JSONObject_new();
 	JSONObject_set(obj, autoString("Sid"), JSONString_new(sid));
 	JSONObject_set(obj, autoString("Type"), JSONString_new(type));
-	JSONObject_set(obj, autoString("Query"), JSONString_new(data));
+	JSONObject_set(obj, autoString("Query"), data);
 	return obj;
 }

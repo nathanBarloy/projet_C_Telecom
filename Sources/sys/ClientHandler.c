@@ -26,6 +26,11 @@ void* clientHandler(void* arg)
 			if(l[0] == 0)
 			{
 				JSONObject_t req = JSONParser_parseString(request);
+				printf("Req: %p\n", req);
+				if(req != 0)
+				{
+					printf("%s\n", cString(JSONObject_asString(req, 0)));
+				}
 				RequestAnswer rep = 0;
 				RequestQuery q = newRequestQuery(0, req);
 				if(req != 0)
@@ -37,24 +42,28 @@ void* clientHandler(void* arg)
 					rep = RequestAnswerError(q,0,4, autoString("Protocole invalide, la requête n'est pas en JSON."));
 				}
 				q = freeRequestQuery(q);
-				req = JSONObject_delete(req);
+				//req = JSONObject_delete(req);//Déjà supprimé par q
+				req = 0;
 				String_t data = JSONObject_asString(rep->obj, 0);//autoString, pas besoin de free
 				lock(client);
 				r = send(client->fd, cString(data), sizeOfString(data), MSG_NOSIGNAL);
 				unlock(client);
+				printf("Send: %d\n", r);
 				if(r != sizeOfString(data))
 				{
 					lock(client);
-					printf("Erreur d'envoi de réponse au client %d, %ld != %d\n", client->fd, sizeOfString(data), r);
+					printf("Erreur d'envoi de réponse au client %d, %ld != %d, transmission de données.\n", client->fd, sizeOfString(data), r);
 					unlock(client);
 				}
 				lock(client);
 				r = send(client->fd, l + 1, 1, MSG_NOSIGNAL);//Envoi du 0
 				unlock(client);
+				printf("Send: %d\n", r);
 				if(r != 1)
 				{
+					perror("Send");
 					lock(client);
-					printf("Erreur d'envoi de réponse au client %d, %d != %d\n", client->fd, 1, r);
+					printf("Erreur d'envoi de réponse au client %d, %d != %d, fin de protocole.\n", client->fd, 1, r);
 					unlock(client);
 				}
 			}

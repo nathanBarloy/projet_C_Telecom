@@ -6,7 +6,7 @@ int clientRunner()
 {
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);
-	global_clientRunnerContinue(1, 1);
+	initClient();
 	while(global_clientRunnerContinue(0, 0))
 	{
 		usleep(10000);
@@ -39,4 +39,8 @@ void signal_clientRunner(int signal)
 		global_clientRunnerContinue(1, 0);
 		printf("\n");
 	}
+}
+void initClient()
+{
+	global_clientRunnerContinue(1, 1);
 }
