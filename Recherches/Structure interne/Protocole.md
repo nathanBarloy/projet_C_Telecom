@@ -14,7 +14,6 @@ Toutes les requêtes doivent suivre le format suivant:
 ## Réponse
 ```
 {
-	"Id" : 0,//RequeteId
 	"Type" : "",
 	"Time" : 0,
 	"Status" : 0,

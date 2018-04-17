@@ -21,6 +21,9 @@ RequestQuery newRequestQuery(int id, JSONObject_t obj)
 	RequestQuery r = (RequestQuery) malloc(sizeof(struct RequestQuery));
 	r->id = id;
 	r->obj = obj;
+	r->sid = 0;
+	r->session = 0;
+	r->connected = 0;
 	return r;
 }
 RequestQuery freeRequestQuery(RequestQuery r)

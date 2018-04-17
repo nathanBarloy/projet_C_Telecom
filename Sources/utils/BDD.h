@@ -20,4 +20,5 @@ BDD BDD_new();
 BDD BDD_free(BDD bdd);
 JSONArray_t BDD_Users(BDD bdd);
 JSONArray_t BDD_Films(BDD bdd);
+JSONObject_t BDD_getSid(BDD bdd, String_t sid);
 #endif

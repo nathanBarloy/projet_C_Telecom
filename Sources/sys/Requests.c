@@ -14,10 +14,10 @@ Map_t getRequestsMap()
 JSONObject_t newJSONRequestAnswer(int id, int code, String_t error, JSONObject_t content)
 {
 	JSONObject_t r = JSONObject_new();
-	JSONObject_set(r, autoString("id"), JSONInt_new(id));
-	JSONObject_set(r, autoString("code"), JSONInt_new(code));
-	JSONObject_set(r, autoString("error"), JSONString_new(error));
-	JSONObject_set(r, autoString("answer"), content);
+	JSONObject_set(r, autoString("Id"), JSONInt_new(id));
+	JSONObject_set(r, autoString("Code"), JSONInt_new(code));
+	JSONObject_set(r, autoString("Error"), JSONString_new(error));
+	JSONObject_set(r, autoString("Answer"), content);
 	return r;
 }
 
@@ -37,6 +37,25 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 	unlock(client);
 	if(ret != 0)
 	{
+		JSONString_t sid_s = JSONObject_getString(request->obj, autoString("Sid"));
+		if(sid_s != 0)//Si la requête contient bien un champ Sid
+		{
+			JSONObject_t sid = BDD_getSid(client->bdd, sid_s);
+			if(sid != 0)//Si ce champ correspond a une session, l'utilisateur est connecté
+			{
+				lock(client->bdd);
+				request->sid = JSONObject_stringValueOf(sid, autoString("sid"));
+				unlock(client->bdd);
+				request->connected = 1;
+				request->session = sid;
+			}
+			else//Sinon l'utilisateur est anonyme, pas de session associée
+			{
+				request->sid = 0;
+				request->connected = 0;
+				request->session = 0;
+			}
+		}
 		return ret(client, request);
 	}
 	return newRequestAnswer(3, newJSONRequestAnswer(request->id, 3, autoConcatNString(2, "Invalid request: ", cString(requestType)), JSONObject_new()));

@@ -6,13 +6,16 @@
 //Définition de types
 struct RequestAnswer//Type permettant le retour d'une réponse
 {
-	int code;
+	int code;//Code de retour de la requête
 	JSONObject_t obj;
 };
 typedef struct RequestAnswer* RequestAnswer;
 struct RequestQuery//Type permettant le passage d'une requête a une fonction
 {
-	int id;
+	int id;//Permet de stocker un id sur la requête, pour des raisons pratiques. n'est pas transmis par le réseau
+	String_t sid;//Session id, rempli automatiquement par le serveur
+	JSONObject_t session;//Session en cours, rempli automatiquement par le serveur
+	int connected;//1 si utilisateur connecté, 0 sinon. Rempli automatiquement par le serveur.
 	JSONObject_t obj;
 };
 typedef struct RequestQuery* RequestQuery;
