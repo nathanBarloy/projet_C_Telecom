@@ -1,6 +1,7 @@
 #include <JSONAll.h>
 #include <String/AutoString.h>
 #include "utils/BDD.h"
+#include <math.h>
 
 /* Pour l'instant c'est la parce que je sais pas trop ou je suis censé le mettre, ni a partir d'où il est appelé
 */
@@ -33,7 +34,8 @@ float distance(BDD bdd,int id1, int id2) {
 
 float distance_year(int y1,int y2) {
   float dist = 0;
-
+/*  float alpha = 0.05;
+  dist = 1-exp(-alpha*(float)(abs(y1-y2))); */
   return dist;
 }
 
