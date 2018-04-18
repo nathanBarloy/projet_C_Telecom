@@ -29,7 +29,7 @@ libjson-dbg.so: lib/libjson/libjson-dbg.so
 %.o: %.c %.h
 	$(CC) -c $<
 client: $(CLIENT_O) $(SO)
-	$(CC) $(CLIENT_O) $(LIBS) $(LINK) -lncurses
+	$(CC) $(CLIENT_O) $(LIBS) $(LINK) # -lncurses -lcdk
 server: $(SERVER_O) $(SO)
 	$(CC) $(SERVER_O) $(LIBS) $(LINK)
 .PHONY: clean
