@@ -1,24 +1,24 @@
 # Système de notation / Appréciation humaine active
 ## Notation ordonnée
-L'utilisateur donne son avis sur un produit en lui attribuant une note (généralement entre 1 et 5).  
-**Avantages** : Plus de nuances possibles, ce qui permet par la suite d'établir des recommandations plus précises  
-**Inconvénients** : Coût en calcul plus élevé.
+L'utilisateur donne son avis sur un produit en lui attribuant une note (généralement entre 1 et 5).
+**Avantages** : Plus de nuances possibles, ce qui permet par la suite d'établir des recommandations plus précises
+**Inconvénients** : Coût en calcul plus élevé. De plus, tous les utilisateurs n'ont pas la même façon de noter. Ainsi, un utilisateur peut donner une note de 3/5 en pensant mettre une mauvaise note alors qu'une autre exprime simplement un avis neutre. En raison de cela, les recommandations calculés peuvent ne pas être aussi fiable que souhaité.
 
 ## Notation binaire
-L'avis de l'utilisateur sur un produit est simplifié par "J'aime" / "J'aime pas".  
-**Avantage** : Coût en calcul plus faible, choix simplifié pour l'utilisateur  
+L'avis de l'utilisateur sur un produit est simplifié par "J'aime" / "J'aime pas".
+**Avantage** : Coût en calcul plus faible, choix simplifié pour l'utilisateur
 **Inconvénient** : Moins de nuances possible
 
 ## Notation Unaire
-On a uniquement l'information sur si l'utilisateur a aimé un film  
-**Inconvénient** : pas d'information sur les films que l'utilisateur n'a pas aimé  
-**Avantages** :  
+On a uniquement l'information sur si l'utilisateur a aimé un film
+**Inconvénient** : pas d'information sur les films que l'utilisateur n'a pas aimé
+**Avantages** :
 
 # Filtrage par le contenu
 ## Système de Ringo
 Utilise le principe de filtrage collaboratif + système de notation manuel
-* Un utilisateur est comparé à tous les autres  
-Calcul de similarité  (1) p.5 - Etat de l'art Nicolas Bechet 	
+* Un utilisateur est comparé à tous les autres
+Calcul de similarité  (1) p.5 - Etat de l'art Nicolas Bechet
 * Les utilisateurs ayant obtenu un score supérieur à un certain seuil sont conservés (considérés comme proche de l'utilsatuer cible)
 * On fait la moyenne des scores / notations de chaque items de chaque utilsateur
 * On ordonne ces résultats, ce qui donne une liste de recommandation pour l'utilsateur
@@ -29,8 +29,8 @@ Calcul de similarité  (1) p.5 - Etat de l'art Nicolas Bechet
 Mise à jour dynamique des choix utilisateur
 
 ## Système conexe (Zhan and Callan 2002)
-Construire un profil utilisateur en fonction de ses goûts.  
-Utilisé plus dans la recherche de redondance entre documents  
+Construire un profil utilisateur en fonction de ses goûts.
+Utilisé plus dans la recherche de redondance entre documents
 Mesure Cosinus est la plus performante (taux d'erreur : 18,7%)
 
 ## Système LIBRA (recommandation livres Amazon) : [Kent and of Pittsburgh

@@ -34,8 +34,9 @@ i = 0
 while i < 100:
     html_content = requests.get(youtubeSearch(config[i]["Title"])).text
     search_result = regex.findall(r'href=\"\/watch\?v=(.{11})', html_content)
+    print (search_result[0])
     print("https://www.youtube.com/watch?v=" + search_result[0])
-    file.write(str(i+1) + ": " + "https://www.youtube.com/watch?v=" + search_result[0] + "\n")
+    file.write(str(i+1) + ": " + "https://www.youtube.com/watch\?v=" + search_result[0] + "\n")
     i = i + 1
 
 file.close()

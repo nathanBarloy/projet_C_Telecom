@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=DkoIi2srPrU
+https://www.youtube.com/watch?v=h9gpufJFF-0
+https://brenocon.com/blog/2012/0a3/cosine-similarity-pearson-correlation-and-ols-coefficients/
+
+Algorithm k-means : http://sahebmotiani.com/Movie%20Clustering.pdf
+
+Mine d'or : https://tel.archives-ouvertes.fr/tel-00581436/document
