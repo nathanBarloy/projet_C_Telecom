@@ -10,7 +10,7 @@ int main(int argc, char** argv, char** envp)
 	{
 		initClient();
 		Connexion_t connexion = newConnexion(argv[1]);//Adresse du serveur
-		prints(connexion, autoString("Bonjour tout le monde !"));
+		//prints(connexion, autoString("Bonjour tout le monde !"));
 
 
 		/*JSONObject_t machin = JSONObject_new();
@@ -21,7 +21,7 @@ int main(int argc, char** argv, char** envp)
 		JSONObject_delete(machin);*/
 
 
-
+		int r = clientRunner(connexion);
 		//Fin
 		connexion = freeConnexion(connexion);
 	}

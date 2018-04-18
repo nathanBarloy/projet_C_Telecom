@@ -2,15 +2,37 @@
 #include <stdlib.h>
 #include <JSONAll.h>
 #include <String/String.h>
+
+
+
 int clientRunner(Connexion_t connexion)
 {
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);
-	initClient();
+	//initClient();
+	//Init ncurses
+	//initscr();
+	//WINDOW* window = stdscr;
+	//CDKSCREEN* screen = initCDKScreen(window);
+	//initCDKColor();
+	//char *a[1];
+	//a[0] =  (char*) "</B>Bonjour !<!B>";
+	//CDKDIALOG* dialog = newCDKDialog(screen, CENTER, CENTER, (char**) a, 1, 0, 0, 0, 1, 1, 1);
+	//CDKLABEL* label = newCDKLabel(screen, CENTER, CENTER, a, 1, 1, 1);
+	//refreshCDKScreen(screen);
+	//waitCDKDialog(dialog, ' ');
+	//waitCDKLabel(label, ' ');
+	//printw("OK !");
+	//refresh();
 	while(global_clientRunnerContinue(0, 0))
 	{
 		usleep(10000);
 	}
+	//destroyCDKDialog(dialog);
+	//destroyCDKScreen(screen);
+	//Fin de ncurses
+	//endCDK();
+	//endwin();
 	return 0;
 }
 int global_clientRunnerContinue(int set, int nvalue)
