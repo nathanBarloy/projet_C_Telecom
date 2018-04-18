@@ -8,14 +8,14 @@
 #include <fcntl.h>
 #include <strings.h>
 
-RequestAnswer clientRequest(const char* addr_s, RequestQuery query)
+RequestAnswer clientRequest(Connexion_t connexion, RequestQuery query)
 {
 	struct sockaddr_in serverSockAddr;
-	struct hostent *serverHostEnt = gethostbyname(addr_s);
-	long hostAddr =  inet_addr(addr_s);
+	struct hostent *serverHostEnt = gethostbyname(cString(connexion->addr_s));
+	long hostAddr =  inet_addr(cString(connexion->addr_s));
 	if(serverHostEnt == 0 || hostAddr == 0)
 	{
-		printf("Impossible de déterminer l'adresse de destination: %s\n", addr_s);
+		printf("Impossible de déterminer l'adresse de destination: %s\n", cString(connexion->addr_s));
 		return 0;
 	}
 	serverSockAddr.sin_port = htons(10000);
@@ -46,7 +46,7 @@ RequestAnswer clientRequest(const char* addr_s, RequestQuery query)
 	}
 	else
 	{
-		printf("Echec de connexion au serveur: %s:10000\n", addr_s);
+		printf("Echec de connexion au serveur: %s:10000\n", cString(connexion->addr_s));
 		return 0;
 	}
 }

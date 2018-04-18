@@ -2,13 +2,28 @@
 #include <String/AutoString.h>
 #include "sys/ClientRequest.h"
 #include "sys/ClientRequests.h"
+#include "utils/Connexion.h"
+#include "utils/JSONShortcut.h"
 int main(int argc, char** argv, char** envp)
 {
 	if(argc >= 2)
 	{
 		initClient();
-		const char* addr_s = argv[1];//Adresse du serveur
-		prints(addr_s, autoString("Bonjour tout le monde !"));
+		Connexion_t connexion = newConnexion(argv[1]);//Adresse du serveur
+		prints(connexion, autoString("Bonjour tout le monde !"));
+
+
+		/*JSONObject_t machin = JSONObject_new();
+		JSONObject_set(machin, autoString("lol"), JSONString_new(autoString("Bonjour")));
+		JSONObject_set(machin, autoString("lol2"), JSONInt_new(18));
+		printf("%s\n", cStringValueOf(machin, "lol"));
+		printf("%d\n", ValueOf(machin, "lol2", int));
+		JSONObject_delete(machin);*/
+
+
+
+		//Fin
+		connexion = freeConnexion(connexion);
 	}
 	else
 	{

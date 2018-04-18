@@ -3,8 +3,8 @@
 #include <pthread.h>
 #include "../utils/PthreadShortcut.h"
 #include "RequestTypes.h"
-
-int clientRunner();
+#include "../utils/Connexion.h"
+int clientRunner(Connexion_t connexion);
 
 int global_clientRunnerContinue(int set, int nvalue);
 void signal_clientRunner(int signal);
