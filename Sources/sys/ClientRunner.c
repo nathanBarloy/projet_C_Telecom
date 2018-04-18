@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <JSONAll.h>
 #include <String/String.h>
-int clientRunner()
+int clientRunner(Connexion_t connexion)
 {
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);

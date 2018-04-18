@@ -5,7 +5,7 @@ LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/
 DEBUG=
 DBG=
 ALL_O=sys/RequestTypes.o
-CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o
+CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o
 SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
@@ -29,7 +29,7 @@ libjson-dbg.so: lib/libjson/libjson-dbg.so
 %.o: %.c %.h
 	$(CC) -c $<
 client: $(CLIENT_O) $(SO)
-	$(CC) $(CLIENT_O) $(LIBS) $(LINK)
+	$(CC) $(CLIENT_O) $(LIBS) $(LINK) -lncurses
 server: $(SERVER_O) $(SO)
 	$(CC) $(SERVER_O) $(LIBS) $(LINK)
 .PHONY: clean

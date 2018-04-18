@@ -2,5 +2,6 @@
 #define CLIENT_REQUESTS_H
 #include "RequestTypes.h"
 #include <JSONAll.h>
-void prints(const char* addr_s, String_t message);
+#include "../utils/Connexion.h"
+void prints(Connexion_t connexion, String_t message);
 #endif
