@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <JSONAll.h>
 #include <String/String.h>
-
-
+#include "../utils/ReadInput.h"
+#include "../utils/JSONShortcut.h"
 
 int clientRunner(Connexion_t connexion)
 {
@@ -24,9 +24,40 @@ int clientRunner(Connexion_t connexion)
 	//waitCDKLabel(label, ' ');
 	//printw("OK !");
 	//refresh();
+	enum ClientRunnerMode mode = MAIN_MENU;
+	String_t choice = autoString("");
 	while(global_clientRunnerContinue(0, 0))
 	{
+		switch(mode)
+		{
+			case MAIN_MENU:
+			printf("Bienvenue sur le menu principal, ");
+			if(connexion->user != 0)
+			{
+				printf("%s\n", cStringValueOf(connexion->user, "Login"));
+			}
+			else
+			{
+				printf("vous n'êtes pas connecté.\n");
+			}
+			break;
+			default:
+			printf("Not implemented yet !\n");
+			mode = MAIN_MENU;
+
+		}
 		usleep(10000);
+		choice = ReadInputWithMsg(0);
+		lowerString(choice);
+		//printf("Vous avez entré: \"%s\"\n", cString(choice));
+		if(equalsString(choice, autoString("exit")))
+		{
+			global_clientRunnerContinue(1,0);
+		}
+		else
+		{
+			printf("Inconnu: \"%s\"\n", cString(choice));
+		}
 	}
 	//destroyCDKDialog(dialog);
 	//destroyCDKScreen(screen);
