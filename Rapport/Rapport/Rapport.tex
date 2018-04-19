@@ -122,6 +122,46 @@ Cependant, le coût en calcul en est impact car l'information n'est plus binaire
 \vspace{0.5cm}
 Partie sur l'analyse des commentaires pour en extraire des tags + utilisations des données profil utilisateur
 \subsubsection{Observation indirecte}
+Ce sont l'ensemble des informations immplicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
+
+\subsection{Conclusion sur les données}
+Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".
+
+\section{La matrice d'usage}
+
+\section{Calcul de similarités}
+Un calcul de similarité est utile pour déterminer la distance entre un utlisateur et un produit mais également entre deux utlisateurs (ou produits).
+Plusieurs outils existent pour nous permettre d'effectuer ce calcul.
+Nous verrons dans cette partie quelques unes de ces méthodes en discuterons des avantages et inconvénients qu'ils présentent.
+
+\subsection{La distance Euclidienne}
+La distance euclidienne est obtenue par la formule suivante :
+
+\begin{equation}
+    L(\vec{x}, \vec{y}) = \sqrt{\sum_{i=1}^m (x_i - y_i)^2}
+\end{equation}
+Paragraphe à terminer...
+
+\subsection{Distance cosinus}
+On considère les vecteurs ligne de x et y. Le but est de calculer la distance, l’angle entre ces deux vecteurs. Dans notre cas, les vecteurs x et y seront des vecteurs associés aux profils de deux utilisateurs par exemple.
+
+\begin{equation}
+    CosSim(\vec{x}, \vec{y}) = \frac{\sum_{i=1}^m x_i y_i}{\sqrt{\sum_{i=1}^m x_i ^2}\sqrt{\sum_{i=1}^m y_i ^2}}
+\end{equation}
+
+L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
+
+\subsection{Corrélation de Pearson}
+Afin de pallier ce problème, il est possible de normaliser au préalable les notes en leurs soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
+On a alors :
+\begin{equation}
+  Corr(x, y) = \frac{\sum_{i=1}^m (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^m (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^m (y_i - \bar{y})^2}}
+\end{equation}
+
+
+
+
+
 
 
 
