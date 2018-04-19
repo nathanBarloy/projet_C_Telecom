@@ -1,12 +1,9 @@
-#include <JSONAll.h>
-#include <String/AutoString.h>
-#include "utils/BDD.h"
-#include <math.h>
+#include "Distance.h"
 
 /* Pour l'instant c'est la parce que je sais pas trop ou je suis censé le mettre, ni a partir d'où il est appelé
 */
 
-double distance(BDD bdd,int id1, int id2) {
+double distance_film(BDD bdd,int id1, int id2) {
 	double dist=0;
 	JSONArray_t films = BDD_Films(bdd);
 	JSONObject_t film1 = JSONArray_get(films, id1);
@@ -35,7 +32,8 @@ double distance(BDD bdd,int id1, int id2) {
 double distance_year(int y1,int y2) {
   double dist = 0;
 /*  double alpha = 0.05;
-  dist = 1-exp(-alpha*(double)(abs(y1-y2))); */
+  dist = 1-exp(-alpha*(double)(abs(y1-y2)));
+	problème au niveau de biblioteque math.h, askip il y a un truc a rajouter dans le Makefile mais je sais pas quoi*/
   return dist;
 }
 
