@@ -1,11 +1,11 @@
-PROG=server client
+PROG=server client tests
 all: $(PROG)
 INCLUDE=-Iinclude/common/ -Iinclude/cjson/
 LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/
 DEBUG=
 DBG=
 ALL_O=sys/RequestTypes.o
-CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o
+CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o sys/ClientRunner_MainMenu.o
 SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
@@ -32,7 +32,12 @@ client: $(CLIENT_O) $(SO)
 	$(CC) $(CLIENT_O) $(LIBS) $(LINK) # -lncurses -lcdk
 server: $(SERVER_O) $(SO)
 	$(CC) $(SERVER_O) $(LIBS) $(LINK)
-.PHONY: clean
+.PHONY: clean tests
 clean:
 	rm -f *.so $(PROG)
 	find -iname "*.o" -print -delete
+	find -iname "*.bin" -print -delete
+tests: test/TestReadInput.bin
+test/TestReadInput.bin: utils/ReadInput.o
+%.bin: %.c
+	$(CC) $^ $(LIBS) $(LINK)

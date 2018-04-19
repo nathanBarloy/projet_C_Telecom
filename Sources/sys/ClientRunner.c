@@ -4,66 +4,35 @@
 #include <String/String.h>
 #include "../utils/ReadInput.h"
 #include "../utils/JSONShortcut.h"
-
+#include <string.h>
+#include "ClientRunner_MainMenu.h"
 int clientRunner(Connexion_t connexion)
 {
+	//Signaux
 	signal(2, signal_clientRunner);
 	signal(15, signal_clientRunner);
-	//initClient();
-	//Init ncurses
-	//initscr();
-	//WINDOW* window = stdscr;
-	//CDKSCREEN* screen = initCDKScreen(window);
-	//initCDKColor();
-	//char *a[1];
-	//a[0] =  (char*) "</B>Bonjour !<!B>";
-	//CDKDIALOG* dialog = newCDKDialog(screen, CENTER, CENTER, (char**) a, 1, 0, 0, 0, 1, 1, 1);
-	//CDKLABEL* label = newCDKLabel(screen, CENTER, CENTER, a, 1, 1, 1);
-	//refreshCDKScreen(screen);
-	//waitCDKDialog(dialog, ' ');
-	//waitCDKLabel(label, ' ');
-	//printw("OK !");
-	//refresh();
+
+	//Gestionnaire de fonctions
 	enum ClientRunnerMode mode = MAIN_MENU;
+	enum ClientRunnerMode(*modeFct[CLIENT_ENUM_SIZE])(Connexion_t);//Tableau contenant les fonctions à lancer.
+	memset(modeFct, 0, sizeof(void*) * CLIENT_ENUM_SIZE);
+	//Debut des fonctions
+	modeFct[MAIN_MENU] = ClientRunner_MainMenu;
+	//Fin des fonctions
 	String_t choice = autoString("");
 	while(global_clientRunnerContinue(0, 0))
 	{
-		switch(mode)
+		if(modeFct[mode] != 0)
 		{
-			case MAIN_MENU:
-			printf("Bienvenue sur le menu principal, ");
-			if(connexion->user != 0)
-			{
-				printf("%s\n", cStringValueOf(connexion->user, "Login"));
-			}
-			else
-			{
-				printf("vous n'êtes pas connecté.\n");
-			}
-			break;
-			default:
-			printf("Not implemented yet !\n");
-			mode = MAIN_MENU;
-
-		}
-		usleep(10000);
-		choice = ReadInputWithMsg(0);
-		lowerString(choice);
-		//printf("Vous avez entré: \"%s\"\n", cString(choice));
-		if(equalsString(choice, autoString("exit")))
-		{
-			global_clientRunnerContinue(1,0);
+			mode = modeFct[mode](connexion);//Appel de la fonction correspondante
 		}
 		else
 		{
-			printf("Inconnu: \"%s\"\n", cString(choice));
+			printf("Not implemented yet !\nGoing back to MainMenu.\n");
+			mode = MAIN_MENU;
 		}
+		usleep(10000);
 	}
-	//destroyCDKDialog(dialog);
-	//destroyCDKScreen(screen);
-	//Fin de ncurses
-	//endCDK();
-	//endwin();
 	return 0;
 }
 int global_clientRunnerContinue(int set, int nvalue)
