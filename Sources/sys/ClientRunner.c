@@ -29,9 +29,9 @@ int clientRunner(Connexion_t connexion)
 		else
 		{
 			printf("Not implemented yet !\nGoing back to MainMenu.\n");
+			sleep(1);
 			mode = MAIN_MENU;
 		}
-		usleep(10000);
 	}
 	return 0;
 }

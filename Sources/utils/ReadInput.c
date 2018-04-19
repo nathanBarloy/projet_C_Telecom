@@ -117,7 +117,11 @@ String_t Recognize(Vector_t propositions, String_t word)
 }
 String_t StandardPrompt(Vector_t propositions)
 {
-	String_t s = ReadInput();
+	String_t s = ReadInputWithMsg(0);
 	lowerString(s);
 	return Recognize(propositions, s);
+}
+void clearTerminal()
+{
+	printf("\033[2J");
 }
