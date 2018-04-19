@@ -1,3 +1,0 @@
-pour calculer la distance entre 2 films, on calculs des distances pour chacun des attributs des fims (toutes ces distances sont entre 0 et 1), puis on fait une simple moyenne pondérée.
-
-Pour la distance entre de années, on considère la valeur absolue de la différence des années. On veut avoir une fonction croissante de R+ dans [0,1]. 1ère possibilité : 1-exp(-alpha*diff), avec alpa coefficient a faire varier;
