@@ -11,4 +11,6 @@ double distance_genre(JSONArray_t l1, JSONArray_t l2);
 double distance_actor(JSONArray_t l1, JSONArray_t l2);
 double distance_real(JSONArray_t l1, JSONArray_t l2);
 double distance_type(String_t t1, String_t t2);
+double distance_Jacard(JSONArray_t l1, JSONArray_t l2);
+int card_intersection(JSONArray_t l1, JSONArray_t l2);
 #endif

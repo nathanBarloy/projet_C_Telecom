@@ -36,19 +36,19 @@ double distance_year(int y1,int y2) {
 
 double distance_genre(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
-
+	dist = distance_Jacard(l1,l2);
   return dist;
 }
 
 double distance_actor(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
-
+	dist = distance_Jacard(l1,l2);
   return dist;
 }
 
 double distance_real(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
-
+	dist = distance_Jacard(l1,l2);
   return dist;
 }
 
@@ -56,4 +56,22 @@ double distance_type(String_t t1, String_t t2) {
   double dist = 0;
 
   return dist;
+}
+
+double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
+	int intersec = card_intersection(l1,l2);
+	int uni = JSONArray_size(l1)+JSONArray_size(l2)-intersec;
+	return ((double)(intersec))/((double)(uni));
+}
+
+int card_intersection(JSONArray_t l1, JSONArray_t l2) {
+	int compteur=0;
+	for (int i=0;i<JSONArray_size(l1);i++) {
+		for (int j=0;j<JSONArray_size(l2);j++) {
+			if (JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+				compteur++;
+			}
+		}
+	}
+	return compteur;
 }
