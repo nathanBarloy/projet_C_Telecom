@@ -9,12 +9,9 @@ double distance_film(BDD bdd,int id1, int id2) {
 	JSONObject_t film1 = JSONArray_get(films, id1);
 	JSONObject_t film2 = JSONArray_get(films, id2);
 	double coeffActor=3,coeffGenre=5,coeffReal=3,coeffType=1,coeffYear=1;
-	//double distActor = distance_actor();
-	//double distGenre = distance_genre();
-	//double distReal = distance_real();
-	double distActor = 0;
-	double distGenre = 0;
-	double distReal = 0;
+	double distActor = distance_actor(JSONObject_getArray(film1,autoString("Actors")),JSONObject_getArray(film2,autoString("Actors")));
+	double distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")));
+	double distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
 	double distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
 	double distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
 
@@ -37,19 +34,19 @@ double distance_year(int y1,int y2) {
   return dist;
 }
 
-double distance_genre(char **l1, char **l2) {
+double distance_genre(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
 
   return dist;
 }
 
-double distance_actor(char **l1, char **l2) {
+double distance_actor(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
 
   return dist;
 }
 
-double distance_real(char **l1, char **l2) {
+double distance_real(JSONArray_t l1, JSONArray_t l2) {
   double dist = 0;
 
   return dist;
