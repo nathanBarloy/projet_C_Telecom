@@ -61,7 +61,7 @@ double distance_type(String_t t1, String_t t2) {
 double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
 	int intersec = card_intersection(l1,l2);
 	int uni = JSONArray_size(l1)+JSONArray_size(l2)-intersec;
-	return ((double)(intersec))/((double)(uni));
+	return 1-((double)(intersec))/((double)(uni));
 }
 
 int card_intersection(JSONArray_t l1, JSONArray_t l2) {
