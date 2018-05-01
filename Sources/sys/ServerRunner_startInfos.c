@@ -2,23 +2,55 @@
 #include "../utils/JSONShortcut.h"
 void startInfos(BDD bdd)
 {
+	printf("Vérification d'intégrité de la base de données...\n");
 	JSONArray_t users = BDD_Users(bdd), films = BDD_Films(bdd);
-	size_t c = 0, size = JSONArray_size(films);
-	printf("Films chargés (%ld):\n", size);
+	unsigned int c = 0, size = JSONArray_size(films);
+	printf("Films chargés (%u):\n", size);
 	JSONObject_t tmp = 0;
 	while(c < size)
 	{
 		tmp = JSONArray_get(films, c);
-		printf("\t- \"%s\"\n", cStringValueOf(tmp, "Title"));
+		printf("\t- E#%3u: ", c);
+		if(BDD_checkFilm(tmp))
+		{
+			printf("OK: ");
+			printf("\"%s\"\n", cStringValueOf(tmp, "Title"));
+		}
+		else
+		{
+			printf("FORMAT INVALIDE.\n");
+			printf("%s\n", cString(JSONObject_asString(tmp, 1)));
+			JSONArray_removeIndex(films, c, true);
+			--c;
+			printf("\t → Supprimé.");
+		}
 		++c;
 	}
+
 	c = 0;
 	size = JSONArray_size(users);
-	printf("Utilisateurs chargés (%ld):\n", size);
+	printf("Utilisateurs chargés (%u):\n", size);
 	while(c < size)
 	{
 		tmp = JSONArray_get(users, c);
-		printf("\t- \"%s\" / (\"%s\", \"%s\")\n", cStringValueOf(tmp, "Login"), cStringValueOf(tmp, "FirstName"), cStringValueOf(tmp, "Name"));
+		printf("\t- E#%3u: ", c);
+		if(BDD_checkUser(tmp))
+		{
+			printf("OK: ");
+			printf("\"%s\" / (\"%s\", \"%s\")\n", cStringValueOf(tmp, "Login"), cStringValueOf(tmp, "FirstName"), cStringValueOf(tmp, "Name"));
+		}
+		else
+		{
+			printf("FORMAT INVALIDE.\n");
+			printf("%s\n", cString(JSONObject_asString(tmp, 1)));
+			JSONArray_removeIndex(users, c, true);
+			--c;
+			printf("\t → Supprimé.");
+		}
 		++c;
 	}
+	printf("Intégrité vérifiée:\n");
+	printf("\t- Nombre total de films: %u\n", JSONArray_size(films));
+	printf("\t- Nombre total d'utilisateurs': %u\n", JSONArray_size(users));
+	printf("Fin de vérification d'intégrité.\n");
 }
