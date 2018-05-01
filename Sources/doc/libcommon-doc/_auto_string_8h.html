@@ -102,23 +102,31 @@ $(document).ready(function(){initNavTree('_auto_string_8h.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Définitions de type</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier AutoString.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_string_8h_source.html">String.h</a>&quot;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="_vector_8h_source.html">Vector/Vector.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de AutoString.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_auto_string_8h__incl.png" border="0" usemap="#_string_2_auto_string_8h" alt=""/></div>
 <map name="_string_2_auto_string_8h" id="_string_2_auto_string_8h">
-<area shape="rect" id="node2" href="_string_8h.html" title="String.h" alt="" coords="143,80,209,107"/><area shape="rect" id="node6" href="_vector_8h.html" title="Vector/Vector.h" alt="" coords="5,80,117,107"/><area shape="rect" id="node5" href="_types_8h.html" title="Types/Types.h" alt="" coords="7,155,116,181"/></map>
+<area shape="rect" id="node2" href="_string_8h.html" title="String.h" alt="" coords="143,80,209,107"/><area shape="rect" id="node7" href="_vector_8h.html" title="Vector/Vector.h" alt="" coords="5,80,117,107"/><area shape="rect" id="node5" href="_types_8h.html" title="Types/Types.h" alt="" coords="7,155,116,181"/></map>
 </div>
 </div>
 <p><a href="_auto_string_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a26657d0af9235b130398d12c5bff0b94"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a></td></tr>
+<tr class="memdesc:a26657d0af9235b130398d12c5bff0b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type de String_t indiquant que cette chaine est gérée par <a class="el" href="_auto_string_8h.html#a00345854bb5b76c84b1a391a67a74ae1" title="Gérer automatiquement l&#39;allocation mémoire des chaines de type String. ">autoString()</a>.  <a href="#a26657d0af9235b130398d12c5bff0b94">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a26657d0af9235b130398d12c5bff0b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:aa6bb14261c42a8748b03ffea28cdaf48"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#aa6bb14261c42a8748b03ffea28cdaf48">global_AutoString</a> (int s)</td></tr>
@@ -127,24 +135,24 @@ Fonctions</h2></td></tr>
 <tr class="memitem:add2522b098699e82fbdfbea449755db8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#add2522b098699e82fbdfbea449755db8">initAutoString</a> ()</td></tr>
 <tr class="memdesc:add2522b098699e82fbdfbea449755db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'initialisation de autoString.  <a href="#add2522b098699e82fbdfbea449755db8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:add2522b098699e82fbdfbea449755db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58263058d2d51f5abeb647505f8b392b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a58263058d2d51f5abeb647505f8b392b">getAutoString</a> (char *str)</td></tr>
-<tr class="memdesc:a58263058d2d51f5abeb647505f8b392b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction interne pour l'obtention de chaines.  <a href="#a58263058d2d51f5abeb647505f8b392b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a58263058d2d51f5abeb647505f8b392b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37705335328fd23738954cacf12be825"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a37705335328fd23738954cacf12be825">autoString</a> (char *str)</td></tr>
-<tr class="memdesc:a37705335328fd23738954cacf12be825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement l'allocation mémoire des chaines de type <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a37705335328fd23738954cacf12be825">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a37705335328fd23738954cacf12be825"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7aebc3a20f134185bdb6052ed44f8d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#af7aebc3a20f134185bdb6052ed44f8d9">autoStringAllocated</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str)</td></tr>
-<tr class="memdesc:af7aebc3a20f134185bdb6052ed44f8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement les pointeurs pour les chaines de type <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> déjà alloueés.  <a href="#af7aebc3a20f134185bdb6052ed44f8d9">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af7aebc3a20f134185bdb6052ed44f8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad65056caff4a1d1a968e24b2d66c8402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#ad65056caff4a1d1a968e24b2d66c8402">autoConcatString</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str2)</td></tr>
-<tr class="memdesc:ad65056caff4a1d1a968e24b2d66c8402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de 2 chaines.  <a href="#ad65056caff4a1d1a968e24b2d66c8402">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad65056caff4a1d1a968e24b2d66c8402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad243115f266edddf4b7d35a2a76cf3ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#ad243115f266edddf4b7d35a2a76cf3ed">autoConcatNString</a> (int n,...)</td></tr>
-<tr class="memdesc:ad243115f266edddf4b7d35a2a76cf3ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de N chaines (char*)  <a href="#ad243115f266edddf4b7d35a2a76cf3ed">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad243115f266edddf4b7d35a2a76cf3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8a4f135425c4b124441ff5b85b5b021"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#ac8a4f135425c4b124441ff5b85b5b021">autoConcatNStringAllocated</a> (int n,...)</td></tr>
-<tr class="memdesc:ac8a4f135425c4b124441ff5b85b5b021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de N chaines déjà allouées (String_t)  <a href="#ac8a4f135425c4b124441ff5b85b5b021">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac8a4f135425c4b124441ff5b85b5b021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad07fc83e8504a5c8d252ac4332195f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#ad07fc83e8504a5c8d252ac4332195f1b">getAutoString</a> (char *str)</td></tr>
+<tr class="memdesc:ad07fc83e8504a5c8d252ac4332195f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction interne pour l'obtention de chaines.  <a href="#ad07fc83e8504a5c8d252ac4332195f1b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad07fc83e8504a5c8d252ac4332195f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00345854bb5b76c84b1a391a67a74ae1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a00345854bb5b76c84b1a391a67a74ae1">autoString</a> (char *str)</td></tr>
+<tr class="memdesc:a00345854bb5b76c84b1a391a67a74ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement l'allocation mémoire des chaines de type <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a>.  <a href="#a00345854bb5b76c84b1a391a67a74ae1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a00345854bb5b76c84b1a391a67a74ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca199594880df26be10bcea2420d627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a2ca199594880df26be10bcea2420d627">autoStringAllocated</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str)</td></tr>
+<tr class="memdesc:a2ca199594880df26be10bcea2420d627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement les pointeurs pour les chaines de type <a class="el" href="struct_string.html" title="Structure représentant un String (Chaine de caractères) Il n&#39;est pas conseillé d&#39;y accéder directemen...">String</a> déjà alloueés.  <a href="#a2ca199594880df26be10bcea2420d627">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2ca199594880df26be10bcea2420d627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2ff5d52cbabb0baea6b5e8394a782c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a7c2ff5d52cbabb0baea6b5e8394a782c">autoConcatString</a> (<a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str, <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> str2)</td></tr>
+<tr class="memdesc:a7c2ff5d52cbabb0baea6b5e8394a782c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de 2 chaines.  <a href="#a7c2ff5d52cbabb0baea6b5e8394a782c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7c2ff5d52cbabb0baea6b5e8394a782c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc083d0242df6b7a59c6fccbc02147d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#a9bc083d0242df6b7a59c6fccbc02147d">autoConcatNString</a> (int n,...)</td></tr>
+<tr class="memdesc:a9bc083d0242df6b7a59c6fccbc02147d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de N chaines (char*)  <a href="#a9bc083d0242df6b7a59c6fccbc02147d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9bc083d0242df6b7a59c6fccbc02147d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3aa6d5577225788de5f6d64485c9558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#ae3aa6d5577225788de5f6d64485c9558">autoConcatNStringAllocated</a> (int n,...)</td></tr>
+<tr class="memdesc:ae3aa6d5577225788de5f6d64485c9558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gérer automatiquement la concaténation de N chaines déjà allouées (String_t)  <a href="#ae3aa6d5577225788de5f6d64485c9558">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae3aa6d5577225788de5f6d64485c9558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0681807f8ab5a139398d962c3306a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_auto_string_8h.html#add0681807f8ab5a139398d962c3306a2">freeAutoString</a> ()</td></tr>
 <tr class="memdesc:add0681807f8ab5a139398d962c3306a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libérer l'intégralité des chaines gérées automatiquement.  <a href="#add0681807f8ab5a139398d962c3306a2">Plus de détails...</a><br /></td></tr>
 <tr class="separator:add0681807f8ab5a139398d962c3306a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,13 +160,30 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:aa81fa2e52abe1dd82fb8fc39e6240c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afficher l'intégralité des chaines gérées automatiquement.  <a href="#aa81fa2e52abe1dd82fb8fc39e6240c68">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa81fa2e52abe1dd82fb8fc39e6240c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="ad243115f266edddf4b7d35a2a76cf3ed"></a>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a26657d0af9235b130398d12c5bff0b94"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> autoConcatNString </td>
+          <td class="memname">typedef <a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> <a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type de String_t indiquant que cette chaine est gérée par <a class="el" href="_auto_string_8h.html#a00345854bb5b76c84b1a391a67a74ae1" title="Gérer automatiquement l&#39;allocation mémoire des chaines de type String. ">autoString()</a>. </p>
+
+<p>Définition à la ligne <a class="el" href="_auto_string_8h_source.html#l00014">14</a> du fichier <a class="el" href="_auto_string_8h_source.html">AutoString.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a9bc083d0242df6b7a59c6fccbc02147d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> autoConcatNString </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em>, </td>
@@ -188,12 +213,12 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac8a4f135425c4b124441ff5b85b5b021"></a>
+<a class="anchor" id="ae3aa6d5577225788de5f6d64485c9558"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> autoConcatNStringAllocated </td>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> autoConcatNStringAllocated </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em>, </td>
@@ -223,12 +248,12 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad65056caff4a1d1a968e24b2d66c8402"></a>
+<a class="anchor" id="a7c2ff5d52cbabb0baea6b5e8394a782c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> autoConcatString </td>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> autoConcatString </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
           <td class="paramname"><em>str</em>, </td>
@@ -258,12 +283,12 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a37705335328fd23738954cacf12be825"></a>
+<a class="anchor" id="a00345854bb5b76c84b1a391a67a74ae1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> autoString </td>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> autoString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -283,12 +308,12 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af7aebc3a20f134185bdb6052ed44f8d9"></a>
+<a class="anchor" id="a2ca199594880df26be10bcea2420d627"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> autoStringAllocated </td>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> autoStringAllocated </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a>&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -322,16 +347,16 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Libérer l'intégralité des chaines gérées automatiquement. </p>
-<p>Note: Assurez vous de ne plus utiliser de pointeurs provenant de <a class="el" href="_auto_string_8h.html#a37705335328fd23738954cacf12be825" title="Gérer automatiquement l&#39;allocation mémoire des chaines de type String. ">autoString()</a> avant d'appeller cette fonction. Appellez cette fonction avant le return 0; de votre main pour libérer correctement toutes les chaines. </p>
+<p>Note: Assurez vous de ne plus utiliser de pointeurs provenant de <a class="el" href="_auto_string_8h.html#a00345854bb5b76c84b1a391a67a74ae1" title="Gérer automatiquement l&#39;allocation mémoire des chaines de type String. ">autoString()</a> avant d'appeller cette fonction. Appellez cette fonction avant le return 0; de votre main pour libérer correctement toutes les chaines. </p>
 
 </div>
 </div>
-<a class="anchor" id="a58263058d2d51f5abeb647505f8b392b"></a>
+<a class="anchor" id="ad07fc83e8504a5c8d252ac4332195f1b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_string_8h.html#a7c7804d7f1f6a535d58835748c2001ee">String_t</a> getAutoString </td>
+          <td class="memname"><a class="el" href="_auto_string_8h.html#a26657d0af9235b130398d12c5bff0b94">AutoString_t</a> getAutoString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -418,7 +443,7 @@ Fonctions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d742525bc285934d0a803d8e05dabfd0.html">String</a></li><li class="navelem"><a class="el" href="_auto_string_8h.html">AutoString.h</a></li>
-    <li class="footer">Généré le Mercredi 11 Avril 2018 09:13:30 pour libcommon par
+    <li class="footer">Généré le Mardi 1 Mai 2018 19:24:30 pour libcommon par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

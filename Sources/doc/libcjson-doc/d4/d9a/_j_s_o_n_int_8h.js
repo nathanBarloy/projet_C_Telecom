@@ -2,7 +2,7 @@ var _j_s_o_n_int_8h =
 [
     [ "JSONInt_assign", "d4/d9a/_j_s_o_n_int_8h.html#a2d53aa8d10df680e03e80a80fcf33ef5", null ],
     [ "JSONInt_assignArray", "d4/d9a/_j_s_o_n_int_8h.html#a44081acd916148d5df99eb295183e5e2", null ],
-    [ "JSONInt_asString", "d4/d9a/_j_s_o_n_int_8h.html#af90d68acaaabb6013b3cc0194392a786", null ],
+    [ "JSONInt_asString", "d4/d9a/_j_s_o_n_int_8h.html#a5c46f99c11649994cbf4c75d1486353e", null ],
     [ "JSONInt_booleanValue", "d4/d9a/_j_s_o_n_int_8h.html#adb1fd9cf5544489a100d1bd4d14d17f5", null ],
     [ "JSONInt_clear", "d4/d9a/_j_s_o_n_int_8h.html#a63f29accc60b1692009e5f17390e8a13", null ],
     [ "JSONInt_delete", "d4/d9a/_j_s_o_n_int_8h.html#a22cd4659881fe84e42db4d0a165cb940", null ],

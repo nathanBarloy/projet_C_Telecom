@@ -2,7 +2,7 @@ var _j_s_o_n_boolean_8h =
 [
     [ "JSONBoolean_assign", "d7/d1c/_j_s_o_n_boolean_8h.html#a5872a860ace445a8379bf1b645767cd1", null ],
     [ "JSONBoolean_assignArray", "d7/d1c/_j_s_o_n_boolean_8h.html#a72b09759b7fe75cdc6f6a12fc7e33da8", null ],
-    [ "JSONBoolean_asString", "d7/d1c/_j_s_o_n_boolean_8h.html#a48581ede3877346ca2319c38e31d720d", null ],
+    [ "JSONBoolean_asString", "d7/d1c/_j_s_o_n_boolean_8h.html#a88dd22d66344a5aab2f31d202b90f429", null ],
     [ "JSONBoolean_booleanValue", "d7/d1c/_j_s_o_n_boolean_8h.html#a51b56fb47ede594ff9680aac38005eba", null ],
     [ "JSONBoolean_clear", "d7/d1c/_j_s_o_n_boolean_8h.html#a6b4501c714e3c8ed7cbb9ccf8db464ef", null ],
     [ "JSONBoolean_delete", "d7/d1c/_j_s_o_n_boolean_8h.html#afecc5d7cd8dab8093b5efc02a4b54501", null ],

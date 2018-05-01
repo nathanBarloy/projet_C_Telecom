@@ -7,7 +7,7 @@ var _j_s_o_n_array_8h =
     [ "JSONArray_addString", "d3/d99/_j_s_o_n_array_8h.html#ab20c1d0ab994fc58a4c3c9cd7ef1567a", null ],
     [ "JSONArray_assignArray", "d3/d99/_j_s_o_n_array_8h.html#a2bb07dadd23d4780d52a8c8ff2be2664", null ],
     [ "JSONArray_assignArrayOfObjects", "d3/d99/_j_s_o_n_array_8h.html#a0c925d7eff05ec579fd5371909b21fcf", null ],
-    [ "JSONArray_asString", "d3/d99/_j_s_o_n_array_8h.html#a63d6b0fed08d0143ecaf35444ab3141a", null ],
+    [ "JSONArray_asString", "d3/d99/_j_s_o_n_array_8h.html#a413a56c66de6f7440b957f0bfc1f312f", null ],
     [ "JSONArray_asVector", "d3/d99/_j_s_o_n_array_8h.html#a9fb70fa7642b898e73155849bbdcb252", null ],
     [ "JSONArray_booleanValue", "d3/d99/_j_s_o_n_array_8h.html#a24642a6ea9a0e08ade69eb6005d60bff", null ],
     [ "JSONArray_clear", "d3/d99/_j_s_o_n_array_8h.html#a22130968db70963ad85266321b4472cc", null ],
@@ -32,5 +32,5 @@ var _j_s_o_n_array_8h =
     [ "JSONArray_removeIndex", "d3/d99/_j_s_o_n_array_8h.html#a01248168eee2c77eb074a4d732939428", null ],
     [ "JSONArray_set", "d3/d99/_j_s_o_n_array_8h.html#a1c3e7f111057f53ba64b7827ed755018", null ],
     [ "JSONArray_size", "d3/d99/_j_s_o_n_array_8h.html#a27f4846338588b1587d10af7949f9722", null ],
-    [ "JSONArray_stringValue", "d3/d99/_j_s_o_n_array_8h.html#ae18d26d742f9356cb16174b406d78acb", null ]
+    [ "JSONArray_stringValue", "d3/d99/_j_s_o_n_array_8h.html#ac8d683537738e50d1c072f051c1daebd", null ]
 ];

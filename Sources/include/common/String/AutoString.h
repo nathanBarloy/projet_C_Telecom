@@ -8,6 +8,10 @@ extern "C"
 {
 #endif
 
+/*! \brief Type de String_t indiquant que cette chaine est gérée par autoString().
+*
+*/
+typedef String_t AutoString_t;
 /*! \brief Fonction gérant le tableau global d'autoString
 *
 * \param s Variable gérant l'allocation.
@@ -27,7 +31,7 @@ void initAutoString();
 * \return Chaine
 * Note: Ne pas utiliser, utiliser autoString pour gérer vos chaines.
 */
-String_t getAutoString(char* str);//Ne pas utiliser, utiliser autoString()
+AutoString_t getAutoString(char* str);//Ne pas utiliser, utiliser autoString()
 /*! \brief Gérer automatiquement l'allocation mémoire des chaines de type String.
 *
 * \param str char* a gérer.
@@ -36,7 +40,7 @@ String_t getAutoString(char* str);//Ne pas utiliser, utiliser autoString()
 * Note: Il est de votre responsabilité de free le char* si celui ci n'est pas une constante.
 * freeAutoString permettra de libérer l'intégralité des chaines gérées.
 */
-String_t autoString(char *str);
+AutoString_t autoString(char *str);
 /*! \brief Gérer automatiquement les pointeurs pour les chaines de type String déjà alloueés.
 *
 * \param str String à gérer
@@ -45,7 +49,7 @@ String_t autoString(char *str);
 * Comme pour autoString, si la chaine existe déjà il la libérera et vous renverra celle qui existe déjà.
 * Les String de autoString et autoStringAllocated sont partagées.
 */
-String_t autoStringAllocated(String_t str);
+AutoString_t autoStringAllocated(String_t str);
 /*! \brief Gérer automatiquement la concaténation de 2 chaines
 *
 * \param str Chaine 1
@@ -54,7 +58,7 @@ String_t autoStringAllocated(String_t str);
 * Cette fonction renvoie un nouveau String contenant la concaténation de str et str2.
 * Le pointeur nouvellement crée est gardé par autoString, vous n'avez pas à le libérer, cela sera fait automatiquement.
 */
-String_t autoConcatString(String_t str, String_t str2);
+AutoString_t autoConcatString(String_t str, String_t str2);
 /*! \brief Gérer automatiquement la concaténation de N chaines (char*)
 *
 * \param n Nombre de chaine a concaténer
@@ -64,7 +68,7 @@ String_t autoConcatString(String_t str, String_t str2);
 * Le pointeur nouvellement crée est gardé par autoString, vous n'avez pas à le libérer, cela sera fait automatiquement.
 * Fonctionnement identique a autoConcatString mais avec N String.
 */
-String_t autoConcatNString(int n, ...);
+AutoString_t autoConcatNString(int n, ...);
 /*! \brief Gérer automatiquement la concaténation de N chaines déjà allouées (String_t)
 *
 * \param n Nombre de chaine a concaténer
@@ -74,7 +78,7 @@ String_t autoConcatNString(int n, ...);
 * Le pointeur nouvellement crée est gardé par autoString, vous n'avez pas à le libérer, cela sera fait automatiquement.
 * Fonctionnement identique a autoConcatString mais avec N String.
 */
-String_t autoConcatNStringAllocated(int n, ...);
+AutoString_t autoConcatNStringAllocated(int n, ...);
 /*! \brief Libérer l'intégralité des chaines gérées automatiquement
 *
 * Note: Assurez vous de ne plus utiliser de pointeurs provenant de autoString() avant d'appeller cette fonction.

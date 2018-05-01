@@ -25,7 +25,7 @@ JSONArray_t JSONArray_getParent(JSONArray_t self);
 bool JSONArray_hasParent(JSONArray_t self);
 /*! \brief Voir JSONObject_asString()
 * \param self Objet courant */
-String_t JSONArray_asString(JSONArray_t self, unsigned int tabs);
+AutoString_t JSONArray_asString(JSONArray_t self, unsigned int tabs);
 /*! \brief Retourne le JSONObject a la position n
 * \param n Position dans le tableau
 * \param self Objet courant
@@ -60,7 +60,7 @@ JSONArray_t JSONArray_getArray(JSONArray_t self, unsigned int n);
 * \param n Position dans le tableau
 * \param self Objet courant
 * \return String_t */
-String_t JSONArray_stringValue(JSONArray_t self, unsigned int n);
+AutoString_t JSONArray_stringValue(JSONArray_t self, unsigned int n);
 /*! \brief Détache le JSONObject a la position n
 * \param n Position dans le tableau
 * Libére la mémoire automatiquement, voir JSONArray::detach

@@ -26,7 +26,7 @@ JSONObject_t JSONDouble_getParent(JSONDouble_t self);
 */
 bool JSONDouble_hasParent(JSONDouble_t self);
 /*! \brief Voir JSONObject_asString() */
-String_t JSONDouble_asString(JSONDouble_t self, unsigned int tabs);
+AutoString_t JSONDouble_asString(JSONDouble_t self, unsigned int tabs);
 /*! \brief Retoure la valeur du type demandé
 * \param self Objet concerné
 * \return Valeur de l'objet au type demandé
