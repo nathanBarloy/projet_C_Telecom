@@ -117,9 +117,11 @@ La notation des produits est un élément centrale dans un système de recommand
 \vspace{0.5cm}
 \par Il y tout d'abord la notation unaire : cette notation ne délivre qu'une seule information, si l'utilisateur a aimé un produit. On peut donner par l'exemple de réseau social Instagram qui donne la possibilité aux utilisateurs de "liker" une photo uniquement, il est impossible de mettre un avis négatif.
 \par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilsateur. L'information transmise est donc binaire : "J'aime" / "Je naime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
-\par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et doc améliore les recommandations qui en découle.
+\par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et donc améliore les recommandations qui en découle.
 Cependant, le coût en calcul en est impact car l'information n'est plus binaire. De plus cette notation est sensible à la manière de noter de chaque utilisateur : une note de 3/5 sera considéré comme une mauvaise note par certains utilisateurs alors que pour d'autres, ce sera un note neutre / moyenne. Cela peut donc impacter la qualité des recommandations.
+
 \vspace{0.5cm}
+
 Partie sur l'analyse des commentaires pour en extraire des tags + utilisations des données profil utilisateur
 \subsubsection{Observation indirecte}
 Ce sont l'ensemble des informations immplicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
@@ -128,11 +130,20 @@ Ce sont l'ensemble des informations immplicites données par l'utilisateur ou d�
 Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".
 
 \section{La matrice d'usage}
+Egalement appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
+\section{Réduction de matrice}
+Reprenons la matrice d'usage tout juste présentée. Elle est de dimension mxn avec m le nombre d'utilisateurs et n le nombre de produit. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possèdant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduie des recommandation. La solution est donc de réduire la dimension de la matrice.
+Plusieurs approches sont possibles. On peut par exemple ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits possiblement recommandés à ceux qui sont populaires et donc déjà connu par la plupart.\par
+Une autre approche consiste à ne conserver qu'une gamme de produit répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
+L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impacté. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
+\subsubsection{Clustering}
+L’idée est d’écarter les items ou les utilisateurs jugés non représentatif pour un utilisateur (item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
+Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
 \section{Calcul de similarités}
 Un calcul de similarité est utile pour déterminer la distance entre un utlisateur et un produit mais également entre deux utlisateurs (ou produits).
 Plusieurs outils existent pour nous permettre d'effectuer ce calcul.
-Nous verrons dans cette partie quelques unes de ces méthodes en discuterons des avantages et inconvénients qu'ils présentent.
+Nous verrons dans cette partie quelques unes de ces méthodes et discuterons des avantages et inconvénients qu'ils présentent.
 
 \subsection{La distance Euclidienne}
 La distance euclidienne est obtenue par la formule suivante :
@@ -152,17 +163,11 @@ On considère les vecteurs ligne de x et y. Le but est de calculer la distance, 
 L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
 
 \subsection{Corrélation de Pearson}
-Afin de pallier ce problème, il est possible de normaliser au préalable les notes en leurs soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
+Afin de pallier le problème citer précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
 On a alors :
 \begin{equation}
   Corr(x, y) = \frac{\sum_{i=1}^m (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^m (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^m (y_i - \bar{y})^2}}
 \end{equation}
-
-
-
-
-
-
 
 
 
@@ -177,13 +182,13 @@ Afin d'améliorer l'expérience de l'utilisateur, nous souhaitons lui proposer p
 Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur YouTube avec la bande annonce.
 Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne.\par
 Comme ces liens seront stockés dans la base de donnée JSON des films, il n'est nécessaire d'exécuter ce programme qu'une seule fois. Nous avons donc optés pour un script python qui est plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne. Le résultat de cette exécution sera ensuite stocké dans un fichier texte avant d'inclure les liens au fichier JSON par l'intermédiaire d'un programme C++.\par
-\vspace{1cm}
+\vspace{0.5cm}
 Ce script se décompose en trois étapes.
   Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=  suivi du contenu de la recherche avec des "+" remplaçant les espaces.
 Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce carctère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
 Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
 La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
-Pour terminer, on sauvgarde recréer le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
+Pour terminer, on recrée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
 
 
 \end{document}
