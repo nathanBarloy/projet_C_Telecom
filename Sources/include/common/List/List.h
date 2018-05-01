@@ -230,6 +230,7 @@ size_t sizeToBeginList(struct List* ptr);//Taille d'une liste avant son début
 /*! \brief Détacher les N élements suivants
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel détacher les suivants
 * \return Liste contenant les N éléments suivants.
 * Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant).
 * Cette fonction permet d'exporter une zone d'une liste dans une autre Liste.
@@ -238,6 +239,7 @@ struct List* detachNextNList(struct List* ptr, size_t n);//Détache les N elemen
 /*! \brief Détacher les N élements précédents
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel détacher le précédent
 * \return Liste contenant les N éléments précédents.
 * Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent).
 * Cette fonction permet d'exporter une zone d'une liste dans une autre Liste.
@@ -246,6 +248,7 @@ struct List* detachPrevNList(struct List* ptr, size_t n);//Détache les N elemen
 /*! \brief Libérer les N élements suivants
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel free les suivants
 * \return 0
 * Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant).
 * Cette fonction permet de couper une zone dans une liste.
@@ -255,6 +258,7 @@ struct List* freeNextNList(struct List* ptr, size_t n);//Supprime les N élement
 /*! \brief Libérer les N élements précédents
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel free les précédents
 * \return 0
 * Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent).
 * Cette fonction permet de couper une zone dans une liste.
@@ -264,6 +268,7 @@ struct List* freePrevNList(struct List* ptr, size_t n);//Supprime les N élémen
 /*! \brief Libérer les N élements suivants et les pointeurs de valeurs
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel free les suivants avec freeFunc
 * \param freeFunc Fonction a appeler pour libérer le pointeur de la valeur
 * \return 0
 * Note: Les éléments se trouvant après les N sont rattachés a l'élement qui sert de point de coupure (en tant que suivant).
@@ -274,6 +279,7 @@ struct List* freeNextNListWithPtr(struct List* ptr, size_t n, void (*freeFunc)(v
 /*! \brief Libérer les N élements précédents et les pointeurs de valeurs
 *
 * \param ptr List concerné (élement)
+* \param n id de l'élement pour lequel free les précédents avec freeFunc
 * \param freeFunc Fonction a appeler pour libérer le pointeur de la valeur
 * \return 0
 * Note: Les éléments se trouvant avant les N sont rattachés a l'élement qui sert de point de coupure (en tant que précédent).

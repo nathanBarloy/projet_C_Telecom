@@ -26,7 +26,7 @@ JSONObject_t JSONInt_getParent(JSONInt_t self);
 */
 bool JSONInt_hasParent(JSONInt_t self);
 /*! \brief Voir JSONObject_asString() */
-String_t JSONInt_asString(JSONInt_t self, unsigned int tabs);
+AutoString_t JSONInt_asString(JSONInt_t self, unsigned int tabs);
 /*! \brief Retoure la valeur du type demandé
 * \param self Objet concerné
 * \return Valeur de l'objet au type demandé

@@ -23,7 +23,7 @@ var _j_s_o_n_object_8h =
     ] ],
     [ "JSONObject_assign", "db/da9/_j_s_o_n_object_8h.html#a7238232a1d2f9e24d87631b10cc3d6d5", null ],
     [ "JSONObject_assignArray", "db/da9/_j_s_o_n_object_8h.html#a204b5c71d81d2fb7a9f94660e6d3efc2", null ],
-    [ "JSONObject_asString", "db/da9/_j_s_o_n_object_8h.html#ac4c91a8814ba20b4f6af61a0d8671102", null ],
+    [ "JSONObject_asString", "db/da9/_j_s_o_n_object_8h.html#a8b84e977e38e5435c17e6be23d298b50", null ],
     [ "JSONObject_asVector", "db/da9/_j_s_o_n_object_8h.html#a9d353addb191677d83d4bdcc0cfa641c", null ],
     [ "JSONObject_booleanValue", "db/da9/_j_s_o_n_object_8h.html#a1f62200215e94f56c8f9e1c6308faf60", null ],
     [ "JSONObject_booleanValueOf", "db/da9/_j_s_o_n_object_8h.html#a220c366c4630e906e1fcf5835d646666", null ],
@@ -40,7 +40,7 @@ var _j_s_o_n_object_8h =
     [ "JSONObject_getBoolean", "db/da9/_j_s_o_n_object_8h.html#a7eb4b8cccea89c264659e58de0188f93", null ],
     [ "JSONObject_getDouble", "db/da9/_j_s_o_n_object_8h.html#ac5a5fa7286772bc7eee3bf3058753016", null ],
     [ "JSONObject_getInt", "db/da9/_j_s_o_n_object_8h.html#a65511822e6ca363cfb1d821c2a702182", null ],
-    [ "JSONObject_getKey", "db/da9/_j_s_o_n_object_8h.html#a76b501f4340c51d403674b5bdf0d3806", null ],
+    [ "JSONObject_getKey", "db/da9/_j_s_o_n_object_8h.html#a663cdb91741a7b3733173219139a04dc", null ],
     [ "JSONObject_getParent", "db/da9/_j_s_o_n_object_8h.html#a1ff504bb698a7f0b7bd8b32ae17990ae", null ],
     [ "JSONObject_getString", "db/da9/_j_s_o_n_object_8h.html#ab48e807af185a3277d8738886f3134c2", null ],
     [ "JSONObject_getType", "db/da9/_j_s_o_n_object_8h.html#a7b9853fa4cde808c33a3f94ad5ec90b3", null ],
@@ -55,6 +55,6 @@ var _j_s_o_n_object_8h =
     [ "JSONObject_setDouble", "db/da9/_j_s_o_n_object_8h.html#aba306db611cb5975f1e006c6d7046605", null ],
     [ "JSONObject_setInt", "db/da9/_j_s_o_n_object_8h.html#a4814feaa598614161f71329be48cf255", null ],
     [ "JSONObject_setString", "db/da9/_j_s_o_n_object_8h.html#a0601e20716b4c60774b5dca083f99ad7", null ],
-    [ "JSONObject_stringValue", "db/da9/_j_s_o_n_object_8h.html#ab7d14813cc3bf675849a162dc4efcc73", null ],
-    [ "JSONObject_stringValueOf", "db/da9/_j_s_o_n_object_8h.html#ad7562360a79ff42d205c8039d3f42054", null ]
+    [ "JSONObject_stringValue", "db/da9/_j_s_o_n_object_8h.html#ae61f9582fc9dfab22497c788e16de08c", null ],
+    [ "JSONObject_stringValueOf", "db/da9/_j_s_o_n_object_8h.html#a5de9daf32a2b67e214e3ee4b78582375", null ]
 ];
