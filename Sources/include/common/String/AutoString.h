@@ -1,11 +1,13 @@
 #ifndef AUTOSTRING_H
 #define AUTOSTRING_H
 #include "String.h"
+#include <pthread.h>
 #include <Vector/Vector.h>
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
 /*! \brief Fonction gérant le tableau global d'autoString
 *
 * \param s Variable gérant l'allocation.
