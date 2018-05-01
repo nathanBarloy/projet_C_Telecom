@@ -140,7 +140,7 @@ bool BDD_checkFilm(JSONObject_t film)
 bool BDD_checkBasicArray(JSONArray_t arr, JSONType_t type)
 {
 	size_t c = 0, size;
-	bool validType = (JSONObject_getType(arr) == ARRAY);
+	bool validType = (arr != 0) && (JSONObject_getType(arr) == ARRAY);
 	if(validType)
 	{
 		size = JSONArray_size(arr);

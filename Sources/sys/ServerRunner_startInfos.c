@@ -10,6 +10,7 @@ void startInfos(BDD bdd)
 	while(c < size)
 	{
 		tmp = JSONArray_get(films, c);
+		//printf("%s\n", cString(JSONObject_asString(tmp, 1)));//DEBUG
 		printf("\t- E#%3u: ", c);
 		if(BDD_checkFilm(tmp))
 		{
@@ -19,10 +20,12 @@ void startInfos(BDD bdd)
 		else
 		{
 			printf("FORMAT INVALIDE.\n");
-			printf("%s\n", cString(JSONObject_asString(tmp, 1)));
+			printf("%s\n", cString(JSONObject_asString(tmp, 2)));
 			JSONArray_removeIndex(films, c, true);
 			--c;
-			printf("\t → Supprimé.");
+			size = JSONArray_size(films);
+			printf("\t → Supprimé.\n");
+			//printf("NewSize: %u\n", size);//DEBUG
 		}
 		++c;
 	}
@@ -42,10 +45,11 @@ void startInfos(BDD bdd)
 		else
 		{
 			printf("FORMAT INVALIDE.\n");
-			printf("%s\n", cString(JSONObject_asString(tmp, 1)));
+			printf("%s\n", cString(JSONObject_asString(tmp, 2)));
 			JSONArray_removeIndex(users, c, true);
 			--c;
-			printf("\t → Supprimé.");
+			size = JSONArray_size(users);
+			printf("\t → Supprimé.\n");
 		}
 		++c;
 	}

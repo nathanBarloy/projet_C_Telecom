@@ -5,7 +5,7 @@ int main()
 {
 	printf("Démarre du programme...\nChargement de la base de données...\n");
 	BDD bdd = BDD_load();
-	//printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));//Afficher la BDD lue
+	printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));//Afficher la BDD lue
 	/*printf("Sauvegarde...");//Test
 	int a = JSONParser_saveFile(bdd->json, "data/test.json");
 	printf("Code de retour: %d\n", a);*/
