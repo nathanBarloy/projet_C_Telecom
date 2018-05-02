@@ -3,7 +3,8 @@ pour calculer la distance entre 2 films, on calculs des distances pour chacun de
 Pour la distance entre de années, on considère la valeur absolue de la différence des années. On veut avoir une fonction croissante de R+ dans [0,1]. 1ère possibilité : 1-exp(-alpha*diff), avec alpa coefficient a faire varier;
 
 Pour les premiers test, on utilise la distance de Jacard.
-Pour rappel, d= 1 - card(X inter Y)/card(X union Y).
+Pour rappel, d= 1 - card(X inter Y)/card(X union Y). Pour faire moins de calcul, on utilise aussi la formule card(X union Y)=card(X)+card(Y)-card(X inter Y).
 un premier test entre les films "une merveilleuse histoire du temps" et "Games of thrones" donne une valeur de 0.653846, ce qui me parait un peu faible. Il faut ajuster les parametres.
 Aussi, un bug a lieu entre les séries "The walking dead" et "Game Of thrones".
 Après recherche, il s'avère que les deux séries n'ont pas de réalisateurs, ce qui provoque effectivement une division par 0.
+Cependant, la distance entre ces séries est de 0.615 ce qui me parait beaucoup.
