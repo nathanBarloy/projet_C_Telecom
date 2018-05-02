@@ -6,7 +6,8 @@ DEBUG=
 DBG=
 ALL_O=sys/RequestTypes.o
 CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o sys/ClientRunner_MainMenu.o
-SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o utils/Distance.o
+SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o
+
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
 debug: libcommon-dbg.so libcjson-dbg.so libjson-dbg.so

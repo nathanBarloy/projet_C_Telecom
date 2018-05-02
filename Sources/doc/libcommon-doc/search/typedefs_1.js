@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['map_5ft',['Map_t',['../_map_8h.html#a33328a876bc5536257a86a8ad13667cf',1,'Map.h']]],
-  ['mapobject_5ft',['MapObject_t',['../_map_8h.html#ad4c7fc326c769a9299a3486cdef61ddb',1,'Map.h']]]
+  ['list_5ft',['List_t',['../_list_8h.html#a4d4f6777ae9965903cf0c7316c3b32a9',1,'List.h']]]
 ];

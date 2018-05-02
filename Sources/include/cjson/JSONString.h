@@ -26,12 +26,12 @@ JSONObject_t JSONString_getParent(JSONString_t self);
 */
 bool JSONString_hasParent(JSONString_t self);
 /*! \brief Voir JSONObject_asString() */
-String_t JSONString_asString(JSONString_t self, unsigned int tabs);
+AutoString_t JSONString_asString(JSONString_t self, unsigned int tabs);
 /*! \brief Retoure la valeur du type demandé
 * \param self Objet concerné
 * \return Valeur de l'objet au type demandé
 */
-String_t JSONString_get(JSONString_t self);
+AutoString_t JSONString_get(JSONString_t self);
 /*! \brief Assigne la valeur du type demandé à l'objet JSON
 * \param self Objet concerné
 * \param i nouvelle valeur

@@ -26,7 +26,7 @@ JSONObject_t JSONBoolean_getParent(JSONBoolean_t self);
 */
 bool JSONBoolean_hasParent(JSONBoolean_t self);
 /*! \brief Voir JSONObject_asString() */
-String_t JSONBoolean_asString(JSONBoolean_t self, unsigned int tabs);
+AutoString_t JSONBoolean_asString(JSONBoolean_t self, unsigned int tabs);
 /*! \brief Retoure la valeur du type demandé
 * \param self Objet concerné
 * \return Valeur de l'objet au type demandé

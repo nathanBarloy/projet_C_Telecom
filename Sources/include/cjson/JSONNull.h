@@ -24,7 +24,7 @@ JSONObject_t JSONNull_getParent(JSONNull_t self);
 */
 bool JSONNull_hasParent(JSONNull_t self);
 /*! \brief Voir JSONObject_asString() */
-String_t JSONNull_asString(JSONNull_t self, unsigned int tabs);
+AutoString_t JSONNull_asString(JSONNull_t self, unsigned int tabs);
 /*! \brief Voir JSONObject_equals()
 * \param self Objet concerné
 * \param obj Second objet, a comparer.

@@ -41,6 +41,7 @@ void signal_serverRunner(int signal)
 }
 int serverRunner(BDD bdd)
 {
+	startInfos(bdd);
 	printf("Démarrage du serveur... *:10000\n");
 	global_serverRunnerContinue(1, 1);
 	signal(2, signal_serverRunner);

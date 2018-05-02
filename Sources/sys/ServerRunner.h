@@ -4,4 +4,5 @@
 int global_serverRunnerContinue(int set, int nvalue);
 void signal_serverRunner(int signal);
 int serverRunner(BDD bdd);
+void startInfos(BDD bdd);//Affiche les informations de démarrage, et vérifie l'intégrité
 #endif

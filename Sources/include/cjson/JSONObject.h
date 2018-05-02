@@ -182,7 +182,7 @@ JSONObject_t JSONObject_get(JSONObject_t self, String_t name);
 * \param child Valeur dans l'objet
 * \return String_t correspondant au nom de la clé
 */
-String_t JSONObject_getKey(JSONObject_t self, JSONObject_t child);
+AutoString_t JSONObject_getKey(JSONObject_t self, JSONObject_t child);
 /*! \brief Obtenir un JSONObject de valeur pour une clé, au type souhaité
 *
 * \param self Object concerné
@@ -224,7 +224,7 @@ JSONArray_t JSONObject_getArray(JSONObject_t self, String_t name);
 * \param name Clé dans l'objet
 * \return Type correspondant au type souhaité, valeur de la clé
 */
-String_t JSONObject_stringValueOf(JSONObject_t self, String_t name);
+AutoString_t JSONObject_stringValueOf(JSONObject_t self, String_t name);
 /*! \brief Obtenir la valeur de l'objet dans le type souhaité pour une clé donnée
 *
 * \param self Object concerné
@@ -251,7 +251,7 @@ bool JSONObject_booleanValueOf(JSONObject_t self, String_t name);
 * \param self Object concerné
 * \return Type correspondant au type souhaité
 */
-String_t JSONObject_stringValue(JSONObject_t self);
+AutoString_t JSONObject_stringValue(JSONObject_t self);
 /*! \brief Obtenir la valeur de l'objet dans le type souhaité
 *
 * \param self Object concerné
@@ -277,7 +277,7 @@ bool JSONObject_booleanValue(JSONObject_t self);
 * \param self Objet concerné
 * \return String_t équivalent de l'arbre JSON en chaine de caractères.
 */
-String_t JSONObject_asString(JSONObject_t self, unsigned int tabs);
+AutoString_t JSONObject_asString(JSONObject_t self, unsigned int tabs);
 /*! \brief Renvoie le parent
 *
 * \param self Objet concerné
