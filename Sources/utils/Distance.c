@@ -28,13 +28,14 @@ double distance_film(BDD bdd,int id1, int id2) {
 
 double distance_year(int y1,int y2) {
   double dist = 0;
-/*  double alpha = 0.05;
-  dist = 1-exp(-alpha*(double)(abs(y1-y2)));
-	problème au niveau de biblioteque math.h, askip il y a un truc a rajouter dans le Makefile mais je sais pas quoi*/
+  double alpha = 0.05; //paramètre modifiable <1
+  //dist = 1-exp(-alpha*(double)(abs(y1-y2)));
+	//problème au niveau de biblioteque math.h, askip il y a un truc a rajouter dans le Makefile mais je sais pas quoi*/
   return dist;
 }
 
 double distance_genre(JSONArray_t l1, JSONArray_t l2) {
+	//fait appel à la matrice de distance des genres
   double dist = 0;
 	dist = distance_Jacard(l1,l2);
   return dist;
@@ -53,6 +54,7 @@ double distance_real(JSONArray_t l1, JSONArray_t l2) {
 }
 
 double distance_type(String_t t1, String_t t2) {
+	//fait appel à la matrice de distance de types
   double dist = 0;
 
   return dist;
