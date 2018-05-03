@@ -2,6 +2,7 @@
 #include <Vector/Vector.h>
 #include "Client.h"
 #include "JSONShortcut.h"
+#include "Replace.h"
 BDD BDD_load()
 {
 	JSONParser_setExitOnException(false);
@@ -65,8 +66,28 @@ int BDD_save(BDD bdd)
 	BDD bk = BDD_load();
 	//printf("Films: %p - %p\n", BDD_Films(bk), JSONObject_getArray(bk->json, autoString("Films")));
 	//printf("Films:\n%s\nUsers:\n%s\n", cString(JSONObject_asString(BDD_Films(bk), 0)), cString(JSONObject_asString(BDD_Users(bk), 0)));
-	JSONParser_saveFile(BDD_Films(bk), "data/bd_backup.json");
-	JSONParser_saveFile(BDD_Users(bk), "data/users_backup.json");
+	JSONObject_t backup = JSONParser_parseFile("data/backup.json");
+	if(backup == 0)
+	{
+		backup = JSONObject_new();
+	}
+	JSONInt_t backupNumber = JSONObject_get(backup, AS("Id"));
+	if(backupNumber == 0 || JSONObject_getType(backupNumber) != INT)
+	{
+		backupNumber = JSONInt_new(0);
+	}
+	JSONInt_set(backupNumber, JSONInt_get(backupNumber) + 1);
+	JSONObject_set(backup, AS("Id"), backupNumber);
+	JSONParser_saveFile(backup, "data/backup.json");
+	char buf[100];
+	sprintf(buf, "data/bd_backup_%6d.json", JSONInt_get(backupNumber));
+	replace(buf, ' ', '0');
+	JSONParser_saveFile(BDD_Films(bk), buf);
+	sprintf(buf, "data/users_backup_%6d.json", JSONInt_get(backupNumber));
+	replace(buf, ' ', '0');
+	JSONParser_saveFile(BDD_Users(bk), buf);
+	backupNumber = 0;
+	backup = JSONObject_delete(backup);
 	BDD_free(bk);
 	//save
 	lock(bdd);

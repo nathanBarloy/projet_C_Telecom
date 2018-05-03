@@ -1,6 +1,7 @@
 #include "ReadInput.h"
 #include <unistd.h>
 #include <errno.h>
+
 AutoString_t ReadInput()
 {
 	String_t s = newString();
@@ -140,4 +141,21 @@ AutoString_t ReadPasswordWithMsg(String_t dsp)
 		dsp = autoString(">>> ");
 	}
 	return autoString(getpass(cString(dsp)));
+}
+Date_t ReadDate()
+{
+	Date_t d = newDate();
+	d->day = atoi(cString(ReadInputWithMsg(autoString("Jour: "))));
+	d->month = atoi(cString(ReadInputWithMsg(autoString("Mois: "))));
+	d->year =  atoi(cString(ReadInputWithMsg(autoString("Annee: "))));
+	return d;
+}
+Date_t ReadDateWithMsg(String_t dsp)
+{
+	if(dsp == 0)
+	{
+		dsp = autoString("Date:");
+	}
+	errno = write(1, dsp->str, sizeOfString(dsp));
+	return ReadDate();
 }

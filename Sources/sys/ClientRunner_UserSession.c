@@ -8,7 +8,7 @@ enum ClientRunnerMode ClientRunner_Login(Connexion_t connexion)
 		AutoString_t login, password;
 		printf("Connexion à un compte utilisateur:\n");
 		login = ReadInputWithMsg(autoString("Login: "));
-		password = ReadInputWithMsg(autoString("Mot de passe: "));
+		password = ReadPasswordWithMsg(autoString("Mot de passe: "));
 
 	}
 	return MAIN_MENU;
@@ -33,7 +33,8 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 		password = ReadPasswordWithMsg(autoString("Mot de passe: "));
 		firstName = ReadInputWithMsg(AS("Prenom: "));
 		name = ReadInputWithMsg(AS("Nom: "));
-
+		Date_t birth = ReadDateWithMsg(AS("Date de naissance:"));
+		birth = freeDate(birth);
 
 	}
 	return MAIN_MENU;
