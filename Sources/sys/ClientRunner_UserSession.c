@@ -1,5 +1,6 @@
 #include "ClientRunner_UserSession.h"
 #include "../utils/ReadInput.h"
+#include "RequestTypes.h"
 enum ClientRunnerMode ClientRunner_Login(Connexion_t connexion)
 {
 
@@ -34,6 +35,13 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 		firstName = ReadInputWithMsg(AS("Prenom: "));
 		name = ReadInputWithMsg(AS("Nom: "));
 		Date_t birth = ReadDateWithMsg(AS("Date de naissance:"));
+		JSONObject_t user = JSONObject_new();
+		JSONObject_set(user, AS("Login"), JSONString_new(login));
+		JSONObject_set(user, AS("Password"), JSONString_new(password));
+		JSONObject_set(user, AS("Birth"), dateToJSON(birth));
+		JSONObject_set(user, AS("Name"), JSONString_new(name));
+		JSONObject_set(user, AS("FirstName"), JSONString_new(firstName));
+		RequestAnswer a = Client_RegisterUser(connexion, user);
 		birth = freeDate(birth);
 
 	}

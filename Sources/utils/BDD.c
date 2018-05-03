@@ -3,6 +3,7 @@
 #include "Client.h"
 #include "JSONShortcut.h"
 #include "Replace.h"
+#include "JSONCheck.h"
 BDD BDD_load()
 {
 	JSONParser_setExitOnException(false);
@@ -110,66 +111,4 @@ JSONObject_t BDD_getSid(BDD bdd, String_t sid)
 	JSONObject_t session = JSONObject_get(bdd->json, sid);
 	unlock(bdd);
 	return 0;
-}
-bool BDD_rightTypeOrNull(JSONObject_t obj, JSONType_t type)
-{
-	if(obj == 0)
-	{
-		return true;
-	}
-	else if(JSONObject_getType(obj) == NULLOBJ)
-	{
-		return true;
-	}
-	else if(JSONObject_getType(obj) == type)
-	{
-		return true;
-	}
-	return false;
-}
-bool BDD_checkUser(JSONObject_t user)
-{
-	bool validType = (JSONObject_getType(user) == OBJECT);
-	if(validType)
-	{
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(user, AS("Id")), INT);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(user, AS("Name")), STRING);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(user, AS("FirstName")), STRING);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(user, AS("Login")), STRING);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(user, AS("Password")), STRING);
-		//Ajouter les autres vérifications pour Preferences et History
-	}
-	return validType;
-}
-bool BDD_checkFilm(JSONObject_t film)
-{
-	bool validType = (JSONObject_getType(film) == OBJECT);
-	if(validType)
-	{
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Id")), INT);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Duration")), INT);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Year")), INT);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Title")), STRING);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Type")), STRING);
-		validType = validType && BDD_rightTypeOrNull(JSONObject_get(film, AS("Description")), STRING);
-		validType = validType && BDD_checkBasicArray(JSONObject_get(film, AS("Actors")), STRING);
-		validType = validType && BDD_checkBasicArray(JSONObject_get(film, AS("Directors")), STRING);
-		validType = validType && BDD_checkBasicArray(JSONObject_get(film, AS("Genres")), STRING);
-	}
-	return validType;
-}
-bool BDD_checkBasicArray(JSONArray_t arr, JSONType_t type)
-{
-	size_t c = 0, size;
-	bool validType = (arr != 0) && (JSONObject_getType(arr) == ARRAY);
-	if(validType)
-	{
-		size = JSONArray_size(arr);
-		while(validType && c < size)
-		{
-			validType = validType && (JSONObject_getType(JSONArray_get(arr, c)) == type);
-			++c;
-		}
-	}
-	return validType;
 }
