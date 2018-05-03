@@ -1,7 +1,7 @@
 PROG=server client tests
 all: $(PROG)
 INCLUDE=-Iinclude/common/ -Iinclude/cjson/
-LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/
+LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/ -lm
 DEBUG=
 DBG=
 ALL_O=sys/RequestTypes.o
