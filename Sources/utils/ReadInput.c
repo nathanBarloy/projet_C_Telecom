@@ -1,5 +1,7 @@
 #include "ReadInput.h"
-String_t ReadInput()
+#include <unistd.h>
+#include <errno.h>
+AutoString_t ReadInput()
 {
 	String_t s = newString();
 	char b[2];
@@ -20,17 +22,17 @@ String_t ReadInput()
 	return autoStringAllocated(s);
 }
 
-String_t ReadInputWithMsg(String_t dsp)
+AutoString_t ReadInputWithMsg(String_t dsp)
 {
 	if(dsp == 0)
 	{
 		dsp = autoString(">>> ");
 	}
-	write(1, dsp->str, sizeOfString(dsp));
+	errno = write(1, dsp->str, sizeOfString(dsp));
 	return ReadInput();
 }
 
-String_t Recognize(Vector_t propositions, String_t word)
+AutoString_t Recognize(Vector_t propositions, String_t word)
 {
 	size_t c = 0;//compteur pour les mots
 	size_t cs = 0;//compteur pour la longueur
@@ -115,7 +117,7 @@ String_t Recognize(Vector_t propositions, String_t word)
 	freeVector(a);
 	return 0;
 }
-String_t StandardPrompt(Vector_t propositions)
+AutoString_t StandardPrompt(Vector_t propositions)
 {
 	String_t s = ReadInputWithMsg(0);
 	lowerString(s);
@@ -124,4 +126,18 @@ String_t StandardPrompt(Vector_t propositions)
 void clearTerminal()
 {
 	printf("\033[2J");
+}
+
+
+AutoString_t ReadPassword()
+{
+	return autoString(getpass(""));
+}
+AutoString_t ReadPasswordWithMsg(String_t dsp)
+{
+	if(dsp == 0)
+	{
+		dsp = autoString(">>> ");
+	}
+	return autoString(getpass(cString(dsp)));
 }

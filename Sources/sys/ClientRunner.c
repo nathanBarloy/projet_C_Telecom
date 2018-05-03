@@ -6,6 +6,7 @@
 #include "../utils/JSONShortcut.h"
 #include <string.h>
 #include "ClientRunner_MainMenu.h"
+#include "ClientRunner_UserSession.h"
 int clientRunner(Connexion_t connexion)
 {
 	//Signaux
@@ -18,6 +19,9 @@ int clientRunner(Connexion_t connexion)
 	memset(modeFct, 0, sizeof(void*) * CLIENT_ENUM_SIZE);
 	//Debut des fonctions
 	modeFct[MAIN_MENU] = ClientRunner_MainMenu;
+	modeFct[CONNECT_USER] = ClientRunner_Login;
+	modeFct[REGISTER_USER] = ClientRunner_Register;
+	modeFct[DISCONNECT_USER] = ClientRunner_Logout;
 	//Fin des fonctions
 	String_t choice = autoString("");
 	while(global_clientRunnerContinue(0, 0))
