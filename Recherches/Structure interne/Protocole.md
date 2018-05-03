@@ -65,3 +65,13 @@ Type: "disconnectAnswer"
 
 }
 ```
+
+## Enregistrement d'un utilisateur
+
+Type: "registerUser"
+```
+{User}
+```
+Transmet un utilisateur comme objet de requête.
+Les champs requis sont: Name, FirstName, Login, Password, Birth.
+Les autres champs seront ignorés par le serveur et ne sont donc pas indispensables. 
