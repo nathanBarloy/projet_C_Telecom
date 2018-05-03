@@ -49,6 +49,19 @@ Type: "disconnect"
 ```
 - Utilise le SID de la requête
 Reponse: "disconnectAnswer"
+
+## Enregistrement d'un utilisateur
+
+Type: "registerUser"
+```
+{User}
+```
+Transmet un utilisateur comme objet de requête.
+Les champs requis sont: Name, FirstName, Login, Password, Birth.
+Les autres champs seront ignorés par le serveur et ne sont donc pas indispensables.
+
+
+
 # Réponses
 ## Réponse de connexion d'utilisateur
 Type: "connectAnswer"
@@ -66,12 +79,16 @@ Type: "disconnectAnswer"
 }
 ```
 
-## Enregistrement d'un utilisateur
+## Réponse d'enregistrement d'un utilisateur
 
-Type: "registerUser"
+Type: "registerUserAnswer"
 ```
-{User}
+{
+	"Registered" : bool,
+	"Cause" : ""
+}
 ```
-Transmet un utilisateur comme objet de requête.
-Les champs requis sont: Name, FirstName, Login, Password, Birth.
-Les autres champs seront ignorés par le serveur et ne sont donc pas indispensables. 
+Renvoie true dans "Registered" si l'utilisateur a bien été enregistré. False en cas d'erreur.
+Si false, cause contiendra un mot clé permettant de comprendre l'erreur:
+- Login: Le login est déjà utilisé.
+- Password: Le mot de passe est invalide, ou trop court (mini 4 caractères)
