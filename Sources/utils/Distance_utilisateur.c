@@ -1,16 +1,16 @@
 #include "Distance_utilisateur.h"
 
 //récupérer les JSON HistoryRates des deux utilisateurs puis de réaliser la corrélation de Pearson pour en déduire la distance entre les deux utilisateurs
-// double distance_users(BDD bdd_users, int id1, int id2) {
-//   JSONArray_t users = BDD_Users(bdd_users);
-//   JSONObject_t users1 = JSONArray_get(users, id1);
-//   JSONObject_t users2 = JSONArray_get(users, id2);
-//   JSONArray_t history_rates1 = JSONObject_getArray(JSONObject_get(users1, autoString("History")), autoString("Rates"));
-//   JSONArray_t history_rates2 = JSONObject_getArray(JSONObject_get(users2, autoString("History")), autoString("Rates"));
-//   double resultat = pearson_correlation(history_rates1, history_rates2);
-//   printf("les utilisateurs %d et %d ont une similarité de %f (à partir de la corrélation de Pearson)\n", id1, id1, resultat);
-//   return resultat;
-// }
+double distance_users(BDD bdd_users, int id1, int id2) {
+  JSONArray_t users = BDD_Users(bdd_users);
+  JSONObject_t users1 = JSONArray_get(users, id1);
+  JSONObject_t users2 = JSONArray_get(users, id2);
+  JSONArray_t history_rates1 = JSONObject_getArray(JSONObject_get(users1, autoString("History")), autoString("Rates"));
+  JSONArray_t history_rates2 = JSONObject_getArray(JSONObject_get(users2, autoString("History")), autoString("Rates"));
+  double resultat = pearson_correlation(history_rates1, history_rates2);
+  printf("les utilisateurs %d et %d ont une similarité de %f (à partir de la corrélation de Pearson)\n", id1, id1, resultat);
+  return resultat;
+}
 
 //calcul de la moyenne des notes d'un utilisateur
 double mean_rates(JSONArray_t history_rates) {
