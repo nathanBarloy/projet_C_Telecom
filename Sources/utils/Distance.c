@@ -81,9 +81,10 @@ double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
 
 int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	int compteur=0;
-	for (int i=0;i<JSONArray_size(l1);i++) {
-		for (int j=0;j<JSONArray_size(l2);j++) {
-			if (JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+	int i, j;
+	for(i = 0;i < JSONArray_size(l1);i++) {
+		for(j = 0;j < JSONArray_size(l2);j++) {
+			if(JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
 				compteur++;
 			}
 		}
