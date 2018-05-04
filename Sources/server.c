@@ -13,6 +13,9 @@ int main()
 	//printf("Export:\n");//Test
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
 	double dist = distance_film(bdd,1,4);
+	// printf("GO\n");
+	// double dist_users = distance_users(bdd,1,2);
+	// printf("FIN\n");
 	int r = serverRunner(bdd);
 	printf("Le serveur à terminé avec le code: %d\n", r);
 	if(r >= 0)

@@ -4,7 +4,7 @@
 #include "BDD.h"
 #include <math.h>
 
-double distance_users(BDD bdd_users, int id1, int id2);
+double distance_users(BDD bdd, int id1, int id2);
 double mean_rates(JSONArray_t history_rates);
 double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2);
 int max_length(int a, int b);
