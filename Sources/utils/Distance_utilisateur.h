@@ -9,4 +9,5 @@ double mean_rates(JSONArray_t history_rates);
 double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2);
 int max_length(int a, int b);
 bool check_id(JSONArray_t hr, int id);
+int get_position(JSONArray_t hr, int id);
 #endif
