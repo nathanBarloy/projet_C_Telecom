@@ -12,7 +12,7 @@ void startInfos(BDD bdd)
 		tmp = JSONArray_get(films, c);
 		//printf("%s\n", cString(JSONObject_asString(tmp, 1)));//DEBUG
 		printf("\t- E#%3u: ", c);
-		if(BDD_checkFilm(tmp))
+		if(JSON_checkFilm(tmp))
 		{
 			printf("OK: ");
 			printf("\"%s\"\n", cStringValueOf(tmp, "Title"));
@@ -37,7 +37,7 @@ void startInfos(BDD bdd)
 	{
 		tmp = JSONArray_get(users, c);
 		printf("\t- E#%3u: ", c);
-		if(BDD_checkUser(tmp))
+		if(JSON_checkUser(tmp, false))
 		{
 			printf("OK: ");
 			printf("\"%s\" / (\"%s\", \"%s\")\n", cStringValueOf(tmp, "Login"), cStringValueOf(tmp, "FirstName"), cStringValueOf(tmp, "Name"));

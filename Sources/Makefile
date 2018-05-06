@@ -4,9 +4,9 @@ INCLUDE=-Iinclude/common/ -Iinclude/cjson/
 LIBS=-Wl,-rpath -Wl,. -Llib/libcommon/ -Llib/libcjson/ -Llib/libjson/ -lm
 DEBUG=
 DBG=
-ALL_O=sys/RequestTypes.o
-CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o sys/ClientRunner_MainMenu.o
-SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o
+ALL_O=sys/RequestTypes.o  utils/JSONCheck.o utils/Date.o utils/Replace.o
+CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o sys/ClientRunner_MainMenu.o sys/ClientRunner_UserSession.o
+SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o utils/Distance_utilisateur.o
 
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
@@ -39,6 +39,9 @@ clean:
 	find -iname "*.o" -print -delete
 	find -iname "*.bin" -print -delete
 tests: test/TestReadInput.bin
-test/TestReadInput.bin: utils/ReadInput.o
+test/TestReadInput.bin: utils/ReadInput.o utils/Date.o utils/JSONCheck.o
 %.bin: %.c
 	$(CC) $^ $(LIBS) $(LINK)
+
+#Deps
+utils/ReadInput.o: utils/Date.o

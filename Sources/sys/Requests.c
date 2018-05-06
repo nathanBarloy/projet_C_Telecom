@@ -72,3 +72,16 @@ RequestAnswer ServerRequest_prints(Client client, RequestQuery request)
 	unlock(client);
 	return RequestAnswerOk(request,0);
 }
+
+RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
+{
+	RequestQuery(request, user);
+	if(JSONObject_getType(user) == OBJECT)
+	{
+		if(JSON_checkUser(user, true))
+		{
+
+		}
+	}
+	//Err
+}

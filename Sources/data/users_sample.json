@@ -1,0 +1,96 @@
+[
+{
+  "Id": 1,
+  "Name": "Tombre",
+  "FirstName": "Johan",
+  "Login": "johantombre",
+  "Password": "johtom",
+  "History":
+    {
+    "Rates":
+    [
+      {
+        "Id": 2,
+        "Rate": 4,
+        "Liked": 0
+      },
+      {
+        "Id":4,
+        "Rate":5,
+        "Liked":0
+      },
+      {
+        "Id":5,
+        "Rate":2,
+        "Liked":0
+      }
+    ]
+    }
+  },
+  {
+  "Id": 2,
+  "Name": "Barloy",
+  "FirstName": "Nathan",
+  "Login": "nathanbarloy",
+  "Password": "nathbar",
+  "History":
+    {
+    "Rates":
+    [
+      {
+        "Id": 1,
+        "Rate": 1,
+        "Liked": 0
+      },
+      {
+        "Id": 2,
+        "Rate": 4,
+        "Liked": 0
+      },
+      {
+        "Id": 4,
+        "Rate": 2,
+        "Liked": 0
+      },
+      {
+        "Id": 6,
+        "Rate": 2,
+        "Liked": 0
+      },
+    ]
+    }
+  },
+  {
+  "Id": 3,
+  "Name": "Crone",
+  "FirstName": "Valentin",
+  "Login": "valentincrone",
+  "Password": "valcro",
+  "History":
+    {
+    "Rates":
+    [
+      {
+        "Id": 1,
+        "Rate": 5,
+        "Liked": 0
+      },
+      {
+        "Id": 4,
+        "Rate": 2,
+        "Liked": 0
+      },
+      {
+        "Id": 5,
+        "Rate": 2,
+        "Liked": 0
+      },
+      {
+        "Id": 6,
+        "Rate": 5,
+        "Liked": 0
+      },
+    ]
+  }
+}
+]

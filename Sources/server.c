@@ -2,6 +2,8 @@
 #include <String/AutoString.h>
 #include "utils/BDD.h"
 #include "utils/Distance.h"
+#include "utils/Distance_utilisateur.h"
+
 int main()
 {
 	printf("Démarre du programme...\nChargement de la base de données...\n");
@@ -12,7 +14,8 @@ int main()
 	printf("Code de retour: %d\n", a);*/
 	//printf("Export:\n");//Test
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
-  double dist = distance_film(bdd,3,3);
+	double dist = distance_film(bdd,1,1);
+	double dist_users = distance_users(bdd,0,1);
 	int r = serverRunner(bdd);
 	printf("Le serveur à terminé avec le code: %d\n", r);
 	if(r >= 0)

@@ -10,3 +10,10 @@ void prints(Connexion_t connexion, String_t message)
 	freeRequestQuery(q);
 	freeRequestAnswer(a);
 }
+RequestAnswer Client_RegisterUser(Connexion_t connexion, JSONObject_t user)
+{
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("registerUser"), user));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	return a;
+}
