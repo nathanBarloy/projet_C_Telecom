@@ -2,6 +2,7 @@
 #define DISTANCE_H
 //#include <JSONALL.h>
 #include <math.h>
+#include <string.h>
 #include <String/AutoString.h>
 #include "BDD.h"
 

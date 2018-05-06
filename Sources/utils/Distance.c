@@ -1,7 +1,5 @@
 #include "Distance.h"
 
-/* Pour l'instant c'est la parce que je sais pas trop ou je suis censé le mettre, ni a partir d'où il est appelé
-*/
 
 double distance_film(BDD bdd,int id1, int id2) {
 	double dist=0;
@@ -23,6 +21,7 @@ double distance_film(BDD bdd,int id1, int id2) {
 	double distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
 	double distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
 	double distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
+  printf("%f\n%f\n%f\n%f\n%f\n",distActor,distGenre,distReal,distType,distYear);
 
 	dist = (coeffActor*distActor+coeffGenre*distGenre+coeffReal*distReal+coeffType*distType+coeffYear*distYear ) / (coeffActor+coeffReal+coeffType+coeffYear+coeffGenre);
 
@@ -38,8 +37,7 @@ double distance_film(BDD bdd,int id1, int id2) {
 double distance_year(int y1,int y2) {
   double dist = 0;
   double alpha = 0.05; //paramètre modifiable <1
-  //dist = 1-exp(-alpha*(double)(abs(y1-y2)));
-	//problème au niveau de biblioteque math.h, askip il y a un truc a rajouter dans le Makefile mais je sais pas quoi
+  dist = 1.0-exp(-alpha*(double)(abs(y1-y2)));
   return dist;
 }
 
@@ -75,7 +73,7 @@ double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
 	if (uni==0) {
 		return 0;
 	} else {
-		return 1-((double)(intersec))/((double)(uni));
+		return 1.0-((double)(intersec))/((double)(uni));
 	}
 }
 
@@ -84,10 +82,14 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	int i, j;
 	for(i = 0;i < JSONArray_size(l1);i++) {
 		for(j = 0;j < JSONArray_size(l2);j++) {
-			if(JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+			//if(JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+			if ( !strcmp(cString(JSONObject_asString(JSONArray_get(l1,i),0)),cString(JSONObject_asString(JSONArray_get(l2,j),0))) ) {
+				//printf("%s\n", cString(JSONObject_asString(JSONArray_get(l1,i),0)));
+				//printf("%s\n\n", cString(JSONObject_asString(JSONArray_get(l2,j),0)));
 				compteur++;
 			}
 		}
 	}
+	printf("%d\n",compteur);
 	return compteur;
 }

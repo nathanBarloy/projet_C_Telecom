@@ -6,13 +6,13 @@ int main()
 {
 	printf("Démarre du programme...\nChargement de la base de données...\n");
 	BDD bdd = BDD_load();
-	printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));//Afficher la BDD lue
+	//printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));//Afficher la BDD lue
 	/*printf("Sauvegarde...");//Test
 	int a = JSONParser_saveFile(bdd->json, "data/test.json");
 	printf("Code de retour: %d\n", a);*/
 	//printf("Export:\n");//Test
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
-  double dist = distance_film(bdd,1,4);
+  double dist = distance_film(bdd,3,3);
 	int r = serverRunner(bdd);
 	printf("Le serveur à terminé avec le code: %d\n", r);
 	if(r >= 0)

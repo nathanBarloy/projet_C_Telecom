@@ -8,3 +8,9 @@ un premier test entre les films "une merveilleuse histoire du temps" et "Games o
 Aussi, un bug a lieu entre les séries "The walking dead" et "Game Of thrones".
 Après recherche, il s'avère que les deux séries n'ont pas de réalisateurs, ce qui provoque effectivement une division par 0.
 Cependant, la distance entre ces séries est de 0.615 ce qui me parait beaucoup.
+
+Grace au bug précédent, on se rend compte aussi que comparer des films sur un élément qui n'existe pas dans l'un des 2 est absurde. Donc si un film ne possède pas une caractéristique, il ne faut pas la prendre en compte dans le calcul de la distance.
+
+Pour une distance, il faut aussi logiquement que la distance entre un film est lui même soit évidemment 0. Un premier test marche, mais pour le film 5, on obtient une distance négative. cela se retrouve pour d'autres films, mais pas la plupart.
+Après recherche, le bug provient d'une erreur dans la methode equals qui considérait 2 chaines de même longueur comme égales.
+Après correction, il n'y a plus de problèmes : la distance entre un film et lui même est bien 0.
