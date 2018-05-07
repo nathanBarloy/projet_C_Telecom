@@ -38,8 +38,9 @@ clean:
 	rm -f *.so $(PROG)
 	find -iname "*.o" -print -delete
 	find -iname "*.bin" -print -delete
-tests: test/TestReadInput.bin
+tests: test/TestReadInput.bin test/TestCard.bin
 test/TestReadInput.bin: utils/ReadInput.o utils/Date.o utils/JSONCheck.o
+test/TestCard.bin: utils/Distance.o utils/BDD.o utils/Distance.o utils/Client.o utils/Replace.o
 %.bin: %.c
 	$(CC) $^ $(LIBS) $(LINK)
 
