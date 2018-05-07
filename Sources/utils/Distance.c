@@ -79,15 +79,13 @@ double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
 
 int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	int compteur=0;
-	int i, j, r;
+	int i, j;
 	for(i = 0;i < JSONArray_size(l1);i++) {
 		for(j = 0;j < JSONArray_size(l2);j++) {
-			/*r = JSONString_equals(JSONArray_get(l1,i),JSONArray_get(l2,j));
-			printf("R: %d\n", r);
-			if(r) {*/
-			if(!strcmp(cString(JSONObject_asString(JSONArray_get(l1,i),0)),cString(JSONObject_asString(JSONArray_get(l2,j),0))) ) {
-				printf("i = %d, j = %d: %s\n", i, j, cString(JSONObject_asString(JSONArray_get(l1,i),0)));
-				printf("i = %d, j = %d: %s\n\n", i, j, cString(JSONObject_asString(JSONArray_get(l2,j),0)));
+			if(JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+			//if(!strcmp(cString(JSONObject_asString(JSONArray_get(l1,i),0)),cString(JSONObject_asString(JSONArray_get(l2,j),0))) ) {
+				printf(/*"i = %d, j = %d: */"%s\n", /*i, j, */cString(JSONObject_asString(JSONArray_get(l1,i),0)));
+				printf(/*"i = %d, j = %d: */"%s\n\n", /*i, j, */cString(JSONObject_asString(JSONArray_get(l2,j),0)));
 				compteur++;
 			}
 		}
