@@ -1,0 +1,41 @@
+\documentclass[11pt]{meetingmins}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcommittee{Compte rendu de réunion 5}
+
+\setdate{May 07, 2018, 18h - 25mins}
+\setmembers{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\setpresent{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\absent{aucun}
+
+\begin{document}
+\maketitle
+
+\section{Ordre du jour}
+Montrer ce qui a été réalisé pendant ces vacances, lancer les discussions sur la réalisation de l'interface graphique.
+
+\section {Compte rendu}
+Au cours des vacances, Nathan a travaillé sur le calcul de distance entre deux films, Johan a commencé le calcul de distance entre deux utilisateurs, basé sur les notes données et Valentin a travaillé sur l'interface console et sur les requêtes entre client et serveur.\par
+Pendant cette réunion, nous avons débutés les discussions sur l'interface graphique : il faut commencer les premiers tests sur l'utilisation de la librairie GTKWebKit. Nathan a expliqué les améliorations qu'il va implémenter sur les distances entre films, notamment pour utiliser un système de calcul (autre que Jaccard) pour établir les distances entre les différents genres qui ont des liens entre eux. Cela permettra d'améliorer les résultats.
+Valentin a expliqué au reste du groupe le fonctionnement des requêtes entre serveur et client pour que tous puissent commencer à écrire les différentes fonctions de requêtes.
+
+\section{A faire pour la prochaine réunion}
+L'objectif est de commencer à travailler sur les points suivants avant la prochaine réunion pour parler d'éventuels problème rencontrés :
+\begin{items}
+	\item Corriger les bugs sur le calcul de la distance de Pearson + écrire le compte rendu de réunion + écrire le rapport sur sa partie (Johan TOMBRE)
+	\item Améliorer le calcul des distances entre films + écrire sa partie du rapport (Nathan BARLOY)
+	\item Continuer avec le protocole réseau + commencer les bases de l'interface graphique (Valentin CRÔNE)
+\end{items}
+\vspace{1cm}
+\nextmeeting {Vendredi 11 Mai 2018 à 13h}
+
+\end{document}
