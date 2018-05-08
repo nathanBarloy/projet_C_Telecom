@@ -6,7 +6,7 @@ DEBUG=
 DBG=
 ALL_O=sys/RequestTypes.o  utils/JSONCheck.o utils/Date.o utils/Replace.o
 CLIENT_O=$(ALL_O) client.o sys/ClientRunner.o sys/ClientRequest.o sys/ClientRequests.o utils/Connexion.o utils/ReadInput.o sys/ClientRunner_MainMenu.o sys/ClientRunner_UserSession.o
-SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o utils/Distance_utilisateur.o
+SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o
 
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
