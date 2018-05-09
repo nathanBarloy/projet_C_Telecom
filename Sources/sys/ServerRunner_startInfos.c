@@ -1,5 +1,6 @@
 #include "ServerRunner.h"
 #include "../utils/JSONShortcut.h"
+#include "../utils/JSONCheck.h"
 void startInfos(BDD bdd)
 {
 	printf("Vérification d'intégrité de la base de données...\n");

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <JSONAll.h>
 #include <pthread.h>
+#include "ClientRunnerContinue.h"
 int global_clientRunnerContinue(int set, int nvalue)
 {
 	static int init = 1;

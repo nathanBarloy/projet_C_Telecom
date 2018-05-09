@@ -8,6 +8,8 @@
 #include <string.h>
 #include "ClientRunner_MainMenu.h"
 #include "ClientRunner_UserSession.h"
+#include <unistd.h>
+#include <signal.h>
 int clientRunner(Connexion_t connexion)
 {
 	//Signaux

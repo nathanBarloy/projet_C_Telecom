@@ -1,5 +1,8 @@
 #include "ClientRequests.h"
 #include "ClientRequest.h"
+#include "ClientRunnerContinue.h"
+#include <unistd.h>
+
 void prints(Connexion_t connexion, String_t message)
 {
 	JSONObject_t obj = JSONObject_new();
