@@ -27,6 +27,7 @@ int main(int argc, char** argv, char** envp)
 		//int r = clientRunner(connexion);
 		//Fin
 		/* Create the widgets */
+		gtk_init(&argc, &argv);
 		GtkWidget *main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 		GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 		GtkWidget *web_view = webkit_web_view_new();
