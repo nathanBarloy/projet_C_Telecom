@@ -14,6 +14,7 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 	printf("Resource: %p\n", web_resource);
 	printf("Request: %p\n", request);
 	printf("Response: %p\n", response);
+	printf("URI: %s\n", webkit_network_request_get_uri(request));
 }
 void clientGUIDocumentLoadFinished(WebKitWebView* web_view, WebKitWebFrame* web_frame, gpointer user_data)
 {
