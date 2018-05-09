@@ -18,7 +18,7 @@ BDD BDD_load()
 	JSONObject_set(bdd, autoString("Films"), films);
 
 	//Users ---J'ai changer de fichier json pour des tests---
-	JSONArray_t users = JSONParser_parseFile("data/users_sample.json");
+	JSONArray_t users = JSONParser_parseFile("data/users.json");
 	if(users == 0)
 	{
 		users = JSONArray_new();
