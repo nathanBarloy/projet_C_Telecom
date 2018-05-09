@@ -33,4 +33,5 @@ void signal_clientRunner(int signal)
 void initClient()
 {
 	global_clientRunnerContinue(1, 1);
+	JSONParser_setExitOnException(false);
 }

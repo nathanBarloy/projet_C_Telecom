@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <stdio.h>
 String_t fileToString(String_t fileName)
 {
 	String_t s = newString();
@@ -27,6 +28,7 @@ String_t fileToString(String_t fileName)
 	}
 	else
 	{
+		printf("Unable to open file: %s\n", cString(fileName));
 		return 0;
 	}
 }

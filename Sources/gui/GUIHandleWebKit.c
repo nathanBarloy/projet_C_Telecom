@@ -4,7 +4,9 @@
 #include <unistd.h>
 #include "../utils/FileToString.h"
 #include "../utils/Connexion.h"
-
+#include "../utils/HTMLGenerator.h"
+bool clientGUI_blockableRequest = 1;
+bool clientGUI_firstRequest = 1;
 void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *web_frame, WebKitWebResource* web_resource, WebKitNetworkRequest *request, WebKitNetworkResponse* response, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
@@ -15,6 +17,23 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 	printf("Request: %p\n", request);
 	printf("Response: %p\n", response);
 	printf("URI: %s\n", webkit_network_request_get_uri(request));
+	AutoString_t uri = autoString((char*)webkit_network_request_get_uri(request));
+	if(clientGUI_blockableRequest && !clientGUI_firstRequest)
+	{
+		webkit_web_view_stop_loading(web_view);
+		printf("Request blocked: %s\n", cString(uri));
+		clientGUI_blockableRequest = 0;
+		String_t html = HTMLFromJSONUrl(connexion, uri);
+		printf("Generated:\n%s\n", cString(html));
+		webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(html) , 0,0, cString(uri));//Chargement via generateur HTML
+		fString(html);
+	}
+	else
+	{
+		printf("Request allowed: %s\n", cString(uri));
+		clientGUI_blockableRequest = 1;
+		clientGUI_firstRequest = 0;
+	}
 }
 void clientGUIDocumentLoadFinished(WebKitWebView* web_view, WebKitWebFrame* web_frame, gpointer user_data)
 {
@@ -54,16 +73,19 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	g_signal_connect(web_view, "resource-request-starting", G_CALLBACK(clientGUIRessourceRequestStarting), connexion);
 	g_signal_connect(web_view, "document-load-finished", G_CALLBACK(clientGUIDocumentLoadFinished), connexion);
 	g_signal_connect(web_view, "context-menu", G_CALLBACK(clientGUIContextMenu), connexion);
-	String_t html = fileToString(autoString("web/boot.html"));
-	if(html != 0)
+	//String_t html = fileToString(autoString("web/init.html"));
+	webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), "<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0;url=exec://init.json\" /></head><body>Loading...</body></html>", 0,0,"exec://wait");
+	//sleep(1);
+	//webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), "", 0,0,"exec://init.json");
+	/*if(html != 0)
 	{
-		webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(html), 0,0,"web/boot.html");
-		fString(html);
+	fString(html);
+
 	}
 	else
 	{
 		webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(autoString("Unable to load: web/boot.html")), 0,0,"web/boot.html");
-	}
+	}*/
 	// Show the result
 	gtk_window_set_default_size(GTK_WINDOW (main_window), 800, 600);
 	gtk_widget_show_all(main_window);
