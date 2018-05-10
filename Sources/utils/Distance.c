@@ -20,7 +20,7 @@ double distance_film(JSONArray_t films,int id1, int id2) {
 	double distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
 	double distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
 	double distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
-  printf("%f\n%f\n%f\n%f\n%f\n",distActor,distGenre,distReal,distType,distYear);
+  //printf("%f\n%f\n%f\n%f\n%f\n",distActor,distGenre,distReal,distType,distYear);
 
 	dist = (coeffActor*distActor+coeffGenre*distGenre+coeffReal*distReal+coeffType*distType+coeffYear*distYear ) / (coeffActor+coeffReal+coeffType+coeffYear+coeffGenre);
 
@@ -60,9 +60,10 @@ double distance_real(JSONArray_t l1, JSONArray_t l2) {
 }
 
 double distance_type(String_t t1, String_t t2) {
-	//fait appel à la matrice de distance de types
   double dist = 0;
-
+	if (!equalsString(t1,t2)) {
+		dist=1.0;
+	}
   return dist;
 }
 
@@ -89,7 +90,7 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 			}
 		}
 	}
-	printf("%d\n",compteur);
+	//printf("%d\n",compteur);
 	return compteur;
 }
 
