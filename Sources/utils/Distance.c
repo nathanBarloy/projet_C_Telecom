@@ -131,3 +131,23 @@ void decale(double dist, int id, double *triDist, int *triID, int n, int k) {
 	triDist[k]=dist;
 	triID[k]=id;
 }
+
+JSONArray_t listGenres(BDD bdd) {
+	JSONArray_t films = BDD_Films(bdd);
+	JSONArray_t list = JSONArray_new();
+	int isIn;
+	for (int i=0;i<JSONArray_size(films);i++) {
+		JSONArray_t genres = JSONObject_getArray(JSONArray_get(films,i),autoString("Genres"));
+		for (int j=0;j<JSONArray_size(genres);j++) {
+			isIn = 0;
+			for (int k=0;k<JSONArray_size(list);k++) {
+				if (JSONString_equals(JSONArray_get(genres,j),JSONArray_get(list,k))) {isIn=1;}
+			}
+			if (isIn==0) {
+				JSONArray_add(list,JSONArray_get(genres,j));
+			}
+		}
+	}
+
+	return list;
+}

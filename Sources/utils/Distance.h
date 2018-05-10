@@ -18,4 +18,6 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2);
 int *liste_recommandation(BDD bdd, int id);
 void insert_tri(double dist, int id, double *triDist, int *triID, int n);
 void decale(double dist, int id, double *triDist, int *triID, int n, int k);
+
+JSONArray_t listGenres(BDD bdd);
 #endif
