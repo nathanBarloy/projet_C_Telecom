@@ -3,7 +3,10 @@
 #include "FileToString.h"
 #include <stdio.h>
 #include "JSONShortcut.h"
-String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t container)
+#include "Headers.h"
+#include <Vector/Vector.h>
+#include "Replace.h"
+String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params)
 {
 	String_t html = newString();
 	if(container != 0)
@@ -101,7 +104,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t container)
 									size_t c = 0, size = JSONArray_size(childs);
 									while(c < size)
 									{
-										concatString(html, HTMLFromJSON(connexion, JSONArray_get(childs, c)));
+										concatString(html, HTMLFromJSONContainer(connexion, json, JSONArray_get(childs, c), params));
 										++c;
 									}
 								}
@@ -179,7 +182,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t container)
 	return html;
 }
 int HTMLFROMJSONLastTime = 0;
-String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json)
+String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 {
 	String_t html = 0;
 	if(json != 0 && JSONObject_getType(json) == OBJECT)
@@ -201,7 +204,7 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json)
 				while(c < size)
 				{
 					printf("HEAD: %lu/%lu\n", (c + 1), size);
-					tmp = HTMLFromJSONContainer(connexion, JSONArray_get(head, c));
+					tmp = HTMLFromJSONContainer(connexion, json, JSONArray_get(head, c), params);
 					concatString(html, tmp);
 					fString(tmp);
 					++c;
@@ -256,7 +259,7 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json)
 				while(c < size)
 				{
 					printf("BODY: %lu/%lu\n", (c + 1), size);
-					tmp = HTMLFromJSONContainer(connexion, JSONArray_get(body, c));
+					tmp = HTMLFromJSONContainer(connexion, json, JSONArray_get(body, c), params);
 					concatString(html, tmp);
 					fString(tmp);
 					++c;
@@ -321,20 +324,92 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json)
 	}
 	return html;
 }
-String_t HTMLFromJSONString(Connexion_t connexion, String_t str)
+String_t HTMLFromJSONString(Connexion_t connexion, String_t str, Vector_t params)
 {
-	return HTMLFromJSON(connexion, JSONParser_parseString(str));
+	return HTMLFromJSON(connexion, JSONParser_parseString(str), params);
 }
-String_t HTMLFromJSONFile(Connexion_t connexion, String_t file)
+String_t HTMLFromJSONFile(Connexion_t connexion, String_t file, Vector_t params)
 {
-	return HTMLFromJSON(connexion, JSONParser_parseFileString(file));
+	return HTMLFromJSON(connexion, JSONParser_parseFileString(file), params);
 }
 String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 {
 	if(sizeOfString(url) >= sizeOfString(autoString(("exec://"))))
 	{
 		String_t file = newStringFromCharStar(url->str + sizeOfString(autoString("exec://")));
-		String_t r = HTMLFromJSONFile(connexion, autoConcatString(autoString("web/"), file));
+		Vector_t params = newVector();
+		int pos = getFirstChar(file, '?');
+		if(pos > -1)
+		{
+			String_t p = cutString(file, pos), tmp = 0;
+			printf("File: %s\nParams: %s\n", cString(file), cString(p));
+			tmp = cutString(p, 1);
+			fString(p);
+			p = tmp;
+			pos = getFirstChar(p, '=');
+			bool last = false;
+			while(pos > - 1)
+			{
+				tmp = cutString(p, pos);
+				String_t name = p;
+				if(tmp == 0)
+				{
+					//printf("#1\n");
+					p = name;
+					break;
+				}
+				p = tmp;
+				if(sizeOfString(p) == 0)
+				{
+					//printf("#2\n");
+					break;
+				}
+				tmp = cutString(p, 1);
+				fString(p);
+				p = tmp;
+				//Obtenir le & au bon endroit
+				pos = getFirstChar(p, '&');
+				if(pos == -1 || sizeOfString(p) == 0)
+				{
+					/*printf("#3\n");
+					break;*/
+					last = true;
+				}
+				else
+				{
+					tmp = cutString(p, pos);
+				}
+				String_t value = p;
+				transformValue(value);
+				Header_t h = newHeaderFull(cString(name), cString(value));
+				printf("Couple: %s - %s\n", cString(name), cString(value));
+				//fString(name);
+				//fString(value);
+				addToVector(params, (void*) h);
+				p = tmp;
+				if(sizeOfString(p) == 0)
+				{
+					//printf("#4\n");
+					break;
+				}
+				if(last)
+				{
+					break;
+				}
+				tmp = cutString(p, 1);
+				fString(p);
+				p = tmp;
+				if(sizeOfString(p) == 0)
+				{
+					//printf("#5\n");
+					break;
+				}
+				pos = getFirstChar(p, '=');
+			}
+			fString(p);
+		}
+		String_t r = HTMLFromJSONFile(connexion, autoConcatString(autoString("web/"), file), params);
+		params = freeVectorWithPtr(params, freeHeaderPtr);
 		fString(file);
 		return r;
 	}

@@ -5,8 +5,19 @@
 #include "../utils/FileToString.h"
 #include "../utils/Connexion.h"
 #include "../utils/HTMLGenerator.h"
+#include <libsoup/soup.h>
+#include <Vector/Vector.h>
+#include "../utils/Headers.h"
+#include <string.h>
+#include <glib-object.h>
 bool clientGUI_blockableRequest = 1;
 bool clientGUI_firstRequest = 1;
+void clientGUIHeadGet(const char* name, const char* value, gpointer user_data)
+{
+	Vector_t v = (Vector_t) user_data;
+	Header_t h = newHeaderFull((char*) name, (char*) value);
+	addToVector(v, (void*) h);
+}
 void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *web_frame, WebKitWebResource* web_resource, WebKitNetworkRequest *request, WebKitNetworkResponse* response, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
@@ -20,11 +31,45 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 	AutoString_t uri = autoString((char*)webkit_network_request_get_uri(request));
 	if(clientGUI_blockableRequest && !clientGUI_firstRequest)
 	{
+		//Annulation de la requête
 		webkit_web_view_stop_loading(web_view);
 		printf("Request blocked: %s\n", cString(uri));
 		clientGUI_blockableRequest = 0;
+		//Reception des paramètres envoyés
+		/*SoupMessage* msg = webkit_network_request_get_message(request);
+		printf("Message: %p\n", msg);
+		Vector_t headers = newVector();
+		if(msg != 0)
+		{
+			SoupMessageBody* body = 0;
+			//GValue val = G_VALUE_INIT;
+			//g_value_init(&val, G_TYPE_POINTER);
+			//g_object_get_property(G_OBJECT(msg), "request-body", &val);
+			//body = (SoupMessageBody*) g_value_get(&val);
+			g_object_get(msg, "request-body", &body, NULL);
+			//g_value_unset(&val);
+			if(body != 0)
+			{
+				printf("Body: %p\n", body);
+				soup_message_body_complete(body);
+				SoupBuffer* buffer = soup_message_body_get_chunk(body, 0);
+				printf("Buffer: %p\n", buffer);
+				if(buffer != 0)
+				{
+					char *buf = (char*) malloc(sizeof(char) * (buffer->length + 1));
+					memcpy(buf, buffer->data, buffer->length);
+					buf[buffer->length] = 0;
+					printf("HTTP DATA:\n%s\n", buf);
+					free(buf);
+				}
+			}
+
+		}*/
+		//Génération HTML
 		String_t html = HTMLFromJSONUrl(connexion, uri);
+		//freeVectorWithPtr(headers, freeHeaderPtr);
 		printf("Generated:\n%s\n", cString(html));
+		//Génération de la nouvelle requête
 		webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(html) , 0,0, cString(uri));//Chargement via generateur HTML
 		fString(html);
 	}
