@@ -93,8 +93,9 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	return compteur;
 }
 
-int *liste_recommandation(BDD bdd, int id) {
+Vector_t liste_recommandation(BDD bdd, int id) {
 	JSONArray_t listeFilms = BDD_Films(bdd);
+	Vector_t triFilms;
 	int n = JSONArray_size(listeFilms);
 	int i;
 	double dist;
@@ -117,7 +118,18 @@ int *liste_recommandation(BDD bdd, int id) {
 		}
 	}
 	free(triDist);
-	return triID;
+	triFilms = tabToVect(triID,listeFilms,n);
+	free(triID);
+	return triFilms;
+}
+
+Vector_t tabToVect(int *triID,JSONArray_t films,int n) {
+	Vector_t triFilms = newVector();
+	int i=0;
+	for (i=0;i<n-1;i++) {
+		addToVector(triFilms,JSONArray_get(films,triID[i]-1));
+	}
+	return triFilms;
 }
 
 void insert_tri(double dist, int id, double *triDist, int *triID, int n) {

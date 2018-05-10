@@ -16,11 +16,11 @@ int main()
 	//printf("Export:\n");//Test
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
 
-	int *listID = liste_recommandation(bdd,0);
+	Vector_t listeFilms = liste_recommandation(bdd,0);
 	for (int i=0;i<10;i++) {
-		printf("%d\n",listID[i]);
+		printf("%s\n",cString(JSONObject_asString(getFromVector(listeFilms,i), 0)));
 	}
-	free(listID);
+	freeVector(listeFilms);
 	int r = serverRunner(bdd);
 	printf("Le serveur à terminé avec le code: %d\n", r);
 	if(r >= 0)
