@@ -1,6 +1,7 @@
 #include "JSONCheck.h"
 #include <String/AutoString.h>
 #include "JSONShortcut.h"
+#include "Date.h"
 bool JSON_rightTypeOrNull(JSONObject_t obj, JSONType_t type)
 {
 	if(obj == 0)
@@ -53,6 +54,12 @@ bool JSON_checkUser(JSONObject_t user, bool light)
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("FirstName")), STRING);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("Login")), STRING);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("Password")), STRING);
+		if(JSONObject_get(user, AS("Birth")) == 0)
+		{
+			Date_t d = newDate();
+			JSONObject_set(user, AS("Birth"), dateToJSON(d));
+			freeDate(d);
+		}
 		validType = validType && JSON_checkDate(JSONObject_get(user, AS("Birth")));
 		if(!light)
 		{

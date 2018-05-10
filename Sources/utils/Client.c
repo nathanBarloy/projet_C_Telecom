@@ -1,4 +1,5 @@
 #include "Client.h"
+#include <unistd.h>
 
 Client newClient(int fd, BDD bdd)
 {

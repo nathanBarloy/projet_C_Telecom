@@ -38,58 +38,43 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
   int pos1;
   int pos2;
   for(i = 1 ; i <= 100 ; i++) {
-    bool bool_hr1 = check_id(hr1, i);
-    bool bool_hr2 = check_id(hr2, i);
-    if(bool_hr1 && !bool_hr2) {
-      pos1 = get_position(hr1, i);
+    pos1 = get_position(hr1, i);
+    pos2 = get_position(hr2, i);
+    if(pos1 != (-1) && pos2 == (-1)) {
       numerateur = numerateur + ((double)JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1)*(-mean_rates2);
       denominateur1 = denominateur1 + pow((double)(JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1), 2);
       denominateur2 = denominateur2 + pow((mean_rates2), 2);
     }
-    else if(!bool_hr1 && bool_hr2) {
-      pos2 = get_position(hr2, i);
+    else if(pos1 == (-1) && pos2 != (-1)) {
       numerateur = numerateur + (-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
       denominateur1 = denominateur1 + pow((mean_rates1), 2);
       denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
     }
-    else if(bool_hr1 && bool_hr2) {
-      pos1 = get_position(hr1, i);
-      pos2 = get_position(hr2, i);
+    else if(pos1 != (-1) && pos2 != (-1)) {
       numerateur = numerateur + (JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
       denominateur1 = denominateur1 + pow((JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1), 2);
       denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
     }
+    // else if(pos1 == -1 && pos2 == -1) {
+    //   numerateur = numerateur + (-mean_rates1)*(-mean_rates2);
+    //   denominateur1 = denominateur1 + pow(mean_rates1, 2);
+    //   denominateur2 = denominateur2 + pow(mean_rates2, 2);
+    // }
   }
   double resultat = numerateur/(sqrt(denominateur1)*sqrt(denominateur2));
-  return (double)(1)-resultat;
+  return (double)1 - fabs(resultat);
 }
 
-//déterminer le max entre les deux (pas utlisé finalement)
-int max_length(int a, int b) {
-  if(a <= b) {
-    return b;
-  }
-  else {
-    return a;
-  }
-}
-
-//vérifier la présence d'un id film dans history_rates
-bool check_id(JSONArray_t hr, int id) {
+// retourne la position du film d'id passé en paramètre s'il existe et renvoi -1 sinon
+int get_position(JSONArray_t hr, int id) {
   int i = 0;
-  while (i != JSONArray_size(hr)) {
-    if(JSONObject_intValueOf(JSONArray_get(hr, i), autoString("Id")) == id ) {
-      return true;
+  int found = -1;
+  while(i != JSONArray_size(hr)) {
+    if(id == JSONObject_intValueOf(JSONArray_get(hr, i), autoString("Id"))) {
+      found = i;
+      break;
     }
     i++;
   }
-  return false;
-}
-
-int get_position(JSONArray_t hr, int id) {
-  int i = 0;
-  while(id != JSONObject_intValueOf(JSONArray_get(hr, i), autoString("Id"))) {
-    i++;
-  }
-  return i;
+  return found;
 }

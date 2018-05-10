@@ -35,7 +35,10 @@ extern "C"
 * Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++.
 * Cette définition permet de l'utiliser de manière transparente.
 */
-typedef int bool;
+#ifndef BOOL_DEFINED
+#define BOOL_DEFINED
+typedef char bool;
+#endif
 #endif
 /*! \brief JSONType_t représente le type de l'objet JSON pointé
 * Ce type est 100% compatible avec celui de libjson, il permet de tester le type d'un objet JSON.

@@ -7,6 +7,8 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <errno.h>
+#include "ServerRunner.h"
+#include <unistd.h>
 void* clientHandler(void* arg)
 {
 	Client client = (Client) arg;

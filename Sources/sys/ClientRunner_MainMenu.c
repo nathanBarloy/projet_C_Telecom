@@ -1,6 +1,10 @@
 #include "ClientRunner_MainMenu.h"
 #include "../utils/ReadInput.h"
 #include "ClientRunner.h"
+#include "ClientRunnerContinue.h"
+#include <time.h>
+#include <unistd.h>
+
 #define eq(sel, menu) equalsString(sel, autoString(menu))
 enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 {

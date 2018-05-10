@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <strings.h>
+#include <unistd.h>
+#include "ClientRunnerContinue.h"
 
 RequestAnswer clientRequest(Connexion_t connexion, RequestQuery query)
 {

@@ -1,10 +1,9 @@
 #include "Distance.h"
 
 
-double distance_film(BDD bdd,int id1, int id2) {
+double distance_film(JSONArray_t films,int id1, int id2) {
 	double dist=0;
 	double coeffActor=3,coeffGenre=5,coeffReal=3,coeffType=1,coeffYear=1;
-	JSONArray_t films = BDD_Films(bdd);
 	JSONObject_t film1 = JSONArray_get(films, id1);
 	JSONObject_t film2 = JSONArray_get(films, id2);
 	if (JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0) {
@@ -25,11 +24,11 @@ double distance_film(BDD bdd,int id1, int id2) {
 
 	dist = (coeffActor*distActor+coeffGenre*distGenre+coeffReal*distReal+coeffType*distType+coeffYear*distYear ) / (coeffActor+coeffReal+coeffType+coeffYear+coeffGenre);
 
-	printf("la distance entre ");
+	/*printf("la distance entre ");
 	printf("%s et ", cString(JSONObject_stringValueOf(film1,autoString("Title"))));
 	printf("%s et ", cString(JSONObject_stringValueOf(film2,autoString("Title"))));
 	printf("%f\n",dist);
-
+	*/
 
 	return dist;
 }
@@ -71,7 +70,7 @@ double distance_Jacard(JSONArray_t l1, JSONArray_t l2) {
 	int intersec = card_intersection(l1,l2);
 	int uni = JSONArray_size(l1)+JSONArray_size(l2)-intersec;
 	if (uni==0) {
-		return 0;
+		return 1.0;
 	} else {
 		return 1.0-((double)(intersec))/((double)(uni));
 	}
@@ -82,14 +81,53 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	int i, j;
 	for(i = 0;i < JSONArray_size(l1);i++) {
 		for(j = 0;j < JSONArray_size(l2);j++) {
-			if(JSONObject_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
-			//if ( !strcmp(cString(JSONObject_asString(JSONArray_get(l1,i),0)),cString(JSONObject_asString(JSONArray_get(l2,j),0))) ) {
-				printf("%s\n", cString(JSONObject_asString(JSONArray_get(l1,i),0)));
-				printf("%s\n\n", cString(JSONObject_asString(JSONArray_get(l2,j),0)));
+			if(JSONString_equals(JSONArray_get(l1,i),JSONArray_get(l2,j))) {
+			//if(!strcmp(cString(JSONObject_asString(JSONArray_get(l1,i),0)),cString(JSONObject_asString(JSONArray_get(l2,j),0))) ) {
+				//printf(/*"i = %d, j = %d: */"%s\n", /*i, j, */cString(JSONObject_asString(JSONArray_get(l1,i),0)));
+				//printf(/*"i = %d, j = %d: */"%s\n\n", /*i, j, */cString(JSONObject_asString(JSONArray_get(l2,j),0)));
 				compteur++;
 			}
 		}
 	}
 	printf("%d\n",compteur);
 	return compteur;
+}
+
+int *liste_recommandation(BDD bdd, int id) {
+	JSONArray_t listeFilms = BDD_Films(bdd);
+	int n = JSONArray_size(listeFilms);
+	int i;
+	int triID[n-1];
+	double triDist[n-1];
+	double dist;
+
+	for (i=0;i<n-1;i++) { //initialisation de la liste des distances à 1
+		triDist[i]=1.0;
+	}
+
+	for (i=0;i<n;i++) {
+		if (i!=id) {
+			dist = distance_film(listeFilms, id,i);
+			insert_tri(dist,i,triDist,triID,n);
+		}
+	}
+	return triID;
+}
+
+void insert_tri(double dist, int id, double *triDist, int *triID, int n) {
+	int k=0;
+	while (triDist[k]<dist) {
+		k++;
+	}
+	decale(dist, id, triDist, triID, n, k);
+}
+
+void decale(double dist, int id, double *triDist, int *triID, int n, int k) {
+	int i;
+	for (i=n-2;i>k;i--) {
+		triDist[i]=triDist[i-1];
+		triID[i]=triID[i-1];
+	}
+	triDist[k]=dist;
+	triID[k]=id;
 }

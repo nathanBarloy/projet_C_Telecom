@@ -1,4 +1,5 @@
 #include "Requests.h"
+#include "../utils/JSONCheck.h"
 
 Map_t getRequestsMap()
 {
