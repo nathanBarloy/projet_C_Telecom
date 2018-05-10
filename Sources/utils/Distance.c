@@ -97,9 +97,14 @@ int *liste_recommandation(BDD bdd, int id) {
 	JSONArray_t listeFilms = BDD_Films(bdd);
 	int n = JSONArray_size(listeFilms);
 	int i;
-	int triID[n-1];
-	double triDist[n-1];
 	double dist;
+	int *triID=NULL;
+	double *triDist=NULL;
+	triID = (int*) malloc((n-1)*sizeof(int));
+	triDist = (double*) malloc((n-1)*sizeof(double));
+	if (triID == NULL || triDist == NULL) {
+		exit(0);
+	}
 
 	for (i=0;i<n-1;i++) { //initialisation de la liste des distances à 1
 		triDist[i]=1.0;
@@ -111,6 +116,7 @@ int *liste_recommandation(BDD bdd, int id) {
 			insert_tri(dist,i,triDist,triID,n);
 		}
 	}
+	free(triDist);
 	return triID;
 }
 
@@ -129,7 +135,7 @@ void decale(double dist, int id, double *triDist, int *triID, int n, int k) {
 		triID[i]=triID[i-1];
 	}
 	triDist[k]=dist;
-	triID[k]=id;
+	triID[k]=id+1;
 }
 
 JSONArray_t listGenres(BDD bdd) {
