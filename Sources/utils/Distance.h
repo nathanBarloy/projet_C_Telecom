@@ -15,7 +15,8 @@ double distance_type(String_t t1, String_t t2);
 double distance_Jacard(JSONArray_t l1, JSONArray_t l2);
 int card_intersection(JSONArray_t l1, JSONArray_t l2);
 
-int *liste_recommandation(BDD bdd, int id);
+Vector_t liste_recommandation(BDD bdd, int id);
+Vector_t tabToVect(int *triID,JSONArray_t films,int n);
 void insert_tri(double dist, int id, double *triDist, int *triID, int n);
 void decale(double dist, int id, double *triDist, int *triID, int n, int k);
 
