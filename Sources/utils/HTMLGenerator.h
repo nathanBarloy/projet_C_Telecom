@@ -9,4 +9,5 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 String_t HTMLFromJSONString(Connexion_t connexion, String_t str, Vector_t params);
 String_t HTMLFromJSONFile(Connexion_t connexion, String_t file, Vector_t params);
 String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url);
+String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 #endif

@@ -68,8 +68,12 @@ Ou:
 ```
 [
 	{
-		"function" : "fctName"
+		"function" : 
+		{
+		"name" : fctName",
+		"param" : JSONObject_t
 		//+params
+		}
 	}
 ]
 ```

@@ -231,3 +231,12 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	gtk_window_set_default_size(GTK_WINDOW (main_window), 800, 600);
 	gtk_widget_show_all(main_window);
 }
+
+Map_t getFunctionMap()
+{
+	Map_t r = newMap();
+	//Insérer ici les associations
+	setMap(r, autoString("youtube"), (void*) HTMLYoutubePlayer);
+	//Fin des associations
+	return r;
+}
