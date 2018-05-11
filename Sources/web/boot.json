@@ -1,0 +1,22 @@
+{
+	"title" : "Connexion à un serveur",
+	"url" : "exec://boot.json",
+	"body" : [
+		{
+			"file" : { "name" : "boot.html"}
+		},
+		{
+			"tag":
+			{
+				"name" : "img",
+				"attributes": [
+					{
+						"name" : "src",
+						"value" : "img/test.png"
+					}
+					]
+			}
+		}
+	],
+	"styles" : ["theme.css"]
+}

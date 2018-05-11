@@ -1,0 +1,21 @@
+{
+	"title" : "Initialization...",
+	"url" : "exec://init.json",
+	"body" : [{"file" : {"name" : "init.html"}}],
+	"head" : [
+		{"tag": {
+			"name" : "meta",
+			"attributes" : [{"name" : "http-equiv", "value" : "refresh"}, {"name" : "content", "value" : "1;url=exec://boot.json"}],
+			"ifconnected" : false
+			}
+		},
+		{
+			"tag" :
+			{
+				"name" : "meta",
+				"attributes" : [{"name" : "http-equiv", "value" : "refresh"}, {"name" : "content", "value" : "1;url=exec://menu.json"}],
+				"ifconnected" : true,
+			}
+		}
+		]
+}

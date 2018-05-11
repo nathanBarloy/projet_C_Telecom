@@ -66,6 +66,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 						if(isTag == 0)
 						{
 							AutoString_t name = JSONObject_stringValueOf(detail,AS("name")), value = JSONObject_stringValueOf(detail, AS("value"));
+							JSONObject_t value_json = JSONObject_get(detail, AS("value"));
 							JSONArray_t attributes = JSONObject_get(detail, AS("attributes")), childs = JSONObject_get(detail, AS("childs"));
 							String_t chv = newStringFromCharStar("<"), spc = newStringFromCharStar(" "), echv = newStringFromCharStar(">"), slash = newStringFromCharStar("/"), eq = newStringFromCharStar("="), gui = newStringFromCharStar("\"");
 							concatString(html, chv);
@@ -98,7 +99,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 												{
 													isExec = false;
 												}
-												++size;
+												++c;
 											}
 											fString(ep);
 											c = 0;
@@ -110,7 +111,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 												{
 													isHttp = false;
 												}
-												++size;
+												++c;
 											}
 											fString(ep);
 
@@ -123,7 +124,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 												{
 													isHttps = false;
 												}
-												++size;
+												++c;
 											}
 											fString(ep);
 
@@ -136,7 +137,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 												{
 													isFtp = false;
 												}
-												++size;
+												++c;
 											}
 											fString(ep);
 
@@ -150,7 +151,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 													String_t r = newStringFromCharStar("file://");
 													concatString(r, cwd);
 													fString(cwd);
-													cwd = newStringFromCharStar("/");
+													cwd = newStringFromCharStar("/web/");
 													concatString(r, cwd);
 													fString(cwd);
 													concatString(r, value);
@@ -191,7 +192,7 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 								concatString(html, name);
 								concatString(html, echv);
 							}
-							else if(value != 0)
+							else if(value_json != 0)
 							{
 								concatString(html, echv);
 								concatString(html, value);
@@ -213,6 +214,9 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 							fString(slash);
 							fString(eq);
 							fString(gui);
+							String_t asn = newStringFromCharStar("\n");
+							concatString(html, asn);
+							fString(asn);
 
 						}
 						else if(isTag == 1)

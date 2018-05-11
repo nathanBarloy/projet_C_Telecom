@@ -108,7 +108,22 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 			printf("Request blocked: %s\n", cString(uri));
 			String_t html = HTMLFromJSONUrl(connexion, uri);
 			printf("Generated:\n%s\n", cString(html));
-			webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(html) , 0,0, cString(uri));//Chargement via generateur HTML
+			//GetFile://
+			char *wd = getcwd(0,0);
+			String_t cwd = newStringFromCharStar(wd);
+			free(wd);
+			String_t r = newStringFromCharStar("file://");
+			concatString(r, cwd);
+			fString(cwd);
+			cwd = newStringFromCharStar("/web/");
+			concatString(r, cwd);
+			fString(cwd);
+			String_t value = newStringFromCharStar(uri->str + 7);
+			concatString(r, value);
+			fString(value);
+			//end
+			webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(html) , 0,0, cString(r));//Chargement via generateur HTML
+			fString(r);
 			fString(html);
 		}
 		else
