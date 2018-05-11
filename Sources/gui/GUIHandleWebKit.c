@@ -29,6 +29,10 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 	printf("Response: %p\n", response);
 	printf("URI: %s\n", webkit_network_request_get_uri(request));
 	AutoString_t uri = autoString((char*)webkit_network_request_get_uri(request));
+	if(sizeOfString(uri) > 0 && uri->str[0] != 'e')
+	{
+		clientGUI_blockableRequest = false;
+	}
 	if(clientGUI_blockableRequest && !clientGUI_firstRequest)
 	{
 		//Annulation de la requête
