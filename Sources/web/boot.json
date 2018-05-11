@@ -16,6 +16,20 @@
 					}
 					]
 			}
+		},
+		{
+			"function" :
+			{
+				"name" : "youtube",
+				"param" : {"link" : "Ugs9HASX4rA"}
+			}
+		},
+		{
+			"function" :
+			{
+				"name" : "img",
+				"param" : {"src" : "img/test2.png"}
+			}
 		}
 	],
 	"styles" : ["theme.css"]

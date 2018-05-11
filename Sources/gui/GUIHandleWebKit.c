@@ -237,6 +237,7 @@ Map_t getFunctionMap()
 	Map_t r = newMap();
 	//Insérer ici les associations
 	setMap(r, autoString("youtube"), (void*) HTMLYoutubePlayer);
+	setMap(r, autoString("img"), (void*) HTMLImg);
 	//Fin des associations
 	return r;
 }

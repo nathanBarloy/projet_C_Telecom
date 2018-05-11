@@ -7,13 +7,14 @@
 #include <Vector/Vector.h>
 #include "Replace.h"
 #include <unistd.h>
+#include "../gui/GUIHandleWebKit.h"
 String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params)
 {
 	String_t html = newString();
 	if(container != 0)
 	{
 		JSONObject_t obj = 0, detail = 0;
-		bool isTag = true;
+		int isTag = 0;
 		obj = container;
 		if(JSONObject_getType(obj) == OBJECT)
 		{
@@ -234,7 +235,21 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 						}
 						else if(isTag == 2)
 						{
-							printf("Not implemented yet.\n");
+							AutoString_t name = JSONObject_stringValueOf(detail, AS("name"));
+							JSONObject_t param = JSONObject_get(detail, AS("param"));
+							Map_t map = getFunctionMap();
+							String_t(*ret)(Connexion_t, JSONObject_t, JSONObject_t, Vector_t) = (String_t(*)(Connexion_t, JSONObject_t, JSONObject_t, Vector_t))getMap(map, name);
+							freeMap(map);
+							if(ret != 0)
+							{
+								String_t r = ret(connexion, json, param, params);
+								concatString(html, r);
+								fString(r);
+							}
+							else
+							{
+								printf("HTMLGenerator: Undefined function: %s\n", cString(name));
+							}
 						}
 					}
 					else
@@ -500,9 +515,48 @@ String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	//<iframe width="560" height="315" src="https://www.youtube.com/embed/Ugs9HASX4rA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	String_t r = newStringFromCharStar("<iframe width=\"560\" height=\"315\" src=\""), tmp = newStringFromCharStar("\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>");
+	String_t r = newStringFromCharStar("<iframe width=\""), tmp = newStringFromCharStar("\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>");
+	String_t width = newStringFromCharStar("560"), height = newStringFromCharStar("315");
+	if(param != 0)
+	{
+		if(JSONObject_get(param, AS("width")) != 0)
+		{
+			setString(width, JSONObject_stringValueOf(param, AS("width")));
+		}
+		if(JSONObject_get(param, AS("height")) != 0)
+		{
+			setString(width, JSONObject_stringValueOf(param, AS("height")));
+		}
+	}
+	concatString(r, width);
+	String_t t = newStringFromCharStar("\" height=\"");
+	concatString(r, t);
+	fString(t);
+	concatString(r, height);
+	t = newStringFromCharStar("\" src=\"https://www.youtube.com/embed/");
+	concatString(r, t);
+	fString(t);
 	concatString(r, JSONObject_stringValueOf(param, AS("link")));
 	concatString(r, tmp);
+	fString(width);
+	fString(height);
 	return r;
 
+}
+String_t HTMLImg(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
+{
+	String_t r = newStringFromCharStar("<img src=\"");
+	concatString(r, JSONObject_stringValueOf(param, AS("src")));
+	String_t tmp = newStringFromCharStar("\" alt=\"");
+	concatString(r, tmp);
+	fString(tmp);
+	concatString(r, JSONObject_stringValueOf(param, AS("src")));
+	tmp = newStringFromCharStar("\" ");
+	concatString(r, tmp);
+	fString(tmp);
+	concatString(r, JSONObject_stringValueOf(param, AS("html")));
+	tmp = newStringFromCharStar(" />");
+	concatString(r, tmp);
+	fString(tmp);
+	return r;
 }
