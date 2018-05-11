@@ -6,6 +6,7 @@
 #include "Headers.h"
 #include <Vector/Vector.h>
 #include "Replace.h"
+#include <unistd.h>
 String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params)
 {
 	String_t html = newString();
@@ -73,16 +74,93 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 							{
 								size_t c = 0, size = JSONArray_size(attributes);
 								JSONObject_t attr = 0;
+								String_t name = 0, value = 0;
 								while(c < size)
 								{
 									attr = JSONArray_get(attributes, c);
 									if(JSONObject_getType(attr) == OBJECT)
 									{
 										concatString(html, spc);
-										concatString(html, JSONObject_stringValueOf(attr, autoString("name")));
+										name = JSONObject_stringValueOf(attr, autoString("name"));
+										concatString(html, name);
 										concatString(html, eq);
 										concatString(html, gui);
-										concatString(html, JSONObject_stringValueOf(attr, autoString("value")));
+										value = JSONObject_stringValueOf(attr, autoString("value"));
+										String_t href = newStringFromCharStar("href"), src = newStringFromCharStar("src");
+										if(equalsString(name, href) || equalsString(name, src))
+										{
+											String_t ep = newStringFromCharStar("exec://");
+											size_t c = 0, size = sizeOfString(ep);
+											bool isExec = true, isHttp = true, isHttps = true, isFtp = true;
+											while(c < size && c < sizeOfString(value))
+											{
+												if(value->str[c] != ep->str[c])
+												{
+													isExec = false;
+												}
+												++size;
+											}
+											fString(ep);
+											c = 0;
+											ep = newStringFromCharStar("http://");
+											size = sizeOfString(ep);
+											while(c < size && c < sizeOfString(value))
+											{
+												if(value->str[c] != ep->str[c])
+												{
+													isHttp = false;
+												}
+												++size;
+											}
+											fString(ep);
+
+											c = 0;
+											ep = newStringFromCharStar("https://");
+											size = sizeOfString(ep);
+											while(c < size && c < sizeOfString(value))
+											{
+												if(value->str[c] != ep->str[c])
+												{
+													isHttps = false;
+												}
+												++size;
+											}
+											fString(ep);
+
+											c = 0;
+											ep = newStringFromCharStar("ftp://");
+											size = sizeOfString(ep);
+											while(c < size && c < sizeOfString(value))
+											{
+												if(value->str[c] != ep->str[c])
+												{
+													isFtp = false;
+												}
+												++size;
+											}
+											fString(ep);
+
+
+
+											if(!isExec && !isHttp && !isHttps && !isFtp)
+											{
+													char *wd = getcwd(0,0);
+													String_t cwd = newStringFromCharStar(wd);
+													free(wd);
+													String_t r = newStringFromCharStar("file://");
+													concatString(r, cwd);
+													fString(cwd);
+													cwd = newStringFromCharStar("/");
+													concatString(r, cwd);
+													fString(cwd);
+													concatString(r, value);
+													setString(value, r);
+													fString(r);
+											}
+										}
+										fString(href);
+										fString(src);
+										concatString(html, value);
 										concatString(html, gui);
 									}
 									else

@@ -113,9 +113,9 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 		}
 		else
 		{
-			if(sizeOfString(uri) >= sizeOfString(autoString(("exec://"))))
+			if(/*sizeOfString(uri) >= sizeOfString(autoString(("exec://")))*/0)
 			{
-				String_t file = 0;
+				/*String_t file = 0;
 				if(sizeOfString(uri) >= sizeOfString(furi))
 				{
 					file = newStringFromCharStar(uri->str + sizeOfString(furi));
@@ -145,7 +145,7 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 				else
 				{
 					printf("Error while reading file: %s\n", df);
-				}
+				}*/
 			}
 			else
 			{

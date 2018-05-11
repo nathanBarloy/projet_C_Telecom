@@ -3,5 +3,5 @@
 server
 client
 client-gui
-*.json
+*_backup_*.json
 *.bin
