@@ -1,15 +1,15 @@
 {
 	"title" : "Connexion à un serveur",
-	"url" : "exec://boot.json",
+	"url" : "exec://main.json",
 	"body" : [
-		{
-			"file" : { "name" : "boot.html"}
-		},
 		{
 			"function" :
 			{
 				"name" : "checkConnected"
 			}
+		},
+		{
+			"file" : { "name" : "main.html"}
 		},
 	],
 	"styles" : ["theme.css"]

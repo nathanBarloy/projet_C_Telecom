@@ -1,0 +1,26 @@
+{
+	"tag":
+	{
+		"name" : "img",
+		"attributes": [
+			{
+				"name" : "src",
+				"value" : "img/test.png"
+			}
+			]
+	}
+},
+{
+	"function" :
+	{
+		"name" : "youtube",
+		"param" : {"link" : "Ugs9HASX4rA"}
+	}
+},
+{
+	"function" :
+	{
+		"name" : "img",
+		"param" : {"src" : "img/test2.png"}
+	}
+}
