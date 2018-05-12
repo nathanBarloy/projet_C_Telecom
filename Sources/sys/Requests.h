@@ -17,6 +17,7 @@ RequestAnswer execRequest(Client client, RequestQuery request);//Execute une req
 
 //Requêtes
 RequestAnswer ServerRequest_prints(Client client, RequestQuery request);
+RequestAnswer ServerRequest_exists(Client client, RequestQuery request);
 
 
 

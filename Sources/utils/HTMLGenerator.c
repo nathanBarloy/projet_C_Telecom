@@ -560,3 +560,17 @@ String_t HTMLImg(Connexion_t connexion, JSONObject_t json, JSONObject_t param, V
 	fString(tmp);
 	return r;
 }
+String_t getParam(String_t name, Vector_t params)
+{
+	size_t c = 0, size = sizeOfVector(params);
+	Header_t p = 0;
+	while(c < size)
+	{
+		p = (Header_t) getFromVector(params, c);
+		if(equalsString(p->name, name))
+		{
+			return p->value;
+		}
+	}
+	return 0;
+}

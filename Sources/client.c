@@ -21,8 +21,14 @@ int main(int argc, char** argv, char** envp)
 		printf("%d\n", ValueOf(machin, "lol2", int));
 		JSONObject_delete(machin);*/
 
-
-		int r = clientRunner(connexion);
+		if(!serverExists(connexion))
+		{
+			printf("Aucun serveur n'a été trouvé a l'adresse: %s\n", cString(connexion->addr_s));
+		}
+		else
+		{
+			int r = clientRunner(connexion);
+		}
 		//Fin
 		connexion = freeConnexion(connexion);
 	}

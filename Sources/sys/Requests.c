@@ -6,6 +6,7 @@ Map_t getRequestsMap()
 	Map_t r = newMap();
 	//Insérer ici les associations
 	setMap(r, autoString("prints"), (void*) ServerRequest_prints);
+	setMap(r, autoString("exists"), (void*) ServerRequest_exists);
 	//Fin des associations
 	return r;
 }
@@ -85,4 +86,8 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 		}
 	}
 	//Err
+}
+RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
+{
+	return RequestAnswerOk(request,0);
 }

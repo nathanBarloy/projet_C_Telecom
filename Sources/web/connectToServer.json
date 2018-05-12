@@ -1,0 +1,18 @@
+{
+	"title" : "Connexion...",
+	"url" : "exec://connectToServer.json",
+	"body" : [
+		{
+			"file" : { "name" : "connectToServer.html"}
+		}
+	],
+	"head" : [
+		{
+			"function" :
+			{
+				"name" : "connectToServer"
+			}
+		},
+	],
+	"styles" : ["theme.css"]
+}
