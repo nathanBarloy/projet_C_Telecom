@@ -95,6 +95,6 @@ RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request)
 {
-	JSONObject_t bdd = BDD_Films(client->bdd);
+	JSONObject_t bdd = JSONParser_parseString(JSONObject_asString(BDD_Films(client->bdd), 0));
 	return RequestAnswerOk(request, bdd);
 }
