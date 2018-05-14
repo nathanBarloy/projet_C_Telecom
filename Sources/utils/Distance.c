@@ -155,11 +155,12 @@ JSONArray_t listGenres(BDD bdd) {
 	JSONArray_t films = BDD_Films(bdd);
 	JSONArray_t list = JSONArray_new();
 	int isIn;
-	for (int i=0;i<JSONArray_size(films);i++) {
+	int i, j, k;
+	for (i=0;i<JSONArray_size(films);i++) {
 		JSONArray_t genres = JSONObject_getArray(JSONArray_get(films,i),autoString("Genres"));
-		for (int j=0;j<JSONArray_size(genres);j++) {
+		for (j=0;j<JSONArray_size(genres);j++) {
 			isIn = 0;
-			for (int k=0;k<JSONArray_size(list);k++) {
+			for (k=0;k<JSONArray_size(list);k++) {
 				if (JSONString_equals(JSONArray_get(genres,j),JSONArray_get(list,k))) {isIn=1;}
 			}
 			if (isIn==0) {

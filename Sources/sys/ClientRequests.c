@@ -2,7 +2,7 @@
 #include "ClientRequest.h"
 #include "ClientRunnerContinue.h"
 #include <unistd.h>
-
+#include "../utils/JSONShortcut.h"
 void prints(Connexion_t connexion, String_t message)
 {
 	JSONObject_t obj = JSONObject_new();
@@ -38,4 +38,19 @@ bool serverExists(Connexion_t connexion)
 	}
 	freeRequestQuery(q);
 	return exists;
+}
+
+JSONObject_t serverGetFilms(Connexion_t connexion)
+{
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getFilms"), JSONObject_new()));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
+		JSONObject_remove(a->obj, AS("Answer"), false);
+		freeRequestAnswer(a);
+		return answer;
+	}
+	return 0;
 }

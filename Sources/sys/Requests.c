@@ -7,6 +7,7 @@ Map_t getRequestsMap()
 	//Insérer ici les associations
 	setMap(r, autoString("prints"), (void*) ServerRequest_prints);
 	setMap(r, autoString("exists"), (void*) ServerRequest_exists);
+	setMap(r, autoString("getFilms"), (void*) ServerRequest_getFilms);
 	//Fin des associations
 	return r;
 }
@@ -90,4 +91,10 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 {
 	return RequestAnswerOk(request,0);
+}
+
+RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request)
+{
+	JSONObject_t bdd = BDD_Films(client->bdd);
+	return RequestAnswerOk(request, bdd);
 }

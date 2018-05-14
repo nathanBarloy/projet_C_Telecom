@@ -27,6 +27,16 @@ int main(int argc, char** argv, char** envp)
 		}
 		else
 		{
+			/*JSONObject_t o = serverGetFilms(connexion);
+			if(o)
+			{
+				printf("%s\n", cString(JSONObject_asString(o, 0)));
+				JSONObject_delete(o);
+			}
+			else
+			{
+				printf("Erreur de recuperation de la BDD.\n");
+			}*/
 			int r = clientRunner(connexion);
 		}
 		//Fin

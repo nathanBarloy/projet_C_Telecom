@@ -17,7 +17,8 @@ int main()
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
 
 	Vector_t listeFilms = liste_recommandation(bdd,0);
-	for (int i=0;i<10;i++) {
+	int i;
+	for (i=0;i<10;i++) {
 		printf("%s\n",cString(JSONObject_asString(getFromVector(listeFilms,i), 0)));
 	}
 	freeVector(listeFilms);
