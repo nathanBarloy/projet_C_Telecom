@@ -14,3 +14,10 @@ Grace au bug précédent, on se rend compte aussi que comparer des films sur un 
 Pour une distance, il faut aussi logiquement que la distance entre un film est lui même soit évidemment 0. Un premier test marche, mais pour le film 5, on obtient une distance négative. cela se retrouve pour d'autres films, mais pas la plupart.
 Après recherche, le bug provient d'une erreur dans la methode equals qui considérait 2 chaines de même longueur comme égales.
 Après correction, il n'y a plus de problèmes : la distance entre un film et lui même est bien 0.
+
+
+	pour mieux comparer les genres : prendre en compte le fait que 2 genres ne sont pas juste égaux ou différents. Pour cela on doit utiliser une matrice de distance des genres, qui donne la distance entre 2 genres différents.Cette matrice est bien évidemment symétrique. Les distances sont choisi arbitrairement et sont fixes.
+	Une idée aurait pu etre d'utiliser le machine learning pour remplir cette matrice. Pour cela, un algorithme parcours les films, et regarde les genres qui sont les plus associées entre eux : il peut ainsi mettre un nombre sur les distances entre les genres. L'avantage de cette méthode est qu'elle ne demande pas à l'ordinateur de faire une réelle interprétation sur les genres ; ainsi, on peut rajouter des genres qui n'existent pas encore et l'ordinateur mettra de lui même des coefficients sur ce nouveaux genre. Le problème est que cette méthode est assez difficile à mettre en place, et requière des connaissainces dans un domaine que nous ne maitrisons pas.
+	Ensuite, il faut réussir à exploiter cette matrice pour obtenir une distance entre 2 ensembles de genres qui soit conforme, i.e. entre 0 et 1, et symétrique.
+Une première idée est de faire la moyenne des distances des genres du 1er film avec ceux du 2è. On a D(A,B)=SOMME(a dans A,SOMME(b dans B, d(a,b)))/(CARD(A)*CARD(B)). On a bien les propriétés vérifiées : puisque la matrice est symétrique, on a d(a,b)=d(b,a). De plus, 0<d(a,b)<1, donc 0<SOMME(b dans B,d(a,b))<CARD(B), donc 0<SOMME(a dans A,SOMME(b dans B,d(a,b)))<CARD(A)*CARD(B), donc 0<D(A,B)<1.
+
