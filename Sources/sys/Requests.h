@@ -19,7 +19,7 @@ RequestAnswer execRequest(Client client, RequestQuery request);//Execute une req
 RequestAnswer ServerRequest_prints(Client client, RequestQuery request);
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request);
-
+RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request);
 
 
 //MACROS DE FACILITES

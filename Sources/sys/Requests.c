@@ -8,6 +8,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("prints"), (void*) ServerRequest_prints);
 	setMap(r, autoString("exists"), (void*) ServerRequest_exists);
 	setMap(r, autoString("getFilms"), (void*) ServerRequest_getFilms);
+	setMap(r, autoString("getUsers"), (void*) ServerRequest_getUsers);
 	//Fin des associations
 	return r;
 }
@@ -96,5 +97,11 @@ RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request)
 {
 	JSONObject_t bdd = JSONParser_parseString(JSONObject_asString(BDD_Films(client->bdd), 0));
+	return RequestAnswerOk(request, bdd);
+}
+
+RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request)
+{
+	JSONObject_t bdd = JSONParser_parseString(JSONObject_asString(BDD_Users(client->bdd), 0));
 	return RequestAnswerOk(request, bdd);
 }
