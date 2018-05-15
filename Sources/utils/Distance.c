@@ -16,7 +16,7 @@ double distance_film(JSONArray_t films,int id1, int id2) {
 		coeffActor=0;
 	}
 	double distActor = distance_actor(JSONObject_getArray(film1,autoString("Actors")),JSONObject_getArray(film2,autoString("Actors")));
-	double distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")));
+	double distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")),NULL);
 	double distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
 	double distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
 	double distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
@@ -40,11 +40,39 @@ double distance_year(int y1,int y2) {
   return dist;
 }
 
-double distance_genre(JSONArray_t l1, JSONArray_t l2) {
+double distance_genre(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
 	//fait appel à la matrice de distance des genres
   double dist = 0;
+	//dist = distance_matrice(l1,l2,bdGenre);
 	dist = distance_Jacard(l1,l2);
   return dist;
+}
+
+double distance_matrice(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
+	int i,j,l,c;
+	int n=JSONArray_size(l1);
+	int m=JSONArray_size(l2);
+	double dist=0.;
+	JSONArray_t matr = JSONObject_getArray(bdGenre,autoString("Matrice"));
+	JSONArray_t liste = JSONObject_getArray(bdGenre,autoString("Liste"));
+
+	for (i=0;i<n;i++) {
+		for (j=0;j<m;j++) {
+			l= numero(liste,JSONArray_getString(l1,i));
+			c= numero(liste,JSONArray_getString(l2,j));
+			dist+=JSONDouble_get(JSONArray_getDouble(JSONArray_getArray(matr,l),c));
+		}
+	}
+	dist/=((double) (n*m));
+	return dist;
+}
+
+int numero(JSONArray_t liste, JSONString_t genre) {
+	int compteur=0;
+	while (!JSONString_equals(genre,JSONArray_getString(liste,compteur))) {
+		compteur++;
+	}
+	return compteur;
 }
 
 double distance_actor(JSONArray_t l1, JSONArray_t l2) {
