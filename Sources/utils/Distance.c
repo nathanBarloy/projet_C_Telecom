@@ -49,8 +49,8 @@ double distance_year(int y1,int y2) {
 double distance_genre(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
 	//fait appel à la matrice de distance des genres
   double dist = 0;
-	dist = distance_matrice(l1,l2,bdGenre);
-	//dist = distance_Jacard(l1,l2);
+	//dist = distance_matrice(l1,l2,bdGenre);
+	dist = distance_Jacard(l1,l2);
   return dist;
 }
 
