@@ -3,23 +3,29 @@
 
 double distance_film(JSONArray_t films,int id1, int id2) {
 	double dist=0;
+	double distActor=1,distGenre=1,distReal=1,distType=1,distYear=1;
 	double coeffActor=3,coeffGenre=5,coeffReal=3,coeffType=1,coeffYear=1;
 	JSONObject_t film1 = JSONArray_get(films, id1);
 	JSONObject_t film2 = JSONArray_get(films, id2);
+	JSONObject_t bdGenre = JSONParser_parseFile("data/genres.json");
+	//printf("%s\n",cString(JSONObject_asString(bdGenre,0)) );
 	if (JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0) {
 		coeffReal=0;
+	} else {
+		distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
 	}
 	if (JSONArray_size(JSONObject_getArray(film1,autoString("Genres")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Genres")))==0) {
 		coeffGenre=0;
+	} else{
+		distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")),bdGenre);
 	}
 	if (JSONArray_size(JSONObject_getArray(film1,autoString("Actors")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Actors")))==0) {
 		coeffActor=0;
+	} else {
+		distActor = distance_actor(JSONObject_getArray(film1,autoString("Actors")),JSONObject_getArray(film2,autoString("Actors")));
 	}
-	double distActor = distance_actor(JSONObject_getArray(film1,autoString("Actors")),JSONObject_getArray(film2,autoString("Actors")));
-	double distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")),NULL);
-	double distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
-	double distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
-	double distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
+	distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
+	distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
   //printf("%f\n%f\n%f\n%f\n%f\n",distActor,distGenre,distReal,distType,distYear);
 
 	dist = (coeffActor*distActor+coeffGenre*distGenre+coeffReal*distReal+coeffType*distType+coeffYear*distYear ) / (coeffActor+coeffReal+coeffType+coeffYear+coeffGenre);
@@ -29,13 +35,13 @@ double distance_film(JSONArray_t films,int id1, int id2) {
 	printf("%s et ", cString(JSONObject_stringValueOf(film2,autoString("Title"))));
 	printf("%f\n",dist);
 	*/
-
+	//printf("%f\n",distGenre);
 	return dist;
 }
 
 double distance_year(int y1,int y2) {
   double dist = 0;
-  double alpha = 0.05; //paramètre modifiable <1
+  double alpha = 0.2; //paramètre modifiable <1
   dist = 1.0-exp(-alpha*(double)(abs(y1-y2)));
   return dist;
 }
@@ -43,8 +49,8 @@ double distance_year(int y1,int y2) {
 double distance_genre(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
 	//fait appel à la matrice de distance des genres
   double dist = 0;
-	//dist = distance_matrice(l1,l2,bdGenre);
-	dist = distance_Jacard(l1,l2);
+	dist = distance_matrice(l1,l2,bdGenre);
+	//dist = distance_Jacard(l1,l2);
   return dist;
 }
 
@@ -58,20 +64,24 @@ double distance_matrice(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
 
 	for (i=0;i<n;i++) {
 		for (j=0;j<m;j++) {
-			l= numero(liste,JSONArray_getString(l1,i));
-			c= numero(liste,JSONArray_getString(l2,j));
+			l= numero(liste,JSONArray_get(l1,i));
+			c= numero(liste,JSONArray_get(l2,j));
 			dist+=JSONDouble_get(JSONArray_getDouble(JSONArray_getArray(matr,l),c));
+			printf("%d,%d  ",l,c);
 		}
 	}
+	printf("\n");
 	dist/=((double) (n*m));
 	return dist;
 }
 
-int numero(JSONArray_t liste, JSONString_t genre) {
+int numero(JSONArray_t liste, JSONObject_t genre) {
 	int compteur=0;
-	while (!JSONString_equals(genre,JSONArray_getString(liste,compteur))) {
+	while (!JSONString_equals(genre,JSONArray_get(liste,compteur))) {
 		compteur++;
+		printf("%d ",compteur);
 	}
+	printf("\n");
 	return compteur;
 }
 
