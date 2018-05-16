@@ -154,6 +154,14 @@ bool JSONArray_assignArrayOfObjects(JSONArray_t self, Vector_t arr);
 bool JSONArray_equals(JSONArray_t self, JSONObject_t obj);
 /*! \brief Voir JSONObject_asVector() */
 Vector_t JSONArray_asVector(JSONArray_t self);
+
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONArray_t JSONArray_getCopy(JSONArray_t obj);
 #ifdef __cplusplus
 }
 #endif

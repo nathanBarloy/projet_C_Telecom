@@ -77,6 +77,13 @@ double JSONInt_doubleValue(JSONInt_t self);
 * \return Type demandé par conversion
 */
 bool JSONInt_booleanValue(JSONInt_t self);
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONInt_t JSONInt_getCopy(JSONInt_t obj);
 #ifdef __cplusplus
 }
 #endif

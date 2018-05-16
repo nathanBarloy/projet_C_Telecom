@@ -9,6 +9,7 @@ var _j_s_o_n_double_8h =
     [ "JSONDouble_doubleValue", "d6/d1d/_j_s_o_n_double_8h.html#a100484f04d32b6eb155a1c0cbbac5f4c", null ],
     [ "JSONDouble_equals", "d6/d1d/_j_s_o_n_double_8h.html#a49faf0d1510c29a87e05362413da84bb", null ],
     [ "JSONDouble_get", "d6/d1d/_j_s_o_n_double_8h.html#a4f943770a193ddcb6c02a88ba211e850", null ],
+    [ "JSONDouble_getCopy", "d6/d1d/_j_s_o_n_double_8h.html#a09bd6262c18b87dcddcbd49c1d1eaeb8", null ],
     [ "JSONDouble_getParent", "d6/d1d/_j_s_o_n_double_8h.html#a4e88b5851f41486428c852c0665125b9", null ],
     [ "JSONDouble_hasParent", "d6/d1d/_j_s_o_n_double_8h.html#a3f74ec473dce22aa8ad6d01404b191ad", null ],
     [ "JSONDouble_intValue", "d6/d1d/_j_s_o_n_double_8h.html#a1ca12e27a06a7f81cbb532cb0495be77", null ],

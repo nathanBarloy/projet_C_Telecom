@@ -143,11 +143,13 @@ Macros</h2></td></tr>
 <tr class="memitem:a65e9886d74aaee76545e83dd09011727"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a65e9886d74aaee76545e83dd09011727">false</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:a65e9886d74aaee76545e83dd09011727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente le faux d'un booleen.  <a href="#a65e9886d74aaee76545e83dd09011727">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a65e9886d74aaee76545e83dd09011727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d38c754d398d19c434007ac7de7f13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a79d38c754d398d19c434007ac7de7f13">BOOL_DEFINED</a></td></tr>
+<tr class="memdesc:a79d38c754d398d19c434007ac7de7f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente.  <a href="#a79d38c754d398d19c434007ac7de7f13">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79d38c754d398d19c434007ac7de7f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Définitions de type</h2></td></tr>
 <tr class="memitem:ad5c9d4ba3dc37783a528b0925dc981a0"><td class="memItemLeft" align="right" valign="top">typedef char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ad5c9d4ba3dc37783a528b0925dc981a0">bool</a></td></tr>
-<tr class="memdesc:ad5c9d4ba3dc37783a528b0925dc981a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente.  <a href="#ad5c9d4ba3dc37783a528b0925dc981a0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad5c9d4ba3dc37783a528b0925dc981a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3047c7896b67e57259a041cdf9eb0bb0"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a></td></tr>
 <tr class="memdesc:a3047c7896b67e57259a041cdf9eb0bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSONObject_t représente un objet JSON en C Il représente d'ailleurs n'importe quel objet JSON en C, les pointeurs sont interchangeables avec les autres types. Toutes ces définitions correspondent a void*, elles existent toutes cependant pour permettre une utilisation plus intuitive de la bibliothèque.  <a href="#a3047c7896b67e57259a041cdf9eb0bb0">Plus de détails...</a><br /></td></tr>
@@ -301,8 +303,25 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a204b5c71d81d2fb7a9f94660e6d3efc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#ad5c9d4ba3dc37783a528b0925dc981a0">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a204b5c71d81d2fb7a9f94660e6d3efc2">JSONObject_assignArray</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> self, Vector_t arr)</td></tr>
 <tr class="memdesc:a204b5c71d81d2fb7a9f94660e6d3efc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigner un tableau de couples JSONTuples_t à celui ci.  <a href="#a204b5c71d81d2fb7a9f94660e6d3efc2">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a204b5c71d81d2fb7a9f94660e6d3efc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431c0197dd95f04d8e40d565ad832b08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a431c0197dd95f04d8e40d565ad832b08">JSONObject_getCopy</a> (<a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> obj)</td></tr>
+<tr class="memdesc:a431c0197dd95f04d8e40d565ad832b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir une copie de l'objet.  <a href="#a431c0197dd95f04d8e40d565ad832b08">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a431c0197dd95f04d8e40d565ad832b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a79d38c754d398d19c434007ac7de7f13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOOL_DEFINED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente. </p>
+
+</div>
+</div>
 <a class="anchor" id="a65e9886d74aaee76545e83dd09011727"></a>
 <div class="memitem">
 <div class="memproto">
@@ -341,8 +360,6 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Définition du type bool en C Le type bool n'existe pas en C, il est pourtant utilisé par libjson en C++. Cette définition permet de l'utiliser de manière transparente. </p>
 
 </div>
 </div>
@@ -1030,6 +1047,30 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a431c0197dd95f04d8e40d565ad832b08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a> JSONObject_getCopy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html#a3047c7896b67e57259a041cdf9eb0bb0">JSONObject_t</a>&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir une copie de l'objet. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>Objet à copier Retourne une copie de l'objet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ac5a5fa7286772bc7eee3bf3058753016"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1689,7 +1730,7 @@ Fonctions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/da9/_j_s_o_n_object_8h.html">JSONObject.h</a></li>
-    <li class="footer">Généré le Lundi 7 Mai 2018 16:24:54 pour libcjson par
+    <li class="footer">Généré le Mercredi 16 Mai 2018 22:42:00 pour libcjson par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -29,6 +29,7 @@ var class_j_s_o_n_object =
     [ "get", "db/d78/class_j_s_o_n_object.html#a2e724a3e23fb71a20dbc0f5c9adafa1c", null ],
     [ "getArray", "db/d78/class_j_s_o_n_object.html#a5583d7b2968106a5c9d0e85fa8bd1c8e", null ],
     [ "getBoolean", "db/d78/class_j_s_o_n_object.html#a6baff119659f8e18dcfb3831ef86980a", null ],
+    [ "getCopy", "db/d78/class_j_s_o_n_object.html#a98606d84568c901f7d5eaa9dce3811aa", null ],
     [ "getDouble", "db/d78/class_j_s_o_n_object.html#ac7f58689946fe61e30dd9a106f8d1a57", null ],
     [ "getInt", "db/d78/class_j_s_o_n_object.html#aa77aefa9596ef56d1a755d57ece113d0", null ],
     [ "getParent", "db/d78/class_j_s_o_n_object.html#a4f36bf182177bf79706452281c51196e", null ],

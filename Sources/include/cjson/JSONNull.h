@@ -50,6 +50,13 @@ bool JSONNull_assign(JSONNull_t self, JSONObject_t obj);
 * Tente d'assigner un tableau à un objet JSON.
 */
 bool JSONNull_assignArray(JSONNull_t self, Vector_t arr);
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONNull_t JSONNull_getCopy(JSONNull_t obj);
 #ifdef __cplusplus
 }
 #endif

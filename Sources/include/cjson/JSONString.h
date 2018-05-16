@@ -77,6 +77,13 @@ double JSONString_doubleValue(JSONString_t self);
 * \return Type demandé par conversion
 */
 bool JSONString_booleanValue(JSONString_t self);
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONString_t JSONString_getCopy(JSONString_t obj);
 #ifdef __cplusplus
 }
 #endif

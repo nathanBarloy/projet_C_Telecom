@@ -10,6 +10,7 @@ var class_j_s_o_n_boolean =
     [ "doubleValue", "d0/d0d/class_j_s_o_n_boolean.html#acc3d687c75b1c43efb68b901be30edc4", null ],
     [ "equals", "d0/d0d/class_j_s_o_n_boolean.html#a2c859d9bb90f01b7758a1512ad09cff4", null ],
     [ "get", "d0/d0d/class_j_s_o_n_boolean.html#a155771fab4fe35b00b3c057c969086e6", null ],
+    [ "getCopy", "d0/d0d/class_j_s_o_n_boolean.html#addb621ed23793163b37cc746af758c2b", null ],
     [ "intValue", "d0/d0d/class_j_s_o_n_boolean.html#aea1f6537a31c86fbaddcb7e9013d45ce", null ],
     [ "set", "d0/d0d/class_j_s_o_n_boolean.html#a363d355437ad7abfec96cdf7e16696bc", null ]
 ];

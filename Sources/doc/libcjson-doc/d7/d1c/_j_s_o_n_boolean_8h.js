@@ -9,6 +9,7 @@ var _j_s_o_n_boolean_8h =
     [ "JSONBoolean_doubleValue", "d7/d1c/_j_s_o_n_boolean_8h.html#aae162d1260c894f30f1cd4503db21c9b", null ],
     [ "JSONBoolean_equals", "d7/d1c/_j_s_o_n_boolean_8h.html#ab559ffa0d74e94413399301550faab75", null ],
     [ "JSONBoolean_get", "d7/d1c/_j_s_o_n_boolean_8h.html#ac3da1c3d274eb4662613109537b6e244", null ],
+    [ "JSONBoolean_getCopy", "d7/d1c/_j_s_o_n_boolean_8h.html#a4c706487f140ea0e920074c44918a3f5", null ],
     [ "JSONBoolean_getParent", "d7/d1c/_j_s_o_n_boolean_8h.html#aae6635cddfe055ed23686702908459b1", null ],
     [ "JSONBoolean_hasParent", "d7/d1c/_j_s_o_n_boolean_8h.html#aacd63dce8eb163132badd3fefe9786bd", null ],
     [ "JSONBoolean_intValue", "d7/d1c/_j_s_o_n_boolean_8h.html#ad60b6a98445e717050ea89f85db75e0d", null ],

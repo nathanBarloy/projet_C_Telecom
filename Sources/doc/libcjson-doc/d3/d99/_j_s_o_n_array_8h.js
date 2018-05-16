@@ -20,6 +20,7 @@ var _j_s_o_n_array_8h =
     [ "JSONArray_get", "d3/d99/_j_s_o_n_array_8h.html#a28c50a41256748214d0ca7f949897b07", null ],
     [ "JSONArray_getArray", "d3/d99/_j_s_o_n_array_8h.html#a44e96713704450b868a8c2928d2d87f5", null ],
     [ "JSONArray_getBoolean", "d3/d99/_j_s_o_n_array_8h.html#a9e334c3af14707cd04706271d6bb0f18", null ],
+    [ "JSONArray_getCopy", "d3/d99/_j_s_o_n_array_8h.html#a5025c3395d112d58c6d0c16f425e1471", null ],
     [ "JSONArray_getDouble", "d3/d99/_j_s_o_n_array_8h.html#a0cd7bf477ccf0a6a6cb3123c9f3eb759", null ],
     [ "JSONArray_getInt", "d3/d99/_j_s_o_n_array_8h.html#a3ffd85fc3cb27c2d04ff38109b49b8e2", null ],
     [ "JSONArray_getParent", "d3/d99/_j_s_o_n_array_8h.html#adce2ef66fe4f16dc7ab00899c6b8d075", null ],

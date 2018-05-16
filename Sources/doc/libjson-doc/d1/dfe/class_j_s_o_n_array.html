@@ -227,6 +227,9 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a07a2683fb0247c1ba9a093001069c4fe"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="../../d1/d97/class_j_s_o_n_tuple.html">JSONTuple</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfe/class_j_s_o_n_array.html#a07a2683fb0247c1ba9a093001069c4fe">asVector</a> ()</td></tr>
 <tr class="memdesc:a07a2683fb0247c1ba9a093001069c4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exporter la liste associative sous forme de tableau Permet d'obtenir un tableau contenant les associations clés/valeurs de l'objet. Ne génère aucune nouvelle instance d'objets.  <a href="#a07a2683fb0247c1ba9a093001069c4fe">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a07a2683fb0247c1ba9a093001069c4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadee2dfb27ffee1063db9fc709a08fc4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfe/class_j_s_o_n_array.html#aadee2dfb27ffee1063db9fc709a08fc4">getCopy</a> ()</td></tr>
+<tr class="memdesc:aadee2dfb27ffee1063db9fc709a08fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir une copie de l'objet.  <a href="#aadee2dfb27ffee1063db9fc709a08fc4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aadee2dfb27ffee1063db9fc709a08fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_j_s_o_n_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_j_s_o_n_object')"><img src="../../closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a></td></tr>
 <tr class="memitem:a13193d893bd9ce228df2739d3f5d9759 inherit pub_methods_class_j_s_o_n_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d78/class_j_s_o_n_object.html#a13193d893bd9ce228df2739d3f5d9759">set</a> (std::string name, <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *child)</td></tr>
 <tr class="memdesc:a13193d893bd9ce228df2739d3f5d9759 inherit pub_methods_class_j_s_o_n_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changer la valeur d'une clé La clé est mise à jour, ou crée si inexistante.  <a href="#a13193d893bd9ce228df2739d3f5d9759">Plus de détails...</a><br /></td></tr>
@@ -764,6 +767,34 @@ friend&#160;</td><td class="memItemRight" valign="bottom"><b>JSONArray</b></td><
 
 </div>
 </div>
+<a class="anchor" id="aadee2dfb27ffee1063db9fc709a08fc4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* JSONArray::getCopy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtenir une copie de l'objet. </p>
+<p>Permet d'obtenir une copie conforme de l'objet JSON, copie l'objet et les objets contenus. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="../../db/d78/class_j_s_o_n_object.html#a98606d84568c901f7d5eaa9dce3811aa">JSONObject</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a9e8ed1f10e95a9086807bfaca93cf0bc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1053,7 +1084,7 @@ friend&#160;</td><td class="memItemRight" valign="bottom"><b>JSONArray</b></td><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/dfe/class_j_s_o_n_array.html">JSONArray</a></li>
-    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:00 pour libjson par
+    <li class="footer">Généré le Mercredi 16 Mai 2018 22:22:18 pour libjson par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -252,6 +252,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a2455dad9f39136fd264346f898d18b98"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d78/class_j_s_o_n_object.html#a2455dad9f39136fd264346f898d18b98">assignArray</a> (std::vector&lt; <a class="el" href="../../d1/d97/class_j_s_o_n_tuple.html">JSONTuple</a> &gt; &amp;arr)</td></tr>
 <tr class="memdesc:a2455dad9f39136fd264346f898d18b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigner un tableau exporté a un <a class="el" href="../../db/d78/class_j_s_o_n_object.html" title="JSONObject représente un noeud JSON. ">JSONObject</a> Permet de réintégrer un tableau de données dans un <a class="el" href="../../db/d78/class_j_s_o_n_object.html" title="JSONObject représente un noeud JSON. ">JSONObject</a>. Note: L'objet ajoute les données du tableau aux siennes, ses anciennes données sont préservées.  <a href="#a2455dad9f39136fd264346f898d18b98">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2455dad9f39136fd264346f898d18b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98606d84568c901f7d5eaa9dce3811aa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d78/class_j_s_o_n_object.html#a98606d84568c901f7d5eaa9dce3811aa">getCopy</a> ()</td></tr>
+<tr class="memdesc:a98606d84568c901f7d5eaa9dce3811aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir une copie de l'objet.  <a href="#a98606d84568c901f7d5eaa9dce3811aa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a98606d84568c901f7d5eaa9dce3811aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
@@ -740,6 +743,34 @@ friend&#160;</td><td class="memItemRight" valign="bottom"><b>JSONArray</b></td><
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>La valeur de la clé, ou 0 si la clé n'existe pas. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a98606d84568c901f7d5eaa9dce3811aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* JSONObject::getCopy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtenir une copie de l'objet. </p>
+<p>Permet d'obtenir une copie conforme de l'objet JSON, copie l'objet et les objets contenus. </p>
+
+<p>Réimplémentée dans <a class="el" href="../../d1/dfe/class_j_s_o_n_array.html#aadee2dfb27ffee1063db9fc709a08fc4">JSONArray</a>, <a class="el" href="../../d7/d4a/class_j_s_o_n_string.html#a147387c10fca1c2a10cb82c907e4d4a9">JSONString</a>, <a class="el" href="../../d0/d0d/class_j_s_o_n_boolean.html#addb621ed23793163b37cc746af758c2b">JSONBoolean</a>, <a class="el" href="../../da/d56/class_j_s_o_n_double.html#ae5c1f6281a6c805ceef91e72c11ae19f">JSONDouble</a>, <a class="el" href="../../dd/d23/class_j_s_o_n_int.html#a7a72406906036a062ed9c8691c9a9b40">JSONInt</a>, et <a class="el" href="../../d8/d32/class_j_s_o_n_null.html#a5135a9fbf87b4ae36fe9a9114ab4b8d9">JSONNull</a>.</p>
 
 </div>
 </div>
@@ -1294,7 +1325,7 @@ friend&#160;</td><td class="memItemRight" valign="bottom"><b>JSONArray</b></td><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a></li>
-    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:00 pour libjson par
+    <li class="footer">Généré le Mercredi 16 Mai 2018 22:22:18 pour libjson par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

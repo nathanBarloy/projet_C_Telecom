@@ -1,5 +1,6 @@
 var _j_s_o_n_object_8h =
 [
+    [ "BOOL_DEFINED", "db/da9/_j_s_o_n_object_8h.html#a79d38c754d398d19c434007ac7de7f13", null ],
     [ "false", "db/da9/_j_s_o_n_object_8h.html#a65e9886d74aaee76545e83dd09011727", null ],
     [ "true", "db/da9/_j_s_o_n_object_8h.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7", null ],
     [ "bool", "db/da9/_j_s_o_n_object_8h.html#ad5c9d4ba3dc37783a528b0925dc981a0", null ],
@@ -38,6 +39,7 @@ var _j_s_o_n_object_8h =
     [ "JSONObject_get", "db/da9/_j_s_o_n_object_8h.html#aee1bee017884c5d8beafc4f07ab06c1b", null ],
     [ "JSONObject_getArray", "db/da9/_j_s_o_n_object_8h.html#aab7d41e3e61d1252d84e44382e1ee273", null ],
     [ "JSONObject_getBoolean", "db/da9/_j_s_o_n_object_8h.html#a7eb4b8cccea89c264659e58de0188f93", null ],
+    [ "JSONObject_getCopy", "db/da9/_j_s_o_n_object_8h.html#a431c0197dd95f04d8e40d565ad832b08", null ],
     [ "JSONObject_getDouble", "db/da9/_j_s_o_n_object_8h.html#ac5a5fa7286772bc7eee3bf3058753016", null ],
     [ "JSONObject_getInt", "db/da9/_j_s_o_n_object_8h.html#a65511822e6ca363cfb1d821c2a702182", null ],
     [ "JSONObject_getKey", "db/da9/_j_s_o_n_object_8h.html#a663cdb91741a7b3733173219139a04dc", null ],

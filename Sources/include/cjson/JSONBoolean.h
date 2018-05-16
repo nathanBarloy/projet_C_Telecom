@@ -77,6 +77,14 @@ double JSONBoolean_doubleValue(JSONBoolean_t self);
 * \return Type demandé par conversion
 */
 bool JSONBoolean_booleanValue(JSONBoolean_t self);
+
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONBoolean_t JSONBoolean_getCopy(JSONBoolean_t obj);
 #ifdef __cplusplus
 }
 #endif

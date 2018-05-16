@@ -131,9 +131,11 @@ $(document).ready(function(){initNavTree('d0/d3e/_j_s_o_n_null_8hpp_source.html'
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/d32/class_j_s_o_n_null.html#a82b3ae1d30c0a146788e58c81ba507e4">clear</a>();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d8/d32/class_j_s_o_n_null.html#a81fa7f23913930d27e8e3906dce9b19e">assign</a>(<a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a> *obj);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d8/d32/class_j_s_o_n_null.html#ad3ba0977e898690f44512fad13841eed">assignArray</a>(std::vector&lt;JSONTuple&gt;&amp; arr);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../db/d78/class_j_s_o_n_object.html">JSONObject</a>* <a class="code" href="../../d8/d32/class_j_s_o_n_null.html#a5135a9fbf87b4ae36fe9a9114ab4b8d9">getCopy</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_j_s_o_n_int_html"><div class="ttname"><a href="../../dd/d23/class_j_s_o_n_int.html">JSONInt</a></div><div class="ttdoc">JSONInt représente un objet integer. Correspond a un nombre entier sous forme de texte dans une repré...</div><div class="ttdef"><b>Definition:</b> JSONInt.hpp:19</div></div>
+<div class="ttc" id="class_j_s_o_n_null_html_a5135a9fbf87b4ae36fe9a9114ab4b8d9"><div class="ttname"><a href="../../d8/d32/class_j_s_o_n_null.html#a5135a9fbf87b4ae36fe9a9114ab4b8d9">JSONNull::getCopy</a></div><div class="ttdeci">virtual JSONObject * getCopy()</div><div class="ttdoc">Obtenir une copie de l&#39;objet. </div></div>
 <div class="ttc" id="class_j_s_o_n_null_html_a263229836b2e589798b5360ab7e4196b"><div class="ttname"><a href="../../d8/d32/class_j_s_o_n_null.html#a263229836b2e589798b5360ab7e4196b">JSONNull::asString</a></div><div class="ttdeci">virtual std::string asString(unsigned int tabs=0)</div><div class="ttdoc">Transforme l&#39;objet en JSON (texte) L&#39;objet ainsi que son contenu sera transformé dans sa représentati...</div></div>
 <div class="ttc" id="class_j_s_o_n_int_html_a19c338432ec0d9497af01627fda33ad4"><div class="ttname"><a href="../../dd/d23/class_j_s_o_n_int.html#a19c338432ec0d9497af01627fda33ad4">JSONInt::set</a></div><div class="ttdeci">void set(int i)</div><div class="ttdoc">Modifie la valeur de cet objet. </div></div>
 <div class="ttc" id="class_j_s_o_n_null_html_a82b3ae1d30c0a146788e58c81ba507e4"><div class="ttname"><a href="../../d8/d32/class_j_s_o_n_null.html#a82b3ae1d30c0a146788e58c81ba507e4">JSONNull::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdoc">Nettoie l&#39;objet Nettoie les associations clés/valeurs, ou un tableau dans le cas d&#39;un JSONArray...</div></div>
@@ -148,7 +150,7 @@ $(document).ready(function(){initNavTree('d0/d3e/_j_s_o_n_null_8hpp_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>JSONNull.hpp</b></li>
-    <li class="footer">Généré le Mercredi 11 Avril 2018 09:14:00 pour libjson par
+    <li class="footer">Généré le Mercredi 16 Mai 2018 22:22:18 pour libjson par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

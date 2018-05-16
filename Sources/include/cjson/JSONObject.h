@@ -334,6 +334,14 @@ bool JSONObject_assign(JSONObject_t self, JSONObject_t obj);
 * Ne supprime pas les valeurs déjà présents dans l'objet.
 */
 bool JSONObject_assignArray(JSONObject_t self, Vector_t arr);
+
+
+/*! \brief Obtenir une copie de l'objet
+*
+* \param obj Objet à copier
+* Retourne une copie de l'objet
+*/
+JSONObject_t JSONObject_getCopy(JSONObject_t obj);
 #ifdef __cplusplus
 }
 #endif

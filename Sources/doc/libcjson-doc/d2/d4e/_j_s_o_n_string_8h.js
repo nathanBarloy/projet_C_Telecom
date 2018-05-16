@@ -9,6 +9,7 @@ var _j_s_o_n_string_8h =
     [ "JSONString_doubleValue", "d2/d4e/_j_s_o_n_string_8h.html#a75d6a7a8a695c70fefa88ac233f0bc2a", null ],
     [ "JSONString_equals", "d2/d4e/_j_s_o_n_string_8h.html#a2f46fe2575da189dac142af963deb782", null ],
     [ "JSONString_get", "d2/d4e/_j_s_o_n_string_8h.html#a8c9996691ff212fd80dd9e6d35794764", null ],
+    [ "JSONString_getCopy", "d2/d4e/_j_s_o_n_string_8h.html#a0d3dc9ab0a2a5c7ddffe64016de77169", null ],
     [ "JSONString_getParent", "d2/d4e/_j_s_o_n_string_8h.html#ae4873121823964bfcbb23fba3e8b3c22", null ],
     [ "JSONString_hasParent", "d2/d4e/_j_s_o_n_string_8h.html#a6b5e4c3ccf8f58663598d1651062ad6c", null ],
     [ "JSONString_intValue", "d2/d4e/_j_s_o_n_string_8h.html#a42ab87a1ecd54173a13bb917fd788dab", null ],

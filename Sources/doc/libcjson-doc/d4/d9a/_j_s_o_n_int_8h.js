@@ -9,6 +9,7 @@ var _j_s_o_n_int_8h =
     [ "JSONInt_doubleValue", "d4/d9a/_j_s_o_n_int_8h.html#a371e1c6582880824713c9a0adcd197c0", null ],
     [ "JSONInt_equals", "d4/d9a/_j_s_o_n_int_8h.html#a3b26bee6aaef24481dbf1ad7006c1fe5", null ],
     [ "JSONInt_get", "d4/d9a/_j_s_o_n_int_8h.html#a3be1aa6429d180ea365d73342fc7b0ba", null ],
+    [ "JSONInt_getCopy", "d4/d9a/_j_s_o_n_int_8h.html#ad6c3a58e8445105feb03fdbfaa04bddc", null ],
     [ "JSONInt_getParent", "d4/d9a/_j_s_o_n_int_8h.html#aee716c5d5089645dfab4ad89202ba9f0", null ],
     [ "JSONInt_hasParent", "d4/d9a/_j_s_o_n_int_8h.html#ad40ea8ab95bd5f3ee165bb8e97ae5aac", null ],
     [ "JSONInt_intValue", "d4/d9a/_j_s_o_n_int_8h.html#a368967282e12a3fd412ce5ca94f6b7f7", null ],

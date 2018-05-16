@@ -10,6 +10,7 @@ var class_j_s_o_n_int =
     [ "doubleValue", "dd/d23/class_j_s_o_n_int.html#a08ee71225e6ad1595a992c09f1605f8d", null ],
     [ "equals", "dd/d23/class_j_s_o_n_int.html#a9ba5f09c12b8e425025c68f35eab5d1e", null ],
     [ "get", "dd/d23/class_j_s_o_n_int.html#a0e6731bee8d9464c06c499731b2e2e91", null ],
+    [ "getCopy", "dd/d23/class_j_s_o_n_int.html#a7a72406906036a062ed9c8691c9a9b40", null ],
     [ "intValue", "dd/d23/class_j_s_o_n_int.html#ac0cdc83bf2eade5dfe25c5920ae66a47", null ],
     [ "set", "dd/d23/class_j_s_o_n_int.html#a19c338432ec0d9497af01627fda33ad4", null ]
 ];
