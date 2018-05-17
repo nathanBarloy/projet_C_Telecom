@@ -1,7 +1,7 @@
 #include "HTMLGenerator.h"
 String_t HTMLMenuBar(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
-	String_t r = newStringFromCharStar("<div id=\"menubar\"><a href=\"exec://main.json\" title=\"Menu principal\" >Accueil</a> - "), end = newStringFromCharStar("</div>");
+	String_t r = newStringFromCharStar("<div class=\"menubar\"><a href=\"exec://main.json\" title=\"Menu principal\" >Accueil</a> - "), end = newStringFromCharStar("</div>");
 	String_t u;
 	if(connexion->user != 0)
 	{
@@ -21,7 +21,7 @@ String_t HTMLMenuBar(Connexion_t connexion, JSONObject_t json, JSONObject_t para
 
 String_t HTMLMenuBar2(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
-	String_t r = newStringFromCharStar("<div id=\"menubar\"><a href=\"exec://main.json?selected=\" title=\"Films\" >Films</a> - "), end = newStringFromCharStar("</div>");
+	String_t r = newStringFromCharStar("<div class=\"menubar\"><a href=\"exec://main.json?selected=\" title=\"Films\" >Films</a> - "), end = newStringFromCharStar("</div>");
 	String_t u;
 	if(connexion->user != 0)
 	{

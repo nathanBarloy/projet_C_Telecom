@@ -13,7 +13,7 @@
 			"tag" :
 			{
 				"name" : "meta",
-				"attributes" : [{"name" : "http-equiv", "value" : "refresh"}, {"name" : "content", "value" : "1;url=exec://menu.json"}],
+				"attributes" : [{"name" : "http-equiv", "value" : "refresh"}, {"name" : "content", "value" : "1;url=exec://connectToServer.json?connect=1"}],
 				"ifconnected" : true,
 			}
 		}

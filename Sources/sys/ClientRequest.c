@@ -9,6 +9,7 @@
 #include <strings.h>
 #include <unistd.h>
 #include "ClientRunnerContinue.h"
+#include <errno.h>
 
 RequestAnswer clientRequest(Connexion_t connexion, RequestQuery query)
 {
@@ -48,7 +49,7 @@ RequestAnswer clientRequest(Connexion_t connexion, RequestQuery query)
 	}
 	else
 	{
-		printf("Echec de connexion au serveur: %s:10000\n", cString(connexion->addr_s));
+		printf("Echec de connexion au serveur: %s:10000, %d\n", cString(connexion->addr_s), errno);
 		return 0;
 	}
 }

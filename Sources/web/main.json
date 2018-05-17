@@ -21,9 +21,16 @@
 			}
 		},
 		{
-			"function" :
+			"tag" :
 			{
-				"name" : "menuContent"
+				"name" : "div",
+				"attributes" : [{"name" : "class", "value": "main"}],
+				"childs" : [{
+					"function" :
+					{
+						"name" : "menuContent"
+					}
+				}]
 			}
 		},
 		{
