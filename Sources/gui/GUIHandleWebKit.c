@@ -191,6 +191,10 @@ gboolean clientGUIContextMenu(WebKitWebView *web_view, GtkWidget *default_menu, 
 	printf("DefaultMenu: %p\n", default_menu);
 	return true;
 }
+void clientQUIT(GtkWidget* win, GdkEvent* ev, gpointer user_data)
+{
+	gtk_widget_destroy(win);
+}
 void clientGUIStart(GtkApplication* app, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
@@ -204,11 +208,11 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	GtkWidget *main_window = gtk_application_window_new(app);
 	GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 	GtkWidget *web_view = webkit_web_view_new();
-
 	// Place the WebKitWebView in the GtkScrolledWindow
 	gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
 	gtk_container_add (GTK_CONTAINER (main_window), scrolled_window);
 
+	g_signal_connect (main_window, "delete_event", G_CALLBACK (clientQUIT), 0);
 	//Open a webpage
 	//webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view), /*"http://www.gnome.org"*//*"https://www.youtube.com/watch?v=Ugs9HASX4rA")*/);
 	g_signal_connect(web_view, "resource-request-starting", G_CALLBACK(clientGUIRessourceRequestStarting), connexion);
@@ -216,17 +220,6 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	g_signal_connect(web_view, "context-menu", G_CALLBACK(clientGUIContextMenu), connexion);
 	//String_t html = fileToString(autoString("web/init.html"));
 	webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), "<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0;url=exec://init.json\" /></head><body>Loading...</body></html>", 0,0,"exec://wait");
-	//sleep(1);
-	//webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), "", 0,0,"exec://init.json");
-	/*if(html != 0)
-	{
-	fString(html);
-
-	}
-	else
-	{
-		webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), cString(autoString("Unable to load: web/boot.html")), 0,0,"web/boot.html");
-	}*/
 	// Show the result
 	gtk_window_set_default_size(GTK_WINDOW (main_window), 800, 600);
 	gtk_widget_show_all(main_window);

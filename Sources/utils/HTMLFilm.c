@@ -17,6 +17,7 @@ String_t HTMLFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, 
 	JSONObject_set(img, AS("src"), JSONString_new(JSONObject_stringValueOf(param, AS("Cover"))));
 	tmp = HTMLImg(connexion, json, img, params);
 	concatString(r, tmp);
+	fString(tmp);
 	concatString(r, ediv);
 	concatString(r, d2);
 	concatString(r, JSONObject_stringValueOf(param, AS("Title")));

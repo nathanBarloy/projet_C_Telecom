@@ -184,7 +184,9 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 									size_t c = 0, size = JSONArray_size(childs);
 									while(c < size)
 									{
-										concatString(html, HTMLFromJSONContainer(connexion, json, JSONArray_get(childs, c), params));
+										String_t tmp = HTMLFromJSONContainer(connexion, json, JSONArray_get(childs, c), params);
+										concatString(html, tmp);
+										fString(tmp);
 										++c;
 									}
 								}
@@ -423,11 +425,17 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 }
 String_t HTMLFromJSONString(Connexion_t connexion, String_t str, Vector_t params)
 {
-	return HTMLFromJSON(connexion, JSONParser_parseString(str), params);
+	JSONObject_t obj = JSONParser_parseString(str);
+	String_t r = HTMLFromJSON(connexion, obj, params);
+	JSONObject_delete(obj);
+	return r;
 }
 String_t HTMLFromJSONFile(Connexion_t connexion, String_t file, Vector_t params)
 {
-	return HTMLFromJSON(connexion, JSONParser_parseFileString(file), params);
+	JSONObject_t obj = JSONParser_parseFileString(file);
+	String_t r =  HTMLFromJSON(connexion, obj, params);
+	JSONObject_delete(obj);
+	return r;
 }
 String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 {

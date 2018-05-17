@@ -10,6 +10,7 @@ CLIENT_O=$(ALL_O) $(ALL_CLIENT) client.o sys/ClientRunner.o utils/ReadInput.o sy
 SERVER_O=$(ALL_O) server.o sys/ServerRunner.o utils/BDD.o sys/ClientHandler.o  utils/Client.o sys/Requests.o sys/ServerRunner_startInfos.o utils/Distance.o
 GUI_O=$(ALL_O) $(ALL_CLIENT) client-gui.o gui/GUIHandleWebKit.o utils/HTMLGenerator.o utils/Headers.o utils/HTMLGeneratorConnect.o gui/GUIMap.o utils/HTMLMenuBar.o utils/HTMLMenuContent.o utils/HTMLFilm.o
 GTK=`pkg-config --libs gtk+-3.0` `pkg-config --libs webkitgtk-3.0`
+#G_DEBUG=fatal-warnings
 debug: DEBUG=-ggdb -DDEBUG
 debug: DBG=-dbg
 debug: libcommon-dbg.so libcjson-dbg.so libjson-dbg.so
