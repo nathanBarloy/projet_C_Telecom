@@ -3,9 +3,21 @@
 	"url" : "exec://main.json",
 	"body" : [
 		{
+			"function":
+			{
+				"name" : "menuBar"
+			}
+		},
+		{
 			"function" :
 			{
 				"name" : "checkConnected"
+			}
+		},
+		{
+			"function" :
+			{
+				"name" : "mainContent"
 			}
 		},
 		{

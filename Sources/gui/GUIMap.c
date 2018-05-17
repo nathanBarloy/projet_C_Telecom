@@ -10,6 +10,8 @@ Map_t getFunctionMap()
 	setMap(r, autoString("img"), (void*) HTMLImg);
 	setMap(r, autoString("connectToServer"), (void*) HTMLConnectToServer);
 	setMap(r, autoString("checkConnected"), (void*) HTMLCheckConnected);
+	setMap(r, autoString("menuBar"), (void*) HTMLMenuBar);
+	setMap(r, autoString("menuBar2"), (void*) HTMLMenuBar2);
 	//Fin des associations
 	return r;
 }
