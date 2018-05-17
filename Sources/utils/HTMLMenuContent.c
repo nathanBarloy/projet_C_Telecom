@@ -1,5 +1,6 @@
 #include "HTMLGenerator.h"
 #include "../sys/ClientRequests.h"
+#include "JSONShortcut.h"
 String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t r = newString();
@@ -12,7 +13,8 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		size_t c = 0, size = JSONArray_size(films);
 		while(c < size)
 		{
-			concatString(r, JSONObject_stringValueOf(JSONArray_get(films, c)), AS("Title"));
+			concatString(r, JSONObject_stringValueOf(JSONArray_get(films, c), AS("Title")));
+			concatString(r, br);
 			++c;
 		}
 		JSONObject_delete(films);

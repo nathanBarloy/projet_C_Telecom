@@ -12,6 +12,7 @@ Map_t getFunctionMap()
 	setMap(r, autoString("checkConnected"), (void*) HTMLCheckConnected);
 	setMap(r, autoString("menuBar"), (void*) HTMLMenuBar);
 	setMap(r, autoString("menuBar2"), (void*) HTMLMenuBar2);
+	setMap(r, autoString("menuContent"), (void*) HTMLMenuContent);
 	//Fin des associations
 	return r;
 }

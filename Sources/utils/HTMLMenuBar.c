@@ -26,10 +26,9 @@ String_t HTMLMenuBar2(Connexion_t connexion, JSONObject_t json, JSONObject_t par
 	if(connexion->user != 0)
 	{
 		u = newStringFromCharStar("<a href=\"exec://main.json?selected=recommended\" title=\"Recommandé pour vous\" >Recommandé pour vous</a>");
-
+		concatString(r, u);
+		fString(u);
 	}
-	concatString(r, u);
-	fString(u);
 	u = newStringFromCharStar("<a href=\"exec://main.json?selected=trends\" title=\"Tendances\" >Tendances</a> - <a href=\"exec://main.json?selected=random\" title=\"Au hasard\" >Au hasard</a>");
 	concatString(r, u);
 	fString(u);

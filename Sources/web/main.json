@@ -9,6 +9,12 @@
 			}
 		},
 		{
+			"function":
+			{
+				"name" : "menuBar2"
+			}
+		},
+		{
 			"function" :
 			{
 				"name" : "checkConnected"
@@ -17,7 +23,7 @@
 		{
 			"function" :
 			{
-				"name" : "mainContent"
+				"name" : "menuContent"
 			}
 		},
 		{

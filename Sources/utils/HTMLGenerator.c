@@ -571,6 +571,7 @@ String_t getParam(String_t name, Vector_t params)
 		{
 			return p->value;
 		}
+		++c;
 	}
 	return 0;
 }

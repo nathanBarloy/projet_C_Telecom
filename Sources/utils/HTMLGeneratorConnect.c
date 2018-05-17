@@ -1,5 +1,6 @@
 #include "HTMLGenerator.h"
 #include "../sys/ClientRequests.h"
+#include "JSONShortcut.h"
 String_t HTMLConnectToServer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t ip = getParam(autoString("ip"), params);
@@ -19,7 +20,7 @@ String_t HTMLConnectToServer(Connexion_t connexion, JSONObject_t json, JSONObjec
 }
 String_t HTMLCheckConnected(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
-	String_t c = getParam(autoString("connect"), params);
+	String_t c = getParam(AS("connect"), params);
 	if(c != 0)
 	{
 		if(!equalsString(c, autoString("1")))
