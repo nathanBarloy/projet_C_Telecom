@@ -1,6 +1,16 @@
+@font-face {
+  font-family: SAO;
+  src: url(font/saoui.otf);
+}
+a
+{
+	color: black;
+}
 body
 {
 	background-color: rgb(230,230,230);
+	margin: 0px;
+	padding: 0px;
 }
 .red
 {
@@ -19,8 +29,73 @@ body
 }
 .main
 {
-	border: 1px solid black;
-	border-radius: 3px 3px;
-	background-color: rgb(200,200,200);
-	padding: 10px;
+
+}
+.film
+{
+	display: inline-block;
+	width: 300px;
+	height: 500px;
+	/*border: 1px solid black;*/
+	border: none;
+	font-size: 30px;
+	font-family: SAO;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+	transition-property: text-shadow, left, right, top, bottom;
+	transition-duration: 0.5s;
+	text-shadow: 0px 0px 0px black;
+	padding: 0px;
+	color: white;
+}
+.film .filmImg
+{
+	width: 280px;
+	height: 420px;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 15px 15px;
+	box-shadow: 0px 0px 0px black;
+	transition-property: box-shadow, border-radius;
+	transition-duration: 0.5s;
+}
+.film:hover
+{
+	text-shadow: 0px 0px 5px black;
+}
+.film:hover .filmImg
+{
+	border-radius: 5px 5px;
+	box-shadow: 0px 0px 10px black;
+}
+.filmD1
+{
+	margin-top: 10px;
+	width: 300px;
+	height: 420px;
+	/*overflow: hidden;*/
+}
+.filmD2
+{
+	width: 280px;
+	height: 30px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	padding: 5px;
+	color: black;
+	text-decoration: none;
+}
+/*@-webkit-keyframes marqueelike {
+	0%, 100% {margin-left:0;}
+	99.99% {margin-left:-100%;}
+ }
+.film:hover .filmD2
+{
+	-webkit-animation:linear marqueelike 20s infinite ;
+}*/
+.filmDIV
+{
+	text-align: center;
+	background-color: white;
 }

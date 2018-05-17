@@ -285,7 +285,7 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 	if(json != 0 && JSONObject_getType(json) == OBJECT)
 	{
 		printf("JSONObject:\n%s\n", cString(JSONObject_asString(json, 0)));
-		html = newStringFromCharStar("<!DOCTYPE html>\n<html>\n<head>\n<title>");
+		html = newStringFromCharStar("<!DOCTYPE html>\n<html>\n<head id=\"head\">\n<title id=\"title\">");
 		String_t tmp = 0;
 		concatString(html, JSONObject_stringValueOf(json, AS("title")));
 		tmp = newStringFromCharStar("</title>\n");
@@ -344,7 +344,7 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 			fString(ss);
 			fString(es);
 		}
-		tmp = newStringFromCharStar("</head>\n<body>\n");
+		tmp = newStringFromCharStar("</head>\n<body id=\"body\">\n");
 		concatString(html, tmp);
 		fString(tmp);
 		{

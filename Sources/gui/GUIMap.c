@@ -13,6 +13,7 @@ Map_t getFunctionMap()
 	setMap(r, autoString("menuBar"), (void*) HTMLMenuBar);
 	setMap(r, autoString("menuBar2"), (void*) HTMLMenuBar2);
 	setMap(r, autoString("menuContent"), (void*) HTMLMenuContent);
+	setMap(r, autoString("film"), (void*) HTMLFilm);
 	//Fin des associations
 	return r;
 }
