@@ -14,7 +14,7 @@ Map_t getFunctionMap()
 	setMap(r, autoString("menuBar2"), (void*) HTMLMenuBar2);
 	setMap(r, autoString("menuContent"), (void*) HTMLMenuContent);
 	setMap(r, autoString("film"), (void*) HTMLFilm);
-	//setMap(r, autoString("ficheFilm"), (void*) HTMLFicheFilm);
+	setMap(r, autoString("ficheFilm"), (void*) HTMLFicheFilm);
 	//Fin des associations
 	return r;
 }

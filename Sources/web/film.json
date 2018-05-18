@@ -15,11 +15,18 @@
       }
     },
     {
-      "function" :
-      {
-        "name" : "filmFiche"
-      }
-    },
+			"tag" :
+			{
+				"name" : "div",
+				"attributes" : [{"name" : "class", "value": "main"}],
+				"childs" : [{
+					"function" :
+					{
+						"name" : "ficheFilm"
+					}
+				}]
+			}
+		},
     {
       "file" :
       {
@@ -27,5 +34,5 @@
       }
     },
   ],
-  "styles" : ["theme.css"]
+  "styles" : ["css/ficheStyle.css"]
 }
