@@ -34,5 +34,5 @@
       }
     },
   ],
-  "styles" : ["css/ficheStyle.css"]
+  "styles" : ["theme.css"]
 }
