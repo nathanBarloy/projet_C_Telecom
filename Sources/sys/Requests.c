@@ -1,6 +1,6 @@
 #include "Requests.h"
 #include "../utils/JSONCheck.h"
-
+#include "../utils/JSONShortcut.h"
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -8,6 +8,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("prints"), (void*) ServerRequest_prints);
 	setMap(r, autoString("exists"), (void*) ServerRequest_exists);
 	setMap(r, autoString("getFilms"), (void*) ServerRequest_getFilms);
+	setMap(r, autoString("getFilm"), (void*) ServerRequest_getFilm);
 	setMap(r, autoString("getUsers"), (void*) ServerRequest_getUsers);
 	//Fin des associations
 	return r;
@@ -96,12 +97,31 @@ RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request)
 {
-	JSONObject_t bdd = JSONParser_parseString(JSONObject_asString(BDD_Films(client->bdd), 0));
+	JSONObject_t bdd = JSONObject_getCopy(BDD_Films(client->bdd));
 	return RequestAnswerOk(request, bdd);
+}
+
+RequestAnswer ServerRequest_getFilm(Client client, RequestQuery request)
+{
+	RequestQuery(request,query);
+	RequestObject(request,query,"id",id);
+	JSONObject_t bdd = BDD_Films(client->bdd);
+	JSONObject_t film =  0;
+	size_t c = 0, size = JSONArray_size(film);
+	while(c < size)
+	{
+		film = JSONArray_get(bdd, c);
+		if(JSONInt_get(id) == JSONObject_intValueOf(film, AS("id")))
+		{
+			return RequestAnswerOk(request, JSONObject_getCopy(film))
+		}
+		++c;
+	}
+	return RequestAnswerOk(request, JSONNull_new());
 }
 
 RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request)
 {
-	JSONObject_t bdd = JSONParser_parseString(JSONObject_asString(BDD_Users(client->bdd), 0));
+	JSONObject_t bdd = JSONObject_getCopy(BDD_Users(client->bdd));
 	return RequestAnswerOk(request, bdd);
 }
