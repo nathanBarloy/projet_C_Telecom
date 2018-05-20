@@ -190,5 +190,33 @@ Une fois l'URL de la requête généré, elle est exécuté pour récupérer le 
 La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
 Pour terminer, on recrée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
 
+\section{création d'une distance entre les films}
+Chaque film est caractérisé par la donnée de différents attributs. Dans le cas présent, les attributs que nous considérerons sont :
+\begin{itemize}
+    \item L'année de parution
+    \item Les acteurs
+    \item Le réalisateur
+    \item Le genre
+    \item Le type (film ou série)
+\end{itemize}
+Pour chacun de ces attributs, on va calculer une distance, dont la valeur sera comprise entre 0 et 1 (0 pour identique, et 1 pour complètement différent). On fait ensuite simplement une moyenne pondérée des distances obtenues (les poids sont modulables).\\
+Cette distance doit vérifier certaines propriétés de la distance mathématique :
+\begin{itemize}
+    \item \(d(a,b)=d(b,a)\) (la symétrie)
+    \item \(d(a,b) \geq 0\) (la positivité)
+    \item \(d(a,a)=0\)
+\end{itemize}
+Si la distance créée ne vérifie pas ces propriétés, alors elle n'est pas bonne.
 
+\subsection{La distance de Jacard}
+Cette distance permet de mesurer la similarité entre 2 ensembles finis : soient $X$ et $Y$ deux ensembles finis. Alors,
+\[dist\_Jacard=1-\frac{|X \cap Y|}{|X \cup Y|}\]
+On a bien que si \(X=Y\), alors la distance de Jacard est nulle, et que si les deux ensembles sont complètement distincts, alors la distance vaut 1.\\
+Cependant, on peut se dispenser de certains calculs pour trouver la distance de Jacard. En effet, on peut utiliser le fait que \(|X \cup Y|=|X|+|Y|-|X \cap Y|\). Il n'y a alors plus qu'a calculer \(|X \cap Y|\) pour pouvoir ensuite calculer la distance de Jacard.\par
+Cette distance de Jacard pourra être utilisée pour calculer les distance entre les attributs des films qui sont des ensembles. Dans notre cas, cela représente les acteurs, les réalisateurs et les genres.\\
+Après quelques tests, on se rend compte que même si l'algorithme marche la plupart du temps, il y a certains cas ou il plante à l'exécution et indique une division par zéro. Après quelques recherches, on comprend que cela est du au fait que parfois, la liste des acteurs, des réalisateurs ou des genres est vide. Ainsi, la distance de Jacard ne peut pas être calculée, puisqu'on divise par \(|X \cup Y|\), qui vaut zéro si $X$ et $Y$ sont vides.\par
+Ce bug nous permet aussi de nous rendre compte de l'absurdité de certains calculs : en effet, comment interpréter la distance entre en ensemble vide est un autre ensemble qui ne l'est pas forcement ? (par exemple, si on sait uniquement que le réalisateur du film 1 est Spielberg, et rien pour le film 2) Dans ce cas, donner une distance n'a aucun sens. Il faut donc aussi prendre en compte cela avant de faire les calculs.
+
+\subsection{La distance entre les années}
+\subsection{Amélioration de la distance entre les genres}
 \end{document}
