@@ -5,7 +5,7 @@
 
 int main() {
   BDD bdd = BDD_load();
-  double dist_users = distance_users(bdd,0,1);
+  double dist_users = distance_users(bdd,2,0);
   BDD_free(bdd);
 	freeAutoString();
   printf("FIN\n");

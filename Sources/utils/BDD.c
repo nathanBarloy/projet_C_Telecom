@@ -17,7 +17,6 @@ BDD BDD_load()
 	}
 	JSONObject_set(bdd, autoString("Films"), films);
 
-	//Users ---J'ai changer de fichier json pour des tests---
 	JSONArray_t users = JSONParser_parseFile("data/users.json");
 	if(users == 0)
 	{
@@ -28,6 +27,9 @@ BDD BDD_load()
 	//Sessions
 	JSONObject_set(bdd, autoString("Sessions"), JSONObject_new());
 
+	//Users sample (pearson_correlation tests)
+	JSONArray_t users_sample = JSONParser_parseFile("data/users_sample.json");
+	JSONObject_set(bdd, autoString("Users_sample"), users_sample);
 
 
 	//Distances entre 2 films
@@ -111,4 +113,8 @@ JSONObject_t BDD_getSid(BDD bdd, String_t sid)
 	JSONObject_t session = JSONObject_get(bdd->json, sid);
 	unlock(bdd);
 	return 0;
+}
+JSONArray_t BDD_Users_sample(BDD bdd)
+{
+	return JSONObject_get(bdd->json, autoString("Users_sample"));
 }

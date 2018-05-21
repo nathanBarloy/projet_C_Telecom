@@ -2,13 +2,13 @@
 
 //récupérer les JSON HistoryRates des deux utilisateurs puis de réaliser la corrélation de Pearson pour en déduire la distance entre les deux utilisateurs
 double distance_users(BDD bdd, int id1, int id2) {
-  JSONArray_t users = BDD_Users(bdd);
+  JSONArray_t users = BDD_Users_sample(bdd);
   JSONObject_t users1 = JSONArray_get(users, id1);
   JSONObject_t users2 = JSONArray_get(users, id2);
   JSONArray_t history_rates1 = JSONObject_getArray(JSONObject_get(users1, autoString("History")), autoString("Rates"));
   JSONArray_t history_rates2 = JSONObject_getArray(JSONObject_get(users2, autoString("History")), autoString("Rates"));
   double resultat = pearson_correlation(history_rates1, history_rates2);
-  printf("les utilisateurs %d et %d ont une similarité de %f (à partir de la corrélation de Pearson)\n", id1, id2, resultat);
+  printf("les utilisateurs %d et %d ont une distance de %f (à partir de la corrélation de Pearson)\n", id1, id2, resultat);
   return resultat;
 }
 
@@ -34,26 +34,28 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
   double denominateur2 = (double)0;
   double mean_rates1 = mean_rates(hr1);
   double mean_rates2 = mean_rates(hr2);
+  //printf("moyenne 1 : %f\n moyenne 2 : %f \n", mean_rates1, mean_rates2);
   int i;
   int pos1;
   int pos2;
   for(i = 1 ; i <= 100 ; i++) {
     pos1 = get_position(hr1, i);
     pos2 = get_position(hr2, i);
-    if(pos1 != (-1) && pos2 == (-1)) {
-      numerateur = numerateur + ((double)JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1)*(-mean_rates2);
-      denominateur1 = denominateur1 + pow((double)(JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1), 2);
-      denominateur2 = denominateur2 + pow((mean_rates2), 2);
-    }
-    else if(pos1 == (-1) && pos2 != (-1)) {
-      numerateur = numerateur + (-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
-      denominateur1 = denominateur1 + pow((mean_rates1), 2);
-      denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
-    }
-    else if(pos1 != (-1) && pos2 != (-1)) {
+    // if(pos1 != (-1) && pos2 == (-1)) {
+    //   numerateur = numerateur + ((double)JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1)*(-mean_rates2);
+    //   denominateur1 = denominateur1 + pow((double)(JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1), 2);
+    //   denominateur2 = denominateur2 + pow((mean_rates2), 2);
+    // }
+    // else if(pos1 == (-1) && pos2 != (-1)) {
+    //   numerateur = numerateur + (-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
+    //   denominateur1 = denominateur1 + pow((mean_rates1), 2);
+    //   denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
+    // }
+    if(pos1 != (-1) && pos2 != (-1)) {
       numerateur = numerateur + (JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
       denominateur1 = denominateur1 + pow((JSONObject_intValueOf(JSONArray_get(hr1, pos1), autoString("Rate"))-mean_rates1), 2);
       denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
+      //printf("numerateur : %f\n deno1 : %f\n deno2 : %f\n\n", numerateur, denominateur1, denominateur2);
     }
     // else if(pos1 == -1 && pos2 == -1) {
     //   numerateur = numerateur + (-mean_rates1)*(-mean_rates2);
@@ -62,7 +64,7 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
     // }
   }
   double resultat = numerateur/(sqrt(denominateur1)*sqrt(denominateur2));
-  return (double)1 - fabs(resultat);
+  return 0.5 + resultat/2;
 }
 
 // retourne la position du film d'id passé en paramètre s'il existe et renvoi -1 sinon
