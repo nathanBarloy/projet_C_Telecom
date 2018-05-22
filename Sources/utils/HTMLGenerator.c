@@ -523,7 +523,7 @@ String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	//<iframe width="560" height="315" src="https://www.youtube.com/embed/Ugs9HASX4rA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	String_t r = newStringFromCharStar("<iframe width=\""), tmp = newStringFromCharStar("\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>");
+	String_t r = newStringFromCharStar("<iframe style=\"width: "), tmp = newStringFromCharStar("\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>");
 	String_t width = newStringFromCharStar("560"), height = newStringFromCharStar("315");
 	if(param != 0)
 	{
@@ -533,15 +533,15 @@ String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_
 		}
 		if(JSONObject_get(param, AS("height")) != 0)
 		{
-			setString(width, JSONObject_stringValueOf(param, AS("height")));
+			setString(height, JSONObject_stringValueOf(param, AS("height")));
 		}
 	}
 	concatString(r, width);
-	String_t t = newStringFromCharStar("\" height=\"");
+	String_t t = newStringFromCharStar("; height: ");
 	concatString(r, t);
 	fString(t);
 	concatString(r, height);
-	t = newStringFromCharStar("\" src=\"https://www.youtube.com/embed/");
+	t = newStringFromCharStar(";\" src=\"https://www.youtube.com/embed/");
 	concatString(r, t);
 	fString(t);
 	concatString(r, JSONObject_stringValueOf(param, AS("link")));

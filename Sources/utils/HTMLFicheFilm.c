@@ -102,6 +102,8 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     //seconde box
     concatString(reponse, newStringFromCharStar("<div class=\"box2\">"));
     JSONObject_t ytPlayer = JSONObject_new();
+    JSONObject_set(ytPlayer, AS("width"), JSONString_new(autoString("95%")));
+    JSONObject_set(ytPlayer, AS("height"), JSONString_new(autoString("auto")));
     //dimensions gérées automatiquement
     // JSONObject_set(ytPlayer, AS("width"), JSONString_new(AS("560")));
     // JSONObject_set(ytPlayer, AS("height"), JSONString_new(AS("315")));
