@@ -1,14 +1,13 @@
 #include "Distance_utilisateur.h"
 
 //récupérer les JSON HistoryRates des deux utilisateurs puis de réaliser la corrélation de Pearson pour en déduire la distance entre les deux utilisateurs
-double distance_users(BDD bdd, int id1, int id2) {
-  JSONArray_t users = BDD_Users_sample(bdd);
+double distance_users(JSONArray_t users, int id1, int id2) {
   JSONObject_t users1 = JSONArray_get(users, id1);
   JSONObject_t users2 = JSONArray_get(users, id2);
   JSONArray_t history_rates1 = JSONObject_getArray(JSONObject_get(users1, autoString("History")), autoString("Rates"));
   JSONArray_t history_rates2 = JSONObject_getArray(JSONObject_get(users2, autoString("History")), autoString("Rates"));
   double resultat = pearson_correlation(history_rates1, history_rates2);
-  printf("les utilisateurs %d et %d ont une distance de %f (à partir de la corrélation de Pearson)\n", id1, id2, resultat);
+  //printf("les utilisateurs %d et %d ont une distance de %f (à partir de la corrélation de Pearson)\n", id1, id2, resultat);
   return resultat;
 }
 
@@ -64,7 +63,8 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
     // }
   }
   double resultat = numerateur/(sqrt(denominateur1)*sqrt(denominateur2));
-  return 0.5 + resultat/2;
+  //return 0.5 + resultat/2;
+  return resultat;
 }
 
 // retourne la position du film d'id passé en paramètre s'il existe et renvoi -1 sinon
@@ -79,4 +79,22 @@ int get_position(JSONArray_t hr, int id) {
     i++;
   }
   return found;
+}
+
+//remarque, ici user_id ne correspond pas au réel ID de l'utilisateur mais de sa position dans la liste. A MODIFIER
+JSONArray_t all_distances(BDD bdd, int user_id)
+{
+  JSONArray_t users_bdd = BDD_Users_sample(bdd);
+  JSONArray_t list = JSONArray_new();
+  int users_size = JSONArray_size(users_bdd);
+  int i;
+  for (i=0 ; i<users_size ; i++)
+  {
+    JSONObject_t obj = JSONObject_new();
+    JSONObject_setInt(obj, autoString("Id"), JSONObject_intValueOf(JSONArray_get(users_bdd, i), autoString("Id")));
+    JSONObject_setDouble(obj, autoString("Sim"), distance_users(users_bdd, user_id, i));
+    JSONArray_add(list, obj);
+    //question sur les fuites mémoires de obj ???
+  }
+  return list;
 }
