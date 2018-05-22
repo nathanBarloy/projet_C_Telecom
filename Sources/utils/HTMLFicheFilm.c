@@ -100,10 +100,10 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     concatString(reponse, finDiv);*/
 
     //seconde box
-    concatString(reponse, newStringFromCharStar("<div class=\"box2\">"));
+    concatString(reponse, newStringFromCharStar("<div style=\"text-align: center;\">Bande-Annonce:</div><div class=\"box2\" style=\"width: 800px;margin-left:auto;margin-right: auto;\">"));
     JSONObject_t ytPlayer = JSONObject_new();
-    JSONObject_set(ytPlayer, AS("width"), JSONString_new(autoString("95%")));
-    JSONObject_set(ytPlayer, AS("height"), JSONString_new(autoString("auto")));
+    JSONObject_set(ytPlayer, AS("width"), JSONString_new(autoString("800px")));
+    JSONObject_set(ytPlayer, AS("height"), JSONString_new(autoString("450px")));
     //dimensions gérées automatiquement
     // JSONObject_set(ytPlayer, AS("width"), JSONString_new(AS("560")));
     // JSONObject_set(ytPlayer, AS("height"), JSONString_new(AS("315")));
@@ -113,6 +113,8 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     fString(tmp);
     concatString(reponse, finDiv);
 
+	//Affichage des recommandations
+	//Fin d'affichage des recommendations
     JSONObject_delete(films);
     JSONObject_delete(img);
     JSONObject_delete(ytPlayer);

@@ -524,7 +524,7 @@ String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_
 {
 	//<iframe width="560" height="315" src="https://www.youtube.com/embed/Ugs9HASX4rA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	String_t r = newStringFromCharStar("<iframe style=\"width: "), tmp = newStringFromCharStar("\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>");
-	String_t width = newStringFromCharStar("560"), height = newStringFromCharStar("315");
+	String_t width = newStringFromCharStar("560px"), height = newStringFromCharStar("315px");
 	if(param != 0)
 	{
 		if(JSONObject_get(param, AS("width")) != 0)
