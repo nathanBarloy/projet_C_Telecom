@@ -1,1 +1,19 @@
-[]
+[
+	{
+	"Birth": 
+		{
+		"Day": 25,
+		"Month": 5,
+		"Year": 1996		
+		},
+	"FirstName": "Valentin",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 1,
+	"Login": "crone123",
+	"Name": "CRÔNE",
+	"Password": "azerty",
+	"Preferences": {}	
+	}
+]

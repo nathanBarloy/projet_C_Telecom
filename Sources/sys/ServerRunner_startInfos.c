@@ -56,6 +56,6 @@ void startInfos(BDD bdd)
 	}
 	printf("Intégrité vérifiée:\n");
 	printf("\t- Nombre total de films: %u\n", JSONArray_size(films));
-	printf("\t- Nombre total d'utilisateurs': %u\n", JSONArray_size(users));
+	printf("\t- Nombre total d'utilisateurs: %u\n", JSONArray_size(users));
 	printf("Fin de vérification d'intégrité.\n");
 }

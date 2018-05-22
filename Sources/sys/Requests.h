@@ -21,7 +21,7 @@ RequestAnswer ServerRequest_exists(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilm(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request);
-
+RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request);
 
 //MACROS DE FACILITES
 

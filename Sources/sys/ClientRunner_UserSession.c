@@ -2,6 +2,7 @@
 #include "../utils/ReadInput.h"
 #include "RequestTypes.h"
 #include "ClientRequests.h"
+#include <unistd.h>
 enum ClientRunnerMode ClientRunner_Login(Connexion_t connexion)
 {
 
@@ -46,7 +47,7 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 		birth = freeDate(birth);
 		if(a->code == 0)
 		{
-			printf("Vous avez bien été enregistré.");
+			printf("Vous avez bien été enregistré.\n");
 		}
 		else
 		{
