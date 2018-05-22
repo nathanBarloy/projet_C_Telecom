@@ -128,20 +128,21 @@ body
 .cover
 {
   float: left;
+  min-width: 400px;
 }
 .data
 {
-  margin: 10px;
+  /*margin: 10px;
   display: inline-block;
-  width: 700px;
+  width: 700px;*/
+  margin-right: 10px;
+  min-width: 400px;
 }
-.line_box .box_body
+/*.line_box .box_body
 {
   display: inline-block;
   width: 300px;
   height: 150px;
-  /* margin-left: 25px;
-  margin-top: 40px; */
 }
 .line_box
 {
@@ -150,7 +151,7 @@ body
 }
 .box_body .h2
 {
-  display: inline;
+  display: inline-block;
   font-size: 20px;
 }
 .box_body p
@@ -168,4 +169,4 @@ body
 {
   margin-top: 100px;
   display: block;
-}
+}*/

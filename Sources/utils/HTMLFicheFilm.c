@@ -48,14 +48,14 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     fString(tmp);
     //fin titre
     concatString(reponse, finDiv);
-    concatString(reponse, newStringFromCharStar("<div class=\"block_data\"><div class=\"line_box\">"));
+    concatString(reponse, newStringFromCharStar("<table class=\"block_data\"><tr>"));
     //Synopsis
-    concatString(reponse, newStringFromCharStar("<div class=\"box_body\"><h2>Synopsis</h2><p>"));
+    concatString(reponse, newStringFromCharStar("<td class=\"box_body\" colspan=\"2\"><h2>Synopsis</h2></td></tr><tr><td colspan=\"2\">"));
     concatString(reponse, JSONObject_stringValueOf(film, AS("Description")));
-    concatString(reponse, newStringFromCharStar("</p></div>"));
-    concatString(reponse, newStringFromCharStar("<div class=\"box_body\"><h2>Détails</h2><h3>Durée :</h3><p>"));
+    concatString(reponse, newStringFromCharStar("</td></tr><tr><td class=\"box_body\" colspan=\"2\"><h2>Détails</h2></td></tr><tr><td>"));
+    concatString(reponse, newStringFromCharStar("<h3>Durée :</h3></td><td><h3>Genres :</h3></td></tr><tr><td>"));
     concatString(reponse, JSONObject_stringValueOf(film, AS("Duration")));
-    concatString(reponse, newStringFromCharStar("mins</p><h3>Genres :</h3><p>"));
+    concatString(reponse, newStringFromCharStar("mins</td><td>"));
     //print des genres du film
     int i = 0;
     JSONObject_t genres = JSONObject_getArray(film, newStringFromCharStar("Genres"));
@@ -65,14 +65,13 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
       concatString(reponse, newStringFromCharStar(", "));
     }
     JSONObject_delete(genres);
-    concatString(reponse, newStringFromCharStar("</p><h3>Type :</h3><p>"));
+    concatString(reponse, newStringFromCharStar("</td></tr><tr><td><h3>Type :</h3></td><td><h3>Director(s) :</h3></td></tr><tr><td>"));
     concatString(reponse, JSONObject_stringValueOf(film, AS("Type")));
-    concatString(reponse, newStringFromCharStar("</p>"));
+    concatString(reponse, newStringFromCharStar("</td><td>"));
     //fin premiere ligne
+    /*concatString(reponse, finDiv);
     concatString(reponse, finDiv);
-    concatString(reponse, finDiv);
-    concatString(reponse, newStringFromCharStar("<div class=\"line_box\">"));
-    concatString(reponse, newStringFromCharStar("<div class=\"box_body\"><h2>Director(s) :</h2><p>"));
+    concatString(reponse, newStringFromCharStar(""));*/
     JSONObject_t director = JSONObject_getArray(film, newStringFromCharStar("Directors"));
     for(i = 0 ; i<JSONArray_size(director) ; i++)
     {
@@ -80,8 +79,8 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
       concatString(reponse, newStringFromCharStar(", "));
     }
     JSONObject_delete(director);
-    concatString(reponse, newStringFromCharStar("</p></div>"));
-    concatString(reponse, newStringFromCharStar("<div class=\"box_body\"><h2>Actors :</h2><p>"));
+    concatString(reponse, newStringFromCharStar("</td></tr><tr><td colspan=\"2\">"));
+    concatString(reponse, newStringFromCharStar("<h3>Actors :</h3></td></tr><tr><td colspan=\"2\">"));
     JSONObject_t actors = JSONObject_getArray(film, newStringFromCharStar("Actors"));
     for(i = 0 ; i<JSONArray_size(actors) ; i++)
     {
@@ -89,7 +88,8 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
       concatString(reponse, newStringFromCharStar(", "));
     }
     JSONObject_delete(actors);
-    concatString(reponse, newStringFromCharStar("</p></div>"));
+    concatString(reponse, newStringFromCharStar("</td></tr></table>"));
+	/*
     //fin ligne 2
     concatString(reponse, finDiv);
     //fin block_data
@@ -97,12 +97,12 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     // fin data
     concatString(reponse, finDiv);
     //fin block
-    concatString(reponse, finDiv);
+    concatString(reponse, finDiv);*/
 
     //seconde box
     concatString(reponse, newStringFromCharStar("<div class=\"box2\">"));
     JSONObject_t ytPlayer = JSONObject_new();
-    //dimensions gérées automatiquement 
+    //dimensions gérées automatiquement
     // JSONObject_set(ytPlayer, AS("width"), JSONString_new(AS("560")));
     // JSONObject_set(ytPlayer, AS("height"), JSONString_new(AS("315")));
     JSONObject_set(ytPlayer, AS("link"), JSONString_new(JSONObject_stringValueOf(film, AS("Url"))));
