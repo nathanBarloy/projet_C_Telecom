@@ -84,16 +84,18 @@ RequestAnswer clientRequestGetAnswer(int sock, RequestQuery query)
 						obj = JSONParser_parseString(str);
 						if(obj != 0)
 						{
+							printf("Answer: %s\n", cString(JSONObject_asString(obj, 0)));
 							int code = 0;
-							if(JSONObject_get(obj, autoString("code")) != 0)
+							if(JSONObject_get(obj, autoString("Status")) != 0)
 							{
-								code = JSONObject_intValueOf(obj, autoString("code"));
+								code = JSONObject_intValueOf(obj, autoString("Status"));
 							}
 							rep = newRequestAnswer(code, obj);
 						}
 						else
 						{
 							//Format de données invalide
+							printf("ClientRequest: Invalid data for answer.\n");
 						}
 						break;
 					}
