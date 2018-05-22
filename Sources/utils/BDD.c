@@ -118,3 +118,22 @@ JSONArray_t BDD_Users_sample(BDD bdd)
 {
 	return JSONObject_get(bdd->json, autoString("Users_sample"));
 }
+int BDD_Users_maxId(BDD bdd)
+{
+	JSONArray_t users = BDD_Users(bdd);
+	JSONObject_t user = 0;
+	size_t c = 0, size = JSONArray_size(users);
+	int max = 0;
+	int n = 0;
+	while(c < size)
+	{
+		user = JSONArray_get(users, c);
+		n = JSONObject_intValueOf(user, AS("Id"));
+		if(n > max)
+		{
+			max = n;
+		}
+		++c;
+	}
+	return max;
+}

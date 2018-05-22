@@ -1,6 +1,7 @@
 #include "Requests.h"
 #include "../utils/JSONCheck.h"
 #include "../utils/JSONShortcut.h"
+#include "../utils/Date.h"
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -85,10 +86,62 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 	{
 		if(JSON_checkUser(user, true))
 		{
-
+			JSONArray_t users = BDD_Users(client->bdd);
+			size_t c = 0, size = JSONArray_size(users);
+			bool exists = false;
+			String_t login = JSONObject_stringValueOf(user, AS("Login"));
+			while(c < size)
+			{
+				if(equalsString(login, JSONObject_stringValueOf(JSONObject_get(users, c), AS("Login"))))
+				{
+					exists = true;
+				}
+				++c;
+			}
+			if(!exists)
+			{
+				String_t pass = JSONObject_stringValueOf(user, AS("Password"));
+				if(sizeOfString(pass) >= 4 && sizeOfString(login) >= 4)
+				{
+					JSONObject_set(user, AS("Id"), JSONInt_new(BDD_Users_maxId(client->bdd) + 1));
+					JSONObject_set(user, AS("Preferences"), JSONObject_new());
+					JSONObject_set(user, AS("History"), JSONObject_new());
+					JSONObject_set(user, AS("Friends"), JSONArray_new());
+					JSONObject_set(user, AS("Follow"), JSONArray_new());
+					if(JSONObject_get(user, AS("Birth")) == 0)
+					{
+						Date_t date = newDate();
+						JSONObject_set(user, AS("Birth"), dateToJSON(date));
+						freeDate(date);
+					}
+					if(JSONObject_get(user, AS("Name")) != 0)
+					{
+						JSONObject_set(user, AS("Name"), JSONString_new(autoString("")));
+					}
+					if(JSONObject_get(user, AS("FirstName")) != 0)
+					{
+						JSONObject_set(user, AS("FirstName"), JSONString_new(autoString("")));
+					}
+					JSONArray_add(users, JSONObject_getCopy(user));
+					BDD_save(client->bdd);
+					return RequestAnswerOk(request, 0);
+				}
+				else
+				{
+					return RequestAnswerError(request, user, 5, AS("Login déjà utilisé."));
+				}
+			}
+			else
+			{
+				return RequestAnswerError(request, user, 5, AS("Login déjà utilisé."));
+			}
+		}
+		else
+		{
+			return RequestAnswerError(request, user, 5, AS("Données d'utilisateur invalide, JSONObject incomplet ou format invalide."));
 		}
 	}
-	//Err
+	return RequestAnswerError(request, user, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 {
