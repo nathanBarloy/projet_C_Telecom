@@ -140,7 +140,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     concatString(reponse, finDiv);*/
 
     //seconde box
-    tmp = newStringFromCharStar("<div style=\"text-align: center;\">Bande-Annonce:</div><div class=\"box2\" style=\"width: 800px;margin-left:auto;margin-right: auto;\">");
+    tmp = newStringFromCharStar("<div style=\"text-align: center;\"><h3>Bande-Annonce:</h3></div><div class=\"box2\" style=\"width: 800px;margin-left:auto;margin-right: auto;\">");
     concatString(reponse, tmp);
     fString(tmp);
     JSONObject_t ytPlayer = JSONObject_new();

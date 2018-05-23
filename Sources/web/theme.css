@@ -138,6 +138,22 @@ body
   margin-right: 10px;
   min-width: 700px;
 }
+h1,h2,h3,h4,h5,h6
+{
+	font-family: SAO;
+}
+h1
+{
+	font-size: 35px;
+}
+h2
+{
+	font-size: 30px;
+}
+h3
+{
+	font-size: 25px;
+}
 /*.line_box .box_body
 {
   display: inline-block;
