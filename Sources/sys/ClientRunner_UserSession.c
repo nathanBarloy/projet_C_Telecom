@@ -1,6 +1,8 @@
 #include "ClientRunner_UserSession.h"
 #include "../utils/ReadInput.h"
 #include "RequestTypes.h"
+#include "ClientRequests.h"
+#include <unistd.h>
 enum ClientRunnerMode ClientRunner_Login(Connexion_t connexion)
 {
 
@@ -34,7 +36,7 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 		password = ReadPasswordWithMsg(autoString("Mot de passe: "));
 		firstName = ReadInputWithMsg(AS("Prenom: "));
 		name = ReadInputWithMsg(AS("Nom: "));
-		Date_t birth = ReadDateWithMsg(AS("Date de naissance:"));
+		Date_t birth = ReadDateWithMsg(AS("Date de naissance:\n"));
 		JSONObject_t user = JSONObject_new();
 		JSONObject_set(user, AS("Login"), JSONString_new(login));
 		JSONObject_set(user, AS("Password"), JSONString_new(password));
@@ -43,7 +45,16 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 		JSONObject_set(user, AS("FirstName"), JSONString_new(firstName));
 		RequestAnswer a = Client_RegisterUser(connexion, user);
 		birth = freeDate(birth);
-
+		if(a->code == 0)
+		{
+			printf("Vous avez bien été enregistré.\n");
+		}
+		else
+		{
+			printf("Une erreur est survenue durant l'enregistrement:\n%s\n", cString(JSONObject_stringValueOf(a->obj, AS("Error"))));
+		}
+		freeRequestAnswer(a);
+		ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 	}
 	return MAIN_MENU;
 }

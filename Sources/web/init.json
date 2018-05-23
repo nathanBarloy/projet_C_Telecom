@@ -17,5 +17,6 @@
 				"ifconnected" : true,
 			}
 		}
-		]
+	],
+	"styles" : ["theme.css"]
 }

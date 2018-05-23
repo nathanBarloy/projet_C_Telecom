@@ -4,6 +4,7 @@
 #include "ClientRunnerContinue.h"
 #include <time.h>
 #include <unistd.h>
+#include "ClientRequests.h"
 
 #define eq(sel, menu) equalsString(sel, autoString(menu))
 enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
@@ -14,6 +15,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 	addToVector(MainMenu_choices, newStringFromCharStar("exit"));
 	addToVector(MainMenu_choices, newStringFromCharStar("quitter"));
 	addToVector(MainMenu_choices, newStringFromCharStar("voir films"));
+	addToVector(MainMenu_choices, newStringFromCharStar("films"));
 
 	//Display
 	printf("Bienvenue sur le menu principal, ");
@@ -47,7 +49,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 	printf("- Quitter\n");
 
 	//Selection
-	String_t sel = StandardPrompt(MainMenu_choices);
+	AutoString_t sel = StandardPrompt(MainMenu_choices);
 	enum ClientRunnerMode ret = MAIN_MENU;
 	if(sel != 0)
 	{
@@ -55,7 +57,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 		{
 			global_clientRunnerContinue(1,0);
 		}
-		else if(eq(sel, "voir films"))
+		else if(eq(sel, "voir films") || eq(sel, "films"))
 		{
 			ret = SHOW_FILM;
 		}
@@ -90,5 +92,86 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 		sleep(1);
 	}
 	freeVectorWithPtr(MainMenu_choices, freeVoidString);
+	return ret;
+}
+
+
+
+
+
+enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
+{
+	clearTerminal();
+	//Choices
+
+	/*addToVector(MainMenu_choices, newStringFromCharStar("quitter"));
+	addToVector(MainMenu_choices, newStringFromCharStar("voir films"));
+	addToVector(MainMenu_choices, newStringFromCharStar("films"));*/
+
+	JSONArray_t films = serverGetFilms(connexion);
+	enum ClientRunnerMode ret = MAIN_MENU;
+	if(films != 0)
+	{
+		size_t c = 0, size = JSONArray_size(films), base = 0;
+		String_t str = 0;
+		JSONObject_t tmp = 0;
+		bool selected = false;
+		while(base < size)
+		{
+			clearTerminal();
+			c = 0;
+			printf("Affichage des films: %lu - %lu / %lu\n", (base + 1), (base + 10 < size ? base + 10 : size - base), size);
+			Vector_t MainMenu_choices = newVector();
+			addToVector(MainMenu_choices, newStringFromCharStar(""));
+			addToVector(MainMenu_choices, newStringFromCharStar("quit"));
+			addToVector(MainMenu_choices, newStringFromCharStar("exit"));
+			while(c < 10 && base + c < size)
+			{
+				tmp = JSONArray_get(films, base + c);
+				str = newStringFromString(JSONObject_stringValueOf(tmp, autoString("Title")));
+				lowerString(str);
+				addToVector(MainMenu_choices, str);
+				printf("\t- \"%s\"\n", cString(JSONObject_stringValueOf(tmp, autoString("Title"))));
+				++c;
+			}
+			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite.\n");
+			AutoString_t sel = StandardPrompt(MainMenu_choices);
+			if(sel != 0)
+			{
+				if(eq(sel, ""))
+				{
+					base += c;
+				}
+				else if(eq(sel, "quit") || eq(sel, "exit"))
+				{
+					printf("Retour au menu...\n");
+					selected = true;
+					break;
+				}
+				else
+				{
+					selected = true;
+					printf("Affichage du détail du film: %s\n", cString(sel));
+					break;
+				}
+			}
+			else
+			{
+				ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
+			}
+			freeVectorWithPtr(MainMenu_choices, freeVoidString);
+		}
+		if(!selected)
+		{
+			clearTerminal();
+			printf("Fin des films à afficher.\n");
+		}
+	}
+	else
+	{
+		clearTerminal();
+		printf("Aucun film à afficher.\n");
+	}
+	ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
 	return ret;
 }

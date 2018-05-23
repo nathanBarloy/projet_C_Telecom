@@ -1,1 +1,55 @@
-[]
+[
+	{
+	"Birth": 
+		{
+		"Day": 25,
+		"Month": 5,
+		"Year": 1996		
+		},
+	"FirstName": "Valentin",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 1,
+	"Login": "crone123",
+	"Name": "CRÔNE",
+	"Password": "azerty",
+	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "Johan",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 2,
+	"Login": "johan",
+	"Name": "TOMBRE",
+	"Password": "1234",
+	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "Nathan",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 3,
+	"Login": "nathan",
+	"Name": "BARLOY",
+	"Password": "ytreza",
+	"Preferences": {}	
+	}
+]

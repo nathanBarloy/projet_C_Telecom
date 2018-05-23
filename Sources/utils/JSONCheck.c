@@ -50,10 +50,15 @@ bool JSON_checkUser(JSONObject_t user, bool light)
 	bool validType = (JSONObject_getType(user) == OBJECT);
 	if(validType)
 	{
+		//printf("Type: %d\n", (int) validType);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("Name")), STRING);
+		//printf("Name: %d\n", (int) validType);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("FirstName")), STRING);
+		//printf("FirstName: %d\n", (int) validType);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("Login")), STRING);
+		//printf("Login: %d\n", (int) validType);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(user, AS("Password")), STRING);
+		//printf("Password: %d\n", (int) validType);
 		if(JSONObject_get(user, AS("Birth")) == 0)
 		{
 			Date_t d = newDate();
@@ -61,11 +66,13 @@ bool JSON_checkUser(JSONObject_t user, bool light)
 			freeDate(d);
 		}
 		validType = validType && JSON_checkDate(JSONObject_get(user, AS("Birth")));
+		//printf("Birth: %d\n", (int) validType);
 		if(!light)
 		{
 			//Ajouter les autres vérifications pour Preferences et History
 			validType = validType && JSON_rightTypeNotNull(JSONObject_get(user, AS("Id")), INT);
 		}
+		//printf("Id: %d\n", (int) validType);
 	}
 	return validType;
 }
@@ -95,5 +102,5 @@ bool JSON_checkDate(JSONObject_t d)
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(d, AS("Month")), INT);
 		validType = validType && JSON_rightTypeOrNull(JSONObject_get(d, AS("Year")), INT);
 	}
-	return false;
+	return validType;
 }

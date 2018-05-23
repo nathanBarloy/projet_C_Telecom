@@ -16,7 +16,7 @@ Toutes les requêtes doivent suivre le format suivant:
 {
 	"Type" : "",
 	"Time" : 0,
-	"Status" : 0,
+	"Code" : 0,
 	"Error" : "",
 	"Answer" : {answerObject}
 }
@@ -24,7 +24,7 @@ Toutes les requêtes doivent suivre le format suivant:
 - Id correspond l'id de la reponse
 - Type correspond au type de réponse
 - Time correspond a la date de génération de la reponse (timestamp)
-- Status correspond au code de status de la requête, permet de voir si une erreur a eu lieu ou non
+- Code correspond au code de status de la requête, permet de voir si une erreur a eu lieu ou non
 - Error correspond au message d'erreur lié a la requête en cas d'erreur
 - Answer contient l'objet json contenant les données de la réponse, peut être vide en cas d'erreur.
 

@@ -128,20 +128,37 @@ body
 .cover
 {
   float: left;
+  min-width: 400px;
 }
 .data
 {
-  margin: 10px;
+  /*margin: 10px;
   display: inline-block;
-  width: 700px;
+  width: 700px;*/
+  margin-right: 10px;
+  min-width: 700px;
 }
-.line_box .box_body
+h1,h2,h3,h4,h5,h6
+{
+	font-family: SAO;
+}
+h1
+{
+	font-size: 35px;
+}
+h2
+{
+	font-size: 30px;
+}
+h3
+{
+	font-size: 25px;
+}
+/*.line_box .box_body
 {
   display: inline-block;
   width: 300px;
   height: 150px;
-  /* margin-left: 25px;
-  margin-top: 40px; */
 }
 .line_box
 {
@@ -150,7 +167,7 @@ body
 }
 .box_body .h2
 {
-  display: inline;
+  display: inline-block;
   font-size: 20px;
 }
 .box_body p
@@ -168,4 +185,4 @@ body
 {
   margin-top: 100px;
   display: block;
-}
+}*/

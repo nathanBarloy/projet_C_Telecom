@@ -16,12 +16,14 @@ int main()
 	//printf("Export:\n");//Test
 	//printf("%s\n", cString(JSONObject_asString(JSONObject_get(bdd->json, autoString("Users")), 0)));
 
+	/*
+	//JE ME REPETE: NE PAS METTRE VOS TESTS UNITAIRES DANS LE MAIN DU SERVEUR
 	Vector_t listeFilms = liste_recommandation(bdd,0);
 	int i;
 	for (i=0;i<10;i++) {
 		printf("%s\n",cString(JSONObject_asString(getFromVector(listeFilms,i), 0)));
 	}
-	freeVector(listeFilms);
+	freeVector(listeFilms);*/
 	int r = serverRunner(bdd);
 	printf("Le serveur à terminé avec le code: %d\n", r);
 	if(r >= 0)

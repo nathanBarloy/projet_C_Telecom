@@ -1,31 +1,37 @@
 #include "Distance.h"
+#include "BDD.h"
 
-
-double distance_film(JSONArray_t films,int id1, int id2) {
+double distance_film(BDD bdd,int id1, int id2) {
 	double dist=0;
 	double distActor=1,distGenre=1,distReal=1,distType=1,distYear=1;
 	double coeffActor=3,coeffGenre=5,coeffReal=3,coeffType=1,coeffYear=1;
-	JSONObject_t film1 = JSONArray_get(films, id1);
-	JSONObject_t film2 = JSONArray_get(films, id2);
-	JSONObject_t bdGenre = JSONParser_parseFile("data/genres.json");
+	JSONObject_t film1 = BDD_getFilmById(bdd, id1);
+	JSONObject_t film2 = BDD_getFilmById(bdd, id2);
+	if(film1 == 0 || film2 == 0)
+	{
+		printf("Distance: Invalid id: %d | %d\n", id1, id2);
+		return -1;
+	}
+	JSONObject_t bdGenre = BDD_Genres(bdd);
 	//printf("%s\n",cString(JSONObject_asString(bdGenre,0)) );
-	if (JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Directors")))==0) {
+	String_t directors = newStringFromCharStar("Directors"), genres = newStringFromCharStar("Genres"), actors = newStringFromCharStar("Actors"), type =newStringFromCharStar("Type"), year = newStringFromCharStar("Year");
+	if (JSONArray_size(JSONObject_getArray(film1,directors))==0 || JSONArray_size(JSONObject_getArray(film1,directors))==0) {
 		coeffReal=0;
 	} else {
-		distReal = distance_real(JSONObject_getArray(film1,autoString("Directors")),JSONObject_getArray(film2,autoString("Directors")));
+		distReal = distance_real(JSONObject_getArray(film1,directors),JSONObject_getArray(film2,directors));
 	}
-	if (JSONArray_size(JSONObject_getArray(film1,autoString("Genres")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Genres")))==0) {
+	if (JSONArray_size(JSONObject_getArray(film1,genres))==0 || JSONArray_size(JSONObject_getArray(film1,genres))==0) {
 		coeffGenre=0;
 	} else{
-		distGenre = distance_genre(JSONObject_getArray(film1,autoString("Genres")),JSONObject_getArray(film2,autoString("Genres")),bdGenre);
+		distGenre = distance_genre(JSONObject_getArray(film1,genres),JSONObject_getArray(film2,genres),bdGenre);
 	}
-	if (JSONArray_size(JSONObject_getArray(film1,autoString("Actors")))==0 || JSONArray_size(JSONObject_getArray(film1,autoString("Actors")))==0) {
+	if (JSONArray_size(JSONObject_getArray(film1,actors))==0 || JSONArray_size(JSONObject_getArray(film1,actors))==0) {
 		coeffActor=0;
 	} else {
-		distActor = distance_actor(JSONObject_getArray(film1,autoString("Actors")),JSONObject_getArray(film2,autoString("Actors")));
+		distActor = distance_actor(JSONObject_getArray(film1,actors),JSONObject_getArray(film2,actors));
 	}
-	distType = distance_type(JSONObject_stringValueOf(film1,autoString("Type")),JSONObject_stringValueOf(film2,autoString("Type")));
-	distYear = distance_year(JSONObject_intValueOf(film1,autoString("Year")),JSONObject_intValueOf(film2,autoString("Year")));
+	distType = distance_type(JSONObject_stringValueOf(film1,type),JSONObject_stringValueOf(film2,type));
+	distYear = distance_year(JSONObject_intValueOf(film1,year),JSONObject_intValueOf(film2,year));
   //printf("%f\n%f\n%f\n%f\n%f\n",distActor,distGenre,distReal,distType,distYear);
 
 	dist = (coeffActor*distActor+coeffGenre*distGenre+coeffReal*distReal+coeffType*distType+coeffYear*distYear ) / (coeffActor+coeffReal+coeffType+coeffYear+coeffGenre);
@@ -36,6 +42,11 @@ double distance_film(JSONArray_t films,int id1, int id2) {
 	printf("%f\n",dist);
 	*/
 	//printf("%f\n",distGenre);
+	fString(directors);
+	fString(genres);
+	fString(actors);
+	fString(type);
+	fString(year);
 	return dist;
 }
 
@@ -59,19 +70,26 @@ double distance_matrice(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
 	int n=JSONArray_size(l1);
 	int m=JSONArray_size(l2);
 	double dist=0.;
-	JSONArray_t matr = JSONObject_getArray(bdGenre,autoString("Matrice"));
-	JSONArray_t liste = JSONObject_getArray(bdGenre,autoString("Liste"));
+	String_t matrice = newStringFromCharStar("Matrice"), liste_s = newStringFromCharStar("Liste");
+	JSONArray_t matr = JSONObject_getArray(bdGenre,matrice);
+	JSONArray_t liste = JSONObject_getArray(bdGenre,liste_s);
 
 	for (i=0;i<n;i++) {
 		for (j=0;j<m;j++) {
 			l= numero(liste,JSONArray_get(l1,i));
 			c= numero(liste,JSONArray_get(l2,j));
 			dist+=JSONDouble_get(JSONArray_getDouble(JSONArray_getArray(matr,l),c));
+			#ifdef DEBUG
 			printf("%d,%d  ",l,c);
+			#endif
 		}
 	}
+	#ifdef DEBUG
 	printf("\n");
+	#endif
 	dist/=((double) (n*m));
+	fString(matrice);
+	fString(liste_s);
 	return dist;
 }
 
@@ -132,9 +150,9 @@ int card_intersection(JSONArray_t l1, JSONArray_t l2) {
 	return compteur;
 }
 
-Vector_t liste_recommandation(BDD bdd, int id) {
+JSONArray_t liste_recommandation(BDD bdd, int id) {
 	JSONArray_t listeFilms = BDD_Films(bdd);
-	Vector_t triFilms;
+	JSONArray_t triFilms = JSONArray_new();
 	int n = JSONArray_size(listeFilms);
 	int i;
 	double dist;
@@ -162,11 +180,11 @@ Vector_t liste_recommandation(BDD bdd, int id) {
 	return triFilms;
 }
 
-Vector_t tabToVect(int *triID,JSONArray_t films,int n) {
-	Vector_t triFilms = newVector();
+JSONArray_t tabToVect(int *triID,JSONArray_t films,int n) {
+	JSONArray_t triFilms = JSONArray_new();
 	int i=0;
 	for (i=0;i<n-1;i++) {
-		addToVector(triFilms,JSONArray_get(films,triID[i]-1));
+		JSONArray_add(triFilms,JSONObject_getCopy(JSONArray_get(films,triID[i]-1)));
 	}
 	return triFilms;
 }
@@ -194,8 +212,9 @@ JSONArray_t listGenres(BDD bdd) {
 	JSONArray_t list = JSONArray_new();
 	int isIn;
 	int i, j, k;
+	String_t genres = newStringFromCharStar("Genres");
 	for (i=0;i<JSONArray_size(films);i++) {
-		JSONArray_t genres = JSONObject_getArray(JSONArray_get(films,i),autoString("Genres"));
+		JSONArray_t genres = JSONObject_getArray(JSONArray_get(films,i),genres);
 		for (j=0;j<JSONArray_size(genres);j++) {
 			isIn = 0;
 			for (k=0;k<JSONArray_size(list);k++) {
@@ -206,6 +225,6 @@ JSONArray_t listGenres(BDD bdd) {
 			}
 		}
 	}
-
+	fString(genres);
 	return list;
 }

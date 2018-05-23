@@ -1,6 +1,7 @@
 #include "Requests.h"
 #include "../utils/JSONCheck.h"
 #include "../utils/JSONShortcut.h"
+#include "../utils/Date.h"
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -10,6 +11,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getFilms"), (void*) ServerRequest_getFilms);
 	setMap(r, autoString("getFilm"), (void*) ServerRequest_getFilm);
 	setMap(r, autoString("getUsers"), (void*) ServerRequest_getUsers);
+	setMap(r, autoString("registerUser"), (void*) ServerRequest_RegisterUser);
 	//Fin des associations
 	return r;
 }
@@ -63,6 +65,10 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 		}
 		return ret(client, request);
 	}
+	else
+	{
+		printf("RequestType: %s → Invalid.\n", cString(requestType));
+	}
 	return newRequestAnswer(3, newJSONRequestAnswer(request->id, 3, autoConcatNString(2, "Invalid request: ", cString(requestType)), JSONObject_new()));
 }
 
@@ -80,15 +86,74 @@ RequestAnswer ServerRequest_prints(Client client, RequestQuery request)
 
 RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 {
+	printf("Register Request....\n");
 	RequestQuery(request, user);
 	if(JSONObject_getType(user) == OBJECT)
 	{
-		if(JSON_checkUser(user, true))
+		if(JSONObject_get(user, AS("Login")) != 0 && JSONObject_get(user, AS("Password")) != 0)
 		{
-
+			JSONArray_t users = BDD_Users(client->bdd);
+			size_t c = 0, size = JSONArray_size(users);
+			bool exists = false;
+			String_t login = JSONObject_stringValueOf(user, AS("Login"));
+			while(c < size)
+			{
+				if(equalsString(login, JSONObject_stringValueOf(JSONArray_get(users, c), AS("Login"))))
+				{
+					exists = true;
+				}
+				++c;
+			}
+			if(!exists)
+			{
+				String_t pass = JSONObject_stringValueOf(user, AS("Password"));
+				if(sizeOfString(pass) >= 4 && sizeOfString(login) >= 4)
+				{
+					JSONObject_set(user, AS("Id"), JSONInt_new(BDD_Users_maxId(client->bdd) + 1));
+					JSONObject_set(user, AS("Preferences"), JSONObject_new());
+					JSONObject_set(user, AS("History"), JSONObject_new());
+					JSONObject_set(user, AS("Friends"), JSONArray_new());
+					JSONObject_set(user, AS("Follow"), JSONArray_new());
+					if(JSONObject_get(user, AS("Birth")) == 0)
+					{
+						Date_t date = newDate();
+						JSONObject_set(user, AS("Birth"), dateToJSON(date));
+						freeDate(date);
+					}
+					if(JSONObject_get(user, AS("Name")) == 0)
+					{
+						JSONObject_set(user, AS("Name"), JSONString_new(autoString("")));
+					}
+					if(JSONObject_get(user, AS("FirstName")) == 0)
+					{
+						JSONObject_set(user, AS("FirstName"), JSONString_new(autoString("")));
+					}
+					JSONArray_add(users, JSONObject_getCopy(user));
+					printf("Sauvegarde BDD...\n");
+					BDD_save(client->bdd);
+					printf("BDD sauvee.\n");
+					return RequestAnswerOk(request, 0);
+				}
+				else
+				{
+					printf("Register: Too short.\n");
+					return RequestAnswerError(request, 0, 5, AS("Trop court (login &| mdp)."));
+				}
+			}
+			else
+			{
+				printf("Register: Used.\n");
+				return RequestAnswerError(request, 0, 5, AS("Login déjà utilisé."));
+			}
+		}
+		else
+		{
+			printf("Register: Format.\n");
+			return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, JSONObject incomplet ou format invalide."));
 		}
 	}
-	//Err
+	printf("Register: Invalid.\n");
+	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 {
