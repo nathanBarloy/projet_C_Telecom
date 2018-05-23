@@ -2,6 +2,7 @@
 #include "../utils/JSONCheck.h"
 #include "../utils/JSONShortcut.h"
 #include "../utils/Date.h"
+#include "../utils/Distance.h"
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -12,6 +13,9 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getFilm"), (void*) ServerRequest_getFilm);
 	setMap(r, autoString("getUsers"), (void*) ServerRequest_getUsers);
 	setMap(r, autoString("registerUser"), (void*) ServerRequest_RegisterUser);
+	setMap(r, autoString("getFilmById"), (void*) ServerRequest_getFilmById);
+	setMap(r, autoString("getDistanceBetween"), (void*) ServerRequest_getDistanceBetween);
+	setMap(r, autoString("getFilmRecommendation"), (void*) ServerRequest_getFilmRecommendation);
 	//Fin des associations
 	return r;
 }
@@ -189,4 +193,44 @@ RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request)
 {
 	JSONObject_t bdd = JSONObject_getCopy(BDD_Users(client->bdd));
 	return RequestAnswerOk(request, bdd);
+}
+
+RequestAnswer ServerRequest_getFilmById(Client client, RequestQuery request)
+{
+	RequestQuery(request, query);
+	int id = JSONObject_intValueOf(query, AS("Id"));
+	JSONObject_t film = BDD_getFilmById(client->bdd, id);
+	if(film == 0)
+	{
+		return RequestAnswerOk(request, JSONNull_new());
+	}
+	return RequestAnswerOk(request, JSONObject_getCopy(film));
+}
+RequestAnswer ServerRequest_getDistanceBetween(Client client, RequestQuery request)
+{
+	RequestQuery(request, query);
+	RequestObject(request, query, "Id1", id1);
+	RequestObject(request, query, "Id2", id2);
+	JSONObject_t ret = JSONObject_new();
+	if(JSONObject_getType(id1) == INT && JSONObject_getType(id2) == INT)
+	{
+		int iid1 = JSONInt_get(id1), iid2 = JSONInt_get(id2);
+		double d = distance_film(client->bdd, iid1, iid2);
+		JSONObject_set(ret, AS("Distance"), JSONDouble_new(d));
+	}
+	else
+	{
+		JSONObject_set(ret, AS("Distance"), JSONDouble_new(-1.0));
+	}
+	return RequestAnswerOk(request, ret);
+}
+RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery request)
+{
+	RequestQuery(request, query);
+	RequestObject(request, query, "Id", id);
+	if(JSONObject_getType(id) == INT)
+	{
+		return RequestAnswerOk(request, liste_recommandation(client->bdd, JSONInt_get(id)));
+	}
+	return RequestAnswerOk(request, JSONNull_new());
 }

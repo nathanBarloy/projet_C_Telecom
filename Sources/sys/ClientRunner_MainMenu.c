@@ -116,6 +116,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 		String_t str = 0;
 		JSONObject_t tmp = 0;
 		bool selected = false;
+		size_t decal = 0;
 		while(base < size)
 		{
 			clearTerminal();
@@ -125,6 +126,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 			addToVector(MainMenu_choices, newStringFromCharStar(""));
 			addToVector(MainMenu_choices, newStringFromCharStar("quit"));
 			addToVector(MainMenu_choices, newStringFromCharStar("exit"));
+			decal = sizeOfVector(MainMenu_choices);
 			while(c < 10 && base + c < size)
 			{
 				tmp = JSONArray_get(films, base + c);
@@ -151,7 +153,28 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 				else
 				{
 					selected = true;
-					printf("Affichage du détail du film: %s\n", cString(sel));
+					size_t cc = 0, ssize = sizeOfVector(MainMenu_choices);
+					int id = -1;
+					while(cc < ssize)
+					{
+						if(sel == (String_t) getFromVector(MainMenu_choices, cc))
+						{
+							tmp = JSONArray_get(films, (cc - decal) + base);
+							//printf("CC: %lu, pos: %lu\n", cc, (cc - decal) + base);
+							id = JSONObject_intValueOf(tmp, autoString("Id"));
+							break;
+						}
+						++cc;
+					}
+					if(id > 0)
+					{
+						printf("Affichage du détail du film: %d - %s\n", id, cString(sel));
+						ClientRunner_showFilm(connexion, id);
+					}
+					else
+					{
+						printf("Erreur interne: Le film demandé n'a pas été retrouvé.\n");
+					}
 					break;
 				}
 			}
@@ -166,6 +189,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 			clearTerminal();
 			printf("Fin des films à afficher.\n");
 		}
+		JSONObject_delete(films);
 	}
 	else
 	{
@@ -174,4 +198,70 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 	}
 	ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
 	return ret;
+}
+
+void ClientRunner_showFilm(Connexion_t connexion, int id)
+{
+	JSONObject_t film = serverGetFilmById(connexion, id);
+	if(film != 0)
+	{
+		clearTerminal();
+		printf("[ %s (%s) ]\n\n", cStringValueOf(film, "Title"), cStringValueOf(film, "Year"));
+		printf("Synopsis:\n%s\n\n", cStringValueOf(film, "Description"));
+		printf("Genres:\n");
+		JSONArray_t genres = JSONObject_get(film, AS("Genres"));
+		size_t c = 0, size = JSONArray_size(genres);
+		while(c < size)
+		{
+			printf("\t- %s\n", cString(JSONArray_stringValue(genres, c)));
+			++c;
+		}
+		printf("\n");
+		printf("Réalisateur(s):\n");
+		JSONArray_t directors = JSONObject_get(film, AS("Directors"));
+		c = 0;
+		size = JSONArray_size(directors);
+		while(c < size)
+		{
+			printf("\t- %s\n", cString(JSONArray_stringValue(directors, c)));
+			++c;
+		}
+		printf("\n");
+		printf("Acteur(s):\n");
+		JSONArray_t actors = JSONObject_get(film, AS("Actors"));
+		c = 0;
+		size = JSONArray_size(actors);
+		while(c < size)
+		{
+			printf("\t- %s\n", cString(JSONArray_stringValue(actors, c)));
+			++c;
+		}
+		printf("\n");
+		printf("Bande annonce: http://www.youtube.com/watch?v=%s\n", cStringValueOf(film, "Url"));
+		char *buf = getcwd(0, 0);
+		printf("Cover: file://%s/web/%s\n", buf, cStringValueOf(film, "Cover"));
+		free(buf);
+		printf("\n\nRecommandés si vous aimez ce film:\n");
+		JSONArray_t reco = serverGetFilmRecommendation(connexion, id);
+		if(reco != 0)
+		{
+			c = 0;
+			size = JSONArray_size(reco);
+			while(c < size && c < 10)
+			{
+				printf("\t- %s\n", cString(JSONArray_stringValue(reco, c)));
+				++c;
+			}
+			JSONArray_delete(reco);
+		}
+		else
+		{
+			printf("Echec d'obtention des recommendations.\n");
+		}
+		JSONObject_delete(film);
+	}
+	else
+	{
+		printf("Film introuvable.\n");
+	}
 }

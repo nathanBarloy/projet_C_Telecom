@@ -51,5 +51,23 @@
 	"Name": "BARLOY",
 	"Password": "ytreza",
 	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "Morgan",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 4,
+	"Login": "morgan",
+	"Name": "EBANDZA",
+	"Password": "qsdfg",
+	"Preferences": {}	
 	}
 ]

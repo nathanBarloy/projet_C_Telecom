@@ -69,3 +69,64 @@ JSONObject_t serverGetUsers(Connexion_t connexion)
 	}
 	return 0;
 }
+JSONObject_t serverGetFilmById(Connexion_t connexion, int id)
+{
+	JSONObject_t obj = JSONObject_new();
+	JSONObject_set(obj, AS("Id"), JSONInt_new(id));
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getFilmById"), obj));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t ans = JSONObject_get(a->obj, AS("Answer"));
+		if(JSONObject_getType(ans) == OBJECT)
+		{
+			JSONObject_t film = JSONObject_getCopy(ans);
+			freeRequestAnswer(a);
+			return film;
+		}
+		freeRequestAnswer(a);
+	}
+	return 0;
+}
+JSONObject_t serverGetDistanceBetween(Connexion_t connexion, int id1, int id2)
+{
+	JSONObject_t obj = JSONObject_new();
+	JSONObject_set(obj, AS("Id1"), JSONInt_new(id1));
+	JSONObject_set(obj, AS("Id2"), JSONInt_new(id2));
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getDistanceBetween"), obj));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t ans = JSONObject_get(a->obj, AS("Answer"));
+		if(JSONObject_getType(ans) == OBJECT)
+		{
+			JSONObject_t distance = JSONObject_getCopy(ans);
+			freeRequestAnswer(a);
+			return distance;
+		}
+		freeRequestAnswer(a);
+	}
+	return 0;
+}
+JSONArray_t serverGetFilmRecommendation(Connexion_t connexion, int id)
+{
+	JSONObject_t obj = JSONObject_new();
+	JSONObject_set(obj, AS("Id"), JSONInt_new(id));
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getFilmRecommendation"), obj));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t ans = JSONObject_get(a->obj, AS("Answer"));
+		if(JSONObject_getType(ans) == ARRAY)
+		{
+			JSONObject_t liste = JSONObject_getCopy(ans);
+			freeRequestAnswer(a);
+			return liste;
+		}
+		freeRequestAnswer(a);
+	}
+	return 0;
+}
