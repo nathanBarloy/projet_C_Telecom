@@ -29,10 +29,12 @@ void* clientHandler(void* arg)
 			{
 				JSONObject_t req = JSONParser_parseString(request);
 				//printf("Req: %p\n", req);
+				#ifdef DEBUG
 				if(req != 0)
 				{
 					printf("%s\n", cString(JSONObject_asString(req, 0)));
 				}
+				#endif
 				RequestAnswer rep = 0;
 				RequestQuery q = newRequestQuery(0, req);
 				if(req != 0)
@@ -46,6 +48,7 @@ void* clientHandler(void* arg)
 				q = freeRequestQuery(q);
 				//req = JSONObject_delete(req);//Déjà supprimé par q
 				req = 0;
+				JSONObject_set(rep->obj, autoString("Code"), JSONInt_new(rep->code));
 				String_t data = JSONObject_asString(rep->obj, 0);//autoString, pas besoin de free
 				lock(client);
 				r = send(client->fd, cString(data), sizeOfString(data), MSG_NOSIGNAL);
@@ -102,7 +105,9 @@ void clientHandlerClose(Client client)
 {
 	lock(client);
 	lock(client->bdd);
+	#ifdef DEBUG
 	printf("Déconnexion du client: %d\n", client->fd);
+	#endif
 	size_t c = 0;
 	while(c < sizeOfVector(client->bdd->clients))
 	{

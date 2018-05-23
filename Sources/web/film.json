@@ -14,25 +14,19 @@
         "name" : "menuBar2"
       }
     },
-    {
-			"tag" :
-			{
-				"name" : "div",
-				"attributes" : [{"name" : "class", "value": "main"}],
-				"childs" : [{
-					"function" :
-					{
-						"name" : "ficheFilm"
-					}
-				}]
-			}
-		},
-    {
-      "file" :
-      {
-        "name" : "film.html"
-      }
-    },
+	{
+		"tag" :
+		{
+			"name" : "div",
+			"attributes" : [{"name" : "class", "value": "main"}],
+			"childs" : [{
+				"function" :
+				{
+					"name" : "ficheFilm"
+				}
+			}]
+		}
+	},
   ],
   "styles" : ["theme.css"]
 }

@@ -54,7 +54,7 @@ enum ClientRunnerMode ClientRunner_Register(Connexion_t connexion)
 			printf("Une erreur est survenue durant l'enregistrement:\n%s\n", cString(JSONObject_stringValueOf(a->obj, AS("Error"))));
 		}
 		freeRequestAnswer(a);
-		sleep(3);
+		ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 	}
 	return MAIN_MENU;
 }

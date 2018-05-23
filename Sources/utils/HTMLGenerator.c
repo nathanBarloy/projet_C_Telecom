@@ -18,7 +18,9 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 		obj = container;
 		if(JSONObject_getType(obj) == OBJECT)
 		{
+			#ifdef DEBUG
 			printf("JSONContainer:\n%s\n", cString(JSONObject_asString(container, 0)));
+			#endif
 			detail = JSONObject_get(obj, AS("tag"));
 			isTag = 0;
 			if(detail == 0)
@@ -47,7 +49,9 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 						//printf("Detail: %s\n", cString(JSONObject_asString(detail, 0)));
 						if(rq != ob)
 						{
+							#ifdef DEBUG
 							printf("Disabled !\n");
+							#endif
 							displayed = false;
 						}
 					}
@@ -63,7 +67,9 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 					//Calcul
 					if(displayed)
 					{
+						#ifdef DEBUG
 						printf("Will be displayed: %s\n", cString(JSONObject_asString(detail, 0)));
+						#endif
 						if(isTag == 0)
 						{
 							AutoString_t name = JSONObject_stringValueOf(detail,AS("name")), value = JSONObject_stringValueOf(detail, AS("value"));
@@ -165,17 +171,21 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 										concatString(html, value);
 										concatString(html, gui);
 									}
+									#ifdef DEBUG
 									else
 									{
 										printf("HTMLGenerator: Error, attribute must be an object.\n");
 									}
+									#endif
 									++c;
 								}
 							}
+							#ifdef DEBUG
 							else
 							{
 								printf("HTMLGenerator: Error, attributes must be an array.\n");
 							}
+							#endif
 							if(childs != 0)
 							{
 								concatString(html, echv);
@@ -248,36 +258,48 @@ String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObj
 								concatString(html, r);
 								fString(r);
 							}
+							#ifdef DEBUG
 							else
 							{
 								printf("HTMLGenerator: Undefined function: %s\n", cString(name));
 							}
+							#endif
 						}
 					}
+					#ifdef DEBUG
 					else
 					{
 						printf("Will NOT be displayed: %s\n", cString(JSONObject_asString(detail, 0)));
 					}
+					#endif
 				}
+				#ifdef DEBUG
 				else
 				{
 					printf("HTMLGenerator: Container must contains objects. (in tag or file).\n");
 				}
+				#endif
 			}
+			#ifdef DEBUG
 			else
 			{
 				printf("HTMLGenerator: Container must be a tag or a file.\n");
 			}
+			#endif
 		}
+		#ifdef DEBUG
 		else
 		{
 			printf("HTMLGenerator: Container must contains objects.\n");
 		}
+		#endif
 	}
+	#ifdef DEBUG
 	else
 	{
 		printf("HTMLGenerator: Empty container !\n");
 	}
+	#endif
 	return html;
 }
 int HTMLFROMJSONLastTime = 0;
@@ -286,7 +308,9 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 	String_t html = 0;
 	if(json != 0 && JSONObject_getType(json) == OBJECT)
 	{
+		#ifdef DEBUG
 		printf("JSONObject:\n%s\n", cString(JSONObject_asString(json, 0)));
+		#endif
 		html = newStringFromCharStar("<!DOCTYPE html>\n<html>\n<head id=\"head\">\n<title id=\"title\">");
 		String_t tmp = 0;
 		concatString(html, JSONObject_stringValueOf(json, AS("title")));
@@ -302,17 +326,21 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 				size = JSONArray_size(head);
 				while(c < size)
 				{
+					#ifdef DEBUG
 					printf("HEAD: %lu/%lu\n", (c + 1), size);
+					#endif
 					tmp = HTMLFromJSONContainer(connexion, json, JSONArray_get(head, c), params);
 					concatString(html, tmp);
 					fString(tmp);
 					++c;
 				}
 			}
+			#ifdef DEBUG
 			else
 			{
 				printf("HTMLGenerator: Head is not an array.\n");
 			}
+			#endif
 		}
 		{
 			String_t ss = newStringFromCharStar("\n<style>\n"), es = newStringFromCharStar("\n</style>\n");
@@ -338,10 +366,12 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 					++c;
 				}
 			}
+			#ifdef DEBUG
 			else
 			{
 				printf("HTMLGenerator: Styles is not an array.\n");
 			}
+			#endif
 			//fmString(2, ss, es);
 			fString(ss);
 			fString(es);
@@ -357,17 +387,21 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 				size = JSONArray_size(body);
 				while(c < size)
 				{
+					#ifdef DEBUG
 					printf("BODY: %lu/%lu\n", (c + 1), size);
+					#endif
 					tmp = HTMLFromJSONContainer(connexion, json, JSONArray_get(body, c), params);
 					concatString(html, tmp);
 					fString(tmp);
 					++c;
 				}
 			}
+			#ifdef DEBUG
 			else
 			{
 				printf("HTMLGenerator: Body is not an array.\n");
 			}
+			#endif
 		}
 		{
 			String_t ss = newStringFromCharStar("\n<script>\n"), es = newStringFromCharStar("\n</script>\n");
@@ -393,10 +427,12 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 					++c;
 				}
 			}
+			#ifdef DEBUG
 			else
 			{
 				printf("HTMLGenerator: Scripts is not an array.\n");
 			}
+			#endif
 			//fmString(2, ss, es);
 			fString(ss);
 			fString(es);
@@ -408,7 +444,9 @@ String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params)
 	else
 	{
 		html = newStringFromCharStar("<!DOCTYPE html>\n<html><head></head><body></body></html>");
+		#ifdef DEBUG
 		printf("HTMLGenerator: No JSON object received.\n");
+		#endif
 		if(HTMLFROMJSONLastTime == 0)
 		{
 			HTMLFROMJSONLastTime = 1;
@@ -447,7 +485,9 @@ String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 		if(pos > -1)
 		{
 			String_t p = cutString(file, pos), tmp = 0;
+			#ifdef DEBUG
 			printf("File: %s\nParams: %s\n", cString(file), cString(p));
+			#endif
 			tmp = cutString(p, 1);
 			fString(p);
 			p = tmp;
@@ -487,7 +527,9 @@ String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url)
 				String_t value = p;
 				transformValue(value);
 				Header_t h = newHeaderFull(cString(name), cString(value));
+				#ifdef DEBUG
 				printf("Couple: %s - %s\n", cString(name), cString(value));
+				#endif
 				//fString(name);
 				//fString(value);
 				addToVector(params, (void*) h);

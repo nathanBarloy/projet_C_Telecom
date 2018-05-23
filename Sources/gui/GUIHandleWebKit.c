@@ -24,6 +24,7 @@ void clientGUIHeadGet(const char* name, const char* value, gpointer user_data)
 void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *web_frame, WebKitWebResource* web_resource, WebKitNetworkRequest *request, WebKitNetworkResponse* response, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
+	#ifdef DEBUG
 	printf("Request received.\n");
 	printf("View: %p\n", web_view);
 	printf("Frame: %p\n", web_frame);
@@ -33,6 +34,7 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 	printf("Response: %p\n", response);
 	printf("URI: %s\n", webkit_network_request_get_uri(request));
 	printf("Print end.\n");
+	#endif
 	char *cfuri = (char*) webkit_web_frame_get_uri(web_frame);
 	AutoString_t uri = autoString((char*)webkit_network_request_get_uri(request)), furi = autoString(cfuri != 0 ? cfuri : "");
 	if(sizeOfString(uri) > 0 && uri->str[0] != 'e')
@@ -105,9 +107,13 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 		if(isExec)
 		{
 			webkit_web_view_stop_loading(web_view);
+			#ifdef DEBUG
 			printf("Request blocked: %s\n", cString(uri));
+			#endif
 			String_t html = HTMLFromJSONUrl(connexion, uri);
+			#ifdef DEBUG
 			printf("Generated:\n%s\n", cString(html));
+			#endif
 			//GetFile://
 			char *wd = getcwd(0,0);
 			String_t cwd = newStringFromCharStar(wd);
@@ -128,6 +134,7 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 		}
 		else
 		{
+			#ifdef DEBUG
 			if(/*sizeOfString(uri) >= sizeOfString(autoString(("exec://")))*/0)
 			{
 				/*String_t file = 0;
@@ -166,12 +173,15 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 			{
 				printf("Loading of: %s → Cancelled.", cString(uri));
 			}
+			#endif
 			fString(mt);
 		}
 	}
 	else
 	{
+		#ifdef DEBUG
 		printf("Request allowed: %s\n", cString(uri));
+		#endif
 		clientGUI_blockableRequest = 1;
 		clientGUI_firstRequest = 0;
 	}
@@ -179,16 +189,20 @@ void clientGUIRessourceRequestStarting(WebKitWebView* web_view, WebKitWebFrame *
 void clientGUIDocumentLoadFinished(WebKitWebView* web_view, WebKitWebFrame* web_frame, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
+	#ifdef DEBUG
 	printf("Document load finished.\n");
 	printf("View: %p\n", web_view);
 	printf("Frame: %p\n", web_frame);
+	#endif
 }
 gboolean clientGUIContextMenu(WebKitWebView *web_view, GtkWidget *default_menu, WebKitHitTestResult *hit_test_result, gboolean triggered_with_keyboard, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
+	#ifdef DEBUG
 	printf("Document load finished.\n");
 	printf("View: %p\n", web_view);
 	printf("DefaultMenu: %p\n", default_menu);
+	#endif
 	return true;
 }
 void clientQUIT(GtkWidget* win, GdkEvent* ev, gpointer user_data)

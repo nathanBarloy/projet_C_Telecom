@@ -137,23 +137,23 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 				else
 				{
 					printf("Register: Too short.\n");
-					return RequestAnswerError(request, user, 5, AS("Trop court (login &| mdp)."));
+					return RequestAnswerError(request, 0, 5, AS("Trop court (login &| mdp)."));
 				}
 			}
 			else
 			{
 				printf("Register: Used.\n");
-				return RequestAnswerError(request, user, 5, AS("Login déjà utilisé."));
+				return RequestAnswerError(request, 0, 5, AS("Login déjà utilisé."));
 			}
 		}
 		else
 		{
 			printf("Register: Format.\n");
-			return RequestAnswerError(request, user, 5, AS("Données d'utilisateur invalide, JSONObject incomplet ou format invalide."));
+			return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, JSONObject incomplet ou format invalide."));
 		}
 	}
 	printf("Register: Invalid.\n");
-	return RequestAnswerError(request, user, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
+	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 {
