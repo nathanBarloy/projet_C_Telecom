@@ -230,7 +230,8 @@ RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery re
 	RequestObject(request, query, "Id", id);
 	if(JSONObject_getType(id) == INT)
 	{
-		return RequestAnswerOk(request, liste_recommandation(client->bdd, JSONInt_get(id)));
+		JSONArray_t liste = liste_recommandation(client->bdd, JSONInt_get(id));
+		return RequestAnswerOk(request, liste);
 	}
 	return RequestAnswerOk(request, JSONNull_new());
 }

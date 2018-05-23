@@ -154,37 +154,57 @@ JSONArray_t liste_recommandation(BDD bdd, int id) {
 	JSONArray_t listeFilms = BDD_Films(bdd);
 	JSONArray_t triFilms = JSONArray_new();
 	int n = JSONArray_size(listeFilms);
-	int i;
-	double dist;
+	int i = 0;
+	double dist = -1.0;
 	int *triID=NULL;
 	double *triDist=NULL;
 	triID = (int*) malloc((n-1)*sizeof(int));
 	triDist = (double*) malloc((n-1)*sizeof(double));
 	if (triID == NULL || triDist == NULL) {
-		exit(0);
+		printf("Unable to malloc. (liste_recommandation)\n");
+		JSONObject_delete(triFilms);
+		if(triID != 0)
+		{
+			free(triID);
+		}
+		if(triDist != 0)
+		{
+			free(triDist);
+		}
+		return 0;
 	}
 
 	for (i=0;i<n-1;i++) { //initialisation de la liste des distances à 1
 		triDist[i]=1.0;
 	}
-
+	JSONObject_t tmp = 0;
+	int tmpid = 0;
+	String_t id_s = newStringFromCharStar("Id");
 	for (i=0;i<n;i++) {
 		if (i!=id) {
-			dist = distance_film(listeFilms, id,i);
+			tmp = JSONArray_get(listeFilms, i);
+			tmpid = JSONObject_intValueOf(tmp, id_s);
+			dist = distance_film(bdd, id,tmpid);
 			insert_tri(dist,i,triDist,triID,n);
 		}
 	}
+	fString(id_s);
 	free(triDist);
-	triFilms = tabToVect(triID,listeFilms,n);
+	triFilms = tabToVect(bdd, triID,listeFilms,n);
 	free(triID);
 	return triFilms;
 }
 
-JSONArray_t tabToVect(int *triID,JSONArray_t films,int n) {
+JSONArray_t tabToVect(BDD bdd, int *triID,JSONArray_t films,int n) {
 	JSONArray_t triFilms = JSONArray_new();
+	JSONObject_t film = 0;
 	int i=0;
 	for (i=0;i<n-1;i++) {
-		JSONArray_add(triFilms,JSONObject_getCopy(JSONArray_get(films,triID[i]-1)));
+		film = BDD_getFilmById(bdd, triID[i]/* - 1*/);
+		if(film != 0)
+		{
+			JSONArray_add(triFilms,JSONObject_getCopy(film));
+		}
 	}
 	return triFilms;
 }

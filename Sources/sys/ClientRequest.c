@@ -89,7 +89,7 @@ RequestAnswer clientRequestGetAnswer(int sock, RequestQuery query)
 						if(obj != 0)
 						{
 							#ifdef DEBUG
-							printf("Answer: %s\n", cString(JSONObject_asString(obj, 0)));
+							//printf("Answer: %s\n", cString(JSONObject_asString(obj, 0)));//A activer pour voir les réponses
 							#endif
 							int code = 0;
 							if(JSONObject_get(obj, autoString("Code")) != 0)

@@ -136,7 +136,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 				printf("\t- \"%s\"\n", cString(JSONObject_stringValueOf(tmp, autoString("Title"))));
 				++c;
 			}
-			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite.\n");
+			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite, \"quit\" / \"exit\" pour quitter.\n");
 			AutoString_t sel = StandardPrompt(MainMenu_choices);
 			if(sel != 0)
 			{
@@ -175,7 +175,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 					{
 						printf("Erreur interne: Le film demandé n'a pas été retrouvé.\n");
 					}
-					break;
+					//break;
 				}
 			}
 			else
@@ -188,6 +188,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 		{
 			clearTerminal();
 			printf("Fin des films à afficher.\n");
+			ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
 		}
 		JSONObject_delete(films);
 	}
@@ -195,8 +196,8 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 	{
 		clearTerminal();
 		printf("Aucun film à afficher.\n");
+		ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
 	}
-	ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
 	return ret;
 }
 
@@ -243,22 +244,80 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 		free(buf);
 		printf("\n\nRecommandés si vous aimez ce film:\n");
 		JSONArray_t reco = serverGetFilmRecommendation(connexion, id);
+		Vector_t MainMenu_choices = newVector();
+		addToVector(MainMenu_choices, newStringFromCharStar(""));
 		if(reco != 0)
 		{
-			c = 0;
+			c = 1;
 			size = JSONArray_size(reco);
-			while(c < size && c < 10)
+			JSONObject_t tmp = 0;
+			String_t str = 0;
+			while(c < size && c < 11)
 			{
-				printf("\t- %s\n", cString(JSONArray_stringValue(reco, c)));
+				tmp = JSONArray_get(reco, c);
+				printf("\t- %s ( %s )\n", cStringValueOf(tmp, "Title"), cStringValueOf(tmp, "Year"));
+				str = newStringFromString(JSONObject_stringValueOf(tmp, AS("Title")));
+				lowerString(str);
+				addToVector(MainMenu_choices, str);
 				++c;
 			}
-			JSONArray_delete(reco);
 		}
 		else
 		{
 			printf("Echec d'obtention des recommendations.\n");
 		}
 		JSONObject_delete(film);
+		printf("Entrez le nom d'un film pour accéder a sa fiche (ou début du nom), enter pour quitter.\n");
+		AutoString_t sel = StandardPrompt(MainMenu_choices);
+		if(sel != 0)
+		{
+			if(eq(sel, ""))
+			{
+
+			}
+			else if(reco != 0)
+			{
+				c = 1;
+				size = sizeOfVector(MainMenu_choices);
+				JSONObject_t tmp = 0;
+				int nid = 0;
+				bool found = false;
+				while(c < size)
+				{
+					if(sel == (String_t) getFromVector(MainMenu_choices, c))
+					{
+						found = true;
+						tmp = JSONArray_get(reco, c);
+						nid = JSONObject_intValueOf(tmp, AS("Id"));
+						printf("ID: %d\n", nid);
+						JSONArray_delete(reco);
+						freeVectorWithPtr(MainMenu_choices, freeVoidString);
+						ClientRunner_showFilm(connexion, nid);
+						break;
+					}
+					++c;
+				}
+				if(!found)
+				{
+					JSONArray_delete(reco);
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
+					printf("Film introuvable (erreur interne).\n");
+				}
+			}
+			else
+			{
+				JSONArray_delete(reco);
+				freeVectorWithPtr(MainMenu_choices, freeVoidString);
+				printf("Bug trouvé ! (erreur interne).\n");
+			}
+		}
+		else
+		{
+			ReadInputWithMsg(autoString("Appuyez sur enter pour continuer."));
+			freeVectorWithPtr(MainMenu_choices, freeVoidString);
+			JSONArray_delete(reco);
+			ClientRunner_showFilm(connexion, id);
+		}
 	}
 	else
 	{

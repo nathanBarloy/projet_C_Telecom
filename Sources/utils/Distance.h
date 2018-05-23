@@ -18,7 +18,7 @@ double distance_matrice(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre);
 int numero(JSONArray_t liste, JSONString_t genre);
 
 JSONArray_t liste_recommandation(BDD bdd, int id);
-JSONArray_t tabToVect(int *triID,JSONArray_t films,int n);
+JSONArray_t tabToVect(BDD bdd, int *triID,JSONArray_t films,int n);
 void insert_tri(double dist, int id, double *triDist, int *triID, int n);
 void decale(double dist, int id, double *triDist, int *triID, int n, int k);
 
