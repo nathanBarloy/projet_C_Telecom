@@ -63,8 +63,8 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
     // }
   }
   double resultat = numerateur/(sqrt(denominateur1)*sqrt(denominateur2));
-  //return 0.5 + resultat/2;
-  return resultat;
+  return 0.5 + resultat/2;
+  //return resultat;
 }
 
 // retourne la position du film d'id passé en paramètre s'il existe et renvoi -1 sinon
@@ -90,11 +90,14 @@ JSONArray_t all_distances(BDD bdd, int user_id)
   int i;
   for (i=0 ; i<users_size ; i++)
   {
-    JSONObject_t obj = JSONObject_new();
-    JSONObject_setInt(obj, autoString("Id"), JSONObject_intValueOf(JSONArray_get(users_bdd, i), autoString("Id")));
-    JSONObject_setDouble(obj, autoString("Sim"), distance_users(users_bdd, user_id, i));
-    JSONArray_add(list, obj);
-    //question sur les fuites mémoires de obj ???
+    if(i != user_id)
+    {
+      JSONObject_t obj = JSONObject_new();
+      JSONObject_setInt(obj, autoString("Id"), JSONObject_intValueOf(JSONArray_get(users_bdd, i), autoString("Id")));
+      JSONObject_setDouble(obj, autoString("Sim"), distance_users(users_bdd, user_id, i));
+      JSONArray_add(list, obj);
+      //question sur les fuites mémoires de obj ???
+    }
   }
   return list;
 }
