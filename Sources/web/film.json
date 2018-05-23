@@ -28,5 +28,6 @@
 		}
 	},
   ],
-  "styles" : ["theme.css"]
+  "styles" : ["theme.css"],
+  "scripts" : ["ba.js"]
 }

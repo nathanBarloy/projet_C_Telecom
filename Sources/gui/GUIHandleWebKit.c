@@ -225,7 +225,7 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	// Place the WebKitWebView in the GtkScrolledWindow
 	gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
 	gtk_container_add (GTK_CONTAINER (main_window), scrolled_window);
-
+	gtk_widget_set_size_request(main_window, 800, 600);
 	g_signal_connect (main_window, "delete_event", G_CALLBACK (clientQUIT), 0);
 	//Open a webpage
 	//webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view), /*"http://www.gnome.org"*//*"https://www.youtube.com/watch?v=Ugs9HASX4rA")*/);

@@ -13,10 +13,14 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     String_t finDiv = newStringFromCharStar("</div>");
 
     //récupération de objet JSON du film en question
-    JSONObject_t films = serverGetFilms(connexion);
-    int value_id = atoi(cString(id))-1;
-    JSONObject_t film = JSONArray_get(films, value_id);
-
+    //JSONObject_t films = serverGetFilms(connexion);
+    int value_id = atoi(cString(id))/*-1*/;
+    JSONObject_t film = serverGetFilmById(connexion, value_id);//JSONArray_get(films, value_id);
+	if(film == 0)
+	{
+		concatString(reponse, autoString("<h1>Film introuvable !</h1>"));
+		return reponse;
+	}
     tmp = newStringFromCharStar("<div class=\"block1\">");
     concatString(reponse, tmp);
     fString(tmp);
@@ -64,7 +68,25 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     concatString(reponse, tmp);
     fString(tmp);
     concatString(reponse, JSONObject_stringValueOf(film, AS("Description")));
-    tmp = newStringFromCharStar("</td></tr><tr><td class=\"box_body\" colspan=\"2\"><h2>Détails</h2></td></tr><tr><td>");
+    tmp = newStringFromCharStar("</td></tr></table>");
+    concatString(reponse, tmp);
+    fString(tmp);
+    //Youtube
+    //seconde box
+    tmp = newStringFromCharStar("<a href=\"\" onclick=\"return showBA();\" >Voir la bande annonce</a><div id=\"ba_hover\" class=\"ba_hover\"><div id=\"ba\" class=\"ba\"><h3>Bande-Annonce: <a href=\"\" onclick=\"return hideBA();\" >( X )</a></h3>");//style=\"text-align: center;\" //style=\"width: 800px;margin-left:auto;margin-right: auto;\"
+    concatString(reponse, tmp);
+    fString(tmp);
+    JSONObject_t ytPlayer = JSONObject_new();
+    JSONObject_set(ytPlayer, AS("width"), JSONString_new(autoString("800px")));
+    JSONObject_set(ytPlayer, AS("height"), JSONString_new(autoString("450px")));
+    JSONObject_set(ytPlayer, AS("link"), JSONString_new(JSONObject_stringValueOf(film, AS("Url"))));
+    tmp = HTMLYoutubePlayer(connexion, json, ytPlayer, params);
+    concatString(reponse, tmp);
+    fString(tmp);
+    concatString(reponse, finDiv);//fin ba
+    concatString(reponse, finDiv);//fin ba_hover
+    //Fin Youtube
+    tmp = newStringFromCharStar("<table><tr><td class=\"box_body\" colspan=\"2\"><h2>Détails</h2></td></tr><tr><td>");
     concatString(reponse, tmp);
     fString(tmp);
     tmp = newStringFromCharStar("<h3>Durée :</h3></td><td><h3>Genres :</h3></td></tr><tr><td>");
@@ -139,22 +161,38 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
     //fin block
     concatString(reponse, finDiv);*/
 
-    //seconde box
-    tmp = newStringFromCharStar("<div style=\"text-align: center;\"><h3>Bande-Annonce:</h3></div><div class=\"box2\" style=\"width: 800px;margin-left:auto;margin-right: auto;\">");
-    concatString(reponse, tmp);
-    fString(tmp);
-    JSONObject_t ytPlayer = JSONObject_new();
-    JSONObject_set(ytPlayer, AS("width"), JSONString_new(autoString("800px")));
-    JSONObject_set(ytPlayer, AS("height"), JSONString_new(autoString("450px")));
-    JSONObject_set(ytPlayer, AS("link"), JSONString_new(JSONObject_stringValueOf(film, AS("Url"))));
-    tmp = HTMLYoutubePlayer(connexion, json, ytPlayer, params);
-    concatString(reponse, tmp);
-    fString(tmp);
-    concatString(reponse, finDiv);
 
-	//Affichage des recommandations
+    //Affichage des recommandations
+	tmp = newStringFromCharStar("<h1>Recommandé si vous aimez ce film:</h1><div>");
+	concatString(reponse, tmp);
+	fString(tmp);
+	JSONArray_t reco = serverGetFilmRecommendation(connexion, value_id);
+	if(reco != 0)
+	{
+		size_t c = 1, size = JSONArray_size(reco);
+		String_t f = 0;
+		JSONObject_t tmpf = 0;
+		String_t id_s = newStringFromCharStar("Id");
+		while(c < size && c < 11)
+		{
+			tmpf = JSONArray_get(reco, c);
+			f = HTMLFilm(connexion, json, tmpf, params);
+			concatString(reponse, f);
+			fString(f);
+			++c;
+		}
+		fString(id_s);
+	}
+	else
+	{
+		tmp = newStringFromCharStar("Impossible d'obtenir les recommendations...\n");
+		concatString(reponse, tmp);
+		fString(tmp);
+	}
+	concatString(reponse, finDiv);//Fin de div des reco
+
 	//Fin d'affichage des recommendations
-    JSONObject_delete(films);
+    //JSONObject_delete(films);
     JSONObject_delete(img);
     JSONObject_delete(ytPlayer);
     fString(finDiv);
