@@ -209,6 +209,28 @@ void clientQUIT(GtkWidget* win, GdkEvent* ev, gpointer user_data)
 {
 	gtk_widget_destroy(win);
 }
+void clientGUIUserChangedContents(WebKitWebView *web_view, gpointer user_data)
+{
+	//printf("CONTENT CHANGED !\n");
+}
+void clientGUIPasteClipboard(WebKitWebView *web_view, gpointer user_data)
+{
+	printf("CLIPBOARD !\n");
+}
+bool clientGUINavigationPolicyDecisionRequested(WebKitWebView *web_view, WebKitWebFrame* frame, WebKitNetworkRequest* request, WebKitWebNavigationAction* navigation_action, WebKitWebPolicyDecision *policy_decision, gpointer user_data)
+{
+	//printf("POLICY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+	char* rq = (char*) webkit_network_request_get_uri(request);
+	if(rq[0] == 'f' && clientGUI_blockableRequest == 1)
+	{
+		webkit_web_policy_decision_ignore(policy_decision);
+	}
+	else
+	{
+		webkit_web_policy_decision_use(policy_decision);
+	}
+	return true;
+}
 void clientGUIStart(GtkApplication* app, gpointer user_data)
 {
 	Connexion_t connexion = (Connexion_t) (user_data);
@@ -232,6 +254,9 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	g_signal_connect(web_view, "resource-request-starting", G_CALLBACK(clientGUIRessourceRequestStarting), connexion);
 	g_signal_connect(web_view, "document-load-finished", G_CALLBACK(clientGUIDocumentLoadFinished), connexion);
 	g_signal_connect(web_view, "context-menu", G_CALLBACK(clientGUIContextMenu), connexion);
+	g_signal_connect(web_view, "user-changed-contents", G_CALLBACK(clientGUIUserChangedContents), connexion);
+	g_signal_connect(web_view, "paste-clipboard", G_CALLBACK(clientGUIPasteClipboard), connexion);
+	g_signal_connect(web_view, "navigation-policy-decision-requested", G_CALLBACK(clientGUINavigationPolicyDecisionRequested), connexion);
 	//String_t html = fileToString(autoString("web/init.html"));
 	webkit_web_view_load_string(WEBKIT_WEB_VIEW(web_view), "<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0;url=exec://init.json\" /></head><body>Loading...</body></html>", 0,0,"exec://wait");
 	// Show the result
