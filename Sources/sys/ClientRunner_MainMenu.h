@@ -7,4 +7,5 @@
 #include <stdio.h>
 #include "../utils/JSONShortcut.h"
 enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion);
+enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion);
 #endif

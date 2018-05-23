@@ -33,5 +33,23 @@
 	"Name": "TOMBRE",
 	"Password": "1234",
 	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "Nathan",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 3,
+	"Login": "nathan",
+	"Name": "BARLOY",
+	"Password": "ytreza",
+	"Preferences": {}	
 	}
 ]

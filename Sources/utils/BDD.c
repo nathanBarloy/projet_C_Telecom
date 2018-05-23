@@ -28,10 +28,18 @@ BDD BDD_load()
 	JSONObject_set(bdd, autoString("Sessions"), JSONObject_new());
 
 	//Users sample (pearson_correlation tests)
-	JSONArray_t users_sample = JSONParser_parseFile("data/users_sample.json");
-	JSONObject_set(bdd, autoString("Users_sample"), users_sample);
+	/*JSONArray_t users_sample = JSONParser_parseFile("data/users_sample.json");
+	JSONObject_set(bdd, autoString("Users_sample"), users_sample);*/
 
-
+	//Matrice des genres
+	JSONObject_t genres = JSONParser_parseFile("data/genres.json");
+	if(genres == 0)
+	{
+		genres = JSONObject_new();
+		JSONObject_set(genres, autoString("Liste"), JSONArray_new());
+		JSONObject_set(genres, autoString("Matrice"), JSONArray_new());
+	}
+	JSONObject_set(bdd, autoString("Genres"), genres);
 	//Distances entre 2 films
 	JSONObject_set(bdd, autoString("Distances"), JSONObject_new());
 	BDD s = BDD_new();
@@ -89,6 +97,9 @@ int BDD_save(BDD bdd)
 	sprintf(buf, "data/users_backup_%6d.json", JSONInt_get(backupNumber));
 	replace(buf, ' ', '0');
 	JSONParser_saveFile(BDD_Users(bk), buf);
+	sprintf(buf, "data/genres_backup_%6d.json", JSONInt_get(backupNumber));
+	replace(buf, ' ', '0');
+	JSONParser_saveFile(BDD_Genres(bk), buf);
 	backupNumber = 0;
 	backup = JSONObject_delete(backup);
 	BDD_free(bk);
@@ -96,6 +107,7 @@ int BDD_save(BDD bdd)
 	lock(bdd);
 	int r = JSONParser_saveFile(BDD_Films(bdd), "data/bd.json");
 	r = JSONParser_saveFile(BDD_Users(bdd),"data/users.json") && r;
+	r = JSONParser_saveFile(BDD_Genres(bdd),"data/genres.json") && r;
 	unlock(bdd);
 	return r;
 }
@@ -114,9 +126,13 @@ JSONObject_t BDD_getSid(BDD bdd, String_t sid)
 	unlock(bdd);
 	return 0;
 }
-JSONArray_t BDD_Users_sample(BDD bdd)
+/*JSONArray_t BDD_Users_sample(BDD bdd)
 {
 	return JSONObject_get(bdd->json, autoString("Users_sample"));
+}*/
+JSONArray_t BDD_Genres(BDD bdd)
+{
+	return JSONObject_get(bdd->json, autoString("Genres"));
 }
 int BDD_Users_maxId(BDD bdd)
 {
@@ -136,4 +152,19 @@ int BDD_Users_maxId(BDD bdd)
 		++c;
 	}
 	return max;
+}
+JSONObject_t BDD_getFilmById(BDD bdd, int id)
+{
+	JSONObject_t films = BDD_Films(bdd), tmp = 0;
+	size_t c = 0, size = JSONArray_size(films);
+	while(c < size)
+	{
+		tmp = JSONArray_get(films, c);
+		if(JSONObject_intValueOf(tmp, AS("Id")) == id)
+		{
+			return tmp;
+		}
+		++c;
+	}
+	return 0;
 }
