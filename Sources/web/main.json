@@ -32,10 +32,7 @@
 					}
 				}]
 			}
-		},
-		{
-			"file" : { "name" : "main.html"}
-		},
+		}
 	],
 	"styles" : ["theme.css"]
 }

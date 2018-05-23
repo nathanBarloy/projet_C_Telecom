@@ -15,5 +15,23 @@
 	"Name": "CRÔNE",
 	"Password": "azerty",
 	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "Johan",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 2,
+	"Login": "johan",
+	"Name": "TOMBRE",
+	"Password": "1234",
+	"Preferences": {}	
 	}
 ]

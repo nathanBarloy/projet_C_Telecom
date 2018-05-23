@@ -41,10 +41,14 @@ RequestAnswer clientRequest(Connexion_t connexion, RequestQuery query)
 			int flags = fcntl(sock, F_GETFL, 0);
 			fcntl(sock, F_SETFL, flags ^ O_NONBLOCK);
 		}
+		#ifdef DEBUG
 		printf("Connexion au serveur réussie.\n");
+		#endif
 		RequestAnswer rep = clientRequestGetAnswer(sock, query);
 		close(sock);
+		#ifdef DEBUG
 		printf("Connexion terminée.\n");
+		#endif
 		return rep;
 	}
 	else
@@ -84,11 +88,13 @@ RequestAnswer clientRequestGetAnswer(int sock, RequestQuery query)
 						obj = JSONParser_parseString(str);
 						if(obj != 0)
 						{
+							#ifdef DEBUG
 							printf("Answer: %s\n", cString(JSONObject_asString(obj, 0)));
+							#endif
 							int code = 0;
-							if(JSONObject_get(obj, autoString("Status")) != 0)
+							if(JSONObject_get(obj, autoString("Code")) != 0)
 							{
-								code = JSONObject_intValueOf(obj, autoString("Status"));
+								code = JSONObject_intValueOf(obj, autoString("Code"));
 							}
 							rep = newRequestAnswer(code, obj);
 						}
