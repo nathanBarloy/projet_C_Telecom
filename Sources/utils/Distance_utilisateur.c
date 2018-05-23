@@ -84,7 +84,7 @@ int get_position(JSONArray_t hr, int id) {
 //remarque, ici user_id ne correspond pas au réel ID de l'utilisateur mais de sa position dans la liste. A MODIFIER
 JSONArray_t all_distances(BDD bdd, int user_id)
 {
-  JSONArray_t users_bdd = BDD_Users_sample(bdd);
+  JSONArray_t users_bdd = BDD_Users(bdd);
   JSONArray_t list = JSONArray_new();
   int users_size = JSONArray_size(users_bdd);
   int i;
