@@ -172,7 +172,7 @@ JSONObject_t BDD_getUserById(BDD bdd, int id)
 	String_t id_s = newStringFromCharStar("Id");
 	while(c < size)
 	{
-		u = JSONArray_get(bdd, c);
+		u = JSONArray_get(users, c);
 		if(JSONObject_intValueOf(u, id_s) == id)
 		{
 			fString(id_s);
