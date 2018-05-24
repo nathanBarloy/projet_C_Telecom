@@ -8,7 +8,7 @@ import math
 
 # opening of the JSON file
 with open('../ReadBD/bd.json') as bd:
-    config = json.load(bd)
+	config = json.load(bd)
 
 csv_file = open("./ratings.csv")
 csv_reader = csv.reader(csv_file)
@@ -69,10 +69,10 @@ base_list.append([4369, "Fast and Furious"])
 
 rates = []
 for row in csv_reader:
-    for data in base_list:
-        if str(data[0]) == str(row[1]):
-            rates.append([row[0], row[1], row[2]])
-            break
+	for data in base_list:
+		if str(data[0]) == str(row[1]):
+			rates.append([row[0], row[1], row[2]])
+			break
 
 print("on obtient " + str(len(rates)) + " notes")
 
@@ -84,13 +84,14 @@ for bl in base_list:
 		if bl[1] == config[i]["Title"]:
 			id_movies_ass.append([bl[0], config[i]["Id"]])
 			break
+
 print("Tableau des associations contient : " + str(len(id_movies_ass)) + " valeurs")
 
 
 # occurences de tous les users dans l'ordre d'apparition
 list_users = []
 for a in rates:
-    list_users.append(a[0])
+	list_users.append(a[0])
 
 #obtenir nombre utilisateurs différents
 users_unique = list(set(list_users))
@@ -100,39 +101,40 @@ print("Il y a " + str(len(users_unique)) + " utilisateurs différents")
 #initialisation
 final = []
 for b in users_unique:
-    final.append([b,[]])
+	final.append([b,[]])
 
 #création de la liste avec deux attributs : l'id utilisateur et une liste des combinaisons id film + note
 for c in rates:
-    for d in range(0, len(final)):
-        if str(c[0]) == str(final[d][0]):
-            final[d][1].append([c[1],c[2]])
-            break
-
-
+	for d in range(0, len(final)):
+		if str(c[0]) == str(final[d][0]):
+			final[d][1].append([c[1],c[2]])
+			break
 
 #ecriture du JSON
 p = 1
 correctId = 0
 dest.write("[\n")
 for f in final:
-    dest.write("{\n")
-    dest.write("\"Id\": " + str(p) + ",\n")
-    dest.write("\"History\":\n")
-    dest.write("    {\n")
-    dest.write("    \"Rates\":\n")
-    dest.write("    [\n")
-    for g in f[1]:
-        for id in id_movies_ass:
-            if id[0] == g[0]:
-                correctId = id[1]
-
-        dest.write("        {\n")
-        dest.write("        \"Id\": " + str(correctId) + ",\n")
-        dest.write("        \"Rate\": " + str(int(math.trunc(float(g[1])))) + ",\n")
-        dest.write("        },\n")
-    dest.write("    ]\n")
-    dest.write("    }\n")
-    dest.write("},\n")
-    p = p+1
+	dest.write("{\n")
+	dest.write("\"Id\": " + str(p) + ",\n")
+	dest.write("\"Name\": \"name" + str(p) + "\",\n")
+	dest.write("\"FirstName\": \"firstname" + str(p) + "\",\n")
+	dest.write("\"Login\": \"login" + str(p) + "\",\n")
+	dest.write("\"Password\": \"password" + str(p) + "\",\n")
+	dest.write("\"History\":\n")
+	dest.write("    {\n")
+	dest.write("    \"Rates\":\n")
+	dest.write("    [\n")
+	for g in f[1]:
+		for id in id_movies_ass:
+			if str(id[0]) == str(g[0]):
+				correctId = id[1]
+		dest.write("        {\n")
+		dest.write("        \"Id\": " + str(correctId) + ",\n")
+		dest.write("        \"Rate\": " + str(int(math.trunc(float(g[1])))) + ",\n")
+		dest.write("        },\n")
+	dest.write("    ]\n")
+	dest.write("    }\n")
+	dest.write("},\n")
+	p = p+1
 dest.write("]\n")
