@@ -25,4 +25,6 @@ JSONArray_t BDD_Films(BDD bdd);//Récupère la liste des films depuis la BDD
 JSONObject_t BDD_getSid(BDD bdd, String_t sid);//Récupère la session associée a un SID.
 int BDD_Users_maxId(BDD bdd);//Renvoie l'ID maximal des utilisateurs
 JSONObject_t BDD_getFilmById(BDD bdd, int id);
+JSONObject_t BDD_getUserById(BDD bdd, int id);
+JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login);
 #endif

@@ -168,3 +168,39 @@ JSONObject_t BDD_getFilmById(BDD bdd, int id)
 	}
 	return 0;
 }
+JSONObject_t BDD_getUserById(BDD bdd, int id)
+{
+	JSONArray_t users = BDD_Users(bdd), u = 0;
+	size_t c = 0, size = JSONArray_size(users);
+	String_t id_s = newStringFromCharStar("Id");
+	while(c < size)
+	{
+		u = JSONArray_get(bdd, c);
+		if(JSONObject_intValueOf(u, id_s) == id)
+		{
+			fString(id_s);
+			return u;
+		}
+		++c;
+	}
+	fString(id_s);
+	return 0;
+}
+JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login)
+{
+	JSONArray_t users = BDD_Users(bdd), u = 0;
+	size_t c = 0, size = JSONArray_size(users);
+	String_t login_s = newStringFromCharStar("Login");
+	while(c < size)
+	{
+		u = JSONArray_get(bdd, c);
+		if(equalsString(JSONObject_stringValueOf(u, login_s), login))
+		{
+			fString(login_s);
+			return u;
+		}
+		++c;
+	}
+	fString(login_s);
+	return 0;
+}
