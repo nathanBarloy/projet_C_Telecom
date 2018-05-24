@@ -51,7 +51,7 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 	if(ret != 0)
 	{
 		JSONString_t sid_s = JSONObject_getString(request->obj, autoString("Sid"));
-		printf("Sid: %s\n", (sid_s != 0 ? cString(JSONString_get(sid_s))))
+		printf("Sid: %s\n", (sid_s != 0) ? cString(JSONString_get(sid_s)) : "(null)");
 		if(sid_s != 0)//Si la requête contient bien un champ Sid
 		{
 			JSONObject_t sid = BDD_getSessionById(client->bdd, JSONString_get(sid_s));
