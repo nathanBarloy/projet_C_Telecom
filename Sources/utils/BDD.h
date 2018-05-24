@@ -22,9 +22,10 @@ JSONArray_t BDD_Users(BDD bdd);//Récupère la liste des utilisateurs depuis la 
 JSONArray_t BDD_Users_sample(BDD bdd);
 JSONArray_t BDD_Genres(BDD bdd);//Récupère la liste des genres depuis la BDD
 JSONArray_t BDD_Films(BDD bdd);//Récupère la liste des films depuis la BDD
-JSONObject_t BDD_getSid(BDD bdd, String_t sid);//Récupère la session associée a un SID.
+JSONArray_t BDD_Sessions(BDD bdd);
 int BDD_Users_maxId(BDD bdd);//Renvoie l'ID maximal des utilisateurs
 JSONObject_t BDD_getFilmById(BDD bdd, int id);
 JSONObject_t BDD_getUserById(BDD bdd, int id);
+JSONObject_t BDD_getSessionById(BDD bdd, String_t sid);
 JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login);
 #endif

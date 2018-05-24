@@ -25,7 +25,7 @@ BDD BDD_load()
 	JSONObject_set(bdd, autoString("Users"), users);
 
 	//Sessions
-	JSONObject_set(bdd, autoString("Sessions"), JSONObject_new());
+	JSONObject_set(bdd, autoString("Sessions"), JSONArray_new());
 
 	//Users sample (pearson_correlation tests)
 	JSONArray_t users_sample = JSONParser_parseFile("data/users_sample_backup.json");
@@ -119,12 +119,9 @@ JSONArray_t BDD_Films(BDD bdd)
 {
 	return JSONObject_get(bdd->json, autoString("Films"));
 }
-JSONObject_t BDD_getSid(BDD bdd, String_t sid)
+JSONArray_t BDD_Sessions(BDD bdd)
 {
-	lock(bdd);
-	JSONObject_t session = JSONObject_get(bdd->json, sid);
-	unlock(bdd);
-	return 0;
+	return JSONObject_get(bdd->json, autoString("Sessions"));
 }
 JSONArray_t BDD_Users_sample(BDD bdd)
 {
@@ -186,6 +183,24 @@ JSONObject_t BDD_getUserById(BDD bdd, int id)
 	fString(id_s);
 	return 0;
 }
+JSONObject_t BDD_getSessionById(BDD bdd, String_t sid)
+{
+	JSONArray_t users = BDD_Sessions(bdd), u = 0;
+	size_t c = 0, size = JSONArray_size(users);
+	String_t id_s = newStringFromCharStar("SessionId");
+	while(c < size)
+	{
+		u = JSONArray_get(users, c);
+		if(equalsString(JSONObject_stringValueOf(u, id_s), sid))
+		{
+			fString(id_s);
+			return u;
+		}
+		++c;
+	}
+	fString(id_s);
+	return 0;
+}
 JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login)
 {
 	JSONArray_t users = BDD_Users(bdd), u = 0;
@@ -193,7 +208,7 @@ JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login)
 	String_t login_s = newStringFromCharStar("Login");
 	while(c < size)
 	{
-		u = JSONArray_get(bdd, c);
+		u = JSONArray_get(users, c);
 		if(equalsString(JSONObject_stringValueOf(u, login_s), login))
 		{
 			fString(login_s);
