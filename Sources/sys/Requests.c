@@ -180,11 +180,16 @@ RequestAnswer ServerRequest_login(Client client, RequestQuery request)
 					JSONInt_t i = JSONInt_new(0);
 					String_t sid = newString();
 					size_t c = 0;
-					while(c < 30)
+					while(sizeOfString(sid) == 0 || BDD_getSessionById(client->bdd, sid) != 0)
 					{
-						JSONInt_set(i, rand() % 10);
-						concatString(sid, JSONInt_asString(i, 0));
-						++c;
+						emptyString(sid);
+						c = 0;
+						while(c < 30)
+						{
+							JSONInt_set(i, rand() % 10);
+							concatString(sid, JSONInt_asString(i, 0));
+							++c;
+						}
 					}
 					JSONInt_delete(i);
 					JSONObject_set(sess, AS("SessionId"), JSONString_new(sid));

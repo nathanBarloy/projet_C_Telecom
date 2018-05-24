@@ -1,0 +1,32 @@
+{
+	"title" : "Connexion à un compte utilisateur",
+	"url" : "exec://login.json",
+	"body" : [
+		{
+			"function":
+			{
+				"name" : "menuBar"
+			}
+		},
+		{
+			"function":
+			{
+				"name" : "menuBar2"
+			}
+		},
+		{
+			"tag" :
+			{
+				"name" : "div",
+				"attributes" : [{"name" : "class", "value": "main"}],
+				"childs" : [{
+					"function" :
+					{
+						"name" : "menuLogin"
+					}
+				}]
+			}
+		}
+	],
+	"styles" : ["theme.css"]
+}

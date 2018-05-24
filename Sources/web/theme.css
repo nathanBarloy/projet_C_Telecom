@@ -207,3 +207,22 @@ h3
 	display: none;
 	z-index: 10;
 }
+
+
+.ctr
+{
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	padding: 0px;
+	text-align: center;
+}
+
+.ctr2
+{
+	width: 400px;
+	height: 80px;
+	margin: auto;
+	padding: 0px;
+	text-align: center;
+}

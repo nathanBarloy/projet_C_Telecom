@@ -51,6 +51,7 @@ enum ClientRunnerMode ClientRunner_Login(Connexion_t connexion)
 		{
 			printf("Echec de connexion au serveur.\n");
 		}
+		ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 
 	}
 	return MAIN_MENU;
@@ -79,6 +80,7 @@ enum ClientRunnerMode ClientRunner_Logout(Connexion_t connexion)
 		{
 			printf("Deconnexion impossible: Echec de connexion.\n");
 		}
+		ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 	}
 	return MAIN_MENU;
 }
