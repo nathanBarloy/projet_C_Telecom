@@ -4,6 +4,7 @@ import os
 from PIL import ImageFile
 import simplejson as json
 import csv
+import math
 
 # opening of the JSON file
 with open('../ReadBD/bd.json') as bd:
@@ -13,6 +14,7 @@ csv_file = open("./ratings.csv")
 csv_reader = csv.reader(csv_file)
 
 dest = open("users_rates.json", "w")
+
 
 
 # Problème entre titres français et anglais variants : plus simple à la main
@@ -74,13 +76,25 @@ for row in csv_reader:
 
 print("on obtient " + str(len(rates)) + " notes")
 
-#obtenir nombre utilisateurs différents
+
+# association des titres avec les bons id
+id_movies_ass = []
+for bl in base_list:
+	for i in range(0,len(config)):
+		if bl[1] == config[i]["Title"]:
+			id_movies_ass.append([bl[0], config[i]["Id"]])
+			break
+print("Tableau des associations contient : " + str(len(id_movies_ass)) + " valeurs")
+
+
+# occurences de tous les users dans l'ordre d'apparition
 list_users = []
 for a in rates:
     list_users.append(a[0])
 
+#obtenir nombre utilisateurs différents
 users_unique = list(set(list_users))
-print(len(users_unique))
+print("Il y a " + str(len(users_unique)) + " utilisateurs différents")
 
 
 #initialisation
@@ -88,28 +102,37 @@ final = []
 for b in users_unique:
     final.append([b,[]])
 
+#création de la liste avec deux attributs : l'id utilisateur et une liste des combinaisons id film + note
 for c in rates:
     for d in range(0, len(final)):
         if str(c[0]) == str(final[d][0]):
             final[d][1].append([c[1],c[2]])
             break
 
-print("toto : " + str(final[1][1]))
+
+
 #ecriture du JSON
+p = 1
+correctId = 0
 dest.write("[\n")
 for f in final:
     dest.write("{\n")
-    dest.write("\"Id\": " + f[0] + ",\n")
+    dest.write("\"Id\": " + str(p) + ",\n")
     dest.write("\"History\":\n")
     dest.write("    {\n")
     dest.write("    \"Rates\":\n")
     dest.write("    [\n")
     for g in f[1]:
+        for id in id_movies_ass:
+            if id[0] == g[0]:
+                correctId = id[1]
+
         dest.write("        {\n")
-        dest.write("        \"Id\": " + g[0] + ",\n")
-        dest.write("        \"Rate\": " + g[1] + ",\n")
+        dest.write("        \"Id\": " + str(correctId) + ",\n")
+        dest.write("        \"Rate\": " + str(int(math.trunc(float(g[1])))) + ",\n")
         dest.write("        },\n")
     dest.write("    ]\n")
     dest.write("    }\n")
     dest.write("},\n")
+    p = p+1
 dest.write("]\n")
