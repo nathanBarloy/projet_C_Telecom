@@ -195,6 +195,7 @@ void clientGUIDocumentLoadFinished(WebKitWebView* web_view, WebKitWebFrame* web_
 	printf("View: %p\n", web_view);
 	printf("Frame: %p\n", web_frame);
 	#endif
+	gtk_window_set_title(GTK_WINDOW(gtk_widget_get_toplevel(gtk_widget_get_toplevel(GTK_WIDGET(web_view)))),webkit_web_view_get_title(WEBKIT_WEB_VIEW(web_view)));
 }
 gboolean clientGUIContextMenu(WebKitWebView *web_view, GtkWidget *default_menu, WebKitHitTestResult *hit_test_result, gboolean triggered_with_keyboard, gpointer user_data)
 {

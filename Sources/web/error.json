@@ -1,5 +1,5 @@
 {
-	"title" : "Initialization...",
+	"title" : "Erreur de chargement de l'interface",
 	"url" : "exec://error.json",
 	"body" : [{"file" : {"name" : "error.html"}}],
 	"head" : [

@@ -1,6 +1,6 @@
 {
-	"title" : "Menu principal",
-	"url" : "exec://main.json",
+	"title" : "Profil utilisateur",
+	"url" : "exec://profile.json",
 	"body" : [
 		{
 			"function":
@@ -15,12 +15,6 @@
 			}
 		},
 		{
-			"function" :
-			{
-				"name" : "checkConnected"
-			}
-		},
-		{
 			"tag" :
 			{
 				"name" : "div",
@@ -28,7 +22,7 @@
 				"childs" : [{
 					"function" :
 					{
-						"name" : "menuContent"
+						"name" : "profile"
 					}
 				}]
 			}
