@@ -16,6 +16,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getFilmById"), (void*) ServerRequest_getFilmById);
 	setMap(r, autoString("getDistanceBetween"), (void*) ServerRequest_getDistanceBetween);
 	setMap(r, autoString("getFilmRecommendation"), (void*) ServerRequest_getFilmRecommendation);
+	setMap(r, autoString("login"), (void*) ServerRequest_login);
 	//Fin des associations
 	return r;
 }
@@ -51,11 +52,11 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 		JSONString_t sid_s = JSONObject_getString(request->obj, autoString("Sid"));
 		if(sid_s != 0)//Si la requête contient bien un champ Sid
 		{
-			JSONObject_t sid = BDD_getSid(client->bdd, sid_s);
+			JSONObject_t sid = BDD_getSessionById(client->bdd, sid_s);
 			if(sid != 0)//Si ce champ correspond a une session, l'utilisateur est connecté
 			{
 				lock(client->bdd);
-				request->sid = JSONObject_stringValueOf(sid, autoString("sid"));
+				request->sid = JSONObject_stringValueOf(sid, autoString("SessionId"));
 				unlock(client->bdd);
 				request->connected = 1;
 				request->session = sid;
@@ -157,6 +158,57 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 		}
 	}
 	printf("Register: Invalid.\n");
+	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
+}
+RequestAnswer ServerRequest_login(Client client, RequestQuery request)
+{
+	printf("Login...\n");
+	RequestQuery(request, user);
+	if(JSONObject_getType(user) == OBJECT)
+	{
+		if(JSONObject_get(user, AS("Login")) != 0 && JSONObject_get(user, AS("Password")) != 0)
+		{
+			AutoString_t login = JSONObject_stringValueOf(user, AS("Login")), password = JSONObject_stringValueOf(user, AS("Password"));
+			JSONObject_t u = BDD_getUserByLogin(client->bdd, login);
+			if(u != 0)
+			{
+				if(equalsString(JSONObject_stringValueOf(u, AS("Password")), password))
+				{
+					JSONObject_t sess = JSONObject_new();
+					JSONInt_t i = JSONInt_new(0);
+					String_t sid = newString();
+					size_t c = 0;
+					while(c < 30)
+					{
+						JSONInt_set(i, rand() % 10);
+						concatString(sid, JSONInt_asString(i, 0));
+						++c;
+					}
+					JSONInt_delete(i);
+					JSONObject_set(sess, AS("SessionId"), JSONString_new(sid));
+					fString(sid);
+					JSONObject_set(sess, AS("UserId"), JSONObject_getCopy(JSONObject_get(u, AS("Id"))));
+					JSONArray_add(BDD_Sessions(client->bdd), sess);
+					printf("NewSession:\n%s\n", cString(JSONObject_asString(sess, 0)));
+					JSONObject_t s = JSONObject_getCopy(sess);
+					JSONObject_set(s, AS("User"), JSONObject_getCopy(u));
+					return RequestAnswerOk(request, s);
+				}
+				else
+				{
+					return RequestAnswerError(request, 0, 5, AS("Mot de passe invalide."));
+				}
+			}
+			else
+			{
+				return RequestAnswerError(request, 0, 5, AS("Login inconnu."));
+			}
+		}
+		else
+		{
+			return RequestAnswerError(request, 0, 5, AS("Format de données invalide."));
+		}
+	}
 	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
