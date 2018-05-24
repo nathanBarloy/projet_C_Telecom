@@ -10,6 +10,7 @@
 #include "ClientRunner_UserSession.h"
 #include <unistd.h>
 #include <signal.h>
+#include "ClientRequests.h"
 int clientRunner(Connexion_t connexion)
 {
 	//Signaux
@@ -40,6 +41,11 @@ int clientRunner(Connexion_t connexion)
 			sleep(1);
 			mode = MAIN_MENU;
 		}
+	}
+	RequestAnswer a = Client_Logout(connexion);
+	if(a != 0)
+	{
+		freeRequestAnswer(a);
 	}
 	return 0;
 }

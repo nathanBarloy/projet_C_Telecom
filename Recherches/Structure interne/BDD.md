@@ -247,3 +247,13 @@ Et il peut choisir j'aime ou j'aime pas. (Car contradictoirement, certains utili
 - Id correspond a l'id du film
 - Rate correspond a la note entre 0 et 5
 - Liked correspond a 0 = non choisi, 1 = aimé, 2 = pas aimé
+
+
+### Session
+Une session est définie selon le schéma suivant:
+```
+{
+	"SessionId": "",
+	"UserId": 0,
+}
+```

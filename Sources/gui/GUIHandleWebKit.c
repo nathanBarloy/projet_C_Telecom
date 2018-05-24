@@ -13,6 +13,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "../sys/ClientRequests.h"
 bool clientGUI_blockableRequest = 1;
 bool clientGUI_firstRequest = 1;
 void clientGUIHeadGet(const char* name, const char* value, gpointer user_data)
@@ -208,6 +209,12 @@ gboolean clientGUIContextMenu(WebKitWebView *web_view, GtkWidget *default_menu, 
 void clientQUIT(GtkWidget* win, GdkEvent* ev, gpointer user_data)
 {
 	gtk_widget_destroy(win);
+	Connexion_t connexion = (Connexion_t) user_data;
+	RequestAnswer a = Client_Logout(connexion);
+	if(a != 0)
+	{
+		freeRequestAnswer(a);
+	}
 }
 void clientGUIUserChangedContents(WebKitWebView *web_view, gpointer user_data)
 {
@@ -248,7 +255,7 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
 	gtk_container_add (GTK_CONTAINER (main_window), scrolled_window);
 	gtk_widget_set_size_request(main_window, 800, 600);
-	g_signal_connect (main_window, "delete_event", G_CALLBACK (clientQUIT), 0);
+	g_signal_connect (main_window, "delete_event", G_CALLBACK (clientQUIT), connexion);
 	//Open a webpage
 	//webkit_web_view_load_uri(WEBKIT_WEB_VIEW(web_view), /*"http://www.gnome.org"*//*"https://www.youtube.com/watch?v=Ugs9HASX4rA")*/);
 	g_signal_connect(web_view, "resource-request-starting", G_CALLBACK(clientGUIRessourceRequestStarting), connexion);

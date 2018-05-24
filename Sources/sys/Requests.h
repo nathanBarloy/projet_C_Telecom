@@ -26,6 +26,7 @@ RequestAnswer ServerRequest_getFilmById(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getDistanceBetween(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery request);
 RequestAnswer ServerRequest_login(Client client, RequestQuery request);
+RequestAnswer ServerRequest_logout(Client client, RequestQuery request);
 
 //MACROS DE FACILITES
 

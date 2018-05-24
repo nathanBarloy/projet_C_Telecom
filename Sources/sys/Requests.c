@@ -17,6 +17,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getDistanceBetween"), (void*) ServerRequest_getDistanceBetween);
 	setMap(r, autoString("getFilmRecommendation"), (void*) ServerRequest_getFilmRecommendation);
 	setMap(r, autoString("login"), (void*) ServerRequest_login);
+	setMap(r, autoString("logout"), (void*) ServerRequest_logout);
 	//Fin des associations
 	return r;
 }
@@ -50,13 +51,14 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 	if(ret != 0)
 	{
 		JSONString_t sid_s = JSONObject_getString(request->obj, autoString("Sid"));
+		printf("Sid: %s\n", (sid_s != 0 ? cString(JSONString_get(sid_s))))
 		if(sid_s != 0)//Si la requête contient bien un champ Sid
 		{
-			JSONObject_t sid = BDD_getSessionById(client->bdd, sid_s);
+			JSONObject_t sid = BDD_getSessionById(client->bdd, JSONString_get(sid_s));
 			if(sid != 0)//Si ce champ correspond a une session, l'utilisateur est connecté
 			{
 				lock(client->bdd);
-				request->sid = JSONObject_stringValueOf(sid, autoString("SessionId"));
+				request->sid = JSONObject_stringValue(sid_s);
 				unlock(client->bdd);
 				request->connected = 1;
 				request->session = sid;
@@ -210,6 +212,27 @@ RequestAnswer ServerRequest_login(Client client, RequestQuery request)
 		}
 	}
 	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
+}
+RequestAnswer ServerRequest_logout(Client client, RequestQuery request)
+{
+	printf("Logout...%s\n", (request->sid != 0 ? cString(request->sid) : ""));
+	if(request->sid != 0)
+	{
+		JSONObject_t s = BDD_getSessionById(client->bdd, request->sid);
+		if(s != 0)
+		{
+			printf("%s\n", cString(JSONObject_asString(s, 0)));
+			JSONObject_delete(s);
+			printf("Logout ok.\n");
+			return RequestAnswerOk(request, 0);
+		}
+		printf("Error, sid is unknown.\n");
+	}
+	else
+	{
+		printf("Error, sid is null.\n");
+	}
+	return RequestAnswerError(request, 0, 5, AS("Session innexistante."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 {

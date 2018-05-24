@@ -5,6 +5,8 @@
 #include "../utils/Connexion.h"
 void prints(Connexion_t connexion, String_t message);
 RequestAnswer Client_RegisterUser(Connexion_t connexion, JSONObject_t user);
+RequestAnswer Client_Login(Connexion_t connexion, JSONObject_t data);
+RequestAnswer Client_Logout(Connexion_t connexion);
 bool serverExists(Connexion_t connexion);
 JSONObject_t serverGetFilms(Connexion_t connexion);
 JSONObject_t serverGetUsers(Connexion_t connexion);

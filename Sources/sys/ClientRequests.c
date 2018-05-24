@@ -23,6 +23,20 @@ RequestAnswer Client_RegisterUser(Connexion_t connexion, JSONObject_t user)
 	freeRequestQuery(q);
 	return a;
 }
+RequestAnswer Client_Login(Connexion_t connexion, JSONObject_t data)
+{
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("login"), data));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	return a;
+}
+RequestAnswer Client_Logout(Connexion_t connexion)
+{
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("logout"), JSONObject_new()));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	return a;
+}
 bool serverExists(Connexion_t connexion)
 {
 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("exists"), JSONObject_new()));

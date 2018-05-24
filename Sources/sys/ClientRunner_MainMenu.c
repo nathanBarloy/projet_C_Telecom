@@ -49,7 +49,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 	printf("- Quitter\n");
 
 	//Selection
-	AutoString_t sel = StandardPrompt(MainMenu_choices);
+	String_t sel = StandardPrompt(MainMenu_choices);
 	enum ClientRunnerMode ret = MAIN_MENU;
 	if(sel != 0)
 	{
@@ -137,7 +137,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 				++c;
 			}
 			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite, \"quit\" / \"exit\" pour quitter.\n");
-			AutoString_t sel = StandardPrompt(MainMenu_choices);
+			String_t sel = StandardPrompt(MainMenu_choices);
 			if(sel != 0)
 			{
 				if(eq(sel, ""))
@@ -268,7 +268,7 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 		}
 		JSONObject_delete(film);
 		printf("Entrez le nom d'un film pour accéder a sa fiche (ou début du nom), enter pour quitter.\n");
-		AutoString_t sel = StandardPrompt(MainMenu_choices);
+		String_t sel = StandardPrompt(MainMenu_choices);
 		if(sel != 0)
 		{
 			if(eq(sel, ""))

@@ -4,10 +4,12 @@
 #include "utils/Distance.h"
 #include "utils/Distance_utilisateur.h"
 #include "sys/ServerRunner.h"
+#include <time.h>
 
 int main()
 {
 	printf("Démarre du programme...\nChargement de la base de données...\n");
+	srand(time(0));
 	BDD bdd = BDD_load();
 	//printf("%s\n", cString(JSONObject_asString(bdd->json, 0)));//Afficher la BDD lue
 	/*printf("Sauvegarde...");//Test
