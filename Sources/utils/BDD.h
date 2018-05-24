@@ -18,8 +18,7 @@ BDD BDD_load();//Charge la bdd depuis json/bdd.json
 int BDD_save(BDD bdd);//Sauvegarde la BDD dans json/bdd.json en créant un backup simple
 BDD BDD_new();//Instancie un nouvel objet de BDD
 BDD BDD_free(BDD bdd);
-JSONArray_t BDD_Users(BDD bdd);//Récupère la liste des utilisateurs depuis la BDD
-JSONArray_t BDD_Users_sample(BDD bdd);
+JSONArray_t BDD_Users(BDD bdd);//Récupère la liste des utilisateurs depuis la BD
 JSONArray_t BDD_Genres(BDD bdd);//Récupère la liste des genres depuis la BDD
 JSONArray_t BDD_Films(BDD bdd);//Récupère la liste des films depuis la BDD
 JSONArray_t BDD_Sessions(BDD bdd);

@@ -27,10 +27,6 @@ BDD BDD_load()
 	//Sessions
 	JSONObject_set(bdd, autoString("Sessions"), JSONArray_new());
 
-	//Users sample (pearson_correlation tests)
-	JSONArray_t users_sample = JSONParser_parseFile("data/users_sample_backup.json");
-	JSONObject_set(bdd, autoString("Users_sample"), users_sample);
-
 	//Matrice des genres
 	JSONObject_t genres = JSONParser_parseFile("data/genres.json");
 	if(genres == 0)
@@ -122,10 +118,6 @@ JSONArray_t BDD_Films(BDD bdd)
 JSONArray_t BDD_Sessions(BDD bdd)
 {
 	return JSONObject_get(bdd->json, autoString("Sessions"));
-}
-JSONArray_t BDD_Users_sample(BDD bdd)
-{
-	return JSONObject_get(bdd->json, autoString("Users_sample"));
 }
 JSONArray_t BDD_Genres(BDD bdd)
 {
