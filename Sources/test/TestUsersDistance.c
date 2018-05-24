@@ -4,17 +4,13 @@
 #include "../utils/Distance_utilisateur.h"
 
 int main() {
-  BDD bdd = BDD_load();
-  JSONArray_t array_distance = all_distances(bdd,0);
-  BDD_free(bdd);
-  int i;
-  for(i=0 ; i<JSONArray_size(array_distance) ; i++)
-  {
-    printf("Id : %d\n", JSONObject_intValueOf(JSONArray_get(array_distance, i), autoString("Id")));
-    printf("Similarité : %f\n", JSONObject_doubleValueOf(JSONArray_get(array_distance, i), autoString("Sim")));
-  }
-  printf("%s\n",cString(JSONArray_asString(array_distance,0)));
+	BDD bdd = BDD_load();
+	//printf("%s\n",cString(JSONArray_asString(BDD_Users(bdd),0)));
+	JSONArray_t array_distance = all_distances(bdd,7);
+	// double distance = distance_users(bdd, 1, 2);
+	//printf("%f\n", distance);
+	printf("%s\n",cString(JSONArray_asString(array_distance,0)));
+	BDD_free(bdd);
 	freeAutoString();
-  printf("FIN\n");
-  return 0;
+	return 0;
 }
