@@ -7,7 +7,7 @@
 #include "PthreadShortcut.h"
 struct BDD
 {
-	JSONObject_t* json;
+	JSONObject_t json;
 	pthread_mutex_t mutex;
 	Vector_t clients;
 	Map_t requests;//Défini les liens vers les requêtes

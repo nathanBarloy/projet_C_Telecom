@@ -11,18 +11,27 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	{
 		JSONObject_t films = serverGetFilms(connexion);
 		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
-		size_t c = 0, size = JSONArray_size(films);
-		concatString(r, tmp);
-		fString(tmp);
-		while(c < size)
+		if(films != 0)
 		{
-			tmp = HTMLFilm(connexion, json, JSONArray_get(films, c), params);
+			size_t c = 0, size = JSONArray_size(films);
 			concatString(r, tmp);
 			fString(tmp);
-			++c;
-		}
+			while(c < size)
+			{
+				tmp = HTMLFilm(connexion, json, JSONArray_get(films, c), params);
+				concatString(r, tmp);
+				fString(tmp);
+				++c;
+			}
 
-		JSONObject_delete(films);
+			JSONObject_delete(films);
+		}
+		else
+		{
+			tmp = newStringFromCharStar("Impossible de récupérer les films depuis le serveur... la connexion à échoué.");
+			concatString(r, tmp);
+			fString(tmp);
+		}
 		tmp = newStringFromCharStar("</div>");
 		concatString(r, tmp);
 		fString(tmp);

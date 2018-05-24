@@ -20,6 +20,7 @@ String_t getParam(String_t name, Vector_t params);
 //HTMLGeneratorConnect
 String_t HTMLConnectToServer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 String_t HTMLCheckConnected(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
+String_t HTMLMenuLogin(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 
 //HTMLMenuBar
 String_t HTMLMenuBar(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);

@@ -1,11 +1,16 @@
 #include "HTMLGenerator.h"
+#include "JSONShortcut.h"
 String_t HTMLMenuBar(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t r = newStringFromCharStar("<div class=\"menubar\"><a href=\"exec://main.json\" title=\"Menu principal\" >Accueil</a> - "), end = newStringFromCharStar("</div>");
 	String_t u;
 	if(connexion->user != 0)
 	{
-		u = newStringFromCharStar("<a href=\"exec://profile.json\" title=\"Profil utilisateur\" >Profil</a> - <a href=\"exec://logout.json\" title=\"Déconnexion\" >Déconnexion</a>");
+		u = newStringFromCharStar("<a href=\"exec://profile.json\" title=\"Profil utilisateur\" >");
+		String_t u2 = newStringFromCharStar("</a> - <a href=\"exec://login.json\" title=\"Déconnexion\" >Déconnexion</a>");
+		concatString(u, JSONObject_stringValueOf(connexion->user, AS("Login")));
+		concatString(u, u2);
+		fString(u2);
 
 	}
 	else
@@ -25,7 +30,7 @@ String_t HTMLMenuBar2(Connexion_t connexion, JSONObject_t json, JSONObject_t par
 	String_t u;
 	if(connexion->user != 0)
 	{
-		u = newStringFromCharStar("<a href=\"exec://main.json?selected=recommended\" title=\"Recommandé pour vous\" >Recommandé pour vous</a>");
+		u = newStringFromCharStar("<a href=\"exec://main.json?selected=recommended\" title=\"Recommandé pour vous\" >Recommandé pour vous</a> - ");
 		concatString(r, u);
 		fString(u);
 	}
