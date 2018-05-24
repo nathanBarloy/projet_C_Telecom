@@ -8,6 +8,7 @@
 
 double distance_film(BDD bdd,int id1, int id2);
 double distance_year(int y1, int y2);
+double distance_year2(int y1,int y2);
 double distance_genre(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre);
 double distance_actor(JSONArray_t l1, JSONArray_t l2);
 double distance_real(JSONArray_t l1, JSONArray_t l2);

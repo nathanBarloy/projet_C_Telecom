@@ -13,7 +13,7 @@
 \usepackage{amssymb}
 \usepackage{moreverb}
 \usepackage{listings}
-
+\usepackage{dsfont}
 
 \begin{document}
 \begin{titlepage}
@@ -220,5 +220,15 @@ Après quelques tests, on se rend compte que l'on obtient parfois une distance n
 Cette distance de Jacard permet de donner une distance entre 2 ensembles : on peut donc l'utiliser pour tous les attributs qui sont des listes, i.e. les acteurs, les réalisateurs, et les genres.
 
 \subsection{La distance entre les années}
+Pour créer une distance entre 2 années, on va bien évidemment considérer la distance entre ces 2 entiers : cela signifie prendre la valeur absolue de la différence (\(|a1-a2|\)). Notre distance sera donc une fonction $f$ qui sera à valeur dans $\mathds{R}_{+}$. On va chercher des conditions sur cette fonction.\par
+Tout d'abord, on veut obtenir une distance entre 0 et 1, donc doit aller de $\mathds{R}_{+}$ dans \([0;1]\). De plus, on veut que l'ordre soit gardé : si \(a>b\), on veut que \(f(a)>f(b)\). Cela signifie que la fonction est croissante. Enfin, on doit avoir que $f(0)=0$ et $\lim\limits_{x \rightarrow +\infty} f(x)=1$.\par
+En résumé, on cherche une fonction croissante de $\mathds{R}_{+}$ dans $[0;1]$ qui atteint ses bornes.\par
+une première fonction à laquelle on peut penser est une fonction que l'on rencontre souvent en physique : 
+\[f(x)=1-e^{-\frac{x}{\tau}} , \tau \in \mathds{R}_{+}^{*}\]
+On peut alors faire varier le paramètre $\tau$ pour moduler la fonction comme on veut. La valeur que nous avons choisi est $\tau=10$, car on a alors que pour avoir une distance de 0.5, il que les deux dates soient séparées de 7 ans, ce qui correspond à peu près à ce qu'on veut.\par
+Une autre fonction utilisable possible est la fonction arctangente. On a alors
+\[f(x)=\arctan(\alpha \cdot x)\times \frac{2}{\pi} , \alpha \in \mathds{R}_{+}^{*}\]
+Comme précédemment, on cherche une valeur du paramètre $\alpha$ qui corresponde à nos attentes. Dans ce cas, on prend $\alpha=0.15$, ce qui donne une distance de 0.5 pour 7 années d'écart.\par
+Dans tous les cas, c'est une bonne chose d'avoir des paramètres modifiables dans ces fonctions pour pouvoir mieux approcher ce que l'on veut.
 \subsection{Amélioration de la distance entre les genres}
 \end{document}

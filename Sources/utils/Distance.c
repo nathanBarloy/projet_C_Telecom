@@ -52,9 +52,16 @@ double distance_film(BDD bdd,int id1, int id2) {
 
 double distance_year(int y1,int y2) {
   double dist = 0;
-  double alpha = 0.2; //paramètre modifiable <1
+  double alpha = 0.1; //paramètre modifiable <1
   dist = 1.0-exp(-alpha*(double)(abs(y1-y2)));
   return dist;
+}
+
+double distance_year2(int y1,int y2) {
+	double dist=0;
+	double alpha = 0.15;
+	dist = arctan(alpha*(double)(abs(y1-y2)))*2/3.14159;
+	return dist;
 }
 
 double distance_genre(JSONArray_t l1, JSONArray_t l2, JSONObject_t bdGenre) {
