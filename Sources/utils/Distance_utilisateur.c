@@ -17,7 +17,7 @@ double distance_users(BDD bdd, int id1, int id2)
 		//printf("%s\n", cString(JSONObject_asString(histo1, 0)));
 		if(histo1 == 0 || histo2 == 0)
 		{
-			return -1;
+			return -2;
 		}
 		else
 		{
@@ -25,7 +25,7 @@ double distance_users(BDD bdd, int id1, int id2)
 			JSONArray_t history_rates2 = JSONObject_getArray(histo2, autoString("Rates"));
 			if(history_rates1 == 0 || history_rates2 == 0)
 			{
-				return -1;
+				return -2;
 			}
 			else{
 				double resultat = pearson_correlation(history_rates1, history_rates2);
@@ -63,7 +63,6 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
 	//printf("%s\n", cString(JSONObject_asString(hr1, 0)));
 	double mean_rates1 = mean_rates(hr1);
 	double mean_rates2 = mean_rates(hr2);
-	printf("TOTO2\n");
 	//printf("moyenne 1 : %f\n moyenne 2 : %f \n", mean_rates1, mean_rates2);
 	int i;
 	int pos1;
@@ -78,7 +77,8 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
 		}
 	}
 	double resultat = numerateur/(sqrt(denominateur1 == 0.0 ? 1.0 : denominateur1)*sqrt(denominateur2 == 0.0 ? 1.0 : denominateur2));
-	return 0.5 + resultat/2.f;
+	// return 0.5 + resultat/2.f;
+	return resultat;
 }
 
 
@@ -117,4 +117,118 @@ JSONArray_t all_distances(BDD bdd, int user_id)
 		}
 	}
 	return list;
+}
+
+double get_similarite(JSONArray_t distances, int user_id)
+{
+	int i = 0;
+	int id;
+	while(i<JSONArray_size(distances))
+	{
+		id = JSONObject_intValueOf(JSONArray_get(distances, i), autoString("Id"));
+		if(id == user_id)
+		{
+			return JSONObject_doubleValueOf(JSONArray_get(distances, i), autoString("Sim"));
+		}
+		i++;
+	}
+	printf("Erreur dans get_similarite : pas de résultat\n");
+	return 0.f;
+}
+
+JSONArray_t rates_estimations(BDD bdd, int id_user)
+{
+	//récuperer les notes de l'utilisateur cible
+	JSONObject_t user = BDD_getUserById(bdd, id_user);
+	JSONObject_t user_history = JSONObject_get(user, autoString("History"));
+	JSONArray_t user_rates = JSONObject_get(user_history, autoString("Rates"));
+	//récuperer la bdd des films
+	JSONArray_t bdd_movies = BDD_Films(bdd);
+	int bdd_movies_size = JSONArray_size(bdd_movies);
+	JSONArray_t users = BDD_Users(bdd);
+
+	//obtenir les distances entre l'utilisateur et les autres
+	JSONArray_t dist = all_distances(bdd, id_user);
+	JSONArray_t result = JSONArray_new();
+	if(user_rates == 0)
+	{
+		printf("L'utilisateur n'a noté aucun film\n");
+		return result;
+	}
+	else
+	{
+		int i, j, c, d, id_movie;
+		int note = 0;
+		int rates_size = JSONArray_size(user_rates);
+		int est_vu;
+		double sim = 0.f;
+		for(i=0 ; i<bdd_movies_size ; i++)
+		{
+			id_movie = JSONObject_intValueOf(JSONArray_get(bdd_movies, i), autoString("Id"));
+			c = 0;
+			est_vu = 0;
+			while(c < rates_size)
+			{
+				if(JSONObject_intValueOf(JSONArray_get(user_rates, c), autoString("Id")) == id_movie)
+				{
+					est_vu = 1;
+					break;
+				}
+				c++;
+			}
+			if(!est_vu)
+			{
+				printf("TOTO\n");
+				double numerateur = 0.0;
+				double denominateur = 0.0;
+				double moyenne = 0.0;
+				for(j=0 ; j<JSONArray_size(users) ; j++)
+				{
+					JSONObject_t user_courant = JSONArray_get(users, j);
+					int id_user_courant = JSONObject_intValueOf(user_courant, autoString("Id"));
+					printf("%d\n", id_user_courant);
+					if(id_user_courant != id_user)
+					{
+						JSONArray_t rates_courant = JSONObject_get(JSONObject_get(user_courant, autoString("History")), autoString("Rates"));
+						if( rates_courant != 0)
+						{
+							int rates_size_courant = JSONArray_size(rates_courant);
+							while(d < rates_size_courant)
+							{
+								if(JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Id")) == id_movie)
+								{
+									note = JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Rate"));
+									//printf("Note : %d\n", note);
+									break;
+								}
+								d++;
+							}
+							//l'utilisateur j à noté le film d
+							if(note > 0)
+							{
+								//élévation à la puissance 2.5
+								sim = get_similarite(dist, id_user_courant);
+								sim = sim*pow(sim,1.5);
+								printf("%f\n", sim);
+								numerateur = numerateur + sim*note;
+								denominateur = denominateur + abs(sim);
+							}
+						}
+						else
+						{
+							printf("Pas de notes pour cet utilisateur\n");
+						}
+					}
+					printf("numérateur : %f\n", numerateur);
+					printf("dénominateur : %f\n", denominateur);
+				}
+				moyenne = numerateur/(denominateur==0.0 ? 1.0 : denominateur);
+				JSONObject_t film = JSONObject_new();
+				JSONObject_setInt(film, autoString("Id"), id_movie);
+				JSONObject_setDouble(film, autoString("Moyenne"), moyenne);
+				JSONArray_add(result, film);
+			}
+		}
+		return result;
+	}
 }
