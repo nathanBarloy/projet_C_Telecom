@@ -300,17 +300,20 @@ void BDD_UpdateRanks(BDD bdd)
 		{
 			film = JSONArray_get(films, c);
 			rate = JSONObject_doubleValueOf(film, rate_s);
-			if(rate >= min && min != 0)
+			if(rate >= min && rate != 0)
 			{
 				if(rate < nmin)
 				{
+					printf("nmin %f → %f\n", nmin, rate);
 					nmin = rate;
 					nfilm = film;
 				}
 			}
 			else
 			{
+				printf("Reduce: %d - %f\n", JSONObject_intValueOf(film, id_s), rate);
 				JSONObject_set(rankSet, JSONObject_stringValueOf(film, id_s), JSONInt_new(0));
+				JSONObject_delete(film);
 				--size;
 				--lastRank;
 				continue;
@@ -319,19 +322,24 @@ void BDD_UpdateRanks(BDD bdd)
 		}
 		if(nfilm != 0)
 		{
+			min = nmin;
+			printf("Found: %f → %d\n", nmin, lastRank);
 			JSONObject_set(rankSet, JSONObject_stringValueOf(nfilm, id_s), JSONInt_new(lastRank));
+			JSONObject_delete(nfilm);
 			--size;
 			--lastRank;
 		}
 		else
 		{
-			while(size > 0)
+			printf("Error?\n");
+			break;
+			/*while(size > 0)
 			{
 				film = JSONArray_get(films, 0);
 				JSONObject_set(rankSet, JSONObject_stringValueOf(film, id_s), JSONInt_new(0));
 				--size;
 				--lastRank;
-			}
+			}*/
 		}
 
 	}
@@ -343,6 +351,7 @@ void BDD_UpdateRanks(BDD bdd)
 	{
 		film = JSONArray_get(films, c);
 		JSONObject_set(film, rank_s, JSONObject_get(rankSet, JSONObject_stringValueOf(film, id_s)));
+		printf("Rank set: %d - %d\n", JSONObject_intValueOf(film, id_s), JSONObject_intValueOf(film, rank_s));
 		++c;
 	}
 	JSONObject_delete(rankSet);

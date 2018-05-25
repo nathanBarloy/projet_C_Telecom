@@ -74,4 +74,8 @@ void startInfos(BDD bdd)
 	printf("\t- Nombre total d'utilisateurs: %u\n", JSONArray_size(users));
 	printf("\t- Nombre total de genres: %u\n", JSONArray_size(genres_liste));
 	printf("Fin de vérification d'intégrité.\n");
+	printf("Calcul des notes...\n");
+	BDD_UpdateRates(bdd);
+	printf("Calcul des rangs...\n");
+	BDD_UpdateRanks(bdd);
 }

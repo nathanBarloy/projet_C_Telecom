@@ -4595,7 +4595,10 @@
 	"FirstName": "Valentin",
 	"Follow": [],
 	"Friends": [],
-	"History": {},
+	"History": 
+		{
+		"Rates": []		
+		},
 	"Id": 115,
 	"Login": "crone123",
 	"Name": "CRÔNE",
