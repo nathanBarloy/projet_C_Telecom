@@ -54,13 +54,7 @@ Vector_t merge_quick(Vector_t g, Vector_t c, Vector_t d)
 {
 	Vector_t result = newVectorFromVector(g);
 	int i;
-	for(i=0 ; i < sizeOfVector(c) ; i++)
-	{
-		addToVector(result, getFromVector(c, i));
-	}
-	for(i=0 ; i < sizeOfVector(d) ; i++)
-	{
-		addToVector(result, getFromVector(d, i));
-	}
+	appendVectorToVector(result, c);
+	appendVectorToVector(result, d);
 	return result;
 }
