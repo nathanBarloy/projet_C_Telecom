@@ -211,3 +211,70 @@ JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login)
 	fString(login_s);
 	return 0;
 }
+
+void BDD_UpdateRate(BDD bdd, JSONObject_t film)
+{
+	JSONArray_t users = BDD_Users(bdd), rates = 0;
+	JSONObject_t u = 0, hist = 0, rate = 0;
+	size_t c = 0, size = JSONArray_size(users), c2 = 0, size2 = 0;
+	String_t history_s = newStringFromCharStar("History"), rates_s = newStringFromCharStar("Rates"), id_s = newStringFromCharStar("Id"), rate_s = newStringFromCharStar("Rate");
+	int id = 0;
+	double frate = 0;
+	unsigned int rateNb = 0;
+	double rateSum = 0.0;
+	while(c < size)
+	{
+		u = JSONArray_get(users, c);
+		hist = JSONObject_get(u, history_s);
+		if(hist != 0)
+		{
+			rates = JSONObject_get(hist, rates_s);
+			if(rates != 0)
+			{
+				c2 = 0;
+				size2 = JSONArray_size(rates);
+				while(c2 < size2)
+				{
+					rate = JSONArray_get(rates, c2);
+					id = JSONObject_intValueOf(rate, id_s);
+					frate = JSONObject_doubleValueOf(rate, rate_s);
+					if(id > 0 && frate >= 1)
+					{
+						rateSum += frate;
+						++rateNb;
+					}
+					++c2;
+				}
+			}
+			else
+			{
+				JSONObject_set(hist, rates_s, JSONArray_new());
+			}
+		}
+		else
+		{
+			JSONObject_set(u, history_s, JSONObject_new());//Creation du champ manquant
+		}
+		++c;
+	}
+
+
+	double finalRate = 0.0;
+	if(rateNb > 0)
+	{
+		finalRate = rateSum / (double) (rateNb);
+	}
+	JSONObject_set(film, rate_s, JSONDouble_new(finalRate));
+	fString(history_s);
+	fString(rates_s);
+	fString(id_s);
+	fString(rate_s);
+}
+void BDD_UpdateRates(BDD bdd)
+{
+
+}
+void BDD_UpdateRanks(BDD bdd)
+{
+
+}

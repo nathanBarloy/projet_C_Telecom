@@ -15,7 +15,9 @@ Un film est représenté par l'élement suivant:
 "Id": 0,
 "Title": "",
 "Type": "",
-"Year": 0
+"Year": 0,
+"Rank" : 0,
+"Rate" : 0.0,
 }
 ```
 - Toutes les clés sont forcément définies sur le type donné.
@@ -26,7 +28,7 @@ Un film est représenté par l'élement suivant:
 - Pour les types int, toute valeur nulle est considérée comme non-présente. (Ex: Année = 0, alors nous n'avons pas l'information sur l'année)
 
 - Idem pour les chaines avec la chaine vide.
-
+- Pour Rank et Rate → 0 = non défini.
 ## User
 Un utilisateur est représenté par l'élement suivant:
 ```

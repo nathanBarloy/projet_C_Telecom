@@ -27,4 +27,7 @@ JSONObject_t BDD_getFilmById(BDD bdd, int id);
 JSONObject_t BDD_getUserById(BDD bdd, int id);
 JSONObject_t BDD_getSessionById(BDD bdd, String_t sid);
 JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login);
+void BDD_UpdateRate(BDD bdd, JSONObject_t film);
+void BDD_UpdateRates(BDD bdd);
+void BDD_UpdateRanks(BDD bdd);
 #endif
