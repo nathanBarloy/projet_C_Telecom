@@ -24,9 +24,11 @@ JSONArray_t BDD_Films(BDD bdd);//Récupère la liste des films depuis la BDD
 JSONArray_t BDD_Sessions(BDD bdd);
 int BDD_Users_maxId(BDD bdd);//Renvoie l'ID maximal des utilisateurs
 JSONObject_t BDD_getFilmById(BDD bdd, int id);
+JSONObject_t BDD_getFilmByRank(BDD bdd, int id);
 JSONObject_t BDD_getUserById(BDD bdd, int id);
 JSONObject_t BDD_getSessionById(BDD bdd, String_t sid);
 JSONObject_t BDD_getUserByLogin(BDD bdd, String_t login);
+JSONArray_t BDD_getFilmsOrderedByRank(BDD bdd);
 void BDD_UpdateRate(BDD bdd, JSONObject_t film);
 void BDD_UpdateRates(BDD bdd);
 void BDD_UpdateRanks(BDD bdd);

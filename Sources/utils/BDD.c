@@ -157,6 +157,21 @@ JSONObject_t BDD_getFilmById(BDD bdd, int id)
 	}
 	return 0;
 }
+JSONObject_t BDD_getFilmByRank(BDD bdd, int id)
+{
+	JSONObject_t films = BDD_Films(bdd), tmp = 0;
+	size_t c = 0, size = JSONArray_size(films);
+	while(c < size)
+	{
+		tmp = JSONArray_get(films, c);
+		if(JSONObject_intValueOf(tmp, AS("Rank")) == id)
+		{
+			return tmp;
+		}
+		++c;
+	}
+	return 0;
+}
 JSONObject_t BDD_getUserById(BDD bdd, int id)
 {
 	JSONArray_t users = BDD_Users(bdd), u = 0;
@@ -358,4 +373,22 @@ void BDD_UpdateRanks(BDD bdd)
 	fString(rate_s);
 	fString(id_s);
 	fString(rank_s);
+}
+JSONArray_t BDD_getFilmsOrderedByRank(BDD bdd)
+{
+	JSONArray_t films = BDD_Films(bdd);
+	JSONArray_t l = JSONArray_new();
+	JSONObject_t f = 0;
+	size_t c = 0, size = JSONArray_size(films);
+	while(c < size)
+	{
+		f = BDD_getFilmByRank(bdd, c + 1);
+		if(f == 0)
+		{
+			break;
+		}
+		JSONArray_add(l,JSONObject_getCopy(f));
+		++c;
+	}
+	return l;
 }
