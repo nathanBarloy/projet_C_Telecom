@@ -7,7 +7,7 @@ double distance_users(BDD bdd, int id1, int id2)
 	JSONObject_t user2 = BDD_getUserById(bdd, id2);
 	if(user1 == 0 || user2 == 0)
 	{
-		return -1;
+		return -2;
 	}
 	else
 	{
@@ -28,6 +28,8 @@ double distance_users(BDD bdd, int id1, int id2)
 				return -2;
 			}
 			else{
+				//printf("LISTE 1 :\n %s\n", cString(JSONArray_asString(history_rates1,0)));
+				//printf("LISTE 2 :\n %s\n", cString(JSONArray_asString(history_rates2,0)));
 				double resultat = pearson_correlation(history_rates1, history_rates2);
 				return resultat;
 			}
@@ -69,16 +71,20 @@ double pearson_correlation(JSONArray_t hr1, JSONArray_t hr2) {
 	int pos2;
 	for(i = 0 ; i < JSONArray_size(hr1) ; i++) {
 		int id = JSONObject_intValueOf(JSONArray_get(hr1, i), autoString("Id"));
-		pos2 = get_position(hr2, i);
+		pos2 = get_position(hr2, id);
 		if(pos2 != -1) {
-			numerateur = numerateur + (JSONObject_intValueOf(JSONArray_get(hr1, i), autoString("Rate"))-mean_rates1)*(JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2);
+			double x = JSONObject_intValueOf(JSONArray_get(hr1, i), autoString("Rate"));
+			double y = JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"));
+			numerateur = numerateur + (x-mean_rates1)*(y-mean_rates2);
 			denominateur1 = denominateur1 + pow((JSONObject_intValueOf(JSONArray_get(hr1, i), autoString("Rate"))-mean_rates1), 2);
 			denominateur2 = denominateur2 + pow((JSONObject_intValueOf(JSONArray_get(hr2, pos2), autoString("Rate"))-mean_rates2), 2);
+			//printf("numerateur : %f, denom\n", );
 		}
 	}
 	double resultat = numerateur/(sqrt(denominateur1 == 0.0 ? 1.0 : denominateur1)*sqrt(denominateur2 == 0.0 ? 1.0 : denominateur2));
-	// return 0.5 + resultat/2.f;
-	return resultat;
+	//printf("numerateur : %f, denominateur : %f\n", numerateur, sqrt(denominateur1)*sqrt(denominateur2));
+	return 0.5 + resultat/2.f;
+	//return resultat;
 }
 
 
@@ -162,11 +168,14 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 		int rates_size = JSONArray_size(user_rates);
 		int est_vu;
 		double sim = 0.f;
+		printf("Début algo\n");
 		for(i=0 ; i<bdd_movies_size ; i++)
 		{
+			printf("Pour le film %d\n", i);
 			id_movie = JSONObject_intValueOf(JSONArray_get(bdd_movies, i), autoString("Id"));
 			c = 0;
 			est_vu = 0;
+			//vérifie si l'utilisateur (cible) à vu le film.
 			while(c < rates_size)
 			{
 				if(JSONObject_intValueOf(JSONArray_get(user_rates, c), autoString("Id")) == id_movie)
@@ -176,9 +185,9 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 				}
 				c++;
 			}
-			if(!est_vu)
+			if(est_vu != 1)
 			{
-				printf("TOTO\n");
+				//printf("L'utilisateur n'a pas vu le film %d\n", id_movie);
 				double numerateur = 0.0;
 				double denominateur = 0.0;
 				double moyenne = 0.0;
@@ -186,19 +195,22 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 				{
 					JSONObject_t user_courant = JSONArray_get(users, j);
 					int id_user_courant = JSONObject_intValueOf(user_courant, autoString("Id"));
-					printf("%d\n", id_user_courant);
 					if(id_user_courant != id_user)
 					{
+						//printf("Est ce que l'utilisateur %d a vu ce film ?\n", id_user_courant);
 						JSONArray_t rates_courant = JSONObject_get(JSONObject_get(user_courant, autoString("History")), autoString("Rates"));
-						if( rates_courant != 0)
+						if(rates_courant != 0)
 						{
+							//printf("L'utilisateur %d a noté des films\n", id_user_courant);
 							int rates_size_courant = JSONArray_size(rates_courant);
+							d = 0;
+							note = 0;
 							while(d < rates_size_courant)
 							{
 								if(JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Id")) == id_movie)
 								{
 									note = JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Rate"));
-									//printf("Note : %d\n", note);
+									printf("Note de l'utilisateur %d sur le film %d: %d\n", id_user_courant, id_movie, note);
 									break;
 								}
 								d++;
@@ -206,12 +218,12 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 							//l'utilisateur j à noté le film d
 							if(note > 0)
 							{
+								printf("Calcul de la note estimé\n");
 								//élévation à la puissance 2.5
 								sim = get_similarite(dist, id_user_courant);
-								sim = sim*pow(sim,1.5);
-								printf("%f\n", sim);
+								//sim = sim * pow(sim, 1.5);
 								numerateur = numerateur + sim*note;
-								denominateur = denominateur + abs(sim);
+								denominateur = denominateur + fabs(sim);
 							}
 						}
 						else
