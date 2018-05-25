@@ -1,6 +1,6 @@
 #include "Distance.h"
 #include "BDD.h"
-
+#include <math.h>
 double distance_film(BDD bdd,int id1, int id2) {
 	double dist=0;
 	double distActor=1,distGenre=1,distReal=1,distType=1,distYear=1;
@@ -60,7 +60,7 @@ double distance_year(int y1,int y2) {
 double distance_year2(int y1,int y2) {
 	double dist=0;
 	double alpha = 0.15;
-	dist = arctan(alpha*(double)(abs(y1-y2)))*2/3.14159;
+	dist = atan(alpha*(double)(abs(y1-y2)))*2/3.14159;
 	return dist;
 }
 
