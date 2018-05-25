@@ -46,7 +46,7 @@ clean:
 tests: test/TestReadInput.bin test/TestCard.bin test/TestUsersDistance.bin
 test/TestReadInput.bin: utils/ReadInput.o utils/Date.o utils/JSONCheck.o
 test/TestCard.bin: utils/Distance.o utils/BDD.o utils/Distance.o utils/Client.o utils/Replace.o
-test/TestUsersDistance.bin: utils/BDD.o utils/Distance_utilisateur.o utils/Client.o utils/Replace.o
+test/TestUsersDistance.bin: utils/BDD.o utils/Distance_utilisateur.o utils/Client.o utils/Replace.o utils/MergeSort.o
 %.bin: %.c
 	$(CC) $^ $(LIBS) $(LINK)
 
