@@ -4,6 +4,7 @@
 #include "../utils/Distance_utilisateur.h"
 #include <math.h>
 #include "../utils/MergeSort.h"
+#include "../utils/QuickSort.h"
 
 int main() {
 	BDD bdd = BDD_load();
@@ -19,7 +20,11 @@ int main() {
 	//printf("%s\n",cString(JSONArray_asString(rates_estim, 0)));
 
 	Vector_t vect = fromArrayToVector(rates_estim);
-	Vector_t sort = merge_sort(vect);
+
+	//MergeSort : probleme
+	//Vector_t sort = merge_sort(vect);
+	Vector_t sort = quick_sort(vect);
+
 	JSONArray_t sorted = fromVectorToArray(sort);
 
 	printf("%s\n",cString(JSONArray_asString(sorted, 0)));
