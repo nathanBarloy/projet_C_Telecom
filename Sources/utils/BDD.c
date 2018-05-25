@@ -218,7 +218,7 @@ void BDD_UpdateRate(BDD bdd, JSONObject_t film)
 	JSONObject_t u = 0, hist = 0, rate = 0;
 	size_t c = 0, size = JSONArray_size(users), c2 = 0, size2 = 0;
 	String_t history_s = newStringFromCharStar("History"), rates_s = newStringFromCharStar("Rates"), id_s = newStringFromCharStar("Id"), rate_s = newStringFromCharStar("Rate");
-	int id = 0;
+	int id = 0, fid = JSONObject_intValueOf(film, id_s);
 	double frate = 0;
 	unsigned int rateNb = 0;
 	double rateSum = 0.0;
@@ -238,7 +238,7 @@ void BDD_UpdateRate(BDD bdd, JSONObject_t film)
 					rate = JSONArray_get(rates, c2);
 					id = JSONObject_intValueOf(rate, id_s);
 					frate = JSONObject_doubleValueOf(rate, rate_s);
-					if(id > 0 && frate >= 1)
+					if(id > 0 && frate >= 1 && id == fid)
 					{
 						rateSum += frate;
 						++rateNb;
@@ -248,7 +248,7 @@ void BDD_UpdateRate(BDD bdd, JSONObject_t film)
 			}
 			else
 			{
-				JSONObject_set(hist, rates_s, JSONArray_new());
+				JSONObject_set(hist, rates_s, JSONArray_new());//Création du champ manquant
 			}
 		}
 		else
@@ -272,9 +272,75 @@ void BDD_UpdateRate(BDD bdd, JSONObject_t film)
 }
 void BDD_UpdateRates(BDD bdd)
 {
-
+	JSONArray_t films = BDD_Films(bdd);
+	JSONObject_t film = 0;
+	size_t c = 0, size = JSONArray_size(films);
+	while(c < size)
+	{
+		film = JSONArray_get(films, c);
+		BDD_UpdateRate(bdd, film);
+		++c;
+	}
 }
 void BDD_UpdateRanks(BDD bdd)
 {
+	JSONArray_t films = JSONObject_getCopy(BDD_Films(bdd));
+	JSONObject_t film = 0, nfilm = 0;
+	size_t c = 0, size = JSONArray_size(films);
+	double min = 0.0, nmin = 6.0, rate = 0.0;
+	int lastRank = size;
+	String_t rate_s = newStringFromCharStar("Rate"), id_s = newStringFromCharStar("Id");
+	JSONObject_t rankSet = JSONObject_new();
+	while(size > 0)
+	{
+		c = 0;
+		nfilm = 0;
+		nmin = 6.0;
+		while(c < size)
+		{
+			film = JSONArray_get(films, c);
+			rate = JSONObject_doubleValueOf(film, rate_s);
+			if(rate >= min && min != 0)
+			{
+				if(rate < nmin)
+				{
+					nmin = rate;
+					nfilm = film;
+				}
+			}
+			else
+			{
+				JSONObject_set(film, id_s, JSONInt_new(0));
+				JSONObject_set(rankSet, JSONObject_stringValueOf(film, id_s), film);
+				--size;
+				--lastRank;
+				continue;
+			}
+			++c;
+		}
+		if(nfilm != 0)
+		{
+			JSONObject_set(nfilm, id_s, JSONInt_new(lastRank));
+			JSONObject_set(rankSet, JSONObject_stringValueOf(nfilm, id_s), nfilm);
+			--size;
+			--lastRank;
+		}
+		else
+		{
+			while(size > 0)
+			{
+				film = JSONArray_get(films, 0);
+				JSONObject_set(film, id_s, JSONInt_new(0));
+				JSONObject_set(rankSet, JSONObject_stringValueOf(film, id_s), film);
+				--size;
+				--lastRank;
+			}
+		}
 
+	}
+	fString(id_s);
+	fString(rate_s);
+	JSONArray_delete(films);
+	films = BDD_Films(bdd);
+	//Augmenter les rangs de 1 en 1 pour placer les films
 }
