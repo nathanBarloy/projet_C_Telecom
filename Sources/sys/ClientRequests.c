@@ -144,3 +144,17 @@ JSONArray_t serverGetFilmRecommendation(Connexion_t connexion, int id)
 	}
 	return 0;
 }
+JSONArray_t serverGetFilmOrderedByRank(Connexion_t connexion)
+{
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getFilmsOrderedByRank"), JSONObject_new()));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
+		JSONObject_remove(a->obj, AS("Answer"), false);
+		freeRequestAnswer(a);
+		return answer;
+	}
+	return 0;
+}

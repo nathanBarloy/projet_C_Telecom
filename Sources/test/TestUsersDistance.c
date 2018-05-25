@@ -16,7 +16,7 @@ int main() {
 	//JSONArray_t array_distance = all_distances(bdd,1);
 	//printf("%s\n", cString(JSONArray_asString(array_distance,0)));
 
-	JSONArray_t rates_estim = rates_estimations(bdd, 1);
+	JSONArray_t rates_estim = rates_estimations(bdd, 7);
 	//printf("%s\n",cString(JSONArray_asString(rates_estim, 0)));
 
 	Vector_t vect = fromArrayToVector(rates_estim);
@@ -28,7 +28,7 @@ int main() {
 	JSONArray_t sorted = fromVectorToArray(sort);
 
 	printf("%s\n",cString(JSONArray_asString(sorted, 0)));
-
+	printf("%d\n", JSONArray_size(sorted));
 	BDD_free(bdd);
 	freeAutoString();
 	return 0;

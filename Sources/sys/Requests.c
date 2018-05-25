@@ -18,6 +18,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getFilmRecommendation"), (void*) ServerRequest_getFilmRecommendation);
 	setMap(r, autoString("login"), (void*) ServerRequest_login);
 	setMap(r, autoString("logout"), (void*) ServerRequest_logout);
+	setMap(r, autoString("getFilmsOrderedByRank"), (void*) ServerRequest_getFilmOrderedByRank);
 	//Fin des associations
 	return r;
 }
@@ -314,4 +315,9 @@ RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery re
 		return RequestAnswerOk(request, liste);
 	}
 	return RequestAnswerOk(request, JSONNull_new());
+}
+RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery request)
+{
+	JSONObject_t bdd = JSONObject_getCopy(BDD_getFilmsOrderedByRank(client->bdd));
+	return RequestAnswerOk(request, bdd);
 }
