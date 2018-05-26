@@ -392,3 +392,42 @@ JSONArray_t BDD_getFilmsOrderedByRank(BDD bdd)
 	}
 	return l;
 }
+
+void BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
+{
+	JSONObject_t user =  BDD_getUserById(bdd, user_id);
+	if(user != 0)
+	{
+		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
+		int i = 0, size = JSONArray_size(rates), done = 0;
+		while(i < size)
+		{
+			JSONObject_t mv = JSONArray_get(rates, i);
+			if(JSONObject_intValueOf(mv, autoString("Id")) == film_id)
+			{
+				JSONObject_set(mv, autoString("Rate"), JSONInt_new(rate));
+				done = 1;
+				break;
+			}
+			++i;
+		}
+		if(done == 0)
+		{
+			JSONObject_t n_mv = JSONObject_new();
+			JSONObject_set(n_mv, autoString("Id"), JSONInt_new(film_id));
+			JSONObject_set(n_mv, autoString("Rate"), JSONInt_new(rate));
+			JSONArray_add(rates, JSONObject_getCopy(n_mv));
+			// printf("TEST\n");
+			// printf("%s\n", cString(JSONArray_asString(n_mv, 0)));
+			// printf("%s\n", cString(JSONArray_asString(rates, 0)));
+		}
+		printf("Sauvegarde BDD...\n");
+		BDD_save(bdd);
+		printf("BDD sauvee.\n");
+		freeAutoString();
+	}
+	else
+	{
+		printf("id non valide...Modification impossible\n");
+	}
+}
