@@ -43,7 +43,7 @@
 	"Description": "A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.",
 	"Directors":
 		["Sam Mendes"],
-	"Duration": 0,
+	"Duration": 148,
 	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 3,
@@ -194,7 +194,7 @@
 	"Description": "Fearing the actions of a god-like Super Hero left unchecked, Gotham City’s own formidable, forceful vigilante takes on Metropolis’s most revered, modern-day savior, while the world wrestles with what sort of hero it really needs. And with Batman and Superman at war with one another, a new threat quickly arises, putting mankind in greater danger than it’s ever known before.",
 	"Directors":
 		["Zack Snyder"],
-	"Duration": 0,
+	"Duration": 151,
 	"Genres":
 		["Action", "Adventure", "Fantasy", "Sci-Fi"],
 	"Id": 11,
@@ -286,7 +286,7 @@
 	"Description": "In a post-apocalyptic world, in which people fight to the death, Max teams up with a mysterious woman, Furiousa, to try and survive.",
 	"Directors":
 		["George Miller"],
-	"Duration": 0,
+	"Duration": 120,
 	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 16,
@@ -453,7 +453,7 @@
 	"Description": "A boxer fights his way to the top, only to find his life falling apart around him.",
 	"Directors":
 		["Antoine Fuqua"],
-	"Duration": 0,
+	"Duration": 123,
 	"Genres":
 		["Drama", "Sport"],
 	"Id": 25,
@@ -491,7 +491,7 @@
 	"Description": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond. After 10 years of operation and visitor rates declining, in order to fulfill a corporate mandate, a new attraction is created to re-spark visitor's interest, which backfires horribly.",
 	"Directors":
 		["Colin Trevorrow"],
-	"Duration": 0,
+	"Duration": 124,
 	"Genres":
 		["Action", "Adventure", "Sci-Fi", "Thriller"],
 	"Id": 27,
@@ -880,7 +880,7 @@
 	"Description": "A continuation of the saga created by George Lucas set thirty years after Le retour du Jedi.",
 	"Directors":
 		["J.J. Abrams"],
-	"Duration": 0,
+	"Duration": 136,
 	"Genres":
 		["Action", "Adventure", "Fantasy", "Sci-Fi"],
 	"Id": 48,
@@ -1121,7 +1121,7 @@
 	"Cover": "img/covers/60.jpg",
 	"Description": "A man in his early 30s struggles to find a balance in his life between being a new dad and his involvement in a motorcycle club.",
 	"Directors": [],
-	"Duration": 0,
+	"Duration": 45,
 	"Genres": [],
 	"Id": 61,
 	"Rank": 0,
@@ -1196,7 +1196,7 @@
 	"Description": "A night guard at an armored car company in the Southern U.S. organizes one of the biggest bank heists in American history.",
 	"Directors":
 		["Jared Hess"],
-	"Duration": 0,
+	"Duration": 94,
 	"Genres":
 		["Action", "Comedy", "Crime"],
 	"Id": 65,
@@ -1346,7 +1346,7 @@
 	"Description": "The group NWA emerges from the streets of Compton, California in the mid-1980s and revolutionizes pop culture with their music and tales about life in the hood.",
 	"Directors":
 		["F. Gary Gray"],
-	"Duration": 0,
+	"Duration": 147,
 	"Genres":
 		["Biography", "Drama", "Music"],
 	"Id": 73,
@@ -1475,7 +1475,7 @@
 	"Description": "Four young scientists achieve superhuman abilities through a teleportation experiment gone haywire. They must now use these abilities to save the world from an uprising tyrant.",
 	"Directors":
 		["Josh Trank"],
-	"Duration": 0,
+	"Duration": 100,
 	"Genres":
 		["Action", "Sci-Fi"],
 	"Id": 80,
@@ -1494,7 +1494,7 @@
 	"Description": "A family's suburban home is invaded by evil forces.",
 	"Directors":
 		["Gil Kenan"],
-	"Duration": 0,
+	"Duration": 93,
 	"Genres":
 		["Horror", "Thriller"],
 	"Id": 81,
@@ -1792,7 +1792,7 @@
 	"Description": "A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelerated healing powers and adopts the alter ego Deadpool.",
 	"Directors":
 		["Tim Miller"],
-	"Duration": 0,
+	"Duration": 108,
 	"Genres":
 		["Action"],
 	"Id": 97,
@@ -1811,7 +1811,7 @@
 	"Description": "Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization as highly skilled as they are, committed to destroying the IMF.",
 	"Directors":
 		["Christopher McQuarrie"],
-	"Duration": 0,
+	"Duration": 131,
 	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 98,
