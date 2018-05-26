@@ -226,3 +226,27 @@ h3
 	padding: 0px;
 	text-align: center;
 }
+
+/* Stars */
+.star {
+    position: relative;
+    display: inline-block;
+    margin: 2px;
+    }
+.star .img-bottom {
+	width: 30px;
+	height: 30px;
+}
+.star .img-top {
+	width: 30px;
+	height: 30px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.star:hover .img-top {
+
+    display: inline;
+}

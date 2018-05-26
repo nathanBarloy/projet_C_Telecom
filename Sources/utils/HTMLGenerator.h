@@ -11,7 +11,7 @@ String_t HTMLFromJSONFile(Connexion_t connexion, String_t file, Vector_t params)
 String_t HTMLFromJSONUrl(Connexion_t connexion, String_t url);
 String_t HTMLYoutubePlayer(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 String_t HTMLImg(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
-
+String_t HTMLRatingStars(Connexion_t connexion);
 //param
 String_t getParam(String_t name, Vector_t params);
 

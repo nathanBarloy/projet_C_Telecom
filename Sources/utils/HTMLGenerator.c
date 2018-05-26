@@ -625,3 +625,39 @@ String_t getParam(String_t name, Vector_t params)
 	}
 	return 0;
 }
+
+//systeme de notation avec Etoiles
+String_t HTMLRatingStars(Connexion_t connexion)
+{
+	int i=0;
+	String_t tmp = 0;
+	//String_t a = newStringFromCharStar("<a href=\"exec://stars.json?value=");
+	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+	String_t close_a = newStringFromCharStar("\" >");
+	String_t reponse = newStringFromChar("");
+	for(i=1 ; i<6 ; i++)
+	{
+		char value[20];
+		sprintf(value, "%d", i);
+		tmp = newStringFromCharStar(value);
+		concatString(reponse, a);
+		concatString(reponse, tmp);
+		fString(tmp);
+		concatString(reponse, close_a);
+		tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
+		concatString(reponse, tmp);
+		fString(tmp);
+		tmp = newStringFromChar(value);
+		concatString(reponse, tmp);
+		fString(tmp);
+		tmp = newStringFromCharStar("\">");
+		concatString(reponse, tmp);
+		fString(tmp);
+		tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_gris.png\" class=\"img-bottom\"><img src=\"../web/img/stars/star_jaune.png\" class=\"img-top\"></div></a>");
+		concatString(reponse, tmp);
+		fString(tmp);
+	}
+	fString(a);
+	fString(close_a);
+	return reponse;
+}

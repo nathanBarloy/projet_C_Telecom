@@ -1,0 +1,13 @@
+{
+	"title" : "Stars",
+	"url" : "exec://stars.json",
+	"body" : [{"file" : {"name" : "stars.html"}}],
+	"head" : [
+		{"tag": {
+			"name" : "meta",
+			"attributes" : [{"name" : "http-equiv", "value" : "refresh"}, {"name" : "content", "value" : "15;url=exec://init.json"}],
+		}
+		},
+	],
+	"styles" : ["theme.css"],
+}
