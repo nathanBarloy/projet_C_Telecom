@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "QuickSort.h"
+#include "MergeSort.h"
 
 double distance_users(BDD bdd, int id1, int id2);
 double mean_rates(JSONArray_t history_rates);

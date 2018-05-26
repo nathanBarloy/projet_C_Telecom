@@ -28,6 +28,8 @@ RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery re
 RequestAnswer ServerRequest_login(Client client, RequestQuery request);
 RequestAnswer ServerRequest_logout(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery request);
+// RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request);
+// RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request);
 //MACROS DE FACILITES
 
 //Pour la RequestQuery request, crée la variable du nom défini par le paramètre query, et lui assigne le détail de la requête, renvoie une erreur au client si Query n'existe pas.

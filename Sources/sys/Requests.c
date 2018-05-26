@@ -3,6 +3,8 @@
 #include "../utils/JSONShortcut.h"
 #include "../utils/Date.h"
 #include "../utils/Distance.h"
+#include "../utils/Distance_utilisateur.h"
+#include "../utils/RandomReco.h"
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -19,6 +21,8 @@ Map_t getRequestsMap()
 	setMap(r, autoString("login"), (void*) ServerRequest_login);
 	setMap(r, autoString("logout"), (void*) ServerRequest_logout);
 	setMap(r, autoString("getFilmsOrderedByRank"), (void*) ServerRequest_getFilmOrderedByRank);
+	// setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
+	// setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
 	//Fin des associations
 	return r;
 }
@@ -318,6 +322,34 @@ RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery re
 }
 RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery request)
 {
-	JSONObject_t bdd = JSONObject_getCopy(BDD_getFilmsOrderedByRank(client->bdd));
-	return RequestAnswerOk(request, bdd);
+	JSONObject_t films = JSONObject_getCopy(BDD_getFilmsOrderedByRank(client->bdd));
+	return RequestAnswerOk(request, films);
 }
+// RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request)
+// {
+// 	RequestQuery(request, user);
+// 	JSONString_t login = JSONObject_get(user, AS("Login"));
+// 	if(login != 0)
+// 	{
+// 		JSONArray_t films = collaborative_recommendation(client->bdd, JSONObject_intValueOf(BDD_getUserByLogin(client->bdd, JSONString_asString(login, 0)), AS("Id")));
+// 		JSONArray_t ten_first = JSONArray_new();
+// 		int i;
+// 		int size = JSONArray_size(films);
+// 		for(i=0 ; i<10 ; i++)
+// 		{
+// 			JSONArray_add(ten_first, JSONArray_get(films, size-i));
+// 		}
+// 		printf("Salut\n");
+// 		return RequestAnswerOk(request, ten_first);
+// 	}
+// 	else
+// 	{
+// 		printf("Impossible d'effectuer la requête.\n");
+// 		return RequestAnswerOk(request, JSONNull_new());
+// 	}
+// }
+// RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
+// {
+// 	JSONArray_t films = RandomReco(client->bdd);
+// 	return RequestAnswerOk(request, films);
+// }
