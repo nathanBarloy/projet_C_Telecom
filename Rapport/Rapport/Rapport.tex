@@ -232,5 +232,33 @@ Comme précédemment, on cherche une valeur du paramètre $\alpha$ qui correspon
 Dans tous les cas, c'est une bonne chose d'avoir des paramètres modifiables dans ces fonctions pour pouvoir mieux approcher ce que l'on veut.
 \subsection{Amélioration de la distance entre les genres}
 Pour la distance entre les genres, on utilisait jusqu'à présent la distance de Jacard. C'est une méthode qui marche, mais elle omet certains éléments dans son calcul, ce qui le rend moins précis. En effet, on ne prend pas en compte les potentielles ressemblances entre genres, on regarde simplement si un même genre est présent dans les deux films. Ainsi, si l'on considère 3 films dont les genres sont respectivement crime, mystère et romance, la distance de Jacard entre ces 3 films sera nulle, et on ne pourra pas les classer. Cependant, on se rend bien compte que les genres crime et mystère sont proches, alors qu'ils ne le sont pas de romance. Il faut donc essayer de prendre en compte les distances intrinsèques entre deux genres.\par
-Pour cela, la meilleure méthode aurait été d'utiliser le machine learning. Avec une telle méthode, l'humain n'a pas besoin d'intervenir, il suffit d'analyser la base de donnée des films et de repérer ceux qui sont proches d'après les utilisateurs pour estimer des distances entre les genres. L'avantage est que l'on peut alors rajouter un nouveau genre sans problème, et sans expliciter son lien avec les autres genres : l'algorithme fait cela tout seul. Cependant, pour qu'une telle méthode marche, il faut une base de données assez conséquente pour avoir des résultats corrects. De plus, c'est une méthode difficile à mettre en place, et qui requiert des connaissances que nous n'avons pas.
+Pour cela, la meilleure méthode aurait été d'utiliser le machine learning. Avec une telle méthode, l'humain n'a pas besoin d'intervenir, il suffit d'analyser la base de donnée des films et de repérer ceux qui sont proches d'après les utilisateurs pour estimer des distances entre les genres. L'avantage est que l'on peut alors rajouter un nouveau genre sans problème, et sans expliciter son lien avec les autres genres : l'algorithme fait cela tout seul. Cependant, pour qu'une telle méthode marche, il faut une base de données assez conséquente pour avoir des résultats corrects. De plus, c'est une méthode difficile à mettre en place, et qui requiert des connaissances que nous n'avons pas.\par
+Il faut donc utiliser une autre méthode, plus fastidieuse et moins précise. On va pour cela créer nous-même une matrice contenant les distances entre les films, puis on fera une moyenne des distances entre les genres du premier film avec ceux du deuxième film. Pour cela, il faut d'abord lister les films existant, qu'on obtient grâce à un simple algorithme qui parcours tous les film. On obtient la liste suivante : Action, Thriller, Drama, Adventure, Family, Romance, Fantasy, Sci-Fi, Animation, Comedy, Horror, Crime, Mystery, History, Musical, Sport, Biography, War et Music; soit un total de 19 genres. On crée ensuite une matrice de distances qu'on utilisera pour nos calculs : 
+\setcounter{MaxMatrixCols}{20}
+\small
+$$
+\begin{pmatrix}
+0.0 & 0.3 & 0.5 & 0.1 & 0.6 & 0.9 & 0.2 & 0.2 & 0.7 & 0.7 & 0.4 & 0.6 & 0.6 & 0.7 & 0.9 & 0.5 & 0.8 & 0.2 & 0.9 \\
+0.3 & 0.0 & 0.3 & 0.4 & 0.7 & 0.9 & 0.5 & 0.4 & 0.8 & 0.8 & 0.1 & 0.2 & 0.3 & 0.6 & 0.9 & 0.9 & 0.8 & 0.5 & 0.9 \\
+0.5 & 0.3 & 0.0 & 0.6 & 0.7 & 0.4 & 0.5 & 0.6 & 0.8 & 0.8 & 0.3 & 0.3 & 0.3 & 0.2 & 0.4 & 0.6 & 0.5 & 0.6 & 0.8 \\
+0.1 & 0.4 & 0.6 & 0.0 & 0.2 & 0.4 & 0.1 & 0.3 & 0.4 & 0.3 & 0.7 & 0.8 & 0.4 & 0.7 & 0.8 & 0.5 & 0.8 & 0.3 & 0.9 \\
+0.6 & 0.7 & 0.7 & 0.2 & 0.0 & 0.7 & 0.5 & 0.6 & 0.2 & 0.1 & 0.8 & 0.7 & 0.5 & 0.8 & 0.3 & 0.4 & 0.9 & 0.7 & 0.6 \\
+0.9 & 0.9 & 0.4 & 0.4 & 0.7 & 0.0 & 0.7 & 0.8 & 0.7 & 0.5 & 0.9 & 0.8 & 0.6 & 0.4 & 0.1 & 0.6 & 0.6 & 0.5 & 0.3 \\
+0.2 & 0.5 & 0.5 & 0.1 & 0.5 & 0.7 & 0.0 & 0.3 & 0.5 & 0.4 & 0.5 & 0.7 & 0.4 & 0.8 & 0.7 & 0.9 & 0.9 & 0.2 & 0.8 \\
+0.2 & 0.4 & 0.6 & 0.3 & 0.6 & 0.8 & 0.3 & 0.0 & 0.7 & 0.4 & 0.5 & 0.4 & 0.2 & 0.8 & 0.7 & 0.9 & 0.9 & 0.6 & 0.8 \\
+0.7 & 0.8 & 0.8 & 0.4 & 0.2 & 0.7 & 0.5 & 0.7 & 0.0 & 0.1 & 0.7 & 0.7 & 0.4 & 0.8 & 0.3 & 0.8 & 0.9 & 0.7 & 0.4 \\
+0.7 & 0.8 & 0.8 & 0.3 & 0.1 & 0.5 & 0.4 & 0.4 & 0.1 & 0.0 & 0.8 & 0.8 & 0.4 & 0.9 & 0.3 & 0.5 & 0.7 & 0.9 & 0.6 \\
+0.4 & 0.1 & 0.3 & 0.7 & 0.8 & 0.9 & 0.5 & 0.5 & 0.7 & 0.8 & 0.0 & 0.2 & 0.4 & 0.6 & 0.9 & 0.9 & 0.8 & 0.3 & 0.8 \\
+0.6 & 0.2 & 0.3 & 0.8 & 0.7 & 0.8 & 0.7 & 0.4 & 0.7 & 0.8 & 0.2 & 0.0 & 0.1 & 0.3 & 0.8 & 0.9 & 0.7 & 0.3 & 0.9 \\
+0.6 & 0.3 & 0.3 & 0.4 & 0.5 & 0.6 & 0.4 & 0.2 & 0.4 & 0.4 & 0.4 & 0.1 & 0.0 & 0.4 & 0.6 & 0.6 & 0.7 & 0.5 & 0.8 \\
+0.7 & 0.6 & 0.2 & 0.7 & 0.8 & 0.4 & 0.8 & 0.8 & 0.8 & 0.9 & 0.6 & 0.3 & 0.4 & 0.0 & 0.7 & 0.6 & 0.1 & 0.2 & 0.8 \\
+0.9 & 0.9 & 0.4 & 0.8 & 0.3 & 0.1 & 0.7 & 0.7 & 0.3 & 0.3 & 0.9 & 0.8 & 0.6 & 0.7 & 0.0 & 0.6 & 0.8 & 0.6 & 0.1 \\
+0.5 & 0.9 & 0.6 & 0.5 & 0.4 & 0.6 & 0.9 & 0.9 & 0.8 & 0.5 & 0.9 & 0.9 & 0.6 & 0.6 & 0.6 & 0.0 & 0.7 & 0.9 & 0.9 \\
+0.8 & 0.8 & 0.5 & 0.8 & 0.9 & 0.6 & 0.9 & 0.9 & 0.9 & 0.7 & 0.8 & 0.7 & 0.7 & 0.1 & 0.8 & 0.7 & 0.0 & 0.7 & 0.9 \\
+0.2 & 0.5 & 0.6 & 0.3 & 0.7 & 0.5 & 0.2 & 0.6 & 0.7 & 0.9 & 0.3 & 0.3 & 0.5 & 0.2 & 0.6 & 0.9 & 0.7 & 0.0 & 0.8 \\
+0.9 & 0.9 & 0.8 & 0.9 & 0.6 & 0.3 & 0.8 & 0.8 & 0.4 & 0.6 & 0.8 & 0.9 & 0.8 & 0.8 & 0.1 & 0.9 & 0.9 & 0.8 & 0.0
+\end{pmatrix}
+$$
+\normalize
+C'est assez indigeste et laborieux à créer, mais une fois cela fait, l'utilisation est très simple. Chaque ligne et chaque colonne correspond à un genre, dans l'ordre de la liste, et à la ligne i colonne j, on a la distance entre le genre i et le genre j. Les propriétés de la distance nous donne alors aussi des propriétés sur la matrice : puisqu'une distance est symétrique (\(d(a,b)=d(b,a)\)), la matrice l'est aussi. De plus la distance entre un genre et lui même est nul, donc les éléments diagonaux sont tous nuls.\par
 \end{document}
