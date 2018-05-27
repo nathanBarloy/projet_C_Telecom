@@ -35,6 +35,9 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	concatString(reponse, tmp);
 	fString(tmp);
 	//fin div cover
+	tmp = HTMLFilmRate(connexion, value_id);
+	concatString(reponse, tmp);
+	fString(tmp);
 	concatString(reponse, finDiv);
 	//Ajout du titre
 	tmp = newStringFromCharStar("<div class=\"data\">");

@@ -736,3 +736,95 @@ String_t star_rated(int val)
 	fString(tmp);
 	return reponse;
 }
+String_t HTMLFilmRate(Connexion_t connexion, int film_id)
+{
+	//récupérer la note éventuelle de l'utilisateur
+	JSONObject_t film = serverGetFilmById(connexion, film_id);
+	printf("%s\n", cString(JSONObject_asString(film, 0)));
+	double note = JSONObject_doubleValueOf(film, autoString("Rate"));
+	int s_note = (int)(note);
+	printf("NOTE NON AJUSTE : %f\n", note);
+	printf("NOTE ICI : %d\n", s_note);
+	double diff = note-Double(s_note);
+	printf("DIFF ; %f\n", diff);
+	if(diff > 0.5)
+	{
+		s_note = s_note + 1;
+	}
+	printf("NOTE AJUSTE : %d\n", s_note);
+	int i=0;
+	String_t tmp = 0;
+	String_t reponse = newStringFromChar("");
+	tmp = newStringFromCharStar("<div class=\"rateFilm\">");
+	concatString(reponse, tmp);
+	fString(tmp);
+	for(i=1 ; i<6 ; i++)
+	{
+		if(i <= s_note)
+		{
+			printf("Etoile rated\n");
+			tmp = star_ratedfilm(i);
+			concatString(reponse, tmp);
+			fString(tmp);
+		}
+		else
+		{
+			printf("Etoile unrated\n");
+			tmp = star_unratedfilm(i);
+			concatString(reponse, tmp);
+			fString(tmp);
+		}
+	}
+	// tmp = newStringFromChar("<div>");
+	// concatString(reponse, tmp);
+	// fString(tmp);
+	// tmp = newStringFromChar("la note/5</div>");
+	// concatString(reponse, tmp);
+	// fString(tmp);
+	tmp = newStringFromCharStar("</div>");
+	concatString(reponse, tmp);
+	fString(tmp);
+	// freeAutoString();
+	return reponse;
+}
+String_t star_ratedfilm(int val)
+{
+	String_t tmp = 0;
+	String_t reponse = newStringFromChar("");
+	char value[20];
+	sprintf(value, "%d", val);
+	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromChar(value);
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("\">");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_jaune.png\" class=\"img-bottom\"></div>");
+	concatString(reponse, tmp);
+	fString(tmp);
+	return reponse;
+}
+String_t star_unratedfilm(int val)
+{
+	String_t tmp = 0;
+	String_t reponse = newStringFromChar("");
+	char value[20];
+	sprintf(value, "%d", val);
+
+	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromChar(value);
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("\">");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_gris.png\" class=\"img-bottom\"></div>");
+	concatString(reponse, tmp);
+	fString(tmp);
+	return reponse;
+}
