@@ -627,8 +627,30 @@ String_t getParam(String_t name, Vector_t params)
 }
 
 //systeme de notation avec Etoiles
-String_t HTMLRatingStars(Connexion_t connexion)
+String_t HTMLRatingStars(Connexion_t connexion, int film_id)
 {
+	//récupérer la note éventuelle de l'utilisateur
+	JSONObject_t user = connexion->user;
+	int note = 0;
+	if(user != 0)
+	{
+		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
+		int size = JSONArray_size(rates);
+		int j;
+		for(j=0 ; j<size ; j++)
+		{
+			if(JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Id")) == film_id)
+			{
+				note = JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Rate"));
+				printf("Ce film est noté ! : %d\n", note);
+				break;
+			}
+		}
+	}
+	if(note == 0)
+	{
+		printf("Pas de note trouvé pour le film d'id : %d\n", film_id);
+	}
 	int i=0;
 	String_t tmp = 0;
 	//String_t a = newStringFromCharStar("<a href=\"exec://stars.json?value=");
@@ -637,27 +659,80 @@ String_t HTMLRatingStars(Connexion_t connexion)
 	String_t reponse = newStringFromChar("");
 	for(i=1 ; i<6 ; i++)
 	{
-		char value[20];
-		sprintf(value, "%d", i);
-		tmp = newStringFromCharStar(value);
-		concatString(reponse, a);
-		concatString(reponse, tmp);
-		fString(tmp);
-		concatString(reponse, close_a);
-		tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
-		concatString(reponse, tmp);
-		fString(tmp);
-		tmp = newStringFromChar(value);
-		concatString(reponse, tmp);
-		fString(tmp);
-		tmp = newStringFromCharStar("\">");
-		concatString(reponse, tmp);
-		fString(tmp);
-		tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_gris.png\" class=\"img-bottom\"><img src=\"../web/img/stars/star_jaune.png\" class=\"img-top\"></div></a>");
-		concatString(reponse, tmp);
-		fString(tmp);
+		if(i <= note)
+		{
+			printf("Etoile rated\n");
+			tmp = star_rated(i);
+			concatString(reponse, tmp);
+			fString(tmp);
+		}
+		else
+		{
+			printf("Etoile unrated\n");
+			tmp = star_unrated(i);
+			concatString(reponse, tmp);
+			fString(tmp);
+		}
 	}
 	fString(a);
 	fString(close_a);
+	// freeAutoString();
+	return reponse;
+}
+
+String_t star_unrated(int val)
+{
+	String_t tmp = 0;
+	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+	String_t close_a = newStringFromCharStar("\" >");
+	String_t reponse = newStringFromChar("");
+	char value[20];
+	sprintf(value, "%d", val);
+
+	tmp = newStringFromCharStar(value);
+	concatString(reponse, a);
+	concatString(reponse, tmp);
+	fString(tmp);
+	concatString(reponse, close_a);
+	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromChar(value);
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("\">");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_gris.png\" class=\"img-bottom\"><img src=\"../web/img/stars/star_orange.png\" class=\"img-top\"></div></a>");
+	concatString(reponse, tmp);
+	fString(tmp);
+	return reponse;
+}
+String_t star_rated(int val)
+{
+	String_t tmp = 0;
+	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+	String_t close_a = newStringFromCharStar("\" >");
+	String_t reponse = newStringFromChar("");
+	char value[20];
+	sprintf(value, "%d", val);
+
+	tmp = newStringFromCharStar(value);
+	concatString(reponse, a);
+	concatString(reponse, tmp);
+	fString(tmp);
+	concatString(reponse, close_a);
+	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromChar(value);
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("\">");
+	concatString(reponse, tmp);
+	fString(tmp);
+	tmp = newStringFromCharStar("<img src=\"../web/img/stars/star_jaune.png\" class=\"img-bottom\"><img src=\"../web/img/stars/star_orange.png\" class=\"img-top\"></div></a>");
+	concatString(reponse, tmp);
+	fString(tmp);
 	return reponse;
 }

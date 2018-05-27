@@ -61,7 +61,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	//fin titre
 	concatString(reponse, finDiv);
 	//Stars
-	tmp = HTMLRatingStars(connexion);
+	tmp = HTMLRatingStars(connexion, value_id);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("<table class=\"block_data\"><tr>");
