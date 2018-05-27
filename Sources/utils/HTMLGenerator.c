@@ -632,6 +632,7 @@ String_t HTMLRatingStars(Connexion_t connexion, int film_id)
 	//récupérer la note éventuelle de l'utilisateur
 	JSONObject_t user = connexion->user;
 	int note = 0;
+	String_t reponse = newStringFromChar("");
 	if(user != 0)
 	{
 		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
@@ -646,37 +647,36 @@ String_t HTMLRatingStars(Connexion_t connexion, int film_id)
 				break;
 			}
 		}
-	}
-	if(note == 0)
-	{
-		printf("Pas de note trouvé pour le film d'id : %d\n", film_id);
-	}
-	int i=0;
-	String_t tmp = 0;
-	//String_t a = newStringFromCharStar("<a href=\"exec://stars.json?value=");
-	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
-	String_t close_a = newStringFromCharStar("\" >");
-	String_t reponse = newStringFromChar("");
-	for(i=1 ; i<6 ; i++)
-	{
-		if(i <= note)
+		if(note == 0)
 		{
-			printf("Etoile rated\n");
-			tmp = star_rated(i);
-			concatString(reponse, tmp);
-			fString(tmp);
+			printf("Pas de note trouvé pour le film d'id : %d\n", film_id);
 		}
-		else
+		int i=0;
+		String_t tmp = 0;
+		//String_t a = newStringFromCharStar("<a href=\"exec://stars.json?value=");
+		String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+		String_t close_a = newStringFromCharStar("\" >");
+		for(i=1 ; i<6 ; i++)
 		{
-			printf("Etoile unrated\n");
-			tmp = star_unrated(i);
-			concatString(reponse, tmp);
-			fString(tmp);
+			if(i <= note)
+			{
+				printf("Etoile rated\n");
+				tmp = star_rated(i);
+				concatString(reponse, tmp);
+				fString(tmp);
+			}
+			else
+			{
+				printf("Etoile unrated\n");
+				tmp = star_unrated(i);
+				concatString(reponse, tmp);
+				fString(tmp);
+			}
 		}
+		fString(a);
+		fString(close_a);
+		// freeAutoString();
 	}
-	fString(a);
-	fString(close_a);
-	// freeAutoString();
 	return reponse;
 }
 
