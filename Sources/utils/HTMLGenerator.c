@@ -8,6 +8,7 @@
 #include "Replace.h"
 #include <unistd.h>
 #include "../gui/GUIHandleWebKit.h"
+#include "../sys/ClientRequests.h"
 String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params)
 {
 	String_t html = newString();
@@ -632,7 +633,7 @@ String_t HTMLRatingStars(Connexion_t connexion, int film_id)
 	//récupérer la note éventuelle de l'utilisateur
 	JSONObject_t user = connexion->user;
 	int note = 0;
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	if(user != 0)
 	{
 		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
@@ -685,7 +686,7 @@ String_t star_unrated(int val)
 	String_t tmp = 0;
 	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
 	String_t close_a = newStringFromCharStar("\" >");
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	char value[20];
 	sprintf(value, "%d", val);
 
@@ -697,7 +698,7 @@ String_t star_unrated(int val)
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);
 	fString(tmp);
-	tmp = newStringFromChar(value);
+	tmp = newStringFromChar((const char) value[0]);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("\">");
@@ -713,7 +714,7 @@ String_t star_rated(int val)
 	String_t tmp = 0;
 	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
 	String_t close_a = newStringFromCharStar("\" >");
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	char value[20];
 	sprintf(value, "%d", val);
 
@@ -725,7 +726,7 @@ String_t star_rated(int val)
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);
 	fString(tmp);
-	tmp = newStringFromChar(value);
+	tmp = newStringFromChar((const char) value[0]);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("\">");
@@ -754,7 +755,7 @@ String_t HTMLFilmRate(Connexion_t connexion, int film_id)
 	printf("NOTE AJUSTE : %d\n", s_note);
 	int i=0;
 	String_t tmp = 0;
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	tmp = newStringFromCharStar("<div class=\"rateFilm\">");
 	concatString(reponse, tmp);
 	fString(tmp);
@@ -790,13 +791,13 @@ String_t HTMLFilmRate(Connexion_t connexion, int film_id)
 String_t star_ratedfilm(int val)
 {
 	String_t tmp = 0;
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	char value[20];
 	sprintf(value, "%d", val);
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);
 	fString(tmp);
-	tmp = newStringFromChar(value);
+	tmp = newStringFromChar((const char) value[0]);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("\">");
@@ -810,14 +811,14 @@ String_t star_ratedfilm(int val)
 String_t star_unratedfilm(int val)
 {
 	String_t tmp = 0;
-	String_t reponse = newStringFromChar("");
+	String_t reponse = newString();
 	char value[20];
 	sprintf(value, "%d", val);
 
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);
 	fString(tmp);
-	tmp = newStringFromChar(value);
+	tmp = newStringFromChar((const char) value[0]);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("\">");
