@@ -35,7 +35,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	concatString(reponse, tmp);
 	fString(tmp);
 	//fin div cover
-	tmp = HTMLFilmRate(connexion, value_id);
+	tmp = HTMLFilmRate(connexion, json, film, params);
 	concatString(reponse, tmp);
 	fString(tmp);
 	concatString(reponse, finDiv);
@@ -64,7 +64,8 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	//fin titre
 	concatString(reponse, finDiv);
 	//Stars
-	tmp = HTMLRatingStars(connexion, value_id);
+
+	tmp = HTMLRatingStars(connexion, json, film, param);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("<table class=\"block_data\"><tr>");
