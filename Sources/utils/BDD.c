@@ -448,3 +448,43 @@ bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
 	}
 	return 0;
 }
+
+JSONArray_t BDD_getUserRates(BDD bdd, int user_id)
+{
+	JSONArray_t users = JSONObject_getCopy(BDD_Users(bdd));
+	int i;
+	JSONObject_t current_user = JSONObject_new();
+	int id = 0;
+	int size = JSONArray_size(users);
+	for(i=0 ; i<size ; i++)
+	{
+		current_user = JSONArray_get(users, i);
+		id = JSONObject_intValueOf(current_user, autoString("Id"));
+		if(id == user_id)
+		{
+			break;
+		}
+	}
+	if(current_user == 0)
+	{
+		printf("Pas de user valide\n");
+		freeAutoString();
+		return JSONArray_new();
+	}
+	JSONObject_t history = JSONObject_get(current_user, autoString("History"));
+	if(history == 0)
+	{
+		printf("History fait défaut\n");
+		freeAutoString();
+		return JSONArray_new();
+	}
+	JSONArray_t rates = JSONObject_get(history, autoString("Rates"));
+	if(rates == 0)
+	{
+		printf("Rates fait défaut\n");
+		freeAutoString();
+		return JSONArray_new();
+	}
+	printf("Bonne extraction des résultats\n");
+	return rates;
+}

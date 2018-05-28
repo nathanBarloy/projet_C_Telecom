@@ -196,9 +196,27 @@ RequestAnswer serverSetFilmRateOfUser(Connexion_t connexion, int film_id, int va
 	JSONObject_t obj = JSONObject_new();
 	JSONObject_set(obj, AS("FilmId"), JSONInt_new(film_id));
 	JSONObject_set(obj, AS("Value"), JSONInt_new(value));
-	printf("obj_filmrate:\n%s\n", cString(JSONObject_asString(obj, 0)));
+	//printf("obj_filmrate:\n%s\n", cString(JSONObject_asString(obj, 0)));
 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("setFilmRateOfUser"), obj));
 	RequestAnswer a = clientRequest(connexion, q);
 	freeRequestQuery(q);
 	return a;
+}
+JSONArray_t serverGetUserRates(Connexion_t connexion)
+{
+	printf("Exécution de serverGetUserRates\n");
+	JSONObject_t obj = JSONObject_new();
+	int id = JSONObject_intValueOf(connexion->user, autoString("Id"));
+	JSONObject_set(obj, AS("UserId"), JSONInt_new(id));
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getUserRates"), obj));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
+		JSONObject_remove(a->obj, AS("Answer"), false);
+		freeRequestAnswer(a);
+		return answer;
+	}
+	return 0;
 }

@@ -21,6 +21,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("logout"), (void*) ServerRequest_logout);
 	setMap(r, autoString("getFilmsOrderedByRank"), (void*) ServerRequest_getFilmOrderedByRank);
 	setMap(r, autoString("setFilmRateOfUser"), (void*) ServerRequest_setFilmRateOfUser);
+	setMap(r, autoString("getUserRates"), (void*) ServerRequest_getUserRates);
 	// setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
 	// setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
 	//Fin des associations
@@ -376,4 +377,25 @@ RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery reques
 	}
 	printf("Unable to set note.\n");
 	return RequestAnswerError(request, 0, 5, AS("Impossible de modifier la note"));
+}
+RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request)
+{
+	printf("Récupération des notes de l'utilisateur\n");
+	RequestQuery(request, query);
+	RequestObject(request, query, "UserId", user_id);
+	if(JSONObject_getType(user_id) == INT)
+	{
+		printf("Utilisateur bien connecté\n");
+		int uid = JSONInt_get(user_id);
+		JSONArray_t rates = BDD_getUserRates(client->bdd, uid);
+		if(rates != 0)
+		{
+			printf("Liste correctement récupérée\n");
+			return RequestAnswerOk(request, JSONObject_getCopy(rates));
+		}
+		printf("Liste User err.\n");
+		return RequestAnswerError(request, 0, 5, autoString("Impossible de récupérer la liste"));
+	}
+	printf("Impossible de récupérer l'id de l'utilisateur\n");
+	return RequestAnswerError(request, 0, 5, AS("Impossible de récupérer l'id de l'utilisateur"));
 }

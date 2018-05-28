@@ -33,4 +33,5 @@ void BDD_UpdateRate(BDD bdd, JSONObject_t film);
 void BDD_UpdateRates(BDD bdd);
 void BDD_UpdateRanks(BDD bdd);
 bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate);
+JSONArray_t BDD_getUserRates(BDD bdd, int user_id);
 #endif

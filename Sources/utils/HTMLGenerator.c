@@ -636,7 +636,8 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	String_t reponse = newString();
 	if(user != 0)
 	{
-		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
+		JSONArray_t rates = serverGetUserRates(connexion);
+		printf("PARLA\n%s\n", cString(JSONArray_asString(rates, 0)));
 		int size = JSONArray_size(rates);
 		int j;
 		printf("Salut\n");

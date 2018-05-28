@@ -9,6 +9,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	{
 		// printf("cccccc\n");
 		int fid = atoi(cString(id));
+		int uid = atoi(cString(JSONObject_stringValueOf(connexion->user, autoString("Id"))));
 		int val = atoi(cString(getParam(AS("value"), params)));
 		// printf("fid=%d\nuid=%d\nval=%d\n", fid, uid, val);
 		serverSetFilmRateOfUser(connexion, fid, val);
