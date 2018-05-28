@@ -14,6 +14,7 @@ JSONObject_t serverGetFilmById(Connexion_t connexion, int id);
 JSONObject_t serverGetDistanceBetween(Connexion_t connexion, int id1, int id2);
 JSONArray_t serverGetFilmRecommendation(Connexion_t connexion, int id);
 JSONArray_t serverGetFilmOrderedByRank(Connexion_t connexion);
-// JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion);
-// JSONArray_t serverGetRandRecommendation(Connexion_t connexion);
+// JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion, int user_id);
+JSONArray_t serverGetRandRecommendation(Connexion_t connexion);
+RequestAnswer serverSetFilmRateOfUser(Connexion_t connexion, int user_id, int film_id, int value);
 #endif

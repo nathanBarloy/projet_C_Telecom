@@ -639,11 +639,12 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		JSONArray_t rates = JSONObject_get(JSONObject_get(user, autoString("History")), autoString("Rates"));
 		int size = JSONArray_size(rates);
 		int j;
-		note = JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Rate"));
+		printf("Salut\n");
 		for(j=0 ; j<size ; j++)
 		{
 			if(JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Id")) == JSONObject_intValueOf(param, AS("Id")))
 			{
+				note = JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Rate"));
 				printf("Ce film est noté ! : %d\n", note);
 				break;
 			}
@@ -655,7 +656,7 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		int i=0;
 		String_t tmp = 0;
 		//String_t a = newStringFromCharStar("<a href=\"exec://stars.json?value=");
-		String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+		//String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
 		String_t close_a = newStringFromCharStar("\" >");
 		JSONInt_t val = JSONInt_new(0);
 		for(i=1 ; i<6 ; i++)
@@ -677,7 +678,7 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 			}
 		}
 		JSONInt_delete(val);
-		fString(a);
+		// fString(a);
 		fString(close_a);
 		// freeAutoString();
 	}
@@ -687,12 +688,16 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 String_t HTMLStarUnrated(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t tmp = 0;
-	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+	String_t a = newStringFromCharStar("<a href=\"exec://film.json?value=");
 	String_t close_a = newStringFromCharStar("\" >");
 	String_t reponse = newString();
 
 	concatString(reponse, a);
 	concatString(reponse, JSONInt_asString(param, 0));
+	tmp = newStringFromCharStar("&id=");
+	concatString(reponse, tmp);
+	fString(tmp);
+	concatString(reponse, getParam(AS("id"), params));
 	concatString(reponse, close_a);
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);
@@ -709,11 +714,16 @@ String_t HTMLStarUnrated(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 String_t HTMLStarRated(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t tmp = 0;
-	String_t a = newStringFromCharStar("<a href=\"exec://register.json?value=");
+	String_t a = newStringFromCharStar("<a href=\"exec://film.json?value=");
 	String_t close_a = newStringFromCharStar("\" >");
 	String_t reponse = newString();
 	concatString(reponse, a);
 	concatString(reponse, JSONInt_asString(param, 0));
+	tmp = newStringFromCharStar("&id=");
+	concatString(reponse, tmp);
+	fString(tmp);
+	printf("LA %s\n", cString(getParam(AS("id"), params)));
+	concatString(reponse, getParam(AS("id"), params));
 	concatString(reponse, close_a);
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
 	concatString(reponse, tmp);

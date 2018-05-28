@@ -4,9 +4,18 @@
 
 String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
+	String_t id = getParam(AS("id"), params);
+	if(getParam(AS("value"), params) != 0)
+	{
+		// printf("cccccc\n");
+		int fid = atoi(cString(id));
+		int uid = atoi(cString(JSONObject_stringValueOf(connexion->user, autoString("Id"))));
+		int val = atoi(cString(getParam(AS("value"), params)));
+		// printf("fid=%d\nuid=%d\nval=%d\n", fid, uid, val);
+		serverSetFilmRateOfUser(connexion, uid, fid, val);
+	}
 	String_t reponse = newString();
 	// le paramètre en question contient l'id du film cliqué
-	String_t id = getParam(AS("id"), params);
 	if(!(id == 0 || equalsString(id, AS(""))))
 	{
 	String_t tmp = 0;
@@ -65,7 +74,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	concatString(reponse, finDiv);
 	//Stars
 
-	tmp = HTMLRatingStars(connexion, json, film, param);
+	tmp = HTMLRatingStars(connexion, json, film, params);
 	concatString(reponse, tmp);
 	fString(tmp);
 	tmp = newStringFromCharStar("<table class=\"block_data\"><tr>");

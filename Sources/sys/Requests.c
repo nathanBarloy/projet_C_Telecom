@@ -3,8 +3,7 @@
 #include "../utils/JSONShortcut.h"
 #include "../utils/Date.h"
 #include "../utils/Distance.h"
-#include "../utils/Distance_utilisateur.h"
-#include "../utils/RandomReco.h"
+
 Map_t getRequestsMap()
 {
 	Map_t r = newMap();
@@ -21,6 +20,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("login"), (void*) ServerRequest_login);
 	setMap(r, autoString("logout"), (void*) ServerRequest_logout);
 	setMap(r, autoString("getFilmsOrderedByRank"), (void*) ServerRequest_getFilmOrderedByRank);
+	setMap(r, autoString("setFilmRateOfUser"), (void*) ServerRequest_setFilmRateOfUser);
 	// setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
 	// setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
 	//Fin des associations
@@ -327,29 +327,44 @@ RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery req
 }
 // RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request)
 // {
-// 	RequestQuery(request, user);
-// 	JSONString_t login = JSONObject_get(user, AS("Login"));
-// 	if(login != 0)
+// 	printf("AAAAAAAAAAAAAAAAAAAA\n");
+// 	RequestQuery(request, query);
+// 	RequestObject(request, query, "id", id);
+// 	printf("ID qui sait :%d\n", id);
+// 	if(JSONObject_getType(id) == INT)
 // 	{
-// 		JSONArray_t films = collaborative_recommendation(client->bdd, JSONObject_intValueOf(BDD_getUserByLogin(client->bdd, JSONString_asString(login, 0)), AS("Id")));
+// 		JSONArray_t films = collaborative_recommendation(client->bdd, id);
 // 		JSONArray_t ten_first = JSONArray_new();
 // 		int i;
 // 		int size = JSONArray_size(films);
 // 		for(i=0 ; i<10 ; i++)
 // 		{
-// 			JSONArray_add(ten_first, JSONArray_get(films, size-i));
+// 			JSONArray_add(ten_first, JSONObject_getCopy(JSONArray_get(films, size-i)));
 // 		}
 // 		printf("Salut\n");
 // 		return RequestAnswerOk(request, ten_first);
 // 	}
-// 	else
-// 	{
-// 		printf("Impossible d'effectuer la requête.\n");
-// 		return RequestAnswerOk(request, JSONNull_new());
-// 	}
+// 	return RequestAnswerOk(request, JSONNull_new());
+//
 // }
 // RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
 // {
-// 	JSONArray_t films = RandomReco(client->bdd);
+// 	printf("VOILA\n");
+// 	JSONObject_t films = JSONObject_getCopy(RandomReco(client->bdd));
 // 	return RequestAnswerOk(request, films);
 // }
+RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery request)
+{
+	printf("lancement ServerRequest_setFilmRateOfUser\n");
+	RequestQuery(request, query);
+	RequestObject(request, query, "film_id", film_id);
+	RequestObject(request, query, "user_id", user_id);
+	RequestObject(request, query, "value", value);
+	if(JSONObject_getType(film_id) == INT && JSONObject_getType(user_id) == INT && JSONObject_getType(value) == INT)
+	{
+		int fid = JSONInt_get(film_id), uid = JSONInt_get(user_id), v = JSONInt_get(value);
+		BDD_setFilmRateOfUser(client->bdd, fid, uid, v);
+		return RequestAnswerOk(request, 0);
+	}
+	return RequestAnswerError(request, 0, 5, AS("Impossible de modifier la note"));
+}
