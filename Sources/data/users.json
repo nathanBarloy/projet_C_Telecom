@@ -4597,7 +4597,18 @@
 	"Friends": [],
 	"History": 
 		{
-		"Rates": []		
+		"Rates": 
+			[
+				{
+				"Id": 2,
+				"Rate": 1				
+				},
+			
+				{
+				"Id": 3,
+				"Rate": 4				
+				}
+			]		
 		},
 	"Id": 115,
 	"Login": "crone123",

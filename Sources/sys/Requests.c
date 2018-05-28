@@ -357,14 +357,23 @@ RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery reques
 {
 	printf("lancement ServerRequest_setFilmRateOfUser\n");
 	RequestQuery(request, query);
-	RequestObject(request, query, "film_id", film_id);
-	RequestObject(request, query, "user_id", user_id);
-	RequestObject(request, query, "value", value);
-	if(JSONObject_getType(film_id) == INT && JSONObject_getType(user_id) == INT && JSONObject_getType(value) == INT)
+	RequestObject(request, query, "FilmId", film_id);
+	JSONObject_t s = BDD_getSessionById(client->bdd, request->sid);
+	RequestObject(request, query, "Value", value);
+	if(JSONObject_getType(film_id) == INT && s != 0 && JSONObject_getType(value) == INT)
 	{
-		int fid = JSONInt_get(film_id), uid = JSONInt_get(user_id), v = JSONInt_get(value);
-		BDD_setFilmRateOfUser(client->bdd, fid, uid, v);
-		return RequestAnswerOk(request, 0);
+		JSONObject_t user = BDD_getUserById(client->bdd, JSONObject_intValueOf(s, AS("UserId")));
+		printf("Modifications allowed.\n");
+		int fid = JSONInt_get(film_id), v = JSONInt_get(value);
+		bool r = BDD_setFilmRateOfUser(client->bdd, fid, JSONObject_intValueOf(user, AS("Id")), v);
+		if(r == true)
+		{
+			printf("Note OK.\n");
+			return RequestAnswerOk(request, 0);
+		}
+		printf("Note User err.\n");
+		return RequestAnswerError(request, 0, 5, AS("Impossible de trouver l'utilisateur à modifier."));
 	}
+	printf("Unable to set note.\n");
 	return RequestAnswerError(request, 0, 5, AS("Impossible de modifier la note"));
 }

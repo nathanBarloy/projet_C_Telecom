@@ -191,12 +191,11 @@ JSONArray_t serverGetFilmOrderedByRank(Connexion_t connexion)
 // 	}
 // 	return 0;
 // }
-RequestAnswer serverSetFilmRateOfUser(Connexion_t connexion, int user_id, int film_id, int value)
+RequestAnswer serverSetFilmRateOfUser(Connexion_t connexion, int film_id, int value)
 {
 	JSONObject_t obj = JSONObject_new();
-	JSONObject_set(obj, AS("u_id"), JSONInt_new(user_id));
-	JSONObject_set(obj, AS("f_id"), JSONInt_new(film_id));
-	JSONObject_set(obj, AS("value"), JSONInt_new(value));
+	JSONObject_set(obj, AS("FilmId"), JSONInt_new(film_id));
+	JSONObject_set(obj, AS("Value"), JSONInt_new(value));
 	printf("obj_filmrate:\n%s\n", cString(JSONObject_asString(obj, 0)));
 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("setFilmRateOfUser"), obj));
 	RequestAnswer a = clientRequest(connexion, q);
