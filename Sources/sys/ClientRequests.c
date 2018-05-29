@@ -158,24 +158,24 @@ JSONArray_t serverGetFilmOrderedByRank(Connexion_t connexion)
 	}
 	return 0;
 }
-// JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion, int user_id)
-// {
-// 	printf("DEBUT DES ENNUIES\n");
-// 	JSONObject_t obj = JSONObject_new();
-// 	JSONObject_set(obj, AS("id"), JSONInt_new(user_id));
-// 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getCollaborativeRecommendation"), obj));
-// 	RequestAnswer a = clientRequest(connexion, q);
-// 	printf("BON TANT PIS\n");
-// 	freeRequestQuery(q);
-// 	if(a != 0)
-// 	{
-// 		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
-// 		JSONObject_remove(a->obj, AS("Answer"), false);
-// 		freeRequestAnswer(a);
-// 		return answer;
-// 	}
-// 	return 0;
-// }
+JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion)
+{
+	JSONObject_t obj = JSONObject_new();
+	int user_id = JSONObject_intValueOf(connexion->user, AS("Id"));
+	printf("user_id test : %d\n", user_id);
+	JSONObject_set(obj, AS("Id"), JSONInt_new(user_id));
+	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getCollaborativeRecommendation"), obj));
+	RequestAnswer a = clientRequest(connexion, q);
+	freeRequestQuery(q);
+	if(a != 0)
+	{
+		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
+		JSONObject_remove(a->obj, AS("Answer"), false);
+		freeRequestAnswer(a);
+		return answer;
+	}
+	return 0;
+}
 // JSONArray_t serverGetRandRecommendation(Connexion_t connexion)
 // {
 // 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getRandRecommendation"), JSONObject_new()));

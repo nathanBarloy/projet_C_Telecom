@@ -38,32 +38,32 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	}
 	else if(equalsString(selected, AS("recommended")))//Recommandé pour l'utilisateur
 	{
-		// JSONArray_t films = serverGetCollaborativeRecommnendation(connexion);
-		// String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
-		// if(films != 0)
-		// {
-		// 	size_t c = 0, size = JSONArray_size(films);
-		// 	concatString(r, tmp);
-		// 	fString(tmp);
-		// 	while(c < size)
-		// 	{
-		// 		tmp = HTMLFilm(connexion, json, JSONArray_get(films, c), params);
-		// 		concatString(r, tmp);
-		// 		fString(tmp);
-		// 		++c;
-		// 	}
-		//
-		// 	JSONObject_delete(films);
-		// }
-		// else
-		// {
-		// 	tmp = newStringFromCharStar("Impossible de récupérer les films depuis le serveur... la connexion à échoué.");
-		// 	concatString(r, tmp);
-		// 	fString(tmp);
-		// }
-		// tmp = newStringFromCharStar("</div>");
-		// concatString(r, tmp);
-		// fString(tmp);
+		JSONArray_t films = serverGetCollaborativeRecommnendation(connexion);
+		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
+		if(films != 0)
+		{
+			size_t c = 0, size = JSONArray_size(films);
+			concatString(r, tmp);
+			fString(tmp);
+			while(c < size)
+			{
+				tmp = HTMLFilm(connexion, json, JSONArray_get(films, c), params);
+				concatString(r, tmp);
+				fString(tmp);
+				++c;
+			}
+
+			JSONObject_delete(films);
+		}
+		else
+		{
+			tmp = newStringFromCharStar("Impossible de récupérer les films depuis le serveur... la connexion à échoué.");
+			concatString(r, tmp);
+			fString(tmp);
+		}
+		tmp = newStringFromCharStar("</div>");
+		concatString(r, tmp);
+		fString(tmp);
 	}
 	else if(equalsString(selected, AS("trends")))//Tendances
 	{
@@ -99,8 +99,9 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		// JSONObject_t films = serverGetRandRecommendation(connexion);
 		// printf("films_random : %s\n", cString(JSONArray_asString(films, 0)));
 		// String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
-		// if(films != 0)
+		// if(films != 0 && JSONArray_size(films) > 0)
 		// {
+		// 	printf("GOOOOOOOOOOO\n");
 		// 	size_t c = 0, size = JSONArray_size(films);
 		// 	concatString(r, tmp);
 		// 	fString(tmp);

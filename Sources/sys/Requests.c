@@ -22,7 +22,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("getFilmsOrderedByRank"), (void*) ServerRequest_getFilmOrderedByRank);
 	setMap(r, autoString("setFilmRateOfUser"), (void*) ServerRequest_setFilmRateOfUser);
 	setMap(r, autoString("getUserRates"), (void*) ServerRequest_getUserRates);
-	// setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
+	setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
 	// setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
 	//Fin des associations
 	return r;
@@ -326,28 +326,28 @@ RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery req
 	JSONObject_t films = JSONObject_getCopy(BDD_getFilmsOrderedByRank(client->bdd));
 	return RequestAnswerOk(request, films);
 }
-// RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request)
-// {
-// 	printf("AAAAAAAAAAAAAAAAAAAA\n");
-// 	RequestQuery(request, query);
-// 	RequestObject(request, query, "id", id);
-// 	printf("ID qui sait :%d\n", id);
-// 	if(JSONObject_getType(id) == INT)
-// 	{
-// 		JSONArray_t films = collaborative_recommendation(client->bdd, id);
-// 		JSONArray_t ten_first = JSONArray_new();
-// 		int i;
-// 		int size = JSONArray_size(films);
-// 		for(i=0 ; i<10 ; i++)
-// 		{
-// 			JSONArray_add(ten_first, JSONObject_getCopy(JSONArray_get(films, size-i)));
-// 		}
-// 		printf("Salut\n");
-// 		return RequestAnswerOk(request, ten_first);
-// 	}
-// 	return RequestAnswerOk(request, JSONNull_new());
-//
-// }
+RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request)
+{
+	RequestQuery(request, query);
+	RequestObject(request, query, "Id", id);
+	if(JSONObject_getType(id) == INT)
+	{
+		int uid = JSONInt_get(id);
+		JSONArray_t films = collaborative_recommendation(client->bdd, uid);
+		JSONArray_t ten_first = JSONArray_new();
+		int i;
+		int size = JSONArray_size(films);
+		//printf("size : %d\n", size);
+		for(i=1 ; i<13 ; i++)
+		{
+			//printf("Voilà !\n");
+			JSONArray_add(ten_first, JSONObject_getCopy(JSONArray_get(films, size-i)));
+		}
+		JSONArray_delete(films);
+		return RequestAnswerOk(request, ten_first);
+	}
+	return RequestAnswerError(request, 0, 5, AS("Impossible de récupérer l'id de l'utilisateur"));
+}
 // RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
 // {
 // 	printf("VOILA\n");

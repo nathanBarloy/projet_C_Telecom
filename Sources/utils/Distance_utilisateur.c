@@ -145,9 +145,20 @@ double get_similarite(JSONArray_t distances, int user_id)
 JSONArray_t rates_estimations(BDD bdd, int id_user)
 {
 	//récuperer les notes de l'utilisateur cible
+	JSONArray_t result = JSONArray_new();
 	JSONObject_t user = BDD_getUserById(bdd, id_user);
 	JSONObject_t user_history = JSONObject_get(user, autoString("History"));
+	if(user_history == 0)
+	{
+		printf("Aucun historique pour cet utilisateur : recommandation impossible\n");
+		return result;
+	}
 	JSONArray_t user_rates = JSONObject_get(user_history, autoString("Rates"));
+	if(user_rates == 0)
+	{
+		printf("L'utilisateur n'a noté aucun film : recommandation impossible\n");
+		return result;
+	}
 	//récuperer la bdd des films
 	JSONArray_t bdd_movies = BDD_Films(bdd);
 	int bdd_movies_size = JSONArray_size(bdd_movies);
@@ -155,94 +166,84 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 
 	//obtenir les distances entre l'utilisateur et les autres
 	JSONArray_t dist = all_distances(bdd, id_user);
-	JSONArray_t result = JSONArray_new();
-	if(user_rates == 0)
+	int i, j, c, d, id_movie;
+	int note = 0;
+	int rates_size = JSONArray_size(user_rates);
+	int est_vu;
+	double sim = 0.f;
+	//printf("Début algo\n");
+	for(i=0 ; i<bdd_movies_size ; i++)
 	{
-		printf("L'utilisateur n'a noté aucun film\n");
-		return result;
-	}
-	else
-	{
-		int i, j, c, d, id_movie;
-		int note = 0;
-		int rates_size = JSONArray_size(user_rates);
-		int est_vu;
-		double sim = 0.f;
-		//printf("Début algo\n");
-		for(i=0 ; i<bdd_movies_size ; i++)
+		//printf("Pour le film %d\n", i);
+		id_movie = JSONObject_intValueOf(JSONArray_get(bdd_movies, i), autoString("Id"));
+		c = 0;
+		est_vu = 0;
+		//vérifie si l'utilisateur (cible) à vu le film.
+		while(c < rates_size)
 		{
-			//printf("Pour le film %d\n", i);
-			id_movie = JSONObject_intValueOf(JSONArray_get(bdd_movies, i), autoString("Id"));
-			c = 0;
-			est_vu = 0;
-			//vérifie si l'utilisateur (cible) à vu le film.
-			while(c < rates_size)
+			if(JSONObject_intValueOf(JSONArray_get(user_rates, c), autoString("Id")) == id_movie)
 			{
-				if(JSONObject_intValueOf(JSONArray_get(user_rates, c), autoString("Id")) == id_movie)
-				{
-					est_vu = 1;
-					break;
-				}
-				c++;
+				est_vu = 1;
+				break;
 			}
-			if(est_vu != 1)
+			++c;
+		}
+		if(est_vu != 1)
+		{
+			//printf("L'utilisateur n'a pas vu le film %d\n", id_movie);
+			double numerateur = 0.0;
+			double denominateur = 0.0;
+			double moyenne = 0.0;
+			for(j=0 ; j<JSONArray_size(users) ; j++)
 			{
-				//printf("L'utilisateur n'a pas vu le film %d\n", id_movie);
-				double numerateur = 0.0;
-				double denominateur = 0.0;
-				double moyenne = 0.0;
-				for(j=0 ; j<JSONArray_size(users) ; j++)
+				JSONObject_t user_courant = JSONArray_get(users, j);
+				int id_user_courant = JSONObject_intValueOf(user_courant, autoString("Id"));
+				if(id_user_courant != id_user)
 				{
-					JSONObject_t user_courant = JSONArray_get(users, j);
-					int id_user_courant = JSONObject_intValueOf(user_courant, autoString("Id"));
-					if(id_user_courant != id_user)
+					//printf("Est ce que l'utilisateur %d a vu ce film ?\n", id_user_courant);
+					JSONArray_t rates_courant = JSONObject_get(JSONObject_get(user_courant, autoString("History")), autoString("Rates"));
+					if(rates_courant != 0)
 					{
-						//printf("Est ce que l'utilisateur %d a vu ce film ?\n", id_user_courant);
-						JSONArray_t rates_courant = JSONObject_get(JSONObject_get(user_courant, autoString("History")), autoString("Rates"));
-						if(rates_courant != 0)
+						//printf("L'utilisateur %d a noté des films\n", id_user_courant);
+						int rates_size_courant = JSONArray_size(rates_courant);
+						d = 0;
+						note = 0;
+						while(d < rates_size_courant)
 						{
-							//printf("L'utilisateur %d a noté des films\n", id_user_courant);
-							int rates_size_courant = JSONArray_size(rates_courant);
-							d = 0;
-							note = 0;
-							while(d < rates_size_courant)
+							if(JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Id")) == id_movie)
 							{
-								if(JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Id")) == id_movie)
-								{
-									note = JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Rate"));
-									//printf("Note de l'utilisateur %d sur le film %d: %d\n", id_user_courant, id_movie, note);
-									break;
-								}
-								d++;
+								note = JSONObject_intValueOf(JSONArray_get(rates_courant, d), autoString("Rate"));
+								//printf("Note de l'utilisateur %d sur le film %d: %d\n", id_user_courant, id_movie, note);
+								break;
 							}
-							//l'utilisateur j à noté le film d
-							if(note > 0)
-							{
-								//printf("Calcul de la note estimé\n");
-								//élévation à la puissance 2.5
-								sim = get_similarite(dist, id_user_courant);
-								//sim = sim * pow(sim, 1.5);
-								numerateur = numerateur + sim*note;
-								denominateur = denominateur + fabs(sim);
-							}
+							d++;
 						}
-						else
+						//l'utilisateur j à noté le film d
+						if(note > 0)
 						{
-							//printf("Pas de notes pour cet utilisateur\n");
+							//printf("Calcul de la note estimé\n");
+							//élévation à la puissance 2.5
+							sim = get_similarite(dist, id_user_courant);
+							//sim = sim * pow(sim, 1.5);
+							numerateur = numerateur + sim*note;
+							denominateur = denominateur + fabs(sim);
 						}
 					}
-					//printf("numérateur : %f\n", numerateur);
-					//printf("dénominateur : %f\n", denominateur);
+					else
+					{
+						//printf("Pas de notes pour cet utilisateur\n");
+					}
 				}
-				moyenne = numerateur/(denominateur==0.0 ? 1.0 : denominateur);
-				JSONObject_t film = JSONObject_new();
-				JSONObject_setInt(film, autoString("Id"), id_movie);
-				JSONObject_setDouble(film, autoString("Moyenne"), moyenne);
-				JSONArray_add(result, film);
+				//printf("numérateur : %f\n", numerateur);
+				//printf("dénominateur : %f\n", denominateur);
 			}
+			moyenne = numerateur/(denominateur==0.0 ? 1.0 : denominateur);
+			JSONObject_t film = JSONObject_getCopy(JSONArray_get(bdd_movies, i));
+			JSONObject_setDouble(film, autoString("Moyenne"), moyenne);
+			JSONArray_add(result, film);
 		}
-		return result;
 	}
+	return result;
 }
 
 JSONArray_t collaborative_recommendation(BDD bdd, int user_id)
