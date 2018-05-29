@@ -14,6 +14,8 @@
 \usepackage{moreverb}
 \usepackage{listings}
 \usepackage{dsfont}
+\usepackage{fontspec}
+\usepackage{hyperref}
 
 \begin{document}
 \begin{titlepage}
@@ -132,12 +134,12 @@ Nous avons vu différentes manières de collecter des informations relative à l
 \section{La matrice d'usage}
 Egalement appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
 \section{Réduction de matrice}
-Reprenons la matrice d'usage tout juste présentée. Elle est de dimension mxn avec m le nombre d'utilisateurs et n le nombre de produit. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possèdant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduie des recommandation. La solution est donc de réduire la dimension de la matrice.
-Plusieurs approches sont possibles. On peut par exemple ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits possiblement recommandés à ceux qui sont populaires et donc déjà connu par la plupart.\par
-Une autre approche consiste à ne conserver qu'une gamme de produit répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
-L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impacté. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
+Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.\par
+Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
+Une autre approche consiste à ne conserver qu'une gamme de produits répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
+L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impactée. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
 \subsubsection{Clustering}
-L’idée est d’écarter les items ou les utilisateurs jugés non représentatif pour un utilisateur (item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
+L’idée est d’écarter les items (resp. les utilisateurs) jugés non représentatif pour un utilisateur (resp. item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
 Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
 \section{Calcul de similarités}
@@ -163,12 +165,12 @@ On considère les vecteurs ligne de x et y. Le but est de calculer la distance, 
 L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
 
 \subsection{Corrélation de Pearson}
-Afin de pallier le problème citer précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
+Afin de pallier le problème cité précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
 On a alors :
 \begin{equation}
   Corr(x, y) = \frac{\sum_{i=1}^m (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^m (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^m (y_i - \bar{y})^2}}
 \end{equation}
-
+Le résultat obtenu se situe alors dans l'intervalle $ [\![-1;1]\!]$ avec -1 signifiant que les deux utilisateurs ont des goûts complétement opposés, 0 que les utilisateurs non rien en commum et enfin 1 que les deux utilisateurs sont totalement similaires.
 
 
 
@@ -176,21 +178,39 @@ On a alors :
 \chapter{Rapport}
 
 \section{Amélioration de la base de données}
+Dans le but d'améliorer l'expérience de l'utilisateur sur l'interface graphique, nous avons décider de compléter la base de données mise à disposition afin d'y inclure les liens vers les bandes annonces des films ainsi que leurs affiches respectives.
+De plus, le fonctionnement de l'algorithme de recommandation collaboratif requière une base de données d'utilisateurs ayant notés plusieurs films.
+\par Nous avons décidé de réaliser ces opérations à partir de scripts python qui sont plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne.
 
 \subsection{Liens des bandes annonces}
-Afin d'améliorer l'expérience de l'utilisateur, nous souhaitons lui proposer pour chaque film consulté, la bande annonce de ce dernier.
 Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur YouTube avec la bande annonce.
-Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne.\par
-Comme ces liens seront stockés dans la base de donnée JSON des films, il n'est nécessaire d'exécuter ce programme qu'une seule fois. Nous avons donc optés pour un script python qui est plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne. Le résultat de cette exécution sera ensuite stocké dans un fichier texte avant d'inclure les liens au fichier JSON par l'intermédiaire d'un programme C++.\par
+Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne. Ces résultats seront alors stockés dans un fichier texte avant d'inclure les liens au fichier JSON.
 \vspace{0.5cm}
-Ce script se décompose en trois étapes.
-  Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=  suivi du contenu de la recherche avec des "+" remplaçant les espaces.
+Ce script se décompose en deux étapes.\par
+Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=
+suivi du contenu de la recherche avec des "+" remplaçant les espaces.
 Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce carctère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
 Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
 La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
-Pour terminer, on recrée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
+Pour terminer, on crée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
 
-\section{création d'une distance entre les films}
+\subsection{Récupération des affiches des films}
+Avoir une affiche de chaque film de la base de données permet une fois de plus d'améliorer grandement l'interface graphique.
+Après plusieurs recherches, nous avons décidé de récupérer les images du site \href{https://www.themoviedb.org}[TheMovieDB].\par
+Pour ce faire nous avons, de la même manière que pour les liens Youtube utilisé les url pour effectuer nos recherches puis nous avons scanné le contenu de la page html résultante pour détecter le résultat correspond à notre recherche (correspondance des dates notamment). Une fois trouvé, nous naviguons vers la page du résultat et scannons à nouveau la page à la recherche de l'image souhaité avant de la télécharger.
+
+\subsection{Création d'une base de données utilisateurs}
+Indispensable au fonctionnement de la méthode de recommandation collaborative, une base de données d'uilisateurs ayant attribués des notes aux films était nécessaire. Plusieurs pistes ont été explorées :
+\begin{itemize}
+	\item création fictive d'utilisateurs et de notes (aléatoires)
+	\item création d'un formulaire à partager avec des amis pour constituer notre propre base de données
+	\item trouver ces informations en ligne
+\end{itemize}
+Nous avons au final retenu cette dernière solution après avoir trouvé une base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] qui regroupe près de 100000 notes d'utilisateurs sur 10000 films. Le seul inconvénient est que cette base de données ne prenne pas en compte les séries. Par conséquent, les résultats exposés ne seront des plus justes mais permettra d'avoir un aperçu de cette algorithme.\par
+La base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] est au format csv, il était donc très simple de récupérer les données souhaitées. Le seul problème était les titres des films qui étaient en anglais et ne correspondaient pas toujours à nos titres. Il a donc fallu prendre quelques minutes pour manuellement faire correspondre leurs titres avec nos id de film. Ensuite il n'est plus que question d'extraire les bons éléments du fichier csv et le tour est joué !
+
+
+\section{Création d'une distance entre les films}
 Chaque film est caractérisé par la donnée de différents attributs. Dans le cas présent, les attributs que nous considérerons sont :
 \begin{itemize}
     \item L'année de parution
@@ -223,7 +243,7 @@ Cette distance de Jacard permet de donner une distance entre 2 ensembles : on pe
 Pour créer une distance entre 2 années, on va bien évidemment considérer la distance entre ces 2 entiers : cela signifie prendre la valeur absolue de la différence (\(|a1-a2|\)). Notre distance sera donc une fonction $f$ qui sera à valeur dans $\mathds{R}_{+}$. On va chercher des conditions sur cette fonction.\par
 Tout d'abord, on veut obtenir une distance entre 0 et 1, donc doit aller de $\mathds{R}_{+}$ dans \([0;1]\). De plus, on veut que l'ordre soit gardé : si \(a>b\), on veut que \(f(a)>f(b)\). Cela signifie que la fonction est croissante. Enfin, on doit avoir que $f(0)=0$ et $\lim\limits_{x \rightarrow +\infty} f(x)=1$.\par
 En résumé, on cherche une fonction croissante de $\mathds{R}_{+}$ dans $[0;1]$ qui atteint ses bornes.\par
-une première fonction à laquelle on peut penser est une fonction que l'on rencontre souvent en physique : 
+une première fonction à laquelle on peut penser est une fonction que l'on rencontre souvent en physique :
 \[f(x)=1-e^{-\frac{x}{\tau}} , \tau \in \mathds{R}_{+}^{*}\]
 On peut alors faire varier le paramètre $\tau$ pour moduler la fonction comme on veut. La valeur que nous avons choisi est $\tau=10$, car on a alors que pour avoir une distance de 0.5, il que les deux dates soient séparées de 7 ans, ce qui correspond à peu près à ce qu'on veut.\par
 Une autre fonction utilisable possible est la fonction arctangente. On a alors
@@ -233,7 +253,7 @@ Dans tous les cas, c'est une bonne chose d'avoir des paramètres modifiables dan
 \subsection{Amélioration de la distance entre les genres}
 Pour la distance entre les genres, on utilisait jusqu'à présent la distance de Jacard. C'est une méthode qui marche, mais elle omet certains éléments dans son calcul, ce qui le rend moins précis. En effet, on ne prend pas en compte les potentielles ressemblances entre genres, on regarde simplement si un même genre est présent dans les deux films. Ainsi, si l'on considère 3 films dont les genres sont respectivement crime, mystère et romance, la distance de Jacard entre ces 3 films sera nulle, et on ne pourra pas les classer. Cependant, on se rend bien compte que les genres crime et mystère sont proches, alors qu'ils ne le sont pas de romance. Il faut donc essayer de prendre en compte les distances intrinsèques entre deux genres.\par
 Pour cela, la meilleure méthode aurait été d'utiliser le machine learning. Avec une telle méthode, l'humain n'a pas besoin d'intervenir, il suffit d'analyser la base de donnée des films et de repérer ceux qui sont proches d'après les utilisateurs pour estimer des distances entre les genres. L'avantage est que l'on peut alors rajouter un nouveau genre sans problème, et sans expliciter son lien avec les autres genres : l'algorithme fait cela tout seul. Cependant, pour qu'une telle méthode marche, il faut une base de données assez conséquente pour avoir des résultats corrects. De plus, c'est une méthode difficile à mettre en place, et qui requiert des connaissances que nous n'avons pas.\par
-Il faut donc utiliser une autre méthode, plus fastidieuse et moins précise. On va pour cela créer nous-même une matrice contenant les distances entre les films, puis on fera une moyenne des distances entre les genres du premier film avec ceux du deuxième film. Pour cela, il faut d'abord lister les films existant, qu'on obtient grâce à un simple algorithme qui parcours tous les film. On obtient la liste suivante : Action, Thriller, Drama, Adventure, Family, Romance, Fantasy, Sci-Fi, Animation, Comedy, Horror, Crime, Mystery, History, Musical, Sport, Biography, War et Music; soit un total de 19 genres. On crée ensuite une matrice de distances qu'on utilisera pour nos calculs : 
+Il faut donc utiliser une autre méthode, plus fastidieuse et moins précise. On va pour cela créer nous-même une matrice contenant les distances entre les films, puis on fera une moyenne des distances entre les genres du premier film avec ceux du deuxième film. Pour cela, il faut d'abord lister les films existant, qu'on obtient grâce à un simple algorithme qui parcours tous les film. On obtient la liste suivante : Action, Thriller, Drama, Adventure, Family, Romance, Fantasy, Sci-Fi, Animation, Comedy, Horror, Crime, Mystery, History, Musical, Sport, Biography, War et Music; soit un total de 19 genres. On crée ensuite une matrice de distances qu'on utilisera pour nos calculs :
 \setcounter{MaxMatrixCols}{20}
 \small
 $$
