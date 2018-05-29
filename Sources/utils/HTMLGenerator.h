@@ -18,6 +18,7 @@ String_t HTMLStarUnrated(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 String_t HTMLStarRated(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);//int val
 String_t HTMLStarRatedFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);//int val
 String_t HTMLStarUnratedFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);//int val
+String_t HTMLRegister(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 //param
 String_t getParam(String_t name, Vector_t params);
 

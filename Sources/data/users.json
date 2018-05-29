@@ -4601,12 +4601,47 @@
 			[
 				{
 				"Id": 2,
-				"Rate": 1				
+				"Rate": 4				
 				},
 			
 				{
 				"Id": 3,
 				"Rate": 4				
+				},
+			
+				{
+				"Id": 11,
+				"Rate": 4				
+				},
+			
+				{
+				"Id": 48,
+				"Rate": 1				
+				},
+			
+				{
+				"Id": 40,
+				"Rate": 5				
+				},
+			
+				{
+				"Id": 6,
+				"Rate": 3				
+				},
+			
+				{
+				"Id": 98,
+				"Rate": 5				
+				},
+			
+				{
+				"Id": 1,
+				"Rate": 3				
+				},
+			
+				{
+				"Id": 12,
+				"Rate": 3				
 				}
 			]		
 		},
@@ -4614,6 +4649,54 @@
 	"Login": "crone123",
 	"Name": "CRÔNE",
 	"Password": "azerty",
+	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"Date": 
+		{
+		"Day": 23,
+		"Month": 0,
+		"Year": 1997		
+		},
+	"FirstName": "",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 116,
+	"Login": "pierre",
+	"Name": "",
+	"Password": "qwerty",
+	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"Date": 
+		{
+		"Day": 23,
+		"Month": 0,
+		"Year": 1997		
+		},
+	"FirstName": "",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 117,
+	"Login": "cacabouda",
+	"Name": "",
+	"Password": "lololol",
 	"Preferences": {}	
 	}
 ]

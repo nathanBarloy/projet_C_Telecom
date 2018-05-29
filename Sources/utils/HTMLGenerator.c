@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include "../gui/GUIHandleWebKit.h"
 #include "../sys/ClientRequests.h"
+#include "Date.h"
 String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params)
 {
 	String_t html = newString();
@@ -828,5 +829,90 @@ String_t HTMLStarUnratedFilm(Connexion_t connexion, JSONObject_t json, JSONObjec
 String_t HTMLProfile(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
 	String_t r = newString();
+	return r;
+}
+String_t HTMLRegister(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
+{
+	String_t r = newString(), msg = 0;
+	String_t ok = getParam(autoString("ok"), params);
+	String_t login = getParam(autoString("login"), params);
+	String_t password = getParam(autoString("password"), params);
+	String_t name = getParam(autoString("name"), params);
+	String_t firstName = getParam(autoString("firstName"), params);
+	String_t day = getParam(autoString("day"), params);
+	String_t month = getParam(autoString("month"), params);
+	String_t year = getParam(autoString("year"), params);
+	bool worked = false;
+	if(ok != 0)
+	{
+		JSONObject_t user = JSONObject_new();
+		if(login != 0)
+		{
+			JSONObject_set(user, AS("Login"), JSONString_new(login));
+		}
+		if(password != 0)
+		{
+			JSONObject_set(user, AS("Password"), JSONString_new(password));
+		}
+		if(name != 0)
+		{
+			JSONObject_set(user, AS("Name"), JSONString_new(name));
+		}
+		if(firstName != 0)
+		{
+			JSONObject_set(user, AS("FirstName"), JSONString_new(firstName));
+		}
+		Date_t d = newDate();
+		if(day != 0)
+		{
+			d->day = atoi(cString(day));
+		}
+		if(month != 0)
+		{
+			d->month = atoi(cString(month));
+		}
+		if(year != 0)
+		{
+			d->year = atoi(cString(year));
+		}
+		JSONObject_set(user, AS("Date"), dateToJSON(d));
+		freeDate(d);
+		RequestAnswer a = Client_RegisterUser(connexion, user);
+		if(a != 0)
+		{
+			if(a->code == 0)
+			{
+				msg = newStringFromCharStar("<div class=\"ctr\"><h1>Inscriptions</h1><span class=\"green\">Inscription réussie. Utilisez le menu de connexion pour accéder à votre compte.</span></span>");
+				worked = true;
+			}
+			else
+			{
+				msg = newStringFromCharStar("<span class=\"red\">");
+				String_t tmp = newStringFromCharStar("</div>");
+				concatString(msg, JSONObject_stringValueOf(a->obj, AS("Error")));
+				concatString(msg, tmp);
+				fString(tmp);
+			}
+			freeRequestAnswer(a);
+		}
+		else
+		{
+			msg = newStringFromCharStar("<span class=\"red\">Echec de connexion au serveur.</span>\n");
+		}
+	}
+	if(!worked)
+	{
+		String_t f = fileToString(autoString("web/register.html"));
+		if(f != 0)
+		{
+			concatString(r, f);
+			fString(f);
+		}
+	}
+	if(msg != 0)
+	{
+		concatString(r, msg);
+		fString(msg);
+	}
 	return r;
 }
