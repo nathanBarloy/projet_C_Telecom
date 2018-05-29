@@ -334,6 +334,10 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 	{
 		int uid = JSONInt_get(id);
 		JSONArray_t films = collaborative_recommendation(client->bdd, uid);
+		if(films == 0)
+		{
+			return RequestAnswerError(request, 0, 5, AS("La liste produite est vide : l'utilisateur n'a voté aucun film"));
+		}
 		JSONArray_t ten_first = JSONArray_new();
 		int i;
 		int size = JSONArray_size(films);
