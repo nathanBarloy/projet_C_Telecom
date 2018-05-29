@@ -31,7 +31,7 @@ RequestAnswer ServerRequest_login(Client client, RequestQuery request);
 RequestAnswer ServerRequest_logout(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request);
-// RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request);
+RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request);
 RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery request);
 RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request);
 //MACROS DE FACILITES

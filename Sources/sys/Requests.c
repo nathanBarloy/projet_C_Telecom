@@ -23,7 +23,7 @@ Map_t getRequestsMap()
 	setMap(r, autoString("setFilmRateOfUser"), (void*) ServerRequest_setFilmRateOfUser);
 	setMap(r, autoString("getUserRates"), (void*) ServerRequest_getUserRates);
 	setMap(r, autoString("getCollaborativeRecommendation"), (void*) ServerRequest_getCollaborativeRecommendation);
-	// setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
+	setMap(r, autoString("getRandRecommendation"), (void*) ServerRequest_getRandRecommendation);
 	//Fin des associations
 	return r;
 }
@@ -348,12 +348,11 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 	}
 	return RequestAnswerError(request, 0, 5, AS("Impossible de récupérer l'id de l'utilisateur"));
 }
-// RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
-// {
-// 	printf("VOILA\n");
-// 	JSONObject_t films = JSONObject_getCopy(RandomReco(client->bdd));
-// 	return RequestAnswerOk(request, films);
-// }
+RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
+{
+	JSONArray_t films = JSONObject_getCopy(RandomReco(client->bdd));
+	return RequestAnswerOk(request, films);
+}
 RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery request)
 {
 	printf("lancement ServerRequest_setFilmRateOfUser\n");
