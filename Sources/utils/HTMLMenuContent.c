@@ -42,7 +42,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		{
 			JSONArray_t films = serverGetCollaborativeRecommnendation(connexion);
 			String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
-			if(films != 0)
+			if(JSONArray_size(films) != 0)
 			{
 				size_t c = 0, size = JSONArray_size(films);
 				concatString(r, tmp);
@@ -63,16 +63,6 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 				concatString(r, tmp);
 				fString(tmp);
 			}
-			tmp = newStringFromCharStar("</div>");
-			concatString(r, tmp);
-			fString(tmp);
-		}
-		else
-		{
-			String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
-			tmp = newStringFromCharStar("Veuillez vous connexter afin de bénéfivier de nos recommandations ultra précises !");
-			concatString(r, tmp);
-			fString(tmp);
 			tmp = newStringFromCharStar("</div>");
 			concatString(r, tmp);
 			fString(tmp);

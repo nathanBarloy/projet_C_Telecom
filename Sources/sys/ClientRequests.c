@@ -122,7 +122,7 @@ JSONObject_t serverGetDistanceBetween(Connexion_t connexion, int id1, int id2)
 		}
 		freeRequestAnswer(a);
 	}
-	return 0;
+	return JSONObject_new();
 }
 JSONArray_t serverGetFilmRecommendation(Connexion_t connexion, int id)
 {
@@ -162,7 +162,6 @@ JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion)
 {
 	JSONObject_t obj = JSONObject_new();
 	int user_id = JSONObject_intValueOf(connexion->user, AS("Id"));
-	printf("user_id test : %d\n", user_id);
 	JSONObject_set(obj, AS("Id"), JSONInt_new(user_id));
 	RequestQuery q = newRequestQuery(0, newJSONRequestQuery(Connexion_getSid(connexion), autoString("getCollaborativeRecommendation"), obj));
 	RequestAnswer a = clientRequest(connexion, q);
@@ -174,7 +173,7 @@ JSONArray_t serverGetCollaborativeRecommnendation(Connexion_t connexion)
 		freeRequestAnswer(a);
 		return answer;
 	}
-	return 0;
+	return JSONArray_new();
 }
 JSONArray_t serverGetRandRecommendation(Connexion_t connexion)
 {
