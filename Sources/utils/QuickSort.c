@@ -4,7 +4,7 @@ Vector_t quick_sort(Vector_t list)
 {
 	Vector_t init = newVectorFromVector(list);
 	int size = sizeOfVector(init);
-	printf("%d\n", size);
+	//printf("%d\n", size);
 	if(size <= 1)
 	{
 		return init;

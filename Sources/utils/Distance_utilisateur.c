@@ -224,7 +224,9 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 							//printf("Calcul de la note estimé\n");
 							//élévation à la puissance 2.5
 							sim = get_similarite(dist, id_user_courant);
-							//sim = sim * pow(sim, 1.5);
+							// printf("SIMI avant : %f\n", sim);
+							// sim = sim * pow(sim, 1.5);
+							// printf("SIMI après%f\n", sim);
 							numerateur = numerateur + sim*note;
 							denominateur = denominateur + fabs(sim);
 						}
