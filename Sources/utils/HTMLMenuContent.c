@@ -156,7 +156,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	}
 	else if(equalsString(selected, AS("viewed")))//Film déjà vu
 	{
-		// JSONArray_t export = JSONArray_new();
+		JSONArray_t export = JSONArray_new();
 		if(connexion->user != 0)
 		{
 			JSONArray_t rated_films = serverGetUserRates(connexion);
@@ -164,22 +164,22 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 			int size_rf = JSONArray_size(rated_films);
 			if(size_rf != 0)
 			{
+				tmp = newStringFromCharStar("<div class=\"titre\"><h1>Mes films :</h1>(<a href=\"exec://export.json\" >Exporter...</a>)</div><div class=\"filmDIV\">");
+				concatString(r, tmp);
+				fString(tmp);
 				int i;
 				for (i=size_rf-1 ; i>=0 ; i--)
 				{
 					int id_film = JSONObject_intValueOf(JSONArray_get(rated_films, i), autoString("Id"));
 					JSONObject_t film = serverGetFilmById(connexion, id_film);
 					JSONArray_add(displayed_films, film);
-					// JSONArray_add(export, JSONObject_getCopy(film));
+					JSONArray_add(export, JSONObject_getCopy(film));
 				}
 			}
 			JSONArray_delete(rated_films);
-			String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
 			if(JSONArray_size(displayed_films) != 0)
 			{
 				size_t c = 0, size = JSONArray_size(displayed_films);
-				concatString(r, tmp);
-				fString(tmp);
 				while(c < size)
 				{
 					tmp = HTMLFilm(connexion, json, JSONArray_get(displayed_films, c), params);
@@ -194,6 +194,27 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 				concatString(r, tmp);
 				fString(tmp);
 			}
+			JSONObject_t e = getExport();
+			JSONObject_set(e, AS("Data"), export);
+			tmp = newStringFromCharStar("films_vu.json");
+			JSONObject_set(e, AS("Name"), JSONString_new(tmp));
+			fString(tmp);
+			JSONObject_t u = JSONObject_get(json, AS("url"));
+			if(u != 0 && JSONObject_getType(u) == STRING)
+			{
+				tmp = newStringFromCharStar("?selected=");
+				concatString(tmp, selected);
+				String_t tmp2 = newStringFromString(JSONString_get(u));
+				concatString(tmp2, tmp);
+				JSONString_set(u, tmp2);
+				fString(tmp);
+				fString(tmp2);
+			}
+			else
+			{
+				u = JSONString_new(autoString(""));
+			}
+			JSONObject_set(e, AS("Url"), u);
 			JSONObject_delete(displayed_films);
 			tmp = newStringFromCharStar("</div>");
 			concatString(r, tmp);
