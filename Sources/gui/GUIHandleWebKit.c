@@ -14,6 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "../sys/ClientRequests.h"
+#include "../gui/Export.h"
 bool clientGUI_blockableRequest = 1;
 bool clientGUI_firstRequest = 1;
 void clientGUIHeadGet(const char* name, const char* value, gpointer user_data)
@@ -252,6 +253,7 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	GtkWidget *main_window = gtk_application_window_new(app);
 	GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 	GtkWidget *web_view = webkit_web_view_new();
+	getWebkit(web_view, 1);
 	// Place the WebKitWebView in the GtkScrolledWindow
 	gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
 	gtk_container_add (GTK_CONTAINER (main_window), scrolled_window);

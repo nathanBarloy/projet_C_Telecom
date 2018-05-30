@@ -40,4 +40,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 String_t HTMLFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 //HTMLFicheFilm
 String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
+
+//HTMLExport
+String_t HTMLExport(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
 #endif

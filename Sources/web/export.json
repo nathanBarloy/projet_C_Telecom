@@ -1,0 +1,32 @@
+{
+  "title" : "Exporter des données...",
+  "url" : "exec://export.json",
+  "body" :[
+    {
+      "function":
+      {
+        "name" : "menuBar"
+      }
+    },
+    {
+      "function" :
+      {
+        "name" : "menuBar2"
+      }
+    },
+	{
+		"tag" :
+		{
+			"name" : "div",
+			"attributes" : [{"name" : "class", "value": "main"}],
+			"childs" : [{
+				"function" :
+				{
+					"name" : "export"
+				}
+			}]
+		}
+	},
+  ],
+  "styles" : ["theme.css"]
+}

@@ -1,6 +1,7 @@
 #include "HTMLGenerator.h"
 #include "../sys/ClientRequests.h"
 #include "JSONShortcut.h"
+#include "../gui/Export.h"
 
 String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
@@ -180,10 +181,11 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 
 
     //Affichage des recommandations
-	tmp = newStringFromCharStar("<h1>Recommandé si vous aimez ce film:</h1><div>");
+	tmp = newStringFromCharStar("<h1>Recommandé si vous aimez ce film:</h1>(<a href=\"exec://export.js\" >Exporter...</a>)<div>");
 	concatString(reponse, tmp);
 	fString(tmp);
 	JSONArray_t reco = serverGetFilmRecommendation(connexion, value_id);
+	JSONArray_t export = JSONArray_new();
 	if(reco != 0)
 	{
 		size_t c = 1, size = JSONArray_size(reco);
@@ -194,6 +196,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 		{
 			tmpf = JSONArray_get(reco, c);
 			f = HTMLFilm(connexion, json, tmpf, params);
+			JSONArray_add(export, JSONObject_getCopy(tmpf));
 			concatString(reponse, f);
 			fString(f);
 			++c;
@@ -207,8 +210,10 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 		fString(tmp);
 	}
 	concatString(reponse, finDiv);//Fin de div des reco
-
 	//Fin d'affichage des recommendations
+	//Reco script save
+	JSONObject_t e = getExport();
+	//reco script save end
     //JSONObject_delete(films);
     JSONObject_delete(img);
     JSONObject_delete(ytPlayer);
