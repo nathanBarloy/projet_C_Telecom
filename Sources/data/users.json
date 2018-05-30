@@ -4642,6 +4642,16 @@
 				{
 				"Id": 12,
 				"Rate": 3				
+				},
+			
+				{
+				"Id": 31,
+				"Rate": 5				
+				},
+			
+				{
+				"Id": 51,
+				"Rate": 3				
 				}
 			]		
 		},
@@ -4722,7 +4732,10 @@
 	"FirstName": "",
 	"Follow": [],
 	"Friends": [],
-	"History": {},
+	"History": 
+		{
+		"Rates": []		
+		},
 	"Id": 118,
 	"Login": "userosef",
 	"Name": "",

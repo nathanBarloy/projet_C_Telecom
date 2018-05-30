@@ -1,6 +1,7 @@
 #include "HTMLGenerator.h"
 #include "../sys/ClientRequests.h"
 #include "JSONShortcut.h"
+#include "../gui/Export.h"
 
 String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params)
 {
@@ -38,18 +39,23 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	}
 	else if(equalsString(selected, AS("recommended")))//Recommandé pour l'utilisateur
 	{
+
+		JSONArray_t export = JSONArray_new();
 		if(connexion->user != 0)
 		{
 			JSONArray_t films = serverGetCollaborativeRecommnendation(connexion);
-			String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
 			if(JSONArray_size(films) != 0)
 			{
-				size_t c = 0, size = JSONArray_size(films);
+				tmp = newStringFromCharStar("<div class=\"titre\"><h1>Recommandé pour vous :</h1>(<a href=\"exec://export.json\" >Exporter...</a>)</div><div class=\"filmDIV\">");
 				concatString(r, tmp);
 				fString(tmp);
+				size_t c = 0, size = JSONArray_size(films);
+				JSONObject_t tmpf = 0;
 				while(c < size)
 				{
-					tmp = HTMLFilm(connexion, json, JSONArray_get(films, c), params);
+					tmpf = JSONArray_get(films, c);
+					tmp = HTMLFilm(connexion, json, tmpf, params);
+					JSONArray_add(export, JSONObject_getCopy(tmpf));
 					concatString(r, tmp);
 					fString(tmp);
 					++c;
@@ -63,6 +69,27 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 				concatString(r, tmp);
 				fString(tmp);
 			}
+			JSONObject_t e = getExport();
+			JSONObject_set(e, AS("Data"), export);
+			tmp = newStringFromCharStar("recommendationsCollab.json");
+			JSONObject_set(e, AS("Name"), JSONString_new(tmp));
+			fString(tmp);
+			JSONObject_t u = JSONObject_get(json, AS("url"));
+			if(u != 0 && JSONObject_getType(u) == STRING)
+			{
+				tmp = newStringFromCharStar("?selected=");
+				concatString(tmp, selected);
+				String_t tmp2 = newStringFromString(JSONString_get(u));
+				concatString(tmp2, tmp);
+				JSONString_set(u, tmp2);
+				fString(tmp);
+				fString(tmp2);
+			}
+			else
+			{
+				u = JSONString_new(autoString(""));
+			}
+			JSONObject_set(e, AS("Url"), u);
 			tmp = newStringFromCharStar("</div>");
 			concatString(r, tmp);
 			fString(tmp);
@@ -104,7 +131,6 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
 		if(films != 0 && JSONArray_size(films) > 0)
 		{
-			printf("GOOOOOOOOOOO\n");
 			size_t c = 0, size = JSONArray_size(films);
 			concatString(r, tmp);
 			fString(tmp);
@@ -130,6 +156,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	}
 	else if(equalsString(selected, AS("viewed")))//Film déjà vu
 	{
+		// JSONArray_t export = JSONArray_new();
 		if(connexion->user != 0)
 		{
 			JSONArray_t rated_films = serverGetUserRates(connexion);
@@ -143,6 +170,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 					int id_film = JSONObject_intValueOf(JSONArray_get(rated_films, i), autoString("Id"));
 					JSONObject_t film = serverGetFilmById(connexion, id_film);
 					JSONArray_add(displayed_films, film);
+					// JSONArray_add(export, JSONObject_getCopy(film));
 				}
 			}
 			JSONArray_delete(rated_films);
