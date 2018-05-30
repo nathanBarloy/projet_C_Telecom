@@ -246,6 +246,9 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 		JSONArray_t reco = serverGetFilmRecommendation(connexion, id);
 		Vector_t MainMenu_choices = newVector();
 		addToVector(MainMenu_choices, newStringFromCharStar(""));
+		addToVector(MainMenu_choices, newStringFromCharStar("exporter"));
+		int decal = sizeOfVector(MainMenu_choices);
+		JSONArray_t export = JSONArray_new();
 		if(reco != 0)
 		{
 			c = 1;
@@ -259,6 +262,7 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 				str = newStringFromString(JSONObject_stringValueOf(tmp, AS("Title")));
 				lowerString(str);
 				addToVector(MainMenu_choices, str);
+				JSONArray_add(export, JSONObject_getCopy(tmp));
 				++c;
 			}
 		}
@@ -267,7 +271,7 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			printf("Echec d'obtention des recommendations.\n");
 		}
 		JSONObject_delete(film);
-		printf("Entrez le nom d'un film pour accéder a sa fiche (ou début du nom), enter pour quitter.\n");
+		printf("Entrez le nom d'un film pour accéder a sa fiche (ou début du nom), \"exporter\" pour sauvegarder ces résultats enter pour quitter.\n");
 		String_t sel = StandardPrompt(MainMenu_choices);
 		if(sel != 0)
 		{
@@ -275,9 +279,14 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			{
 
 			}
+			else if(eq(sel, "exporter"))
+			{
+				ClientRunner_export(export);
+				ClientRunner_showFilm(connexion, id);
+			}
 			else if(reco != 0)
 			{
-				c = 1;
+				c = decal;
 				size = sizeOfVector(MainMenu_choices);
 				JSONObject_t tmp = 0;
 				int nid = 0;
@@ -318,9 +327,26 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			JSONArray_delete(reco);
 			ClientRunner_showFilm(connexion, id);
 		}
+		JSONObject_delete(export);
 	}
 	else
 	{
 		printf("Film introuvable.\n");
 	}
+}
+void ClientRunner_export(JSONObject_t e)
+{
+	printf("Choisissez un nom pour le fichier à exporter, l'extension .json est ajoutée automatiquement. (ou laissez vide pour annuler)\n");
+	AutoString_t name = ReadInputWithMsg(AS("Nom pour le fichier à exporter: "));
+	if(sizeOfString(name) > 0)
+	{
+		concatString(name, autoString(".json"));
+		JSONParser_saveFileString(e, name);
+		printf("Export terminé: %s.\n", cString(name));
+	}
+	else
+	{
+		printf("Export annulé.\n");
+	}
+	ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 }
