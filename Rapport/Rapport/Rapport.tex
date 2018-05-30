@@ -232,6 +232,9 @@ Cette distance doit vérifier certaines propriétés de la distance mathématiqu
 Si la distance créée ne vérifie pas ces propriétés, alors elle n'est pas bonne.
 
 \subsection{La distance de Jacard}
+En mathématique, la distance entre 2 ensembles est souvent calculée comme étant le minimum des distances entre les points de ces ensembles :
+\[d(E,F)=\min_{\substack{x\in E \\ y\in F}} d(x,y)\]
+Cependant, dans notre cas, cette distance n'est pas très utile, puisqu'elle ne prend pas en compte les autres éléments des ensembles. Ainsi, une telle distance ne ferrais pas de différence entre 2 films où tous les acteurs sont les mêmes, et 2 films qui ont  un seul acteur en commun. Il faut donc trouver autre chose : la distance de Jacard.\par
 Cette distance permet de mesurer la similarité entre 2 ensembles finis : soient $X$ et $Y$ deux ensembles finis. Alors,
 \[dist\_Jacard=1-\frac{|X \cap Y|}{|X \cup Y|}\]
 On a bien que si \(X=Y\), alors la distance de Jacard est nulle, et que si les deux ensembles sont complètement distincts, alors la distance vaut 1.\\
@@ -284,7 +287,11 @@ $$
 $$
 \normalsize
 C'est assez indigeste et laborieux à créer, mais une fois cela fait, l'utilisation est très simple. Chaque ligne et chaque colonne correspond à un genre, dans l'ordre de la liste, et à la ligne i colonne j, on a la distance entre le genre i et le genre j. Les propriétés de la distance nous donne alors aussi des propriétés sur la matrice : puisqu'une distance est symétrique (\(d(a,b)=d(b,a)\)), la matrice l'est aussi. De plus la distance entre un genre et lui même est nul, donc les éléments diagonaux sont tous nuls.\par
-Pour créer notre distance entre 2 ensembles de genres, on va simplement parcourir les 2 ensembles, et faire la moyenne de toutes les distances que l'on trouve grâce à notre matrice. Ainsi, si le film 1 a $n$ genres et le film 2 en a $m$, on va faire la moyenne de $m\times n$ distances entre genres.
+Pour créer notre distance entre 2 ensembles de genres, on va simplement parcourir les 2 ensembles, et faire la moyenne de toutes les distances que l'on trouve grâce à notre matrice. Ainsi, si le film 1 a $n$ genres et le film 2 en a $m$, on va faire la moyenne de $m\times n$ distances entre genres.\par
+Il y a cependant un inconvénient à cet algorithme : il donne toujours des distances assez basses, même s'il permet de mieux ordonner. En effet on peut constater que la distance entre 2 ensembles identiques ne vaut pas toujours 0, ce qui peux poser certains problèmes.
+
+\subsection{Recommandation de contenu}
+Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on peut facilement créer une méthode qui prend en argument un film, et qui nous en recommande d'autres. Il suffit pour cela de calculer la distance entre ce film et chacun des autres, puis de trier par ordre décroissant. Les premiers films de la liste sont alors ceux à recommander. 
 
 \section{Système de recommandation collaboratif}
 Comme vu dans l'Etat de l'art, la distance entre deux utilisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :

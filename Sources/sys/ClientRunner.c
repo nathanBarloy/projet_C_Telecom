@@ -27,6 +27,10 @@ int clientRunner(Connexion_t connexion)
 	modeFct[REGISTER_USER] = ClientRunner_Register;
 	modeFct[DISCONNECT_USER] = ClientRunner_Logout;
 	modeFct[SHOW_FILM] = ClientRunner_ShowFilms;
+	modeFct[SHOW_MY_FILMS] = ClientRunner_ShowMyFilms;
+	modeFct[SHOW_TRENDS] = ClientRunner_ShowTrends;
+	modeFct[SHOW_RANDOM] = ClientRunner_ShowRandom;
+	modeFct[SHOW_RECOMMENDATIONS] = ClientRunner_ShowRecommendations;
 	//Fin des fonctions
 	String_t choice = autoString("");
 	while(global_clientRunnerContinue(0, 0))
