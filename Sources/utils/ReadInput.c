@@ -159,3 +159,22 @@ Date_t ReadDateWithMsg(String_t dsp)
 	errno = write(1, dsp->str, sizeOfString(dsp));
 	return ReadDate();
 }
+String_t UTF8Rate(int value)
+{
+	String_t bs = newStringFromCharStar("★"), ws = newStringFromCharStar("☆");
+	String_t r = newString();
+	int c = 0;
+	while(c < value && c < 5)
+	{
+		concatString(r, bs);
+		++c;
+	}
+	while(c < 5)
+	{
+		concatString(r, ws);
+		++c;
+	}
+	fString(bs);
+	fString(ws);
+	return r;
+}

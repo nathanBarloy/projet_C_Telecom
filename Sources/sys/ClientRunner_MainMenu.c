@@ -207,7 +207,9 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 	if(film != 0)
 	{
 		clearTerminal();
-		printf("[ %s (%s) ]\n\n", cStringValueOf(film, "Title"), cStringValueOf(film, "Year"));
+		String_t rate = UTF8Rate(JSONObject_intValueOf(film, AS("Rate")));
+		printf("[ %s (%s) - %s ]\n\n", cStringValueOf(film, "Title"), cStringValueOf(film, "Year"), cString(rate));
+		fString(rate);
 		printf("Synopsis:\n%s\n\n", cStringValueOf(film, "Description"));
 		printf("Genres:\n");
 		JSONArray_t genres = JSONObject_get(film, AS("Genres"));

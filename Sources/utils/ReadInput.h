@@ -12,4 +12,5 @@ AutoString_t StandardPrompt(Vector_t propositions);
 Date_t ReadDate();
 Date_t ReadDateWithMsg(String_t dsp);
 void clearTerminal();
+String_t UTF8Rate(int value);
 #endif
