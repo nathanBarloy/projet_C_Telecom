@@ -14,7 +14,7 @@
 \usepackage{moreverb}
 \usepackage{listings}
 \usepackage{dsfont}
-\usepackage{fontspec}
+%\usepackage{fontspec}
 \usepackage{hyperref}
 
 \usepackage{algorithm}
@@ -53,16 +53,16 @@
 
 \newpage
 \tableofcontents
-\chapter{Etat de l'art}
+\chapter{État de l'art}
 \section{Introduction}
 \subsection{Qu'est ce qu'un système de recommandation?}
-Un système de recommandation a pour but de founir des recommendation de résultats pertinentes à un utilisateur, en fonction de différents paramètres comme ses préférences, son historique, le temps passé sur le contenu, etc.., afin de lui proposer directement un contenu ciblé sans efforts de sa part.
+Un système de recommandation a pour but de fournir des recommandation de résultats pertinentes à un utilisateur, en fonction de différents paramètres comme ses préférences, son historique, le temps passé sur le contenu, etc.., afin de lui proposer directement un contenu ciblé sans efforts de sa part.
 
 Un algorithme de recommandation peut de ce fait être utilisé pour faciliter les recherches de contenus sur un thème donné, ce qui est bénéfique pour l'utilisateur car il aura plus d'informations pertinentes à regarder, et permettre aux gérants de la plateforme de fidéliser la clientèle.\par
 
 Prenons un exemple, un site de e-commerce sur lequel on trouve facile des articles en rapport avec l'article que l'on est en train de consulter rendra plus facile la recherche, et donc aidera le client a trouver rapidement le produit adéquat, ce qui réduira le temps nécessaire à l'achat, et évitera la perte du client.
-Un autre exemple est une plateforme de visionnage de vidéos en ligne, qui génère des bénéfices grâce a la publicité, un tel système proposera du contenu ciblé interessant pour l'utilisateur, qui consultera un plus grand nombre de vidéos sur le site, ce qui permet à la fois de satisfaire l'utilisateur et améliorer la génération de revenus liés à la publicité.
-Ces effets sont liés au fait que l'utilisateur reçoit des suggestions pertinentes de la part du système de recommendation auxquelles il n'aurait pas forcément pu prêter attention autrement.\par
+Un autre exemple est une plateforme de visionnage de vidéos en ligne, qui génère des bénéfices grâce a la publicité, un tel système proposera du contenu ciblé intéressant pour l'utilisateur, qui consultera un plus grand nombre de vidéos sur le site, ce qui permet à la fois de satisfaire l'utilisateur et améliorer la génération de revenus liés à la publicité.
+Ces effets sont liés au fait que l'utilisateur reçoit des suggestions pertinentes de la part du système de recommandation auxquelles il n'aurait pas forcément pu prêter attention autrement.\par
 
 \newpage
 \subsection{La place des systèmes de recommandation dans la recherche d'information}
@@ -72,7 +72,7 @@ Le nombre conséquent de résultats obligera le moteur de recherche a limiter la
 Ce système fonctionne plutôt bien, mais nécessite que l'utilisateur traite lui même un grand nombre de résultats, ce qui peut se limiter a la ou les premières pages car il lui est impossible de tout traiter.
 On cherche donc à rendre les résultats de la première page plus pertinents. On fait alors immédiatement le lien avec les systèmes de recommandation, car au lieu de filtrer par mots clés, on va pouvoir rechercher des contenus à thème proche, date proche, et personnaliser les résultats en fonction des habitudes de l'utilisateur.\par
 
-Ces exemples montrent un certain nombre de cas où l'utilisation d'un système de recommandation s'avère utile. Cependant il en existe de nombreux autres, car leur champ d'application est immense, c'est pourquoi il est interessant de s'interesser aux systèmes existants pour tenter de les reproduire et les améliorer.
+Ces exemples montrent un certain nombre de cas où l'utilisation d'un système de recommandation s'avère utile. Cependant il en existe de nombreux autres, car leur champ d'application est immense, c'est pourquoi il est intéressant de s'intéresser aux systèmes existants pour tenter de les reproduire et les améliorer.
 
 \subsection{Historique}
 A mettre ou pas?
@@ -92,19 +92,19 @@ A partir de ces facteurs on produit différents types de recommandations.
 Les systèmes les plus utilisés sont le filtrage basé sur le contenu, et le filtrage collaboratif.
 
 \subsubsection{Le filtrage basé sur le contenu}
-Le filtrage basé sur le contenu va essayer d'associer un utilisateur à un ensemble de données proche de ses préférences. On va alors rechercher des données qui pourraient l'interesser en tenant compte uniquement de lui-même, et de ce qu'il a consulté. Pour cela, il faut dresser des liens entres les différents éléments de la base de donnée, pour pouvoir déterminé si un élément est proche ou non de ce qu'a consulté l'utilisateur.
-L'avantage de ce filtrage est qu'il ne nécéssite pas d'avoir d'autres utilisateurs pour fonctionner, puisqu'on ne compare pas les utilisateurs entre eux. Cela est donc très pratique quand la base de donnée des utilisateur est petite.
+Le filtrage basé sur le contenu va essayer d'associer un utilisateur à un ensemble de données proche de ses préférences. On va alors rechercher des données qui pourraient l'intéresser en tenant compte uniquement de lui-même, et de ce qu'il a consulté. Pour cela, il faut dresser des liens entres les différents éléments de la base de donnée, pour pouvoir déterminé si un élément est proche ou non de ce qu'a consulté l'utilisateur.
+L'avantage de ce filtrage est qu'il ne nécessite pas d'avoir d'autres utilisateurs pour fonctionner, puisqu'on ne compare pas les utilisateurs entre eux. Cela est donc très pratique quand la base de donnée des utilisateur est petite.
 \subsubsection{Le filtrage collaboratif}
-Le filtrage collaboratif va mesurer une certaine distance entre un utilisateur donné, et tous les autres utilisateurs pour selectionner les utilisateurs les plus proches uniquement.
-On utilisera alors le profil de ces utilisateurs proches pour regarder les données qui les ont interessés pour les recommander à notre utilisateur initial.
-L'avantage de ce filtrage est qu'il ne nécéssite pas de créer un algorithme qui détermine si deux données sont proches ou non. Cependant, si la base de donnée des utilisateurs n'est pas assez fournie, ce filtrage ne sera que très peu efficace.\par
-Evidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédement, de manière à en tirer les avantages.
+Le filtrage collaboratif va mesurer une certaine distance entre un utilisateur donné, et tous les autres utilisateurs pour sélectionner les utilisateurs les plus proches uniquement.
+On utilisera alors le profil de ces utilisateurs proches pour regarder les données qui les ont intéressés pour les recommander à notre utilisateur initial.
+L'avantage de ce filtrage est qu'il ne nécessite pas de créer un algorithme qui détermine si deux données sont proches ou non. Cependant, si la base de donnée des utilisateurs n'est pas assez fournie, ce filtrage ne sera que très peu efficace.\par
+Évidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédemment, de manière à en tirer les avantages.
 
 \section{Les données}
 Pour pouvoir lier des produits avec les utilisateurs, il est indispensable de mettre au point un système de notation afin de déterminer si un utilisateur apprécie ou non un produit.
 On distingue deux approches différentes :
 \begin{itemize}
-  \item l'approche "réactive", où le système de recommandation deamande à l'utilisateur des informations / avis sur certains produits afin d'affiner ces recommandations. Cette approche présente cependant l'inconvénient de solliciter l'utilisateur.
+  \item l'approche "réactive", où le système de recommandation demande à l'utilisateur des informations / avis sur certains produits afin d'affiner ces recommandations. Cette approche présente cependant l'inconvénient de solliciter l'utilisateur.
   \item l'approche "proactive", qui anticipe plus les goûts de l'utilisateur.
 \end{itemize}
 
@@ -121,7 +121,7 @@ Ce sont toutes les informations que l'utilisateur donne de manière explicite en
 La notation des produits est un élément centrale dans un système de recommandations. Ces notes sont principalement numériques peuvent avoir différentes formes qui délivrent plus ou moins d'informations.
 \vspace{0.5cm}
 \par Il y tout d'abord la notation unaire : cette notation ne délivre qu'une seule information, si l'utilisateur a aimé un produit. On peut donner par l'exemple de réseau social Instagram qui donne la possibilité aux utilisateurs de "liker" une photo uniquement, il est impossible de mettre un avis négatif.
-\par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilsateur. L'information transmise est donc binaire : "J'aime" / "Je naime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
+\par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilisateur. L'information transmise est donc binaire : "J'aime" / "Je n'aime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
 \par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et donc améliore les recommandations qui en découle.
 Cependant, le coût en calcul en est impact car l'information n'est plus binaire. De plus cette notation est sensible à la manière de noter de chaque utilisateur : une note de 3/5 sera considéré comme une mauvaise note par certains utilisateurs alors que pour d'autres, ce sera un note neutre / moyenne. Cela peut donc impacter la qualité des recommandations.
 
@@ -129,13 +129,13 @@ Cependant, le coût en calcul en est impact car l'information n'est plus binaire
 
 Partie sur l'analyse des commentaires pour en extraire des tags + utilisations des données profil utilisateur
 \subsubsection{Observation indirecte}
-Ce sont l'ensemble des informations immplicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
+Ce sont l'ensemble des informations implicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
 
 \subsection{Conclusion sur les données}
 Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".
 
 \section{La matrice d'usage}
-Egalement appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
+Également appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
 \section{Réduction de matrice}
 Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.\par
 Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
@@ -146,7 +146,7 @@ L’idée est d’écarter les items (resp. les utilisateurs) jugés non représ
 Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
 \section{Calcul de similarités}
-Un calcul de similarité est utile pour déterminer la distance entre un utlisateur et un produit mais également entre deux utlisateurs (ou produits).
+Un calcul de similarité est utile pour déterminer la distance entre un utilisateur et un produit mais également entre deux utilisateurs (ou produits).
 Plusieurs outils existent pour nous permettre d'effectuer ce calcul.
 Nous verrons dans cette partie quelques unes de ces méthodes et discuterons des avantages et inconvénients qu'ils présentent.
 
@@ -192,7 +192,7 @@ Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonc
 Ce script se décompose en deux étapes.\par
 Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=
 suivi du contenu de la recherche avec des "+" remplaçant les espaces.
-Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce carctère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
+Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce caractère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
 Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
 La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
 Pour terminer, on crée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
@@ -222,7 +222,7 @@ Chaque film est caractérisé par la donnée de différents attributs. Dans le c
     \item Le genre
     \item Le type (film ou série)
 \end{itemize}
-Pour chacun de ces attributs, on va calculer une distance, dont la valeur sera comprise entre 0 et 1 (0 pour identique, et 1 pour complètement différent). On fait ensuite simplement une moyenne pondérée des distances obtenues (les poids sont modulables).\\
+Pour chacun de ces attributs, on va calculer une distance, dont la valeur sera comprise entre 0 et 1 (0 pour identique, et 1 pour complètement différent). On fait ensuite simplement une moyenne pondérée des distances obtenues. Les poids de cette moyenne sont modulables, ce qui nous permet de les modifier comme on le souhaite, pour avoir des proportions qui correspondent à ce que nous voulons.\\
 Cette distance doit vérifier certaines propriétés de la distance mathématique :
 \begin{itemize}
     \item \(d(a,b)=d(b,a)\) (la symétrie)
@@ -282,25 +282,26 @@ $$
 0.9 & 0.9 & 0.8 & 0.9 & 0.6 & 0.3 & 0.8 & 0.8 & 0.4 & 0.6 & 0.8 & 0.9 & 0.8 & 0.8 & 0.1 & 0.9 & 0.9 & 0.8 & 0.0
 \end{pmatrix}
 $$
-\normalize
+\normalsize
 C'est assez indigeste et laborieux à créer, mais une fois cela fait, l'utilisation est très simple. Chaque ligne et chaque colonne correspond à un genre, dans l'ordre de la liste, et à la ligne i colonne j, on a la distance entre le genre i et le genre j. Les propriétés de la distance nous donne alors aussi des propriétés sur la matrice : puisqu'une distance est symétrique (\(d(a,b)=d(b,a)\)), la matrice l'est aussi. De plus la distance entre un genre et lui même est nul, donc les éléments diagonaux sont tous nuls.\par
+Pour créer notre distance entre 2 ensembles de genres, on va simplement parcourir les 2 ensembles, et faire la moyenne de toutes les distances que l'on trouve grâce à notre matrice. Ainsi, si le film 1 a $n$ genres et le film 2 en a $m$, on va faire la moyenne de $m\times n$ distances entre genres.
 
 \section{Système de recommandation collaboratif}
-Comme vu dans l'Etat de l'art, la distance entre deux utlisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :
+Comme vu dans l'Etat de l'art, la distance entre deux utilisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :
 \begin{itemize}
 	\item les données personnelles
-	\item les données de naviguation
+	\item les données de navigation
 	\item les notes attribués par l'utilisateur
 	\item et plus encore...
 \end{itemize}
-Toutefois, comme notre base de données ne contient que les notes des utlisateurs, nous avons décidé de ne prendre en compte que ces notes dans notre algorithme.
+Toutefois, comme notre base de données ne contient que les notes des utilisateurs, nous avons décidé de ne prendre en compte que ces notes dans notre algorithme.
 
 \subsection{Création d'une distance entre 2 utilisateurs}
 La première étape consiste à déterminer, à partir d'une liste de notes pour chaque utilisateur, une distance entre ces derniers. La solution retenue a été d'utliser la corrélation de Pearson (détaillé dans l'Etat de l'art). Définissons $U_{1}$ comme étant l'utilisateur cible et $U_{2}$ l'utilisateur que l'on compare\par
 On détermine dans un premier temps les notes moyennes pour $U_{1}$ et $U_{2}$ avant de calculer la corrélation de Pearson en ne prennant en compte que les films vus par $U_{1}$ et $U_{2}$.\par
 Il en résulte une note comprise entre $[\![-1;1]\!]$. Cependant, pour les suite des calculs, nous avons besoin d'une note comprise dans l'intervalle $[\![0;1]\!]$. On ajuste donc le coefficient de Pearson à l'aide de la formule :
 $$distance(U_1, U_2) = \frac{1 + coef_{Pearson}}{2}$$
-Maintenant qu'il est possible de calculer la distance entre deux utilisateurs, il suffit de ré-itérer cette opération pour tous les autres utilsateurs. On obtient alors liste de n-1 couples ${(identifiant_{Ui}, distance(U_1, U_i))}$ avec : $0 \leqslant i < n  ;  i\neq1$
+Maintenant qu'il est possible de calculer la distance entre deux utilisateurs, il suffit de ré-itérer cette opération pour tous les autres utilisateurs. On obtient alors liste de n-1 couples ${(identifiant_{Ui}, distance(U_1, U_i))}$ avec : $0 \leqslant i < n  ;  i\neq1$
 \subsection{Estimation d'une note}
 L'objectif est maintenant de pouvoir estimer la note que $U_1$ donnera à un film donné en se basant sur celles des autres utilisateurs qui ont déjà noté ce film. Pour cela, on applique la formule suivante.\par
 Soit $x$ un film donné et $U$, l'ensemble des utilisateurs ayant notés ce film. On a :
