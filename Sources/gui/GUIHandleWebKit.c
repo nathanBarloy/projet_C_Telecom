@@ -217,6 +217,8 @@ void clientQUIT(GtkWidget* win, GdkEvent* ev, gpointer user_data)
 	{
 		freeRequestAnswer(a);
 	}
+	JSONObject_t e = getExport();
+	JSONObject_delete(e);
 }
 void clientGUIUserChangedContents(WebKitWebView *web_view, gpointer user_data)
 {
@@ -253,7 +255,8 @@ void clientGUIStart(GtkApplication* app, gpointer user_data)
 	GtkWidget *main_window = gtk_application_window_new(app);
 	GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 	GtkWidget *web_view = webkit_web_view_new();
-	getWebkit(web_view, 1);
+	getWindow(GTK_WINDOW(main_window), 1);
+	getWebKitWebView(WEBKIT_WEB_VIEW(web_view), 1);
 	// Place the WebKitWebView in the GtkScrolledWindow
 	gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
 	gtk_container_add (GTK_CONTAINER (main_window), scrolled_window);

@@ -6,12 +6,24 @@ JSONObject_t getExport()
 	if(firstCall)
 	{
 		obj = JSONObject_new();
+		firstCall = false;
 	}
+	printf("Export called:\n%s\n", cString(JSONObject_asString(obj, 0)));
 	return obj;
 }
-GtkWidget* getWebkit(GtkWidget* w, bool edit)
+GtkWindow* getWindow(GtkWindow* w, bool edit)
 {
-	static GtkWidget* wid = 0;
+	static GtkWindow* wid = 0;
+	if(edit)
+	{
+		wid = w;
+	}
+	return wid;
+}
+
+WebKitWebView* getWebKitWebView(WebKitWebView* w, bool edit)
+{
+	static WebKitWebView* wid = 0;
 	if(edit)
 	{
 		wid = w;

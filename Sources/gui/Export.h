@@ -2,6 +2,8 @@
 #define EXPORT_H
 #include <JSONAll.h>
 #include <gtk/gtk.h>
+#include <webkit/webkit.h>
 JSONObject_t getExport();
-GtkWidget* getWebkit(GtkWidget* w, bool edit);
+GtkWindow* getWindow(GtkWindow* w, bool edit);
+WebKitWebView* getWebKitWebView(WebKitWebView* w, bool edit);
 #endif

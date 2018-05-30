@@ -4,6 +4,7 @@
 #include <JSONAll.h>
 #include "Connexion.h"
 #include <Vector/Vector.h>
+#include <gtk/gtk.h>
 String_t HTMLFromJSONContainer(Connexion_t connexion, JSONObject_t json, JSONObject_t container, Vector_t params);
 String_t HTMLFromJSON(Connexion_t connexion, JSONObject_t json, Vector_t params);
 String_t HTMLFromJSONString(Connexion_t connexion, String_t str, Vector_t params);
@@ -43,4 +44,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 
 //HTMLExport
 String_t HTMLExport(Connexion_t connexion, JSONObject_t json, JSONObject_t param, Vector_t params);
+/* Specific */
+gboolean HTMLExportDialog(gpointer ptr);
+void HTMLExportLater();
 #endif

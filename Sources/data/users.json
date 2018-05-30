@@ -4668,7 +4668,10 @@
 	"FirstName": "",
 	"Follow": [],
 	"Friends": [],
-	"History": {},
+	"History": 
+		{
+		"Rates": []		
+		},
 	"Id": 116,
 	"Login": "pierre",
 	"Name": "",
@@ -4692,11 +4695,38 @@
 	"FirstName": "",
 	"Follow": [],
 	"Friends": [],
-	"History": {},
+	"History": 
+		{
+		"Rates": []		
+		},
 	"Id": 117,
 	"Login": "cacabouda",
 	"Name": "",
 	"Password": "lololol",
+	"Preferences": {}	
+	},
+
+	{
+	"Birth": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"Date": 
+		{
+		"Day": 0,
+		"Month": 0,
+		"Year": 0		
+		},
+	"FirstName": "",
+	"Follow": [],
+	"Friends": [],
+	"History": {},
+	"Id": 118,
+	"Login": "userosef",
+	"Name": "",
+	"Password": "azerty",
 	"Preferences": {}	
 	}
 ]

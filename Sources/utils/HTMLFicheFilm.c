@@ -181,7 +181,7 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 
 
     //Affichage des recommandations
-	tmp = newStringFromCharStar("<h1>Recommandé si vous aimez ce film:</h1>(<a href=\"exec://export.js\" >Exporter...</a>)<div>");
+	tmp = newStringFromCharStar("<h1>Recommandé si vous aimez ce film:</h1>(<a href=\"exec://export.json\" >Exporter...</a>)<div>");
 	concatString(reponse, tmp);
 	fString(tmp);
 	JSONArray_t reco = serverGetFilmRecommendation(connexion, value_id);
@@ -213,6 +213,20 @@ String_t HTMLFicheFilm(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	//Fin d'affichage des recommendations
 	//Reco script save
 	JSONObject_t e = getExport();
+	JSONObject_set(e, AS("Data"), export);
+	tmp = newStringFromCharStar("recommendations.json");
+	JSONObject_set(e, AS("Name"), JSONString_new(tmp));
+	fString(tmp);
+	JSONObject_t u = JSONObject_get(json, AS("url"));
+	if(u != 0 && JSONObject_getType(u) == STRING)
+	{
+		u = JSONString_new(autoConcatNString(3, cString(JSONString_get(u)), "?id=", cString(getParam(AS("id"), params))));
+	}
+	else
+	{
+		u = JSONString_new(autoString(""));
+	}
+	JSONObject_set(e, AS("Url"), u);
 	//reco script save end
     //JSONObject_delete(films);
     JSONObject_delete(img);

@@ -5,3 +5,4 @@ client
 client-gui
 *_backup_*.json
 *.bin
+tmp
