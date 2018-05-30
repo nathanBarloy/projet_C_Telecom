@@ -1,31 +1,31 @@
 [
 	{
-	"Actors": 
+	"Actors":
 		["Vin Diesel", "Paul Walker", "Dwayne Johnson"],
 	"Cover": "img/covers/0.jpg",
 	"Description": "Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.",
-	"Directors": 
+	"Directors":
 		["James Wan"],
 	"Duration": 137,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Thriller"],
 	"Id": 1,
 	"Rank": 39,
-	"Rate": 2.333333,
+	"Rate": 3.000000,
 	"Title": "Fast & Furious 7",
 	"Type": "Film",
 	"Url": "3Wu2BhFuc4c",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Andrew Lincoln", "Jon Bernthal", "Sarah Wayne Callies"],
 	"Cover": "img/covers/1.jpg",
 	"Description": "Sheriff's Deputy Rick Grimes leads a group of survivors in a world overrun by zombies.",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Drama", "Horror"],
 	"Id": 2,
 	"Rank": 6,
@@ -33,55 +33,55 @@
 	"Title": "The Walking Dead",
 	"Type": "TV Series",
 	"Url": "AbtiqJGhWyY",
-	"Year": 2010	
+	"Year": 2010
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Daniel Craig", "Christoph Waltz", "Ralph Fiennes"],
 	"Cover": "img/covers/2.jpg",
 	"Description": "A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.",
-	"Directors": 
+	"Directors":
 		["Sam Mendes"],
 	"Duration": 148,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 3,
-	"Rank": 34,
+	"Rank": 38,
 	"Rate": 3.000000,
 	"Title": "Spectre",
 	"Type": "Film",
 	"Url": "RWVCz_vTJdM",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Lily James", "Cate Blanchett", "Richard Madden"],
 	"Cover": "img/covers/3.jpg",
 	"Description": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger.",
-	"Directors": 
+	"Directors":
 		["Kenneth Branagh"],
 	"Duration": 105,
-	"Genres": 
+	"Genres":
 		["Drama", "Family", "Fantasy", "Romance"],
 	"Id": 4,
-	"Rank": 33,
+	"Rank": 37,
 	"Rate": 3.000000,
 	"Title": "Cendrillon",
 	"Type": "Film",
 	"Url": "tlhOeK_fhJs",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Peter Dinklage", "Lena Headey", "Kit Harington"],
 	"Cover": "img/covers/4.jpg",
 	"Description": "Several noble families fight for control of the mythical land of Westeros.",
 	"Directors": [],
 	"Duration": 55,
-	"Genres": 
+	"Genres":
 		["Adventure", "Drama", "Fantasy"],
 	"Id": 5,
 	"Rank": 0,
@@ -89,18 +89,18 @@
 	"Title": "Game of Thrones",
 	"Type": "TV Series",
 	"Url": "aAF12LNAeNI",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
 	"Cover": "img/covers/5.jpg",
 	"Description": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and it is up to the Avengers to stop the villainous Ultron from enacting his terrible plans.",
-	"Directors": 
+	"Directors":
 		["Joss Whedon"],
 	"Duration": 142,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Sci-Fi", "Thriller"],
 	"Id": 6,
 	"Rank": 14,
@@ -108,37 +108,37 @@
 	"Title": "Avengers: L'ère d'Ultron",
 	"Type": "Film",
 	"Url": "ANbZ-zJ7Ig8",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Shailene Woodley", "Ansel Elgort", "Theo James"],
 	"Cover": "img/covers/6.jpg",
 	"Description": "Beatrice Prior must confront her inner demons and continue her fight against a powerful alliance which threatens to tear her society apart with the help from others on her side.",
-	"Directors": 
+	"Directors":
 		["Robert Schwentke"],
 	"Duration": 119,
-	"Genres": 
+	"Genres":
 		["Adventure", "Sci-Fi", "Thriller"],
 	"Id": 7,
-	"Rank": 32,
+	"Rank": 36,
 	"Rate": 3.000000,
 	"Title": "Divergente 2: L'insurrection",
 	"Type": "Film",
 	"Url": "8-hbsaN182g",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
 	"Cover": "img/covers/7.jpg",
 	"Description": "A team of explorers travel through a wormhole in an attempt to ensure humanity's survival.",
-	"Directors": 
+	"Directors":
 		["Christopher Nolan"],
 	"Duration": 169,
-	"Genres": 
+	"Genres":
 		["Adventure", "Sci-Fi"],
 	"Id": 8,
 	"Rank": 8,
@@ -146,18 +146,18 @@
 	"Title": "Interstellar",
 	"Type": "Film",
 	"Url": "VaOijhK3CRU",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jim Parsons", "Rihanna", "Steve Martin"],
 	"Cover": "img/covers/8.jpg",
 	"Description": "Oh, an alien on the run from his own people, lands on Earth and makes friends with the adventurous Tip, who is on a quest of her own.",
-	"Directors": 
+	"Directors":
 		["Tim Johnson"],
 	"Duration": 94,
-	"Genres": 
+	"Genres":
 		["Animation", "Adventure", "Comedy", "Family", "Fantasy", "Sci-Fi"],
 	"Id": 9,
 	"Rank": 5,
@@ -165,74 +165,74 @@
 	"Title": "Home",
 	"Type": "Film",
 	"Url": "GItD10Joaa0",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Will Ferrell", "Kevin Hart", "Alison Brie"],
 	"Cover": "img/covers/9.jpg",
 	"Description": "When millionaire James King is jailed for fraud and bound for San Quentin, he turns to Darnell Lewis to prep him to go behind bars.",
-	"Directors": 
+	"Directors":
 		["Etan Cohen"],
 	"Duration": 100,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 10,
-	"Rank": 41,
+	"Rank": 46,
 	"Rate": 2.250000,
 	"Title": "Get Hard",
 	"Type": "Film",
 	"Url": "oNCv8I4pfV0",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ben Affleck", "Henry Cavill", "Amy Adams"],
 	"Cover": "img/covers/10.jpg",
 	"Description": "Fearing the actions of a god-like Super Hero left unchecked, Gotham City’s own formidable, forceful vigilante takes on Metropolis’s most revered, modern-day savior, while the world wrestles with what sort of hero it really needs. And with Batman and Superman at war with one another, a new threat quickly arises, putting mankind in greater danger than it’s ever known before.",
-	"Directors": 
+	"Directors":
 		["Zack Snyder"],
 	"Duration": 151,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Fantasy", "Sci-Fi"],
 	"Id": 11,
-	"Rank": 37,
+	"Rank": 43,
 	"Rate": 2.444444,
 	"Title": "Batman v Superman: Dawn of Justice",
 	"Type": "Film",
 	"Url": "0WWzgGyAH6Y",
-	"Year": 2016	
+	"Year": 2016
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Grant Gustin", "Candice Patton", "Danielle Panabaker"],
 	"Cover": "img/covers/11.jpg",
 	"Description": "Barry Allen wakes up 9 months after he was struck by lightning and discovers that the bolt gave him the power of super speed. With his new team and powers, Barry becomes \"The Flash\" and fights crime in Central City.",
 	"Directors": [],
 	"Duration": 43,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Drama", "Fantasy", "Sci-Fi"],
 	"Id": 12,
-	"Rank": 31,
+	"Rank": 34,
 	"Rate": 3.000000,
 	"Title": "The Flash",
 	"Type": "TV Series",
 	"Url": "8HB40lEa_j8",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Maika Monroe", "Keir Gilchrist", "Olivia Luccardi"],
 	"Cover": "img/covers/12.jpg",
 	"Description": "A young woman is followed by an unknown supernatural force after getting involved in a sexual encounter.",
-	"Directors": 
+	"Directors":
 		["David Robert Mitchell"],
 	"Duration": 100,
-	"Genres": 
+	"Genres":
 		["Horror"],
 	"Id": 13,
 	"Rank": 12,
@@ -240,17 +240,17 @@
 	"Title": "It Follows",
 	"Type": "Film",
 	"Url": "vq2thl5KLTU",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Stephen Amell", "Katie Cassidy", "David Ramsey"],
 	"Cover": "img/covers/13.jpg",
 	"Description": "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
 	"Directors": [],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Crime", "Drama", "Mystery", "Sci-Fi"],
 	"Id": 14,
 	"Rank": 0,
@@ -258,17 +258,17 @@
 	"Title": "Arrow",
 	"Type": "TV Series",
 	"Url": "nPCxc8vXMso",
-	"Year": 2012	
+	"Year": 2012
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Travis Fimmel", "Clive Standen", "Gustaf Skarsgård"],
 	"Cover": "img/covers/14.jpg",
 	"Description": "The adventures of Ragnar Lothbrok: the greatest hero of his age. The series tells the saga of Ragnar's...",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Action", "Drama", "History", "War"],
 	"Id": 15,
 	"Rank": 0,
@@ -276,18 +276,18 @@
 	"Title": "Vikings",
 	"Type": "TV Series",
 	"Url": "mAl60ykBm4A",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
 	"Cover": "img/covers/15.jpg",
 	"Description": "In a post-apocalyptic world, in which people fight to the death, Max teams up with a mysterious woman, Furiousa, to try and survive.",
-	"Directors": 
+	"Directors":
 		["George Miller"],
 	"Duration": 120,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 16,
 	"Rank": 9,
@@ -295,17 +295,17 @@
 	"Title": "Mad Max: Fury Road",
 	"Type": "Film",
 	"Url": "mtolAJbj44s",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Cliff Curtis", "Alycia Debnam Carey", "Kim Dickens"],
 	"Cover": "img/covers/16.jpg",
 	"Description": "What did the world look like as it was transforming into the horrifying apocalypse depicted in \"The Walking Dead\"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Drama", "Horror"],
 	"Id": 17,
 	"Rank": 0,
@@ -313,17 +313,17 @@
 	"Title": "Fear the Walking Dead",
 	"Type": "TV Series",
 	"Url": "KhqNzQdlJUU",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Norbert Leo Butz", "Kyle Chandler", "Jamie McShane"],
 	"Cover": "img/covers/17.jpg",
 	"Description": "A family of adult siblings find that their past secrets and scars are revealed when their black sheep of a brother returns home.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Drama", "Thriller"],
 	"Id": 18,
 	"Rank": 0,
@@ -331,17 +331,17 @@
 	"Title": "Bloodline",
 	"Type": "TV Series",
 	"Url": "iqMM4fvuupQ",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Bob Odenkirk", "Jonathan Banks", "Rhea Seehorn"],
 	"Cover": "img/covers/18.jpg",
 	"Description": "The trials and tribulations of criminal lawyer, Saul Goodman, in the time leading up to establishing his strip-mall law office in Albuquerque, New Mexico.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama"],
 	"Id": 19,
 	"Rank": 0,
@@ -349,18 +349,18 @@
 	"Title": "Better Call Saul",
 	"Type": "TV Series",
 	"Url": "7ykFY6UPe98",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ginnifer Goodwin", "Jennifer Morrison", "Lana Parrilla"],
 	"Cover": "img/covers/19.jpg",
 	"Description": "A woman with a troubled past is drawn to a town in Maine where fairy tales are to be believed.",
-	"Directors": 
+	"Directors":
 		["David Barrett"],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Adventure", "Fantasy", "Romance"],
 	"Id": 20,
 	"Rank": 0,
@@ -368,18 +368,18 @@
 	"Title": "Once Upon a Time",
 	"Type": "TV Series",
 	"Url": "OdYx8cNwQFY",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Colin Firth", "Taron Egerton", "Samuel L. Jackson"],
 	"Cover": "img/covers/20.jpg",
 	"Description": "A spy organization recruits an unrefined, but promising street kid into the agency's ultra-competitive training program, just as a global threat emerges from a twisted tech genius.",
-	"Directors": 
+	"Directors":
 		["Matthew Vaughn"],
 	"Duration": 129,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Comedy", "Crime"],
 	"Id": 21,
 	"Rank": 18,
@@ -387,18 +387,18 @@
 	"Title": "Kingsman: Services secrets",
 	"Type": "Film",
 	"Url": "19-8w5reyWI",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Dakota Johnson", "Jamie Dornan", "Jennifer Ehle"],
 	"Cover": "img/covers/21.jpg",
 	"Description": "Literature student Anastasia Steele's life changes forever when she meets handsome, yet tormented, billionaire Christian Grey.",
-	"Directors": 
+	"Directors":
 		["Sam Taylor-Johnson"],
 	"Duration": 125,
-	"Genres": 
+	"Genres":
 		["Drama", "Romance"],
 	"Id": 22,
 	"Rank": 0,
@@ -406,36 +406,36 @@
 	"Title": "Cinquante nuances de Grey",
 	"Type": "Film",
 	"Url": "9G7oSGWHSVc",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Anna Kendrick", "Meryl Streep", "Chris Pine"],
 	"Cover": "img/covers/22.jpg",
 	"Description": "A witch tasks a childless baker and his wife with procuring magical items from classic fairy tales to reverse the curse put on their family tree.",
-	"Directors": 
+	"Directors":
 		["Rob Marshall"],
 	"Duration": 125,
-	"Genres": 
+	"Genres":
 		["Adventure", "Fantasy", "Musical"],
 	"Id": 23,
-	"Rank": 40,
+	"Rank": 45,
 	"Rate": 2.250000,
 	"Title": "Into the Woods: Promenons-nous dans les bois",
 	"Type": "Film",
 	"Url": "ybqbY6IOZfw",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Kevin Spacey", "Michael Gill", "Robin Wright"],
 	"Cover": "img/covers/23.jpg",
 	"Description": "A Congressman works with his equally conniving wife to exact revenge on the people who betrayed him.",
 	"Directors": [],
 	"Duration": 55,
-	"Genres": 
+	"Genres":
 		["Drama"],
 	"Id": 24,
 	"Rank": 0,
@@ -443,18 +443,18 @@
 	"Title": "House of Cards",
 	"Type": "TV Series",
 	"Url": "Gi4yEK5_amI",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jake Gyllenhaal", "Rachel McAdams", "Naomie Harris"],
 	"Cover": "img/covers/24.jpg",
 	"Description": "A boxer fights his way to the top, only to find his life falling apart around him.",
-	"Directors": 
+	"Directors":
 		["Antoine Fuqua"],
 	"Duration": 123,
-	"Genres": 
+	"Genres":
 		["Drama", "Sport"],
 	"Id": 25,
 	"Rank": 20,
@@ -462,18 +462,18 @@
 	"Title": "Southpaw",
 	"Type": "Film",
 	"Url": "JxmMu784inI",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Will Smith", "Margot Robbie", "Rodrigo Santoro"],
 	"Cover": "img/covers/25.jpg",
 	"Description": "In the midst of veteran con man Nicky's latest scheme, a woman from his past - now an accomplished femme fatale - shows up and throws his plans for a loop.",
-	"Directors": 
+	"Directors":
 		["Glenn Ficarra", "John Requa"],
 	"Duration": 105,
-	"Genres": 
+	"Genres":
 		["Comedy", "Crime", "Drama", "Romance"],
 	"Id": 26,
 	"Rank": 26,
@@ -481,55 +481,54 @@
 	"Title": "Diversion",
 	"Type": "Film",
 	"Url": "_NxDVVyxyjU",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Chris Pratt", "Judy Greer", "Ty Simpkins"],
 	"Cover": "img/covers/26.jpg",
 	"Description": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond. After 10 years of operation and visitor rates declining, in order to fulfill a corporate mandate, a new attraction is created to re-spark visitor's interest, which backfires horribly.",
-	"Directors": 
+	"Directors":
 		["Colin Trevorrow"],
 	"Duration": 124,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Sci-Fi", "Thriller"],
 	"Id": 27,
-	"Rank": 25,
 	"Rate": 3.333333,
 	"Title": "Jurassic World",
 	"Type": "Film",
 	"Url": "wmzAfqhphq8",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Shailene Woodley", "Theo James", "Kate Winslet"],
 	"Cover": "img/covers/27.jpg",
 	"Description": "In a world divided by factions based on virtues, Tris learns she's Divergent and won't fit in. When she discovers a plot to destroy Divergents, Tris and the mysterious Four must find out what makes Divergents dangerous before it's too late.",
-	"Directors": 
+	"Directors":
 		["Neil Burger"],
 	"Duration": 139,
-	"Genres": 
+	"Genres":
 		["Adventure", "Sci-Fi", "Thriller"],
 	"Id": 28,
-	"Rank": 36,
+	"Rank": 42,
 	"Rate": 2.600000,
 	"Title": "Divergente",
 	"Type": "Film",
 	"Url": "gxbwcBlj_dM",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Caitriona Balfe", "Sam Heughan", "Tobias Menzies"],
 	"Cover": "img/covers/28.jpg",
 	"Description": "Follows the story of Claire Randall, a married combat nurse from 1945 who is mysteriously swept back in time to 1743...",
 	"Directors": [],
 	"Duration": 64,
-	"Genres": 
+	"Genres":
 		["Drama", "Romance", "Sci-Fi"],
 	"Id": 29,
 	"Rank": 0,
@@ -537,17 +536,17 @@
 	"Title": "Outlander",
 	"Type": "TV Series",
 	"Url": "8IzIX4tjG9c",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Johnny Galecki", "Jim Parsons", "Kaley Cuoco-Sweeting"],
 	"Cover": "img/covers/29.jpg",
 	"Description": "A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.",
 	"Directors": [],
 	"Duration": 22,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 30,
 	"Rank": 0,
@@ -555,18 +554,18 @@
 	"Title": "The Big Bang Theory",
 	"Type": "TV Series",
 	"Url": "ySngPQ97mJI",
-	"Year": 2007	
+	"Year": 2007
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Benedict Cumberbatch", "Keira Knightley", "Matthew Goode"],
 	"Cover": "img/covers/30.jpg",
 	"Description": "During World War II, mathematician Alan Turing tries to crack the enigma code with help from fellow mathematicians.",
-	"Directors": 
+	"Directors":
 		["Morten Tyldum"],
 	"Duration": 114,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama", "Thriller", "War"],
 	"Id": 31,
 	"Rank": 3,
@@ -574,18 +573,18 @@
 	"Title": "Imitation Game",
 	"Type": "Film",
 	"Url": "YmeEz6cQrwM",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Will Forte", "January Jones", "Cleopatra Coleman"],
 	"Cover": "img/covers/31.jpg",
 	"Description": "THE LAST MAN ON EARTH is a new single-camera comedy about the life and adventures of the last man on earth...",
-	"Directors": 
+	"Directors":
 		["Phil Lord", "Christopher Miller"],
 	"Duration": 30,
-	"Genres": 
+	"Genres":
 		["Action", "Comedy", "Sci-Fi"],
 	"Id": 32,
 	"Rank": 0,
@@ -593,17 +592,17 @@
 	"Title": "The Last Man on Earth",
 	"Type": "TV Series",
 	"Url": "7WD7LywZ9JQ",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jared Padalecki", "Jensen Ackles", "Jim Beaver"],
 	"Cover": "img/covers/32.jpg",
 	"Description": "Two brothers follow their father's footsteps as \"hunters\" fighting evil supernatural beings of many kinds including monsters, demons, and gods that roam the earth.",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Drama", "Fantasy", "Horror", "Mystery", "Thriller"],
 	"Id": 33,
 	"Rank": 0,
@@ -611,17 +610,17 @@
 	"Title": "Supernatural",
 	"Type": "TV Series",
 	"Url": "NjkjXEzGatM",
-	"Year": 2005	
+	"Year": 2005
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
 	"Cover": "img/covers/33.jpg",
 	"Description": "A chemistry teacher diagnosed with a terminal lung cancer, teams up with his former student, Jesse Pinkman, to cook and sell crystal meth.",
 	"Directors": [],
 	"Duration": 45,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Thriller"],
 	"Id": 34,
 	"Rank": 0,
@@ -629,18 +628,18 @@
 	"Title": "Breaking Bad",
 	"Type": "TV Series",
 	"Url": "3nXznq02ixM",
-	"Year": 2008	
+	"Year": 2008
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Kelsey Grammer", "Vernon Dobtcheff", "Eoin Macken"],
 	"Cover": "img/covers/34.jpg",
 	"Description": "A miniseries chronicling the life of Jesus of Nazareth.",
-	"Directors": 
+	"Directors":
 		["Christopher Menaul"],
 	"Duration": 132,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama", "History"],
 	"Id": 35,
 	"Rank": 0,
@@ -648,18 +647,18 @@
 	"Title": "Killing Jesus",
 	"Type": "TV Movie",
 	"Url": "hgccekzzZ3Q",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Rose McIver", "Malcolm Goodwin", "Rahul Kohli"],
 	"Cover": "img/covers/35.jpg",
 	"Description": "A medical resident finds that being a zombie has its perks, which she uses to assist the police.",
-	"Directors": 
+	"Directors":
 		["Rob Thomas"],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Comedy", "Crime", "Drama", "Horror", "Sci-Fi"],
 	"Id": 36,
 	"Rank": 0,
@@ -667,17 +666,17 @@
 	"Title": "iZombie",
 	"Type": "TV Series",
 	"Url": "eyL98Ng_yJE",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ellen Pompeo", "Justin Chambers", "Chandra Wilson"],
 	"Cover": "img/covers/36.jpg",
 	"Description": "A drama centered on the personal and professional lives of five surgical interns and their supervisors.",
 	"Directors": [],
 	"Duration": 41,
-	"Genres": 
+	"Genres":
 		["Drama", "Romance"],
 	"Id": 37,
 	"Rank": 0,
@@ -685,17 +684,17 @@
 	"Title": "Grey's Anatomy",
 	"Type": "TV Series",
 	"Url": "Fzk2lLXeWhY",
-	"Year": 2005	
+	"Year": 2005
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jon Hamm", "Elisabeth Moss", "Vincent Kartheiser"],
 	"Cover": "img/covers/37.jpg",
 	"Description": "A drama about one of New York's most prestigious ad agencies at the beginning of the 1960s, focusing on one of the firm's most mysterious but extremely talented ad executives, Donald Draper.",
 	"Directors": [],
 	"Duration": 45,
-	"Genres": 
+	"Genres":
 		["Drama"],
 	"Id": 38,
 	"Rank": 0,
@@ -703,17 +702,17 @@
 	"Title": "Mad Men",
 	"Type": "TV Series",
 	"Url": "LfuMhXcLa-Q",
-	"Year": 2007	
+	"Year": 2007
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Lucy Hale", "Shay Mitchell", "Troian Bellisario"],
 	"Cover": "img/covers/38.jpg",
 	"Description": "Four friends band together against an anonymous foe who threatens to reveal their darkest secrets, while unraveling the mystery of the murder of their best friend.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Drama", "Mystery", "Thriller"],
 	"Id": 39,
 	"Rank": 0,
@@ -722,18 +721,18 @@
 	"Type": "TV Series",
 	"Url": "NeMArHhOMFc",
 	"UrlOld": "yp7oF3-mC3U",
-	"Year": 2010	
+	"Year": 2010
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Chris Pratt", "Vin Diesel", "Bradley Cooper"],
 	"Cover": "img/covers/39.jpg",
 	"Description": "A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.",
-	"Directors": 
+	"Directors":
 		["James Gunn"],
 	"Duration": 121,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Sci-Fi"],
 	"Id": 40,
 	"Rank": 10,
@@ -741,37 +740,37 @@
 	"Title": "Les Gardiens de la Galaxie",
 	"Type": "Film",
 	"Url": "ry19UYQoAro",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Vin Diesel", "Paul Walker", "Dwayne Johnson"],
 	"Cover": "img/covers/40.jpg",
 	"Description": "Hobbs has Dominic and Brian reassemble their crew to take down a team of mercenaries: Dominic unexpectedly gets convoluted also facing his presumed deceased girlfriend, Letty.",
-	"Directors": 
+	"Directors":
 		["Justin Lin"],
 	"Duration": 130,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Thriller"],
 	"Id": 41,
-	"Rank": 30,
-	"Rate": 3.000000,
+	"Rank": 7,
+	"Rate": 4.000000,
 	"Title": "Fast & Furious 6",
 	"Type": "Film",
 	"Url": "3V90RF55Qo0",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ryan Potter", "Scott Adsit", "Jamie Chung"],
 	"Cover": "img/covers/41.jpg",
 	"Description": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
-	"Directors": 
+	"Directors":
 		["Don Hall", "Chris Williams"],
 	"Duration": 102,
-	"Genres": 
+	"Genres":
 		["Animation", "Action", "Adventure", "Comedy", "Family", "Sci-Fi"],
 	"Id": 42,
 	"Rank": 7,
@@ -779,17 +778,17 @@
 	"Title": "Les nouveaux héros",
 	"Type": "Film",
 	"Url": "POxF0vTtbys",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Eliza Taylor", "Eli Goree", "Thomas McDonell"],
 	"Cover": "img/covers/42.jpg",
 	"Description": "Set 97 years after a nuclear war has destroyed civilization, when a spaceship housing humanity's lone survivors sends 100 juvenile delinquents back to Earth in hopes of possibly re-populating the planet.",
 	"Directors": [],
 	"Duration": 43,
-	"Genres": 
+	"Genres":
 		["Drama", "Sci-Fi"],
 	"Id": 43,
 	"Rank": 0,
@@ -797,17 +796,17 @@
 	"Title": "The 100",
 	"Type": "TV Series",
 	"Url": "YIx4nbTSV_Q",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Clark Gregg", "Ming-Na Wen", "Brett Dalton"],
 	"Cover": "img/covers/43.jpg",
 	"Description": "The missions of the Strategic Homeland Intervention, Enforcement and Logistics Division.",
 	"Directors": [],
 	"Duration": 45,
-	"Genres": 
+	"Genres":
 		["Action", "Drama", "Sci-Fi"],
 	"Id": 44,
 	"Rank": 0,
@@ -815,17 +814,17 @@
 	"Title": "Marvel: Les agents du S.H.I.E.L.D.",
 	"Type": "TV Series",
 	"Url": "qDfxuM7NgQ0",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ellie Kemper", "Jane Krakowski", "Tituss Burgess"],
 	"Cover": "img/covers/44.jpg",
 	"Description": "A woman is rescued from a doomsday cult and starts life over again in New York City.",
 	"Directors": [],
 	"Duration": 30,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 45,
 	"Rank": 0,
@@ -833,36 +832,36 @@
 	"Title": "Unbreakable Kimmy Schmidt",
 	"Type": "TV Series",
 	"Url": "mNKEKlXY3Z4",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Mae Whitman", "Bella Thorne", "Robbie Amell"],
 	"Cover": "img/covers/45.jpg",
 	"Description": "A high school senior instigates a social pecking order revolution after finding out that she has been labeled the DUFF - Designated Ugly Fat Friend - by her prettier, more popular counterparts.",
-	"Directors": 
+	"Directors":
 		["Ari Sandel"],
 	"Duration": 101,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 46,
-	"Rank": 29,
+	"Rank": 33,
 	"Rate": 3.000000,
 	"Title": "The DUFF",
 	"Type": "Film",
 	"Url": "f4_X8coMTWg",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Emmy Rossum", "William H. Macy", "Ethan Cutkosky"],
 	"Cover": "img/covers/46.jpg",
 	"Description": "An alcoholic man lives in a perpetual stupor while his six children with whom he lives cope as best they can.",
 	"Directors": [],
 	"Duration": 46,
-	"Genres": 
+	"Genres":
 		["Comedy", "Drama"],
 	"Id": 47,
 	"Rank": 0,
@@ -870,18 +869,18 @@
 	"Title": "Shameless",
 	"Type": "TV Series",
 	"Url": "31vEsCzKJf4",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Harrison Ford", "Mark Hamill", "Carrie Fisher"],
 	"Cover": "img/covers/47.jpg",
 	"Description": "A continuation of the saga created by George Lucas set thirty years after Le retour du Jedi.",
-	"Directors": 
+	"Directors":
 		["J.J. Abrams"],
 	"Duration": 136,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Fantasy", "Sci-Fi"],
 	"Id": 48,
 	"Rank": 21,
@@ -889,17 +888,17 @@
 	"Title": "Star Wars: Episode VII - Le Réveil de la Force",
 	"Type": "Film",
 	"Url": "mH9Ygfs5avo",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["James Spader", "Megan Boone", "Diego Klattenhoff"],
 	"Cover": "img/covers/48.jpg",
 	"Description": "A highly articulate, erudite and intelligent businessman and mastermind, \"Red\" Reddington, has allegedly...",
 	"Directors": [],
 	"Duration": 43,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Mystery", "Thriller"],
 	"Id": 49,
 	"Rank": 0,
@@ -907,35 +906,35 @@
 	"Title": "The Blacklist",
 	"Type": "TV Series",
 	"Url": "DG_dPkDtAI0",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Evan Peters", "Jessica Lange", "Sarah Paulson"],
 	"Cover": "img/covers/49.jpg",
 	"Description": "An anthology series that centers on different characters and locations, including a haunted house, an insane asylum, a witch coven, a freak show and a hotel.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Drama", "Horror", "Thriller"],
 	"Id": 50,
-	"Rank": 0,
-	"Rate": 0.000000,
+	"Rank": 6,
+	"Rate": 4.500000,
 	"Title": "American Horror Story",
 	"Type": "TV Series",
 	"Url": "Zuef7i_09PE",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jessica Parker Kennedy", "Toby Stephens", "Hannah New"],
 	"Cover": "img/covers/50.jpg",
 	"Description": "Captain Flint and his pirates, twenty years prior to Robert Louis Stevenson's classic \"Treasure Island\".",
 	"Directors": [],
 	"Duration": 56,
-	"Genres": 
+	"Genres":
 		["Adventure", "Drama"],
 	"Id": 51,
 	"Rank": 0,
@@ -943,18 +942,18 @@
 	"Title": "Black Sails",
 	"Type": "TV Series",
 	"Url": "R7hfL7q0g4Q",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Michael Keaton", "Zach Galifianakis", "Edward Norton"],
 	"Cover": "img/covers/51.jpg",
 	"Description": "A washed-up actor, who once played an iconic superhero, battles his ego and attempts to recover his family, his career and himself in the days leading up to the opening of his Broadway play.",
-	"Directors": 
+	"Directors":
 		["Alejandro González Iñárritu"],
 	"Duration": 119,
-	"Genres": 
+	"Genres":
 		["Comedy", "Drama", "Romance"],
 	"Id": 52,
 	"Rank": 17,
@@ -962,18 +961,18 @@
 	"Title": "Birdman",
 	"Type": "Film",
 	"Url": "jU-02YmPpMs",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Miles Teller", "J.K. Simmons", "Melissa Benoist"],
 	"Cover": "img/covers/52.jpg",
 	"Description": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
-	"Directors": 
+	"Directors":
 		["Damien Chazelle"],
 	"Duration": 107,
-	"Genres": 
+	"Genres":
 		["Drama", "Music"],
 	"Id": 53,
 	"Rank": 13,
@@ -981,17 +980,17 @@
 	"Title": "Whiplash",
 	"Type": "Film",
 	"Url": "qpxjxhvP904",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Nina Dobrev", "Paul Wesley", "Ian Somerhalder"],
 	"Cover": "img/covers/53.jpg",
 	"Description": "A teenage girl is torn between two vampire brothers.",
 	"Directors": [],
 	"Duration": 43,
-	"Genres": 
+	"Genres":
 		["Drama", "Fantasy", "Horror", "Mystery", "Romance", "Thriller"],
 	"Id": 54,
 	"Rank": 0,
@@ -999,55 +998,55 @@
 	"Title": "Vampire Diaries",
 	"Type": "TV Series",
 	"Url": "ugU3eBvQ4Yc",
-	"Year": 2009	
+	"Year": 2009
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Christian Bale", "Joel Edgerton", "Ben Kingsley"],
 	"Cover": "img/covers/54.jpg",
 	"Description": "The defiant leader Moses rises up against the Egyptian Pharaoh Ramses, setting 600,000 slaves on a monumental journey of escape from Egypt and its terrifying cycle of deadly plagues.",
-	"Directors": 
+	"Directors":
 		["Ridley Scott"],
 	"Duration": 150,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Drama"],
 	"Id": 55,
-	"Rank": 46,
+	"Rank": 50,
 	"Rate": 2.000000,
 	"Title": "Exodus",
 	"Type": "Film",
 	"Url": "LWxDMabt5r0",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ben Barnes", "Julianne Moore", "Jeff Bridges"],
 	"Cover": "img/covers/55.jpg",
 	"Description": "Young Thomas is apprenticed to the local Spook to learn to fight evil spirits. His first great challenge comes when the powerful Mother Malkin escapes her confinement while the Spook is away.",
-	"Directors": 
+	"Directors":
 		["Sergey Bodrov"],
 	"Duration": 102,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Fantasy"],
 	"Id": 56,
-	"Rank": 47,
+	"Rank": 51,
 	"Rate": 1.000000,
 	"Title": "Le septième fils",
 	"Type": "Film",
 	"Url": "xh9YLkb3OTo",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ben McKenzie", "Jada Pinkett Smith", "Donal Logue"],
 	"Cover": "img/covers/56.jpg",
 	"Description": "The story behind Commissioner James Gordon's rise to prominence in Gotham City in the years before Batman's arrival.",
 	"Directors": [],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Thriller"],
 	"Id": 57,
 	"Rank": 0,
@@ -1055,18 +1054,18 @@
 	"Title": "Gotham",
 	"Type": "TV Series",
 	"Url": "_1pgh2gPOus",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
 	"Cover": "img/covers/57.jpg",
 	"Description": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
-	"Directors": 
+	"Directors":
 		["David Fincher"],
 	"Duration": 149,
-	"Genres": 
+	"Genres":
 		["Drama", "Mystery", "Thriller"],
 	"Id": 58,
 	"Rank": 16,
@@ -1074,18 +1073,18 @@
 	"Title": "Gone Girl",
 	"Type": "Film",
 	"Url": "ItEpaXZ6R_M",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ian McKellen", "Martin Freeman", "Richard Armitage"],
 	"Cover": "img/covers/58.jpg",
 	"Description": "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.",
-	"Directors": 
+	"Directors":
 		["Peter Jackson"],
 	"Duration": 144,
-	"Genres": 
+	"Genres":
 		["Adventure", "Fantasy"],
 	"Id": 59,
 	"Rank": 28,
@@ -1093,54 +1092,55 @@
 	"Title": "Le Hobbit: La bataille des cinq armées",
 	"Type": "Film",
 	"Url": "E5qN3zUF3Rw",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jack O'Connell", "Takamasa Ishihara", "Domhnall Gleeson"],
 	"Cover": "img/covers/59.jpg",
 	"Description": "After a near-fatal plane crash in WWII, Olympian Louis Zamperini spends a harrowing 47 days in a raft with two fellow crewmen before he's caught by the Japanese navy and sent to a prisoner-of-war camp.",
-	"Directors": 
+	"Directors":
 		["Angelina Jolie"],
 	"Duration": 137,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama", "Sport", "War"],
 	"Id": 60,
-	"Rank": 45,
-	"Rate": 2.000000,
+	"Rank": 41,
+	"Rate": 2.666667,
 	"Title": "Invincible",
 	"Type": "Film",
 	"Url": "hhrZmO-G0eE",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Charlie Hunnam", "Mark Boone Junior", "Katey Sagal Crime | Drama | Thriller 45 mins."],
 	"Cover": "img/covers/60.jpg",
 	"Description": "A man in his early 30s struggles to find a balance in his life between being a new dad and his involvement in a motorcycle club.",
 	"Directors": [],
 	"Duration": 45,
-	"Genres": [],
+	"Genres":
+		["Crime", "Drama"],
 	"Id": 61,
-	"Rank": 0,
-	"Rate": 0.000000,
+	"Rank": 3,
+	"Rate": 5.000000,
 	"Title": "Sons of Anarchy",
 	"Type": "TV Series",
 	"Url": "6pnUwNXc6CY",
-	"Year": 2008	
+	"Year": 2008
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Alicia Vikander", "Domhnall Gleeson", "Oscar Isaac"],
 	"Cover": "img/covers/61.jpg",
 	"Description": "A young programmer is selected to participate in a breakthrough experiment in artificial intelligence by evaluating the human qualities of a breathtaking female A.I.",
-	"Directors": 
+	"Directors":
 		["Alex Garland"],
 	"Duration": 108,
-	"Genres": 
+	"Genres":
 		["Drama", "Sci-Fi"],
 	"Id": 62,
 	"Rank": 11,
@@ -1148,18 +1148,18 @@
 	"Title": "Ex Machina",
 	"Type": "Film",
 	"Url": "vH76lOXIIXM",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jennifer Lawrence", "Josh Hutcherson", "Liam Hemsworth"],
 	"Cover": "img/covers/62.jpg",
 	"Description": "Katniss Everdeen is in District 13 after she shatters the games forever. Under the leadership of President Coin and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta and a nation moved by her courage.",
-	"Directors": 
+	"Directors":
 		["Francis Lawrence"],
 	"Duration": 123,
-	"Genres": 
+	"Genres":
 		["Adventure", "Sci-Fi"],
 	"Id": 63,
 	"Rank": 22,
@@ -1167,37 +1167,37 @@
 	"Title": "Hunger Games: La révolte - 1ère partie",
 	"Type": "Film",
 	"Url": "zdMIft77FEY",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["James Marsden", "Kathryn Hahn", "Jack Black"],
 	"Cover": "img/covers/63.jpg",
 	"Description": "The head of a high school reunion committee travels to Los Angeles to track down the most popular guy from his graduating class and convince him to go to the reunion.",
-	"Directors": 
+	"Directors":
 		["Andrew Mogel", "Jarrad Paul"],
 	"Duration": 97,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 64,
-	"Rank": 44,
+	"Rank": 49,
 	"Rate": 2.000000,
 	"Title": "The D Train",
 	"Type": "Film",
 	"Url": "A4vqHV44eZE",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Kristen Wiig", "Jason Sudeikis", "Zach Galifianakis"],
 	"Cover": "img/covers/64.jpg",
 	"Description": "A night guard at an armored car company in the Southern U.S. organizes one of the biggest bank heists in American history.",
-	"Directors": 
+	"Directors":
 		["Jared Hess"],
 	"Duration": 94,
-	"Genres": 
+	"Genres":
 		["Action", "Comedy", "Crime"],
 	"Id": 65,
 	"Rank": 0,
@@ -1205,18 +1205,18 @@
 	"Title": "Masterminds",
 	"Type": "Film",
 	"Url": "skqtvF6JpDc",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jason Statham", "Rose Byrne", "Morena Baccarin"],
 	"Cover": "img/covers/65.jpg",
 	"Description": "A desk-bound CIA analyst volunteers to go undercover to infiltrate the world of a deadly arms dealer, and prevent diabolical global disaster.",
-	"Directors": 
+	"Directors":
 		["Paul Feig"],
 	"Duration": 120,
-	"Genres": 
+	"Genres":
 		["Action", "Comedy"],
 	"Id": 66,
 	"Rank": 15,
@@ -1224,17 +1224,17 @@
 	"Title": "Spy",
 	"Type": "Film",
 	"Url": "a9EHVHubO6Q",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Kevin Bacon", "James Purefoy", "Shawn Ashmore"],
 	"Cover": "img/covers/66.jpg",
 	"Description": "A brilliant and charismatic, yet psychotic serial killer communicates with other active serial killers and activates a cult of believers following his every command.",
 	"Directors": [],
 	"Duration": 43,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Mystery", "Thriller"],
 	"Id": 67,
 	"Rank": 0,
@@ -1242,18 +1242,18 @@
 	"Title": "The Following",
 	"Type": "TV Series",
 	"Url": "f0jpV7wsPLc",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Veronica McCluskey", "Lili Mirojnick", "Dale Pavinski"],
 	"Cover": "img/covers/67.jpg",
 	"Description": "Undercover cop Lucas White joins Vin Serento's LA gang of illegal street racers. They are fast and they are furious and they plan to double cross LA crime kingpin Juan Carlos de la Sol who hides his cash in a downtown Taco Bell. The gangs outrageous plan is as daring as it is ridiculous and will see them towing the whole damn restaurant, at crazy speeds.",
-	"Directors": 
+	"Directors":
 		["Jason Friedberg", "Aaron Seltzer"],
 	"Duration": 99,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 68,
 	"Rank": 0,
@@ -1261,17 +1261,17 @@
 	"Title": "Superfast!",
 	"Type": "Film",
 	"Url": "igjqji0fP6k",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jennifer Aniston", "Courteney Cox", "Lisa Kudrow"],
 	"Cover": "img/covers/68.jpg",
 	"Description": "Follows the lives of six 20-something friends living in Manhattan.",
 	"Directors": [],
 	"Duration": 22,
-	"Genres": 
+	"Genres":
 		["Comedy", "Romance"],
 	"Id": 69,
 	"Rank": 0,
@@ -1279,56 +1279,56 @@
 	"Title": "Friends",
 	"Type": "TV Series",
 	"Url": "Gpa5S8DgPzs",
-	"Year": 1994	
+	"Year": 1994
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Sharlto Copley", "Dev Patel", "Hugh Jackman"],
 	"Cover": "img/covers/69.jpg",
 	"Description": "In the near future, crime is patrolled by a mechanized police force. When one police droid, Chappie, is stolen and given new programming, he becomes the first robot with the ability to think and feel for himself.",
-	"Directors": 
+	"Directors":
 		["Neill Blomkamp"],
 	"Duration": 120,
-	"Genres": 
+	"Genres":
 		["Action", "Sci-Fi", "Thriller"],
 	"Id": 70,
-	"Rank": 38,
+	"Rank": 44,
 	"Rate": 2.333333,
 	"Title": "Chappie",
 	"Type": "Film",
 	"Url": "tWDOimcSvN4",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jim Sturgess", "Sam Worthington", "Ryan Kwanten"],
 	"Cover": "img/covers/70.jpg",
 	"Description": "The inside story of the planning, execution, rousing aftermath and ultimate downfall of the kidnappers of beer tycoon Alfred \"Freddy\" Heineken, which resulted in the largest ransom ever paid for an individual.",
-	"Directors": 
+	"Directors":
 		["Daniel Alfredson"],
 	"Duration": 95,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Drama", "Thriller"],
 	"Id": 71,
-	"Rank": 43,
+	"Rank": 48,
 	"Rate": 2.000000,
 	"Title": "Kidnapping Mr. Heineken",
 	"Type": "Film",
 	"Url": "He-z_L1rGEA",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Scott Eastwood", "Britt Robertson", "Alan Alda"],
 	"Cover": "img/covers/71.jpg",
 	"Description": "After an automobile crash, the lives of a young couple intertwine with a much older man, as he reflects back on a past love.",
-	"Directors": 
+	"Directors":
 		["George Tillman Jr."],
 	"Duration": 139,
-	"Genres": 
+	"Genres":
 		["Drama", "Romance"],
 	"Id": 72,
 	"Rank": 0,
@@ -1336,18 +1336,18 @@
 	"Title": "The Longest Ride",
 	"Type": "Film",
 	"Url": "FvROkJ4yKw8",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Rebecca Olejniczak", "Keith Stanfield", "O'Shea Jackson Jr."],
 	"Cover": "img/covers/72.jpg",
 	"Description": "The group NWA emerges from the streets of Compton, California in the mid-1980s and revolutionizes pop culture with their music and tales about life in the hood.",
-	"Directors": 
+	"Directors":
 		["F. Gary Gray"],
 	"Duration": 147,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama", "Music"],
 	"Id": 73,
 	"Rank": 24,
@@ -1355,17 +1355,17 @@
 	"Title": "Straight Outta Compton",
 	"Type": "Film",
 	"Url": "jv0CxVfb8WQ",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Gabriel Macht", "Patrick J. Adams", "Meghan Markle"],
 	"Cover": "img/covers/73.jpg",
 	"Description": "On the run from a drug deal gone bad, Mike Ross, a brilliant college-dropout, finds himself a job working with Harvey Specter, one of New York City's best lawyers.",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Comedy", "Drama"],
 	"Id": 74,
 	"Rank": 0,
@@ -1373,18 +1373,18 @@
 	"Title": "Suits, avocats sur mesure",
 	"Type": "TV Series",
 	"Url": "mi1TR7S-0vQ",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jai Courtney", "Olga Kurylenko", "Isabel Lucas"],
 	"Cover": "img/covers/74.jpg",
 	"Description": "An Australian man travels to Turkey after the Battle of Gallipoli to try and locate his three missing sons.",
-	"Directors": 
+	"Directors":
 		["Russell Crowe"],
 	"Duration": 111,
-	"Genres": 
+	"Genres":
 		["Drama", "War"],
 	"Id": 75,
 	"Rank": 0,
@@ -1392,18 +1392,18 @@
 	"Title": "La promesse d'une vie",
 	"Type": "Film",
 	"Url": "WZuIC6flEiI",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Vin Diesel", "Paul Walker", "Michelle Rodriguez"],
 	"Cover": "img/covers/75.jpg",
 	"Description": "Los Angeles police officer Brian O'Connor must decide where his loyalties really lie when he becomes enamored with the street racing world he has been sent undercover to destroy.",
-	"Directors": 
+	"Directors":
 		["Rob Cohen"],
 	"Duration": 106,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Thriller"],
 	"Id": 76,
 	"Rank": 27,
@@ -1411,17 +1411,17 @@
 	"Title": "Fast and Furious",
 	"Type": "Film",
 	"Url": "M1kxeNrFyOQ",
-	"Year": 2001	
+	"Year": 2001
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ed O'Neill", "Sofía Vergara", "Julie Bowen"],
 	"Cover": "img/covers/76.jpg",
 	"Description": "Three different, but related families face trials and tribulations in their own uniquely comedic ways.",
 	"Directors": [],
 	"Duration": 22,
-	"Genres": 
+	"Genres":
 		["Comedy"],
 	"Id": 77,
 	"Rank": 0,
@@ -1429,17 +1429,17 @@
 	"Title": "Modern Family",
 	"Type": "TV Series",
 	"Url": "G5eGxvsq_sY",
-	"Year": 2009	
+	"Year": 2009
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Lizzy Leigh", "Jussie Smollett", "Kaitlin Doubleday"],
 	"Cover": "img/covers/77.jpg",
 	"Description": "A father, who has a successful music business, has to choose one of his three sons to take over when he dies.",
 	"Directors": [],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Drama", "Music"],
 	"Id": 78,
 	"Rank": 0,
@@ -1447,17 +1447,17 @@
 	"Title": "Empire",
 	"Type": "TV Series",
 	"Url": "QXr0WCDkRag",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Taylor Schilling", "Danielle Brooks", "Taryn Manning"],
 	"Cover": "img/covers/78.jpg",
 	"Description": "The story of Piper Chapman, a woman in her thirties who is sentenced to fifteen months in prison after being convicted of a decade-old crime of transporting money for her drug-dealing girlfriend.",
 	"Directors": [],
 	"Duration": 55,
-	"Genres": 
+	"Genres":
 		["Comedy", "Crime", "Drama"],
 	"Id": 79,
 	"Rank": 0,
@@ -1465,56 +1465,56 @@
 	"Title": "Orange Is the New Black",
 	"Type": "TV Series",
 	"Url": "lNvocVbXE_Y",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Miles Teller", "Kate Mara", "Michael B. Jordan"],
 	"Cover": "img/covers/79.jpg",
 	"Description": "Four young scientists achieve superhuman abilities through a teleportation experiment gone haywire. They must now use these abilities to save the world from an uprising tyrant.",
-	"Directors": 
+	"Directors":
 		["Josh Trank"],
 	"Duration": 100,
-	"Genres": 
+	"Genres":
 		["Action", "Sci-Fi"],
 	"Id": 80,
-	"Rank": 42,
+	"Rank": 47,
 	"Rate": 2.000000,
 	"Title": "Fantastic Four",
 	"Type": "Film",
 	"Url": "_rRoD28-WgU",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Sam Rockwell", "Rosemarie DeWitt", "Jane Adams"],
 	"Cover": "img/covers/80.jpg",
 	"Description": "A family's suburban home is invaded by evil forces.",
-	"Directors": 
+	"Directors":
 		["Gil Kenan"],
 	"Duration": 93,
-	"Genres": 
+	"Genres":
 		["Horror", "Thriller"],
 	"Id": 81,
-	"Rank": 0,
-	"Rate": 0.000000,
+	"Rank": 2,
+	"Rate": 5.000000,
 	"Title": "Poltergeist",
 	"Type": "Film",
 	"Url": "D44MqIC8yeE",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Eddie Redmayne", "Felicity Jones", "Tom Prior"],
 	"Cover": "img/covers/81.jpg",
 	"Description": "A look at the relationship between the famous physicist Stephen Hawking and his wife.",
-	"Directors": 
+	"Directors":
 		["James Marsh"],
 	"Duration": 123,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama", "Romance"],
 	"Id": 82,
 	"Rank": 19,
@@ -1522,17 +1522,17 @@
 	"Title": "Une merveilleuse histoire du temps",
 	"Type": "Film",
 	"Url": "Rc20OXhGnfU",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Vera Farmiga", "Freddie Highmore", "Max Thieriot"],
 	"Cover": "img/covers/82.jpg",
 	"Description": "\"Bates Motel\" is a contemporary prequel to the genre-defining film \"Psycho,\" and gives a portrayal of...",
 	"Directors": [],
 	"Duration": 45,
-	"Genres": 
+	"Genres":
 		["Drama", "Mystery", "Thriller"],
 	"Id": 83,
 	"Rank": 0,
@@ -1540,17 +1540,17 @@
 	"Title": "Bates Motel",
 	"Type": "TV Series",
 	"Url": "bMWyYtz0AaA",
-	"Year": 2013	
+	"Year": 2013
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Shemar Moore", "Matthew Gray Gubler", "Thomas Gibson"],
 	"Cover": "img/covers/83.jpg",
 	"Description": "The cases of the BAU, an elite group of profilers who analyze the nation's most dangerous criminal minds in an effort to anticipate their next moves before they strike again.",
 	"Directors": [],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Mystery", "Thriller"],
 	"Id": 84,
 	"Rank": 0,
@@ -1558,18 +1558,18 @@
 	"Title": "Esprits criminels",
 	"Type": "TV Series",
 	"Url": "MfwuUyC4vDg",
-	"Year": 2005	
+	"Year": 2005
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Simon Pegg", "Teresa Palmer", "Alice Braga"],
 	"Cover": "img/covers/84.jpg",
 	"Description": "Professional hit-man Charlie Wolfe finds himself in three tales of murder, blackmail and revenge after a botched contract assignment.",
-	"Directors": 
+	"Directors":
 		["Kriv Stenders"],
 	"Duration": 90,
-	"Genres": 
+	"Genres":
 		["Action", "Thriller"],
 	"Id": 85,
 	"Rank": 0,
@@ -1577,18 +1577,18 @@
 	"Title": "Kill Me Three Times",
 	"Type": "Film",
 	"Url": "5eO3rYcSMCA",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Tom Kenny", "Antonio Banderas", "Bill Fagerbakke"],
 	"Cover": "img/covers/85.jpg",
 	"Description": "When a diabolical pirate above the sea steals the secret Krabby Patty formula, SpongeBob and his nemesis Plankton must team up in order to get it back.",
-	"Directors": 
+	"Directors":
 		["Paul Tibbitt"],
 	"Duration": 92,
-	"Genres": 
+	"Genres":
 		["Animation", "Adventure", "Comedy", "Family"],
 	"Id": 86,
 	"Rank": 0,
@@ -1596,18 +1596,18 @@
 	"Title": "Bob l'éponge, le film: Un héros sort de l'eau",
 	"Type": "Film",
 	"Url": "gUxq7-WRHoE",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["John Travolta", "Abigail Spencer", "Jennifer Ehle"],
 	"Cover": "img/covers/86.jpg",
 	"Description": "A thief (John Travolta) works with his father (Christopher Plummer) and son to forge a painting by Monet and steal the original. Together, they plan the heist of their lives.",
-	"Directors": 
+	"Directors":
 		["Philip Martin"],
 	"Duration": 92,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Thriller"],
 	"Id": 87,
 	"Rank": 0,
@@ -1615,18 +1615,18 @@
 	"Title": "The Forger",
 	"Type": "Film",
 	"Url": "Im8dLeSjHSM",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Liam Neeson", "Ed Harris", "Joel Kinnaman"],
 	"Cover": "img/covers/87.jpg",
 	"Description": "Mobster and hit man Jimmy Conlon has one night to figure out where his loyalties lie: with his estranged son, Mike, whose life is in danger, or his longtime best friend, mob boss Shawn Maguire, who wants Mike to pay for the death of his own son.",
-	"Directors": 
+	"Directors":
 		["Jaume Collet-Serra"],
 	"Duration": 114,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Drama", "Mystery", "Thriller"],
 	"Id": 88,
 	"Rank": 0,
@@ -1634,17 +1634,17 @@
 	"Title": "Night Run",
 	"Type": "Film",
 	"Url": "s1ce_tRaElQ",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Charlie Cox", "Deborah Ann Woll", "Elden Henson"],
 	"Cover": "img/covers/88.jpg",
 	"Description": "A blind lawyer with his other senses superhumanly enhanced fights crime as a costumed superhero.",
 	"Directors": [],
 	"Duration": 60,
-	"Genres": 
+	"Genres":
 		["Action", "Sci-Fi"],
 	"Id": 89,
 	"Rank": 0,
@@ -1652,18 +1652,18 @@
 	"Title": "Daredevil",
 	"Type": "TV Series",
 	"Url": "mGEWftxFX3M",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Oscar Isaac", "Jessica Chastain", "David Oyelowo"],
 	"Cover": "img/covers/89.jpg",
 	"Description": "In New York City 1981, an ambitious immigrant fights to protect his business and family during the most dangerous year in the city's history.",
-	"Directors": 
+	"Directors":
 		["J.C. Chandor"],
 	"Duration": 125,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Drama", "Thriller"],
 	"Id": 90,
 	"Rank": 4,
@@ -1671,17 +1671,17 @@
 	"Title": "A Most Violent Year",
 	"Type": "Film",
 	"Url": "VILgFBvCUEk",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Matthew McConaughey", "Woody Harrelson", "Michelle Monaghan"],
 	"Cover": "img/covers/90.jpg",
 	"Description": "An anthology police detective series in which investigations seem to unearth both personal and professional secrets of those involved, both within or outside the law.",
 	"Directors": [],
 	"Duration": 55,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Mystery"],
 	"Id": 91,
 	"Rank": 0,
@@ -1689,17 +1689,17 @@
 	"Title": "True Detective",
 	"Type": "TV Series",
 	"Url": "sPd9QLnilX8",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["William Moseley", "Alexandra Park", "Merritt Patterson"],
 	"Cover": "img/covers/91.jpg",
 	"Description": "Drama about a fictional British Royal family set in modern day London, who inhabit a world of opulence...",
 	"Directors": [],
 	"Duration": 42,
-	"Genres": 
+	"Genres":
 		["Drama"],
 	"Id": 92,
 	"Rank": 0,
@@ -1707,18 +1707,18 @@
 	"Title": "The Royals",
 	"Type": "TV Series",
 	"Url": "t7yUNQEQ74U",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Reese Witherspoon", "Laura Dern", "Gaby Hoffmann"],
 	"Cover": "img/covers/92.jpg",
 	"Description": "A chronicle of one woman's 1,100-mile solo hike undertaken as a way to recover from a recent catastrophe.",
-	"Directors": 
+	"Directors":
 		["Jean-Marc Vallée"],
 	"Duration": 115,
-	"Genres": 
+	"Genres":
 		["Biography", "Drama"],
 	"Id": 93,
 	"Rank": 23,
@@ -1726,17 +1726,17 @@
 	"Title": "Wild",
 	"Type": "Film",
 	"Url": "wSAw-rISd9M",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Madeleine Stowe", "Emily VanCamp", "Gabriel Mann"],
 	"Cover": "img/covers/93.jpg",
 	"Description": "An emotionally troubled young woman makes it her mission to exact revenge against the people who wronged her father.",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Drama", "Mystery", "Thriller"],
 	"Id": 94,
 	"Rank": 0,
@@ -1744,18 +1744,18 @@
 	"Title": "Revenge",
 	"Type": "TV Series",
 	"Url": "ZrLaJhyJBEo",
-	"Year": 2011	
+	"Year": 2011
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Jake Gyllenhaal", "Rene Russo", "Bill Paxton"],
 	"Cover": "img/covers/94.jpg",
 	"Description": "When Lou Bloom, a driven man desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.",
-	"Directors": 
+	"Directors":
 		["Dan Gilroy"],
 	"Duration": 117,
-	"Genres": 
+	"Genres":
 		["Crime", "Thriller"],
 	"Id": 95,
 	"Rank": 2,
@@ -1763,37 +1763,37 @@
 	"Title": "Night Call",
 	"Type": "Film",
 	"Url": "qERsXbpu58w",
-	"Year": 2014	
+	"Year": 2014
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Zoë Kravitz", "Keith Stanfield", "Forest Whitaker"],
 	"Cover": "img/covers/95.jpg",
 	"Description": "A coming of age comedy/drama for the post hip hop generation. Malcolm is a geek, carefully surviving life in The Bottoms...",
-	"Directors": 
+	"Directors":
 		["Rick Famuyiwa"],
 	"Duration": 115,
-	"Genres": 
+	"Genres":
 		["Comedy", "Drama"],
 	"Id": 96,
-	"Rank": 35,
+	"Rank": 40,
 	"Rate": 2.750000,
 	"Title": "Dope",
 	"Type": "Film",
 	"Url": "ffyc5O5nn8k",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Ryan Reynolds", "Morena Baccarin", "Gina Carano"],
 	"Cover": "img/covers/96.jpg",
 	"Description": "A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelerated healing powers and adopts the alter ego Deadpool.",
-	"Directors": 
+	"Directors":
 		["Tim Miller"],
 	"Duration": 108,
-	"Genres": 
+	"Genres":
 		["Action"],
 	"Id": 97,
 	"Rank": 0,
@@ -1801,18 +1801,18 @@
 	"Title": "Deadpool",
 	"Type": "Film",
 	"Url": "XWtH7anz7io",
-	"Year": 2016	
+	"Year": 2016
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Tom Cruise", "Jeremy Renner", "Simon Pegg"],
 	"Cover": "img/covers/97.jpg",
 	"Description": "Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization as highly skilled as they are, committed to destroying the IMF.",
-	"Directors": 
+	"Directors":
 		["Christopher McQuarrie"],
 	"Duration": 131,
-	"Genres": 
+	"Genres":
 		["Action", "Adventure", "Thriller"],
 	"Id": 98,
 	"Rank": 1,
@@ -1820,17 +1820,17 @@
 	"Title": "Mission Impossible 5",
 	"Type": "Film",
 	"Url": "0AnwYTBKRrw",
-	"Year": 2015	
+	"Year": 2015
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Benedict Cumberbatch", "Martin Freeman", "Rupert Graves"],
 	"Cover": "img/covers/98.jpg",
 	"Description": "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
 	"Directors": [],
 	"Duration": 90,
-	"Genres": 
+	"Genres":
 		["Crime", "Drama", "Mystery"],
 	"Id": 99,
 	"Rank": 0,
@@ -1838,17 +1838,17 @@
 	"Title": "Sherlock",
 	"Type": "TV Series",
 	"Url": "640ClSZxN98",
-	"Year": 2010	
+	"Year": 2010
 	},
 
 	{
-	"Actors": 
+	"Actors":
 		["Timothy Olyphant", "Nick Searcy", "Joelle Carter"],
 	"Cover": "img/covers/99.jpg",
 	"Description": "Old-school U.S. Marshal Raylan Givens is reassigned from Miami to his childhood home in the poor, rural coal-mining towns in Eastern Kentucky.",
 	"Directors": [],
 	"Duration": 44,
-	"Genres": 
+	"Genres":
 		["Action", "Crime", "Drama", "Thriller"],
 	"Id": 100,
 	"Rank": 0,
@@ -1856,6 +1856,6 @@
 	"Title": "Justified",
 	"Type": "TV Series",
 	"Url": "hwrTzKfpL90",
-	"Year": 2010	
+	"Year": 2010
 	}
 ]

@@ -11,7 +11,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	if(selected == 0 || equalsString(selected, AS("")))//Affichage des films
 	{
 		JSONObject_t films = serverGetFilms(connexion);
-		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
+		String_t tmp = newStringFromCharStar("<div class=\"titre\"><h1>Tous les films :</h1></div><div class=\"filmDIV\">");
 		if(films != 0)
 		{
 			size_t c = 0, size = JSONArray_size(films);
@@ -98,7 +98,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	else if(equalsString(selected, AS("trends")))//Tendances
 	{
 		JSONObject_t films = serverGetFilmOrderedByRank(connexion);
-		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
+		String_t tmp = newStringFromCharStar("<div class=\"titre\"><h1>Tendances :</h1></div><div class=\"filmDIV\">");
 		if(films != 0)
 		{
 			size_t c = 0, size = JSONArray_size(films);
@@ -128,7 +128,7 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	{
 		JSONArray_t films = serverGetRandRecommendation(connexion);
 		//printf("films_random : %s\n", cString(JSONArray_asString(films, 0)));
-		String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
+		String_t tmp = newStringFromCharStar("<div class=\"titre\"><h1>Au hasard :</h1></div><div class=\"filmDIV\">");
 		if(films != 0 && JSONArray_size(films) > 0)
 		{
 			size_t c = 0, size = JSONArray_size(films);
