@@ -244,11 +244,52 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 		char *buf = getcwd(0, 0);
 		printf("Cover: file://%s/web/%s\n", buf, cStringValueOf(film, "Cover"));
 		free(buf);
+		String_t id_s = newStringFromCharStar("Id"), rate_s = newStringFromCharStar("Rate");
+		if(connexion->user != 0)
+		{
+			JSONArray_t arr = serverGetUserRates(connexion);
+			JSONObject_t rate = 0;
+			if(arr != 0)
+			{
+				// printf("%s\n", cString(JSONObject_asString(arr, 0)));
+				size_t c = 0, size = JSONArray_size(arr);
+				JSONObject_t ru = 0;
+				while(c < size)
+				{
+					ru = JSONArray_get(arr, c);
+					if(JSONObject_intValueOf(ru, id_s) == id)
+					{
+						rate = ru;
+						break;
+					}
+					++c;
+				}
+			}
+			String_t rt = 0;
+			if(rate != 0)
+			{
+				// printf("Note trouvée.\n");
+				rt = UTF8Rate(JSONObject_intValueOf(rate, rate_s));
+			}
+			else
+			{
+				// printf("Non noté.\n");
+				rt = UTF8Rate(0);
+			}
+			printf("Votre note: %s\n", cString(rt));
+			fString(rt);
+		}
+		fString(id_s);
+		fString(rate);
 		printf("\n\nRecommandés si vous aimez ce film:\n");
 		JSONArray_t reco = serverGetFilmRecommendation(connexion, id);
 		Vector_t MainMenu_choices = newVector();
 		addToVector(MainMenu_choices, newStringFromCharStar(""));
 		addToVector(MainMenu_choices, newStringFromCharStar("exporter"));
+		if(connexion->user != 0)
+		{
+			addToVector(MainMenu_choices, newStringFromCharStar("noter"));
+		}
 		int decal = sizeOfVector(MainMenu_choices);
 		JSONArray_t export = JSONArray_new();
 		if(reco != 0)
@@ -273,13 +314,23 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			printf("Echec d'obtention des recommendations.\n");
 		}
 		JSONObject_delete(film);
-		printf("Entrez le nom d'un film pour accéder a sa fiche (ou début du nom), \"exporter\" pour sauvegarder ces résultats enter pour quitter.\n");
+		printf("Entrez le nom d'un film pour accéder à sa fiche (ou début du nom).\n- \"exporter\" pour sauvegarder ces résultats.\n");
+		if(connexion->user != 0)
+		{
+			printf("- \"noter\" pour attribuer une note.\n");
+		}
+		printf("-  enter pour quitter.\n");
 		String_t sel = StandardPrompt(MainMenu_choices);
 		if(sel != 0)
 		{
 			if(eq(sel, ""))
 			{
 
+			}
+			else if(eq(sel, "noter") && connexion->user != 0)
+			{
+				ClientRunner_noter(connexion, id);
+				ClientRunner_showFilm(connexion, id);
 			}
 			else if(eq(sel, "exporter"))
 			{
@@ -293,14 +344,17 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 				JSONObject_t tmp = 0;
 				int nid = 0;
 				bool found = false;
+				printf("SEL: %s\n", cString(sel));
 				while(c < size)
 				{
 					if(sel == (String_t) getFromVector(MainMenu_choices, c))
 					{
 						found = true;
-						tmp = JSONArray_get(reco, c);
+						tmp = JSONArray_get(reco, c - (decal - 1 ));
 						nid = JSONObject_intValueOf(tmp, AS("Id"));
+						#ifdef DEBUG
 						printf("ID: %d\n", nid);
+						#endif
 						JSONArray_delete(reco);
 						freeVectorWithPtr(MainMenu_choices, freeVoidString);
 						ClientRunner_showFilm(connexion, nid);
@@ -349,6 +403,37 @@ void ClientRunner_export(JSONObject_t e)
 	else
 	{
 		printf("Export annulé.\n");
+	}
+	ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
+}
+
+void ClientRunner_noter(Connexion_t connexion, int id)
+{
+	String_t rd = ReadInputWithMsg(AS("Attribuez une note entre 1 et 5 à ce film: "));
+	int n = atoi(cString(rd));
+	if(n > 0 && n <= 5)
+	{
+		RequestAnswer a = serverSetFilmRateOfUser(connexion, id, n);
+		if(a != 0)
+		{
+			if(a->code == 0)
+			{
+				printf("Le film à bien été noté.\n");
+			}
+			else
+			{
+				printf("Une erreur est survenue lors de l'attribution de la note au film.\n");
+			}
+		}
+		else
+		{
+			printf("Impossible de contacter le serveur pour noter le film.\n");
+		}
+		freeRequestAnswer(a);
+	}
+	else
+	{
+		printf("Note invalide.\n");
 	}
 	ReadInputWithMsg(AS("Appuyez sur enter pour continuer."));
 }
