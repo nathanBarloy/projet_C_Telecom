@@ -128,5 +128,49 @@ String_t HTMLMenuContent(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 		concatString(r, tmp);
 		fString(tmp);
 	}
+	else if(equalsString(selected, AS("viewed")))//Film déjà vu
+	{
+		if(connexion->user != 0)
+		{
+			JSONArray_t rated_films = serverGetUserRates(connexion);
+			JSONArray_t displayed_films = JSONArray_new();
+			int size_rf = JSONArray_size(rated_films);
+			if(size_rf != 0)
+			{
+				int i;
+				for (i=size_rf-1 ; i>=0 ; i--)
+				{
+					int id_film = JSONObject_intValueOf(JSONArray_get(rated_films, i), autoString("Id"));
+					JSONObject_t film = serverGetFilmById(connexion, id_film);
+					JSONArray_add(displayed_films, film);
+				}
+			}
+			JSONArray_delete(rated_films);
+			String_t tmp = newStringFromCharStar("<div class=\"filmDIV\">");
+			if(JSONArray_size(displayed_films) != 0)
+			{
+				size_t c = 0, size = JSONArray_size(displayed_films);
+				concatString(r, tmp);
+				fString(tmp);
+				while(c < size)
+				{
+					tmp = HTMLFilm(connexion, json, JSONArray_get(displayed_films, c), params);
+					concatString(r, tmp);
+					fString(tmp);
+					++c;
+				}
+			}
+			else
+			{
+				tmp = newStringFromCharStar("Impossible de récupérer les films depuis le serveur... la connexion à échoué.");
+				concatString(r, tmp);
+				fString(tmp);
+			}
+			JSONObject_delete(displayed_films);
+			tmp = newStringFromCharStar("</div>");
+			concatString(r, tmp);
+			fString(tmp);
+		}
+	}
 	return r;
 }
