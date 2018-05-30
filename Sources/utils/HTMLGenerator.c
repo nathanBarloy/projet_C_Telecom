@@ -638,10 +638,8 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 	if(user != 0)
 	{
 		JSONArray_t rates = serverGetUserRates(connexion);
-		printf("PARLA\n%s\n", cString(JSONArray_asString(rates, 0)));
 		int size = JSONArray_size(rates);
 		int j;
-		printf("Salut\n");
 		for(j=0 ; j<size ; j++)
 		{
 			if(JSONObject_intValueOf(JSONArray_get(rates, j), autoString("Id")) == JSONObject_intValueOf(param, AS("Id")))
@@ -666,14 +664,12 @@ String_t HTMLRatingStars(Connexion_t connexion, JSONObject_t json, JSONObject_t 
 			JSONInt_set(val, i);
 			if(i <= note)
 			{
-				printf("Etoile rated\n");
 				tmp = HTMLStarRated(connexion, json, val, params);
 				concatString(reponse, tmp);
 				fString(tmp);
 			}
 			else
 			{
-				printf("Etoile unrated\n");
 				tmp = HTMLStarUnrated(connexion, json, val, params);
 				concatString(reponse, tmp);
 				fString(tmp);
@@ -724,7 +720,6 @@ String_t HTMLStarRated(Connexion_t connexion, JSONObject_t json, JSONObject_t pa
 	tmp = newStringFromCharStar("&id=");
 	concatString(reponse, tmp);
 	fString(tmp);
-	printf("LA %s\n", cString(getParam(AS("id"), params)));
 	concatString(reponse, getParam(AS("id"), params));
 	concatString(reponse, close_a);
 	tmp = newStringFromCharStar("<div class=\"star\" id=\"star");
