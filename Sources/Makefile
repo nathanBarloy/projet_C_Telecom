@@ -38,7 +38,7 @@ server: $(SERVER_O) $(SO)
 	$(CC) $(SERVER_O) $(LIBS) $(LINK)
 client-gui: $(GUI_O) $(SO)
 	$(CC) $(GUI_O) $(LIBS) $(LINK) $(GTK)
-.PHONY: clean tests
+.PHONY: clean tests release
 clean:
 	rm -f *.so $(PROG)
 	find -iname "*.o" -print -delete
@@ -52,3 +52,21 @@ test/TestUsersDistance.bin: utils/BDD.o utils/Distance_utilisateur.o utils/Clien
 
 #Deps
 utils/ReadInput.o: utils/Date.o
+
+release: clean client client-gui server
+	rm -rf build
+	mkdir -p build/client
+	mkdir -p build/client-gui
+	mkdir -p build/server
+	mkdir -p build/server/data
+	cp -rv server lib/*/*.so build/server/
+	cp -rv data/users.json data/genres.json data/bd.json build/server/data/
+	mkdir -p build/client/web/
+	cp -rv client lib/*/*.so build/client
+	cp -rv web/img build/client/web/
+	cp -rv client-gui lib/*/*.so web build/client-gui/
+	rm -rf build/client-gui/web/dev
+	7z a build/all.7z build/client build/client-gui build/server
+	7z a build/client.7z build/client
+	7z a build/client-gui.7z build/client-gui
+	7z a build/server.7z build/server

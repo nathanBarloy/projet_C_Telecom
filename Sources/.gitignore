@@ -6,3 +6,4 @@ client-gui
 *_backup_*.json
 *.bin
 tmp
+build
