@@ -1,0 +1,33 @@
+\section{Les données}
+Pour pouvoir lier des produits avec les utilisateurs, il est indispensable de mettre au point un système de notation afin de déterminer si un utilisateur apprécie ou non un produit.
+On distingue deux approches différentes :
+\begin{itemize}
+  \item l'approche "réactive", où le système de recommandation demande à l'utilisateur des informations / avis sur certains produits afin d'affiner ces recommandations. Cette approche présente cependant l'inconvénient de solliciter l'utilisateur.
+  \item l'approche "proactive", qui anticipe plus les goûts de l'utilisateur.
+\end{itemize}
+
+\subsection{L'approche réactive}
+Cette approche consiste à déterminer les goûts de l'utilisateur à travers un processus conversationnel. Le système demande régulièrement des informations à l'utilisateur sur ses préférences sur ses goûts... puis va proposer des recommandations que l'utilisateur va accepter ou alors critiquer les résultats afin d'affiner le système.
+L'avantage de ce système de critique est qu'il est simple à appliquer et ne requiert pas de connaissance de l'utilisateur dans ce domaine. Toutefois, l'inconvénient majeur est qu'il demande directement à l'utilisateur de faire un effort pour exprimer son avis et donner un retour.
+
+\subsection{L'approche proactive}
+L'approche proactive ce base davantage sur la déduction des appréciations pour fournir ensuite une recommandation. Ainsi l'utilisateur n'a plus à guider le système avec des retours sur les recommandations proposées mais va observer les interactions de l'utilisateur pour déterminer les goûts de celui-ci.
+Ces observations peuvent être directes ou indirectes.
+
+\subsubsection{Observation directe}
+Ce sont toutes les informations que l'utilisateur donne de manière explicite en notant, postant un commentaire sur un produit par exemple ou encore les informations du profil de l'utilisateur comme son âge, son sexe, sa localité géographique...
+La notation des produits est un élément centrale dans un système de recommandations. Ces notes sont principalement numériques peuvent avoir différentes formes qui délivrent plus ou moins d'informations.
+\vspace{0.5cm}
+\par Il y tout d'abord la notation unaire : cette notation ne délivre qu'une seule information, si l'utilisateur a aimé un produit. On peut donner par l'exemple de réseau social Instagram qui donne la possibilité aux utilisateurs de "liker" une photo uniquement, il est impossible de mettre un avis négatif.
+\par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilisateur. L'information transmise est donc binaire : "J'aime" / "Je n'aime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
+\par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et donc améliore les recommandations qui en découle.
+Cependant, le coût en calcul en est impact car l'information n'est plus binaire. De plus cette notation est sensible à la manière de noter de chaque utilisateur : une note de 3/5 sera considéré comme une mauvaise note par certains utilisateurs alors que pour d'autres, ce sera un note neutre / moyenne. Cela peut donc impacter la qualité des recommandations.
+
+\vspace{0.5cm}
+Une autre ressource importante dans les systèmes de recommandations est l'analyse des commentaires, descriptions, noms des produits... afin de produire des tags spécifiques à l'utilisateur. Diverses méthodes existent pour cela et nous aborderons plus en détail la méthode TF-IDF plus loin dans le rapport. Grâce aux tags produits par le système, il est possible de faire des rapprochements entre utilisateurs et/ou produits.
+
+\subsubsection{Observation indirecte}
+Ce sont l'ensemble des informations implicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
+
+\subsection{Conclusion sur les données}
+Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".

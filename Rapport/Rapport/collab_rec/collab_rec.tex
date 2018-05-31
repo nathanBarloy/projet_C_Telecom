@@ -21,4 +21,16 @@ $$Note\_estime(x) = \frac{\sum_{i\in{U}} sim_i.note_i}{|sim_i|}$$
 On effectue donc ce calcul pour tous les films non notés par $U_{1}$ et obtenons ainsi une liste non triée de tous les films non vus par $U_{1}$. Il ne reste alors plus qu'à les trier.
 
 \subsection{Tri des films}
-Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort.
+Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort. Le principe est le suivant :
+\begin{itemize}
+	\item On prend le premier élément de la liste qui prendra comme pivot et qu'on stocke dans un nouvelle liste appelé "centre"
+	\item Pour tous les autres éléments de la liste :
+	\begin{itemize}
+		\item si l'élément est supérieur au pivot, on le stocke dans la liste appelé "droit"
+		\item si l'élément est inférieur au pivot, on le stocke dans la liste appelé "gauche"
+		\item si l'élément est égal au pivot, on le stocke dans la liste "centre"
+	\end{itemize}
+	\item On réitère cet le même algorithme jusqu'à ce qu'on a plus que 1 ou 0 éléments dans les liste "gauche" et "droite" (étape récursive)
+	\item Enfin on concatène l'ensemble dans l'ordre : "gauche" + "centre" + "droit"
+\end{itemize}
+La liste obtenue est maintenant triée dans l'ordre croissant des notes estimés.

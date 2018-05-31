@@ -100,44 +100,14 @@ On utilisera alors le profil de ces utilisateurs proches pour regarder les donn�
 L'avantage de ce filtrage est qu'il ne nécessite pas de créer un algorithme qui détermine si deux données sont proches ou non. Cependant, si la base de donnée des utilisateurs n'est pas assez fournie, ce filtrage ne sera que très peu efficace.\par
 Évidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédemment, de manière à en tirer les avantages.
 
-\section{Les données}
-Pour pouvoir lier des produits avec les utilisateurs, il est indispensable de mettre au point un système de notation afin de déterminer si un utilisateur apprécie ou non un produit.
-On distingue deux approches différentes :
-\begin{itemize}
-  \item l'approche "réactive", où le système de recommandation demande à l'utilisateur des informations / avis sur certains produits afin d'affiner ces recommandations. Cette approche présente cependant l'inconvénient de solliciter l'utilisateur.
-  \item l'approche "proactive", qui anticipe plus les goûts de l'utilisateur.
-\end{itemize}
-
-\subsection{L'approche réactive}
-Cette approche consiste à déterminer les goûts de l'utilisateur à travers un processus conversationnel. Le système demande régulièrement des informations à l'utilisateur sur ses préférences sur ses goûts... puis va proposer des recommandations que l'utilisateur va accepter ou alors critiquer les résultats afin d'affiner le système.
-L'avantage de ce système de critique est qu'il est simple à appliquer et ne requiert pas de connaissance de l'utilisateur dans ce domaine. Toutefois, l'inconvénient majeur est qu'il demande directement à l'utilisateur de faire un effort pour exprimer son avis et donner un retour.
-
-\subsection{L'approche proactive}
-L'approche proactive ce base davantage sur la déduction des appréciations pour fournir ensuite une recommandation. Ainsi l'utilisateur n'a plus à guider le système avec des retours sur les recommandations proposées mais va observer les interactions de l'utilisateur pour déterminer les goûts de celui-ci.
-Ces observations peuvent être directes ou indirectes.
-
-\subsubsection{Observation directe}
-Ce sont toutes les informations que l'utilisateur donne de manière explicite en notant, postant un commentaire sur un produit par exemple ou encore les informations du profil de l'utilisateur comme son âge, son sexe, sa localité géographique...
-La notation des produits est un élément centrale dans un système de recommandations. Ces notes sont principalement numériques peuvent avoir différentes formes qui délivrent plus ou moins d'informations.
-\vspace{0.5cm}
-\par Il y tout d'abord la notation unaire : cette notation ne délivre qu'une seule information, si l'utilisateur a aimé un produit. On peut donner par l'exemple de réseau social Instagram qui donne la possibilité aux utilisateurs de "liker" une photo uniquement, il est impossible de mettre un avis négatif.
-\par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilisateur. L'information transmise est donc binaire : "J'aime" / "Je n'aime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
-\par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et donc améliore les recommandations qui en découle.
-Cependant, le coût en calcul en est impact car l'information n'est plus binaire. De plus cette notation est sensible à la manière de noter de chaque utilisateur : une note de 3/5 sera considéré comme une mauvaise note par certains utilisateurs alors que pour d'autres, ce sera un note neutre / moyenne. Cela peut donc impacter la qualité des recommandations.
-
-\vspace{0.5cm}
-
-Partie sur l'analyse des commentaires pour en extraire des tags + utilisations des données profil utilisateur
-\subsubsection{Observation indirecte}
-Ce sont l'ensemble des informations implicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
-
-\subsection{Conclusion sur les données}
-Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".
+\subfile{etat_art/data.tex}
 
 \section{La matrice d'usage}
 Également appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
 \section{Réduction de matrice}
-Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.\par
+Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.
+\vspace{0.5cm}
+
 Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
 Une autre approche consiste à ne conserver qu'une gamme de produits répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
 L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impactée. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
@@ -145,36 +115,7 @@ L'avantage de cette méthode est donc de réduire le temps de calcul pour déter
 L’idée est d’écarter les items (resp. les utilisateurs) jugés non représentatif pour un utilisateur (resp. item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
 Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
-\section{Calcul de similarités}
-Un calcul de similarité est utile pour déterminer la distance entre un utilisateur et un produit mais également entre deux utilisateurs (ou produits).
-Plusieurs outils existent pour nous permettre d'effectuer ce calcul.
-Nous verrons dans cette partie quelques unes de ces méthodes et discuterons des avantages et inconvénients qu'ils présentent.
-
-\subsection{La distance Euclidienne}
-La distance euclidienne est obtenue par la formule suivante :
-
-\begin{equation}
-    L(\vec{x}, \vec{y}) = \sqrt{\sum_{i=1}^m (x_i - y_i)^2}
-\end{equation}
-Paragraphe à terminer...
-
-\subsection{Distance cosinus}
-On considère les vecteurs ligne de x et y. Le but est de calculer la distance, l’angle entre ces deux vecteurs. Dans notre cas, les vecteurs x et y seront des vecteurs associés aux profils de deux utilisateurs par exemple.
-
-\begin{equation}
-    CosSim(\vec{x}, \vec{y}) = \frac{\sum_{i=1}^m x_i y_i}{\sqrt{\sum_{i=1}^m x_i ^2}\sqrt{\sum_{i=1}^m y_i ^2}}
-\end{equation}
-
-L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
-
-\subsection{Corrélation de Pearson}
-Afin de pallier le problème cité précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
-On a alors :
-\begin{equation}
-  Corr(x, y) = \frac{\sum_{i=1}^m (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^m (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^m (y_i - \bar{y})^2}}
-\end{equation}
-Le résultat obtenu se situe alors dans l'intervalle $[\![-1;1]\!]$ avec -1 signifiant que les deux utilisateurs ont des goûts complétement opposés, 0 que les utilisateurs non rien en commum et enfin 1 que les deux utilisateurs sont totalement similaires.
-
+\subfile{etat_art/similarite.tex}
 
 
 
