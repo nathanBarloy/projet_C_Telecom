@@ -74,8 +74,8 @@ On cherche donc à rendre les résultats de la première page plus pertinents. O
 
 Ces exemples montrent un certain nombre de cas où l'utilisation d'un système de recommandation s'avère utile. Cependant il en existe de nombreux autres, car leur champ d'application est immense, c'est pourquoi il est intéressant de s'intéresser aux systèmes existants pour tenter de les reproduire et les améliorer.
 
-\subsection{Historique}
-A mettre ou pas?
+%\subsection{Historique}
+%A mettre ou pas?
 
 \newpage
 \subsection{Classer les différents systèmes de recommandation}
@@ -190,11 +190,11 @@ Comme notre interface graphique sera gérée grâce à la librairie WebKitWebVie
 Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne. Ces résultats seront alors stockés dans un fichier texte avant d'inclure les liens au fichier JSON.
 \vspace{0.5cm}
 Ce script se décompose en deux étapes.\par
-Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est https://www.youtube.com/results?search\_query=
+Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est \newline https://www.youtube.com/results?search\_query=
 suivi du contenu de la recherche avec des "+" remplaçant les espaces.
 Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce caractère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
 Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
-La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectuer bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
+La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectue bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
 Pour terminer, on crée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
 
 \subsection{Récupération des affiches des films}
@@ -291,7 +291,7 @@ Pour créer notre distance entre 2 ensembles de genres, on va simplement parcour
 Il y a cependant un inconvénient à cet algorithme : il donne toujours des distances assez basses, même s'il permet de mieux ordonner. En effet on peut constater que la distance entre 2 ensembles identiques ne vaut pas toujours 0, ce qui peux poser certains problèmes.
 
 \subsection{Recommandation de contenu}
-Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on peut facilement créer une méthode qui prend en argument un film, et qui nous en recommande d'autres. Il suffit pour cela de calculer la distance entre ce film et chacun des autres, puis de trier par ordre décroissant. Les premiers films de la liste sont alors ceux à recommander. 
+Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on peut facilement créer une méthode qui prend en argument un film, et qui nous en recommande d'autres. Il suffit pour cela de calculer la distance entre ce film et chacun des autres, puis de trier par ordre décroissant. Les premiers films de la liste sont alors ceux à recommander.
 
 \section{Système de recommandation collaboratif}
 Comme vu dans l'Etat de l'art, la distance entre deux utilisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :
@@ -318,5 +318,8 @@ On effectue donc ce calcul pour tous les films non notés par $U_{1}$ et obtenon
 \subsection{Tri des films}
 Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort.
 
+\input{sd/sd.tex}
 
+\input{fct/fct.tex}
+\input{network/network.tex}
 \end{document}
