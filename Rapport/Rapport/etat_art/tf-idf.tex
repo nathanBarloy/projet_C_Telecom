@@ -1,0 +1,18 @@
+\section{Méthode de pondération TF-IDF}
+La TF-IDF ,correspondant à "Term Frequency - Inverse Document Frequency", est une méthode de mesure très utilisée pour l'analyse du contenu d'un texte. Il permet d'évaluer l'importance d'un mot dans un texte qu'on pourra ensuite considérer comme tag.\par
+Afin de mieux comprendre son fonctionnement, définissons quelques éléments :\par
+\begin{itemize}
+	\item $x$ est un mot
+	\item $N$ est le nombre total de documents
+	\item $y$ est un de ces documents
+	\item $tf_{x, y}$ est la fréquence d'apparition de $x$ dans $y$
+	\item $df_{x}$ est le nombre de documents contenant $x$
+	\item $w_{x, y}$ est le poids de $x$ dans le document $y$ (le score obtenu)
+\end{itemize}
+\vspace{0.5cm}
+On peut alors établir la formule suivante :
+$$w_{x, y}=tf_{x, y} \cdot log(\frac{N}{d_{x}})$$
+
+L'analyse de cette formule permet de bien comprendre son fonctionnement. On comprend facilement l'intérêt de $tf_{x, y}$ : plus il y a d'occurences d'un mot dans un texte, plus il est important. Cependant, si on se contente de ce rapport, les mots fréquemment utilisés tels que les déterminants auront un poids fort.
+Pour pallier de ce problème, on introduit $log(\frac{N}{d_{x}})$.\par En effet, si le mot $x$ n'apparait que dans un document, alors $tf_{x, y}$ sera multiplié par $log(N)$ et gonflera ainsi $w_{x, y}$. À l'inverse, si $x$ apparait dans les $N$ documents, alors $tf_{x, y}$ sera multiplié par $log(1)$ et on obtiendra alors un poids de 0.\par
+La pertinence d'un mot dans un texte se mesure donc grâce à la TF-IDF qui fait le lien entre la rareté de ce mot dans un ensemble de documents et sa fréquence d'apparition dans ce texte.
