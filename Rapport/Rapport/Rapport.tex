@@ -100,44 +100,14 @@ On utilisera alors le profil de ces utilisateurs proches pour regarder les donn�
 L'avantage de ce filtrage est qu'il ne nécessite pas de créer un algorithme qui détermine si deux données sont proches ou non. Cependant, si la base de donnée des utilisateurs n'est pas assez fournie, ce filtrage ne sera que très peu efficace.\par
 Évidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédemment, de manière à en tirer les avantages.
 
-\section{Les données}
-Pour pouvoir lier des produits avec les utilisateurs, il est indispensable de mettre au point un système de notation afin de déterminer si un utilisateur apprécie ou non un produit.
-On distingue deux approches différentes :
-\begin{itemize}
-  \item l'approche "réactive", où le système de recommandation demande à l'utilisateur des informations / avis sur certains produits afin d'affiner ces recommandations. Cette approche présente cependant l'inconvénient de solliciter l'utilisateur.
-  \item l'approche "proactive", qui anticipe plus les goûts de l'utilisateur.
-\end{itemize}
-
-\subsection{L'approche réactive}
-Cette approche consiste à déterminer les goûts de l'utilisateur à travers un processus conversationnel. Le système demande régulièrement des informations à l'utilisateur sur ses préférences sur ses goûts... puis va proposer des recommandations que l'utilisateur va accepter ou alors critiquer les résultats afin d'affiner le système.
-L'avantage de ce système de critique est qu'il est simple à appliquer et ne requiert pas de connaissance de l'utilisateur dans ce domaine. Toutefois, l'inconvénient majeur est qu'il demande directement à l'utilisateur de faire un effort pour exprimer son avis et donner un retour.
-
-\subsection{L'approche proactive}
-L'approche proactive ce base davantage sur la déduction des appréciations pour fournir ensuite une recommandation. Ainsi l'utilisateur n'a plus à guider le système avec des retours sur les recommandations proposées mais va observer les interactions de l'utilisateur pour déterminer les goûts de celui-ci.
-Ces observations peuvent être directes ou indirectes.
-
-\subsubsection{Observation directe}
-Ce sont toutes les informations que l'utilisateur donne de manière explicite en notant, postant un commentaire sur un produit par exemple ou encore les informations du profil de l'utilisateur comme son âge, son sexe, sa localité géographique...
-La notation des produits est un élément centrale dans un système de recommandations. Ces notes sont principalement numériques peuvent avoir différentes formes qui délivrent plus ou moins d'informations.
-\vspace{0.5cm}
-\par Il y tout d'abord la notation unaire : cette notation ne délivre qu'une seule information, si l'utilisateur a aimé un produit. On peut donner par l'exemple de réseau social Instagram qui donne la possibilité aux utilisateurs de "liker" une photo uniquement, il est impossible de mettre un avis négatif.
-\par Il y a ensuite la notation binaire  qui prend en compte l'avis négatif de l'utilisateur. L'information transmise est donc binaire : "J'aime" / "Je n'aime pas". C'est par exemple ce qu'utilise Facebook ou Youtube. L'avantage de cette notation est facilite le choix de l'utilisateur.
-\par Enfin, la notation ordonnée est celle qu'on retrouve dans la majorité des site de e-commerce (Amazon, C Discount et autres). L'utilisateur donne une note à un produit suivant une échelle de notation comprise entre deux valeurs (entre 1 et 5 par exemple). Plus ce chiffre est élevé, plus l'utilisateur a aimé le produit. Cette notation permet plus de nuances sur l'appréciation des produits et donc améliore les recommandations qui en découle.
-Cependant, le coût en calcul en est impact car l'information n'est plus binaire. De plus cette notation est sensible à la manière de noter de chaque utilisateur : une note de 3/5 sera considéré comme une mauvaise note par certains utilisateurs alors que pour d'autres, ce sera un note neutre / moyenne. Cela peut donc impacter la qualité des recommandations.
-
-\vspace{0.5cm}
-
-Partie sur l'analyse des commentaires pour en extraire des tags + utilisations des données profil utilisateur
-\subsubsection{Observation indirecte}
-Ce sont l'ensemble des informations implicites données par l'utilisateur ou déduites par le système. Il peut s'agir par exemple d'actions réalisées sur une page web comme une recherche, un ajout dans un panier d'achat ou tout simplement de la fréquence de consultation d'une page. Il est ensuite possible à partir de ces informations d'estimer les préférences de l'utilisateur. Par exemple, si on utilisateur ajoute un produit dans son panier ou tout simplement le consulte fréquemment, on peut conclure que ce type de produit l'intéresse puis intégrer cette information à notre système.
-
-\subsection{Conclusion sur les données}
-Nous avons vu différentes manières de collecter des informations relative à l'utilisateur dans le but d'alimenter notre algorithme de recommandation. Que ce soit par une approche réactive ou proactive, ces techniques peuvent soulever un débat sur la collecte des données. Il faut donc mener une réflexion pour trouver un bon compromis entre efficacité du système et collecte de données "abusive".
+\subfile{etat_art/data.tex}
 
 \section{La matrice d'usage}
 Également appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
 \section{Réduction de matrice}
-Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.\par
+Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$ avec m le nombre d'utilisateurs et n le nombre de produits. Dans la pratique, cela représente habituellement des milliers / millions d'utilisateurs pour autant voire plus de produits. On obtient donc une matrice possédant des milliards de valeurs. Il serait donc très long d'effectuer des calculs dessus pour en déduire des recommandations. La solution est donc de réduire la dimension de la matrice.
+\vspace{0.5cm}
+
 Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
 Une autre approche consiste à ne conserver qu'une gamme de produits répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
 L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impactée. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
@@ -145,73 +115,13 @@ L'avantage de cette méthode est donc de réduire le temps de calcul pour déter
 L’idée est d’écarter les items (resp. les utilisateurs) jugés non représentatif pour un utilisateur (resp. item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
 Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
-\section{Calcul de similarités}
-Un calcul de similarité est utile pour déterminer la distance entre un utilisateur et un produit mais également entre deux utilisateurs (ou produits).
-Plusieurs outils existent pour nous permettre d'effectuer ce calcul.
-Nous verrons dans cette partie quelques unes de ces méthodes et discuterons des avantages et inconvénients qu'ils présentent.
-
-\subsection{La distance Euclidienne}
-La distance euclidienne est obtenue par la formule suivante :
-
-\begin{equation}
-    L(\vec{x}, \vec{y}) = \sqrt{\sum_{i=1}^m (x_i - y_i)^2}
-\end{equation}
-Paragraphe à terminer...
-
-\subsection{Distance cosinus}
-On considère les vecteurs ligne de x et y. Le but est de calculer la distance, l’angle entre ces deux vecteurs. Dans notre cas, les vecteurs x et y seront des vecteurs associés aux profils de deux utilisateurs par exemple.
-
-\begin{equation}
-    CosSim(\vec{x}, \vec{y}) = \frac{\sum_{i=1}^m x_i y_i}{\sqrt{\sum_{i=1}^m x_i ^2}\sqrt{\sum_{i=1}^m y_i ^2}}
-\end{equation}
-
-L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
-
-\subsection{Corrélation de Pearson}
-Afin de pallier le problème cité précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
-On a alors :
-\begin{equation}
-  Corr(x, y) = \frac{\sum_{i=1}^m (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^m (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^m (y_i - \bar{y})^2}}
-\end{equation}
-Le résultat obtenu se situe alors dans l'intervalle $[\![-1;1]\!]$ avec -1 signifiant que les deux utilisateurs ont des goûts complétement opposés, 0 que les utilisateurs non rien en commum et enfin 1 que les deux utilisateurs sont totalement similaires.
-
+\subfile{etat_art/similarite.tex}
 
 
 
 \chapter{Rapport}
 
-\section{Amélioration de la base de données}
-Dans le but d'améliorer l'expérience de l'utilisateur sur l'interface graphique, nous avons décider de compléter la base de données mise à disposition afin d'y inclure les liens vers les bandes annonces des films ainsi que leurs affiches respectives.
-De plus, le fonctionnement de l'algorithme de recommandation collaboratif requière une base de données d'utilisateurs ayant notés plusieurs films.
-\par Nous avons décidé de réaliser ces opérations à partir de scripts python qui sont plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne.
-
-\subsection{Liens des bandes annonces}
-Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur YouTube avec la bande annonce.
-Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne. Ces résultats seront alors stockés dans un fichier texte avant d'inclure les liens au fichier JSON.
-\vspace{0.5cm}
-Ce script se décompose en deux étapes.\par
-Tout d'abord, il faut réussir à générer une requête à partir du nom du film. Pour cela, nous nous appuyons sur la simplicité de l'URL lors d'une recherche. Cette URL possède une partie constante qui est \newline https://www.youtube.com/results?search\_query=
-suivi du contenu de la recherche avec des "+" remplaçant les espaces.
-Notre requête est donc composé du nom du film, récupéré à partir du fichier JSON suivi des mots "bande" et "annonce". Il faut considérer certains cas où le titre du film contient un caractère interdit dans une URL (comme le \&). Ce caractère doit dans ce cas être encodé à l'aide du signe \% suivi d'un nombre (dans notre cas le 26)
-Une fois l'URL de la requête généré, elle est exécuté pour récupérer le code HTML de la page des résultats.\par
-La seconde étape consiste à récupérer le lien de la première vidéo proposée (il est supposé que l'algorithme de YouTube effectue bien sa mission). Il est intéressant de remarquer qu'un lien YouTube ne se distingue que par ses 11 derniers caractères. Nous utilisons donc une expression régulière qui recherche tous les liens des vidéos proposées puis on stocke ces séries de 11 caractères dans une liste.
-Pour terminer, on crée le lien de la vidéo en concaténant le début du lien https://www.youtube.com/watch?v= et la première série de caractère trouvé. Il ne reste plus qu'à stocker ce lien à côté de l'ID du film dans un fichier texte.
-
-\subsection{Récupération des affiches des films}
-Avoir une affiche de chaque film de la base de données permet une fois de plus d'améliorer grandement l'interface graphique.
-Après plusieurs recherches, nous avons décidé de récupérer les images du site \href{https://www.themoviedb.org}[TheMovieDB].\par
-Pour ce faire nous avons, de la même manière que pour les liens Youtube utilisé les url pour effectuer nos recherches puis nous avons scanné le contenu de la page html résultante pour détecter le résultat correspond à notre recherche (correspondance des dates notamment). Une fois trouvé, nous naviguons vers la page du résultat et scannons à nouveau la page à la recherche de l'image souhaité avant de la télécharger.
-
-\subsection{Création d'une base de données utilisateurs}
-Indispensable au fonctionnement de la méthode de recommandation collaborative, une base de données d'uilisateurs ayant attribués des notes aux films était nécessaire. Plusieurs pistes ont été explorées :
-\begin{itemize}
-	\item création fictive d'utilisateurs et de notes (aléatoires)
-	\item création d'un formulaire à partager avec des amis pour constituer notre propre base de données
-	\item trouver ces informations en ligne
-\end{itemize}
-Nous avons au final retenu cette dernière solution après avoir trouvé une base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] qui regroupe près de 100000 notes d'utilisateurs sur 10000 films. Le seul inconvénient est que cette base de données ne prenne pas en compte les séries. Par conséquent, les résultats exposés ne seront des plus justes mais permettra d'avoir un aperçu de cette algorithme.\par
-La base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] est au format csv, il était donc très simple de récupérer les données souhaitées. Le seul problème était les titres des films qui étaient en anglais et ne correspondaient pas toujours à nos titres. Il a donc fallu prendre quelques minutes pour manuellement faire correspondre leurs titres avec nos id de film. Ensuite il n'est plus que question d'extraire les bons éléments du fichier csv et le tour est joué !
-
+\subfile{bdplus/bdplus.tex}
 
 \section{Création d'une distance entre les films}
 Chaque film est caractérisé par la donnée de différents attributs. Dans le cas présent, les attributs que nous considérerons sont :
@@ -293,31 +203,7 @@ Il y a cependant un inconvénient à cet algorithme : il donne toujours des dist
 \subsection{Recommandation de contenu}
 Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on peut facilement créer une méthode qui prend en argument un film, et qui nous en recommande d'autres. Il suffit pour cela de calculer la distance entre ce film et chacun des autres, puis de trier par ordre décroissant. Les premiers films de la liste sont alors ceux à recommander.
 
-\section{Système de recommandation collaboratif}
-Comme vu dans l'Etat de l'art, la distance entre deux utilisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :
-\begin{itemize}
-	\item les données personnelles
-	\item les données de navigation
-	\item les notes attribués par l'utilisateur
-	\item et plus encore...
-\end{itemize}
-Toutefois, comme notre base de données ne contient que les notes des utilisateurs, nous avons décidé de ne prendre en compte que ces notes dans notre algorithme.
-
-\subsection{Création d'une distance entre 2 utilisateurs}
-La première étape consiste à déterminer, à partir d'une liste de notes pour chaque utilisateur, une distance entre ces derniers. La solution retenue a été d'utliser la corrélation de Pearson (détaillé dans l'Etat de l'art). Définissons $U_{1}$ comme étant l'utilisateur cible et $U_{2}$ l'utilisateur que l'on compare\par
-On détermine dans un premier temps les notes moyennes pour $U_{1}$ et $U_{2}$ avant de calculer la corrélation de Pearson en ne prennant en compte que les films vus par $U_{1}$ et $U_{2}$.\par
-Il en résulte une note comprise entre $[\![-1;1]\!]$. Cependant, pour les suite des calculs, nous avons besoin d'une note comprise dans l'intervalle $[\![0;1]\!]$. On ajuste donc le coefficient de Pearson à l'aide de la formule :
-$$distance(U_1, U_2) = \frac{1 + coef_{Pearson}}{2}$$
-Maintenant qu'il est possible de calculer la distance entre deux utilisateurs, il suffit de ré-itérer cette opération pour tous les autres utilisateurs. On obtient alors liste de n-1 couples ${(identifiant_{Ui}, distance(U_1, U_i))}$ avec : $0 \leqslant i < n  ;  i\neq1$
-\subsection{Estimation d'une note}
-L'objectif est maintenant de pouvoir estimer la note que $U_1$ donnera à un film donné en se basant sur celles des autres utilisateurs qui ont déjà noté ce film. Pour cela, on applique la formule suivante.\par
-Soit $x$ un film donné et $U$, l'ensemble des utilisateurs ayant notés ce film. On a :
-$$Note\_estime(x) = \frac{\sum_{i\in{U}} sim_i.note_i}{|sim_i|}$$
-On effectue donc ce calcul pour tous les films non notés par $U_{1}$ et obtenons ainsi une liste non triée de tous les films non vus par $U_{1}$. Il ne reste alors plus qu'à les trier.
-
-\subsection{Tri des films}
-Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort.
-
+\subfile{collab_rec/collab_rec.tex}
 \subfile{sd/sd.tex}
 \subfile{sd/static.tex}
 \subfile{sd/dynamic.tex}
