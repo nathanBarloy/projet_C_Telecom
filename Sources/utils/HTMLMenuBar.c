@@ -6,8 +6,8 @@ String_t HTMLMenuBar(Connexion_t connexion, JSONObject_t json, JSONObject_t para
 	String_t u;
 	if(connexion->user != 0)
 	{
-		u = newStringFromCharStar("<a href=\"exec://profile.json\" title=\"Profil utilisateur\" >");
-		String_t u2 = newStringFromCharStar("</a> - <a href=\"exec://login.json\" title=\"Déconnexion\" >Déconnexion</a>");
+		u = newString();//newStringFromCharStar("<a href=\"exec://profile.json\" title=\"Profil utilisateur\" >");
+		String_t u2 = newStringFromCharStar(" - <a href=\"exec://login.json\" title=\"Déconnexion\" >Déconnexion</a>");//</a>
 		concatString(u, JSONObject_stringValueOf(connexion->user, AS("Login")));
 		concatString(u, u2);
 		fString(u2);

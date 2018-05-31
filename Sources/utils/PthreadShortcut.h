@@ -1,7 +1,7 @@
 #ifndef PTHREAD_SHORTCUT_H
 #define PTHREAD_SHORTCUT_H
 #include <stdio.h>
-#ifndef DEBUG
+#ifdef DEBUG
 #define DBG_LOCK_INFO printf("Lock: File: %s - Line: %d\n", __FILE__, __LINE__);
 #define DBG_UNLOCK_INFO printf("Unlock: File: %s - Line: %d\n", __FILE__, __LINE__);
 #else
