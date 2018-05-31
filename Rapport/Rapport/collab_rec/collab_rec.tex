@@ -1,0 +1,24 @@
+\section{Système de recommandation collaboratif}
+Comme vu dans l'Etat de l'art, la distance entre deux utilisateurs est définit à partir de toutes les données recueillies sur eux, ce qui comprend :
+\begin{itemize}
+	\item les données personnelles
+	\item les données de navigation
+	\item les notes attribués par l'utilisateur
+	\item et plus encore...
+\end{itemize}
+Toutefois, comme notre base de données ne contient que les notes des utilisateurs, nous avons décidé de ne prendre en compte que ces notes dans notre algorithme.
+
+\subsection{Création d'une distance entre 2 utilisateurs}
+La première étape consiste à déterminer, à partir d'une liste de notes pour chaque utilisateur, une distance entre ces derniers. La solution retenue a été d'utliser la corrélation de Pearson (détaillé dans l'Etat de l'art). Définissons $U_{1}$ comme étant l'utilisateur cible et $U_{2}$ l'utilisateur que l'on compare\par
+On détermine dans un premier temps les notes moyennes pour $U_{1}$ et $U_{2}$ avant de calculer la corrélation de Pearson en ne prennant en compte que les films vus par $U_{1}$ et $U_{2}$.\par
+Il en résulte une note comprise entre $[\![-1;1]\!]$. Cependant, pour les suite des calculs, nous avons besoin d'une note comprise dans l'intervalle $[\![0;1]\!]$. On ajuste donc le coefficient de Pearson à l'aide de la formule :
+$$distance(U_1, U_2) = \frac{1 + coef_{Pearson}}{2}$$
+Maintenant qu'il est possible de calculer la distance entre deux utilisateurs, il suffit de ré-itérer cette opération pour tous les autres utilisateurs. On obtient alors liste de n-1 couples ${(identifiant_{Ui}, distance(U_1, U_i))}$ avec : $0 \leqslant i < n  ;  i\neq1$
+\subsection{Estimation d'une note}
+L'objectif est maintenant de pouvoir estimer la note que $U_1$ donnera à un film donné en se basant sur celles des autres utilisateurs qui ont déjà noté ce film. Pour cela, on applique la formule suivante.\par
+Soit $x$ un film donné et $U$, l'ensemble des utilisateurs ayant notés ce film. On a :
+$$Note\_estime(x) = \frac{\sum_{i\in{U}} sim_i.note_i}{|sim_i|}$$
+On effectue donc ce calcul pour tous les films non notés par $U_{1}$ et obtenons ainsi une liste non triée de tous les films non vus par $U_{1}$. Il ne reste alors plus qu'à les trier.
+
+\subsection{Tri des films}
+Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort.
