@@ -19,6 +19,7 @@
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{colortbl}
 \usepackage{subfiles}
 \begin{document}
 \begin{titlepage}
@@ -120,6 +121,10 @@ L'avantage de cette méthode est donc de réduire le temps de calcul pour déter
 
 \chapter{Rapport}
 
+\section{Introduction}
+Le but de ce projet est de concevoir un système de recommandation comme le propose Netflix, Google (Youtube), Amazon et beaucoup d'autres pour la recommandation de leurs produits.\par
+Au cours de ce rapport, nous aborderons les choix que nous avons pris tout au long de ce projet, la présentation du code réalisé, le choix des structures ainsi que l'analyse des résultats obtenus.
+
 \subfile{bdplus/bdplus.tex}
 
 \section{Création d'une distance entre les films}
@@ -211,4 +216,6 @@ Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on pe
 \subfile{fct/cli.tex}
 \subfile{fct/gui.tex}
 \subfile{network/network.tex}
+
+\subfile{duree/duree.tex}
 \end{document}
