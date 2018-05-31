@@ -28,6 +28,20 @@ Elles permettent aussi de parser un JSON, le manipuler, et exporter les données
 
 La documentation détaillée se trouve à cette adresse:\newline
 https://tanaka1238.ovh/libcjson-doc/
+
+\subsubsection{Structures provenant de pthread}
+\begin{itemize}
+	\item pthread\_t : Structure représentant un thread (fil d'exécution)
+	\item pthread\_mutex\_t : Structure représentant un mutex, permettant de gérer les accès concurrents aux structures de données
+\end{itemize}
+\subsubsection{Structures provenant de GTK+-3.0}
+\begin{itemize}
+	\item GtkWidget : Représente un widget GTK+
+	\item GtkWindow : Représente une fenêtre GTK+
+	\item WebKitWebView : Représente un moteur de rendu Webkit pour GTK+
+	\item GtkApplication : Représente une application GTK+
+	\item GtkDialog : Représente une boite de dialogue GTK+
+\end{itemize}
 \subsubsection{Base de données}
 \begin{lstlisting}
 struct BDD
@@ -39,6 +53,42 @@ struct BDD
 };
 typedef struct BDD* BDD;
 \end{lstlisting}
+Cette structure à été crée en vue d'une utilisation coté serveur, elle contient l'ensemble des données correspondant aux films et aux utilisateurs dans une structure JSON dynamique expliquée plus bas, ainsi qu'un mutex permettant de gérer les accès concurrents des différents clients, un tableau dynamique contenant les différents clients sous forme de Client*, et et une hashmap contenant des associations entre un nom dans le protocole réseau, et une fonction (pointeur de fonction).
+
+\subsubsection{Client}
+
+\begin{lstlisting}
+struct Client
+{
+	int fd;
+	BDD bdd;
+	pthread_t thread;
+	pthread_mutex_t mutex;
+};
+typedef struct Client* Client;
+\end{lstlisting}
+Cette structure à été crée en vue d'une utilisation coté serveur, elle contient un descripteur de fichier (fd) correspondant au socket réseau d'un client, un pointeur vers la base de donnée du serveur, un pthread\_t correspondant au thread sur lequel est géré le client par le serveur, et un mutex permettant de gérer les accès concurrents à la structure.
+\subsubsection{Connexion}
+
+\begin{lstlisting}
+struct Connexion
+{
+	String_t addr_s;
+	String_t sid;
+	JSONObject_t user;
+};
+typedef struct Connexion* Connexion_t;
+\end{lstlisting}
+Cette structure à été crée en vue d'une utilisation coté client, elle contient l'adresse du serveur, un ID de session utilisateur, et la représentation JSON d'un utilisateur au moment de la connexion de celui ci.
+\subsubsection{Date}
+\begin{lstlisting}
+struct Date
+{
+	int day, month, year;
+};
+typedef struct Date* Date_t;
+\end{lstlisting}
+Cette structure à été crée en vue d'une utilisation générale, elle représente une date, et des fonctions sont disponibles pour permettre sa conversion directe en JSON.
 
 
 % \end{document}
