@@ -19,7 +19,7 @@
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
-
+\usepackage{subfiles}
 \begin{document}
 \begin{titlepage}
 \centering
@@ -318,8 +318,12 @@ On effectue donc ce calcul pour tous les films non notés par $U_{1}$ et obtenon
 \subsection{Tri des films}
 Pour trier les films en fonction de la note estimé, on applique un algorithme récursif inspiré des algorithmes MergeShort et QuickShort.
 
-\input{sd/sd.tex}
-
-\input{fct/fct.tex}
-\input{network/network.tex}
+\subfile{sd/sd.tex}
+\subfile{sd/static.tex}
+\subfile{sd/dynamic.tex}
+\subfile{fct/fct.tex}
+\subfile{fct/server.tex}
+\subfile{fct/cli.tex}
+\subfile{fct/gui.tex}
+\subfile{network/network.tex}
 \end{document}
