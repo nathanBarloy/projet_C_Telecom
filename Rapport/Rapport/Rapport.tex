@@ -16,7 +16,7 @@
 \usepackage{dsfont}
 %\usepackage{fontspec}
 \usepackage{hyperref}
-\usepackage{listings}
+
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{subfiles}
@@ -111,10 +111,8 @@ Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$
 Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
 Une autre approche consiste à ne conserver qu'une gamme de produits répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
 L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impactée. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
-\subsubsection{Clustering}
-L’idée est d’écarter les items (resp. les utilisateurs) jugés non représentatif pour un utilisateur (resp. item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
-Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
+\subfile{etat_art/clustering.tex}
 \subfile{etat_art/similarite.tex}
 
 
