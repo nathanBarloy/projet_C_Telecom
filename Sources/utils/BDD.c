@@ -395,6 +395,7 @@ JSONArray_t BDD_getFilmsOrderedByRank(BDD bdd)
 
 bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
 {
+	lock(bdd);
 	JSONObject_t user =  BDD_getUserById(bdd, user_id);
 	if(user != 0)
 	{
@@ -436,6 +437,7 @@ bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
 		}
 		BDD_UpdateRates(bdd);
 		BDD_UpdateRanks(bdd);
+		unlock(bdd);
 		printf("Sauvegarde BDD...\n");
 		BDD_save(bdd);
 		printf("BDD sauvee.\n");
@@ -446,6 +448,7 @@ bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
 	{
 		printf("Utilisateur introuvable...Modification impossible\n");
 	}
+	unlock(bdd);
 	return 0;
 }
 

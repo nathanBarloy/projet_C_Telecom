@@ -60,12 +60,12 @@ RequestAnswer execRequest(Client client, RequestQuery request)
 		printf("Sid: %s\n", (sid_s != 0) ? cString(JSONString_get(sid_s)) : "(null)");
 		if(sid_s != 0)//Si la requête contient bien un champ Sid
 		{
+			lock(client->bdd);
 			JSONObject_t sid = BDD_getSessionById(client->bdd, JSONString_get(sid_s));
+			unlock(client->bdd);
 			if(sid != 0)//Si ce champ correspond a une session, l'utilisateur est connecté
 			{
-				lock(client->bdd);
 				request->sid = JSONObject_stringValue(sid_s);
-				unlock(client->bdd);
 				request->connected = 1;
 				request->session = sid;
 			}
@@ -101,6 +101,7 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 {
 	printf("Register Request....\n");
 	RequestQuery(request, user);
+	lock(client->bdd);
 	if(JSONObject_getType(user) == OBJECT)
 	{
 		if(JSONObject_get(user, AS("Login")) != 0 && JSONObject_get(user, AS("Password")) != 0)
@@ -143,6 +144,7 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 					}
 					JSONArray_add(users, JSONObject_getCopy(user));
 					printf("Sauvegarde BDD...\n");
+					unlock(client->bdd);
 					BDD_save(client->bdd);
 					printf("BDD sauvee.\n");
 					return RequestAnswerOk(request, 0);
@@ -150,28 +152,33 @@ RequestAnswer ServerRequest_RegisterUser(Client client, RequestQuery request)
 				else
 				{
 					printf("Register: Too short.\n");
+					unlock(client->bdd);
 					return RequestAnswerError(request, 0, 5, AS("Trop court (login &| mdp)."));
 				}
 			}
 			else
 			{
 				printf("Register: Used.\n");
+				unlock(client->bdd);
 				return RequestAnswerError(request, 0, 5, AS("Login déjà utilisé."));
 			}
 		}
 		else
 		{
 			printf("Register: Format.\n");
+			unlock(client->bdd);
 			return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, JSONObject incomplet ou format invalide."));
 		}
 	}
 	printf("Register: Invalid.\n");
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_login(Client client, RequestQuery request)
 {
 	printf("Login...\n");
 	RequestQuery(request, user);
+	lock(client->bdd);
 	if(JSONObject_getType(user) == OBJECT)
 	{
 		if(JSONObject_get(user, AS("Login")) != 0 && JSONObject_get(user, AS("Password")) != 0)
@@ -205,27 +212,33 @@ RequestAnswer ServerRequest_login(Client client, RequestQuery request)
 					printf("NewSession:\n%s\n", cString(JSONObject_asString(sess, 0)));
 					JSONObject_t s = JSONObject_getCopy(sess);
 					JSONObject_set(s, AS("User"), JSONObject_getCopy(u));
+					unlock(client->bdd);
 					return RequestAnswerOk(request, s);
 				}
 				else
 				{
+					unlock(client->bdd);
 					return RequestAnswerError(request, 0, 5, AS("Mot de passe invalide."));
 				}
 			}
 			else
 			{
+				unlock(client->bdd);
 				return RequestAnswerError(request, 0, 5, AS("Login inconnu."));
 			}
 		}
 		else
 		{
+			unlock(client->bdd);
 			return RequestAnswerError(request, 0, 5, AS("Format de données invalide."));
 		}
 	}
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Données d'utilisateur invalide, requiert JSONObject."));
 }
 RequestAnswer ServerRequest_logout(Client client, RequestQuery request)
 {
+	lock(client->bdd);
 	printf("Logout...%s\n", (request->sid != 0 ? cString(request->sid) : ""));
 	if(request->sid != 0)
 	{
@@ -235,6 +248,7 @@ RequestAnswer ServerRequest_logout(Client client, RequestQuery request)
 			printf("%s\n", cString(JSONObject_asString(s, 0)));
 			JSONObject_delete(s);
 			printf("Logout ok.\n");
+			unlock(client->bdd);
 			return RequestAnswerOk(request, 0);
 		}
 		printf("Error, sid is unknown.\n");
@@ -243,6 +257,7 @@ RequestAnswer ServerRequest_logout(Client client, RequestQuery request)
 	{
 		printf("Error, sid is null.\n");
 	}
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Session innexistante."));
 }
 RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
@@ -252,7 +267,9 @@ RequestAnswer ServerRequest_exists(Client client, RequestQuery request)
 
 RequestAnswer ServerRequest_getFilms(Client client, RequestQuery request)
 {
+	lock(client->bdd);
 	JSONObject_t bdd = JSONObject_getCopy(BDD_Films(client->bdd));
+	unlock(client->bdd);
 	return RequestAnswerOk(request, bdd);
 }
 
@@ -260,6 +277,7 @@ RequestAnswer ServerRequest_getFilm(Client client, RequestQuery request)
 {
 	RequestQuery(request,query);
 	RequestObject(request,query,"id",id);
+	lock(client->bdd);
 	JSONObject_t bdd = BDD_Films(client->bdd);
 	JSONObject_t film =  0;
 	size_t c = 0, size = JSONArray_size(film);
@@ -268,35 +286,44 @@ RequestAnswer ServerRequest_getFilm(Client client, RequestQuery request)
 		film = JSONArray_get(bdd, c);
 		if(JSONInt_get(id) == JSONObject_intValueOf(film, AS("id")))
 		{
+			unlock(client->bdd);
 			return RequestAnswerOk(request, JSONObject_getCopy(film))
 		}
 		++c;
 	}
+	unlock(client->bdd);
 	return RequestAnswerOk(request, JSONNull_new());
 }
 
 RequestAnswer ServerRequest_getUsers(Client client, RequestQuery request)
 {
+	lock(client->bdd);
 	JSONObject_t bdd = JSONObject_getCopy(BDD_Users(client->bdd));
+	unlock(client->bdd);
 	return RequestAnswerOk(request, bdd);
 }
 
 RequestAnswer ServerRequest_getFilmById(Client client, RequestQuery request)
 {
 	RequestQuery(request, query);
+	lock(client->bdd);
 	int id = JSONObject_intValueOf(query, AS("Id"));
 	JSONObject_t film = BDD_getFilmById(client->bdd, id);
 	if(film == 0)
 	{
+		unlock(client->bdd);
 		return RequestAnswerOk(request, JSONNull_new());
 	}
-	return RequestAnswerOk(request, JSONObject_getCopy(film));
+	JSONObject_t film2 = JSONObject_getCopy(film);
+	unlock(client->bdd);
+	return RequestAnswerOk(request, film2);
 }
 RequestAnswer ServerRequest_getDistanceBetween(Client client, RequestQuery request)
 {
 	RequestQuery(request, query);
 	RequestObject(request, query, "Id1", id1);
 	RequestObject(request, query, "Id2", id2);
+	lock(client->bdd);
 	JSONObject_t ret = JSONObject_new();
 	if(JSONObject_getType(id1) == INT && JSONObject_getType(id2) == INT)
 	{
@@ -308,34 +335,42 @@ RequestAnswer ServerRequest_getDistanceBetween(Client client, RequestQuery reque
 	{
 		JSONObject_set(ret, AS("Distance"), JSONDouble_new(-1.0));
 	}
+	unlock(client->bdd);
 	return RequestAnswerOk(request, ret);
 }
 RequestAnswer ServerRequest_getFilmRecommendation(Client client, RequestQuery request)
 {
 	RequestQuery(request, query);
 	RequestObject(request, query, "Id", id);
+	lock(client->bdd);
 	if(JSONObject_getType(id) == INT)
 	{
 		JSONArray_t liste = liste_recommandation(client->bdd, JSONInt_get(id));
+		unlock(client->bdd);
 		return RequestAnswerOk(request, liste);
 	}
+	unlock(client->bdd);
 	return RequestAnswerOk(request, JSONNull_new());
 }
 RequestAnswer ServerRequest_getFilmOrderedByRank(Client client, RequestQuery request)
 {
+	lock(client->bdd);
 	JSONObject_t films = JSONObject_getCopy(BDD_getFilmsOrderedByRank(client->bdd));
+	unlock(client->bdd);
 	return RequestAnswerOk(request, films);
 }
 RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, RequestQuery request)
 {
 	RequestQuery(request, query);
 	RequestObject(request, query, "Id", id);
+	lock(client->bdd);
 	if(JSONObject_getType(id) == INT)
 	{
 		int uid = JSONInt_get(id);
 		JSONArray_t films = collaborative_recommendation(client->bdd, uid);
 		if(JSONArray_size(films) == 0)
 		{
+			unlock(client->bdd);
 			return RequestAnswerOk(request, JSONArray_new());
 		}
 		JSONArray_t ten_first = JSONArray_new();
@@ -348,13 +383,17 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 			JSONArray_add(ten_first, JSONObject_getCopy(JSONArray_get(films, size-i)));
 		}
 		JSONArray_delete(films);
+		unlock(client->bdd);
 		return RequestAnswerOk(request, ten_first);
 	}
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Impossible de récupérer l'id de l'utilisateur"));
 }
 RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
 {
+	lock(client->bdd);
 	JSONArray_t films = JSONObject_getCopy(RandomReco(client->bdd));
+	unlock(client->bdd);
 	return RequestAnswerOk(request, films);
 }
 RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery request)
@@ -362,23 +401,29 @@ RequestAnswer ServerRequest_setFilmRateOfUser(Client client, RequestQuery reques
 	printf("lancement ServerRequest_setFilmRateOfUser\n");
 	RequestQuery(request, query);
 	RequestObject(request, query, "FilmId", film_id);
-	JSONObject_t s = BDD_getSessionById(client->bdd, request->sid);
 	RequestObject(request, query, "Value", value);
+	lock(client->bdd);
+	JSONObject_t s = BDD_getSessionById(client->bdd, request->sid);
 	if(JSONObject_getType(film_id) == INT && s != 0 && JSONObject_getType(value) == INT)
 	{
 		JSONObject_t user = BDD_getUserById(client->bdd, JSONObject_intValueOf(s, AS("UserId")));
 		printf("Modifications allowed.\n");
 		int fid = JSONInt_get(film_id), v = JSONInt_get(value);
+		unlock(client->bdd);
 		bool r = BDD_setFilmRateOfUser(client->bdd, fid, JSONObject_intValueOf(user, AS("Id")), v);
+		lock(client->bdd);
 		if(r == true)
 		{
 			printf("Note OK.\n");
+			unlock(client->bdd);
 			return RequestAnswerOk(request, 0);
 		}
 		printf("Note User err.\n");
+		unlock(client->bdd);
 		return RequestAnswerError(request, 0, 5, AS("Impossible de trouver l'utilisateur à modifier."));
 	}
 	printf("Unable to set note.\n");
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Impossible de modifier la note"));
 }
 RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request)
@@ -386,6 +431,7 @@ RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request)
 	printf("Récupération des notes de l'utilisateur\n");
 	RequestQuery(request, query);
 	RequestObject(request, query, "UserId", user_id);
+	lock(client->bdd);
 	if(JSONObject_getType(user_id) == INT)
 	{
 		printf("Utilisateur bien connecté\n");
@@ -394,11 +440,14 @@ RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request)
 		if(rates != 0)
 		{
 			printf("Liste correctement récupérée\n");
+			unlock(client->bdd);
 			return RequestAnswerOk(request, JSONObject_getCopy(rates));
 		}
 		printf("Liste User err.\n");
+		unlock(client->bdd);
 		return RequestAnswerError(request, 0, 5, autoString("Impossible de récupérer la liste"));
 	}
 	printf("Impossible de récupérer l'id de l'utilisateur\n");
+	unlock(client->bdd);
 	return RequestAnswerError(request, 0, 5, AS("Impossible de récupérer l'id de l'utilisateur"));
 }
