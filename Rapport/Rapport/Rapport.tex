@@ -16,10 +16,12 @@
 \usepackage{dsfont}
 %\usepackage{fontspec}
 \usepackage{hyperref}
-\usepackage{listings}
+
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{colortbl}
 \usepackage{subfiles}
+\usepackage{pdfpages}
 \begin{document}
 \begin{titlepage}
 \centering
@@ -101,6 +103,7 @@ L'avantage de ce filtrage est qu'il ne nécessite pas de créer un algorithme qu
 Évidemment, les filtrages les plus efficaces sont ceux qui mélangent les méthodes décrites précédemment, de manière à en tirer les avantages.
 
 \subfile{etat_art/data.tex}
+\subfile{etat_art/tf-idf.tex}
 
 \section{La matrice d'usage}
 Également appelé le modèle utilisateur, la matrice d'usage contient des données collectées sur les utilisateurs associés aux produits. On le représente généralement sous la forme d'une matrice avec les utilisateurs sur les lignes et les produits en colonne. Les scores attribués peuvent être une note, un nombre de consultation, un durée, un like... Cette matrice comporte généralement de nombreuses valeurs manquantes qu'il va falloir chercher à déterminer grâce à notre système de recommandation.  Il est également intéressant de remarquer que les goûts des utilisateurs évoluent au cours du temps. Il est donc important de réajuster les données de cette matrice régulièrement.
@@ -111,15 +114,17 @@ Reprenons la matrice d'usage tout juste présentée. Elle est de dimension $m.n$
 Plusieurs approches sont possibles. On peut, par exemple, ne pas prendre en compte les utilisateurs dont on ne possède que très peu d'informations ou de la même manière retirer les produits peu populaires et donc ayant moins de chance d'intéresser les utilisateurs. Cependant, cette méthode a comme gros inconvénient de réduire le champ des recommandations proposées. En effet, comment proposer à un utilisateur un produit qui lui conviendrait parfaitement s'il est retiré de la liste car peu connu ? Cela restreint plus ou moins les produits recommandables à ceux qui sont populaires et donc déjà connus par la plupart.\par
 Une autre approche consiste à ne conserver qu'une gamme de produits répondant à un critère spécifié. Par exemple, il est possible de supprimer les films de genre romantique si l'utilisateur ne manifeste aucun intérêt pour ce genre. Enfin, une dernière méthode consiste à ne prendre en compte que les utilisateurs jugés comme étant proche de l'utilisateur cible, c'est ce qu'on appelle le clustering (détaillé dans la section suivante).\par
 L'avantage de cette méthode est donc de réduire le temps de calcul pour déterminer une recommandation. Cependant, la qualité de la recommandation s'en retrouve impactée. En effet cela réduit le nombre de personnes analysés par l’algorithme dans le cas d’une réduction du nombre d’utilisateur, et une réduction du nombre de produits réduira le champs des recommandations à un certains type.
-\subsubsection{Clustering}
-L’idée est d’écarter les items (resp. les utilisateurs) jugés non représentatif pour un utilisateur (resp. item) donné. On réduit ainsi la dimension de la matrice tout en minimisant la perte de données avant d’effectuer les calculs de recommandation.
-Pour ce faire, on utilise des méthodes de partitionnement : cela consiste à regrouper les éléments similaires. La méthode la plus connue est k-means
 
+\subfile{etat_art/clustering.tex}
 \subfile{etat_art/similarite.tex}
 
 
 
 \chapter{Rapport}
+
+\section{Introduction}
+Le but de ce projet est de concevoir un système de recommandation comme le propose Netflix, Google (Youtube), Amazon et beaucoup d'autres pour la recommandation de leurs produits.\par
+Au cours de ce rapport, nous aborderons les choix que nous avons pris tout au long de ce projet, la présentation du code réalisé, le choix des structures ainsi que l'analyse des résultats obtenus.
 
 \subfile{bdplus/bdplus.tex}
 
@@ -212,4 +217,16 @@ Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on pe
 \subfile{fct/cli.tex}
 \subfile{fct/gui.tex}
 \subfile{network/network.tex}
+
+\subfile{duree/duree.tex}
+
+\subfile{gdp/gdp.tex}
+
+\includepdf[pages=-]{../Reunion/latex/2018-03-27_Reunion_1.pdf}
+\includepdf[pages=-]{../Reunion/latex/2018-04-12_Reunion_2.pdf}
+\includepdf[pages=-]{../Reunion/latex/2018-04-16_Reunion_3.pdf}
+\includepdf[pages=-]{../Reunion/latex/2018-04-19_Reunion_4.pdf}
+\includepdf[pages=-]{../Reunion/latex/2018-05-07_Reunion_5.pdf}
+
+
 \end{document}
