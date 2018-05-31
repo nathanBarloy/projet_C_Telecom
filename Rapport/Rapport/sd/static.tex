@@ -1,5 +1,44 @@
 % \documentclass{report}
 % \begin{document}
 \subsection{Structures de données statiques}
+\subsubsection{Structures provenant de libcommon}
+Les structures suivantes proviennent de libcommon:
+\begin{itemize}
+	\item String\_t : Structure représentant une chaine de caractère, avec de nombreuses fonctions associées
+	\item AutoString\_t : Structure identique à String\_t, pointeur automatiquement géré en mémoire.
+	\item Map\_t : HashMap permettant l'association entre un String\_t et un void*
+	\item Vector\_t : Tableau dynamique permettant le stockage de void*
+\end{itemize}
+La documentation détaillée de libcommon se trouve à cette adresse:\newline
+https://tanaka1238.ovh/libcommon-doc
+\par
+\subsubsection{Structures provenant de libcjson}
+Les structures suivantes proviennent de libcjson:
+\begin{itemize}
+	\item JSONObject\_t : Représente un objet JSON (associatif)
+	\item JSONArray\_t : Représente un tableau JSON (dynamique)
+	\item JSONInt\_t : Représente un nombre entier en JSON
+	\item JSONDouble\_t : Représente un nombre flottant en JSON
+	\item JSONString\_t : Représente une chaine de caractère en JSON
+	\item JSONNull\_t : Représente une valeur nulle en JSON
+	\item JSONBoolean\_t : Représente une valeur booléene en JSON
+\end{itemize}
+Ces structures sont utilisées pour créer les structures dynamiques expliquées plus bas.
+Elles permettent aussi de parser un JSON, le manipuler, et exporter les données.\par
+
+La documentation détaillée se trouve à cette adresse:\newline
+https://tanaka1238.ovh/libcjson-doc/
+\subsubsection{Base de données}
+\begin{lstlisting}
+struct BDD
+{
+	JSONObject_t json;
+	pthread_mutex_t mutex;
+	Vector_t clients;
+	Map_t requests;
+};
+typedef struct BDD* BDD;
+\end{lstlisting}
+
 
 % \end{document}
