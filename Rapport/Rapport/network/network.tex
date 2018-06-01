@@ -1,4 +1,22 @@
 % \documentclass{report}
 % \begin{document}
-\section{Protocole de communication entre clients}
+\section{Protocole de communication entre client et serveur}
+Le protocole est basé sur un système similaire au REST qui utilise HTTP, cependant notre projet n'utilise pas HTTP.
+La requête s'effectue exclusivement en JSON, une fois la requête en JSON reçue par le serveur selon la structure définie dans la section concernant les structure dynamiques, il va regarder si le type de requête correspond à ce qu'il sait gérer, si ce n'est pas le cas il retournera une réponse d'erreur.\par
+Le serveur va d'abord vérifier si le Sid est défini dans la requête, auquel cas il tentera de vérifier la validité de la session en cours, et associera la session avec cett requête, ce qui permettra d'identifier l'utilisateur appelant dans la requête.\par
+Dans le cas où le serveur sait gérer le requête reçue, il délègue le travail a une fonction prévue pour chaque type de requête via un pointeur de fonction, recupère son résultat, le formatte pour être envoyé par le réseau et le transmet au client. Suite à la bonne transmission de la réponse, le client est déconnecté.\par
+
+De son coté, le client reçoit le JSON de réponse, contenant les informations nécessaires à son bon fonctionnement. Exception: Si la connexion au serveur n'a pas pu se faire, la réponse est un pointeur null, ce cas est géré par le client qui sait alors que la connexion à échoué. Dans le cas où tout s'est passé correctement, le client commence par vérifier le code de retour de la fonction du serveur. \og 0 \fg signifie que tout s'est bien passé, il procède alors au traitement des données le cas échant, ou se contente simplement de savoir que sa demande a bien été traitée, car en effet, toutes les fonctions ne nécessitent pas forcément de traiter une réponse, la confirmation de bon traitement par le serveur peut suffire.\par
+
+\subsection{Table des codes de retour}
+Les codes de retour suivant ont été définis dans le protocole réseau du programme:
+\begin{center}
+	\begin{tabular}[|c|c|]
+		\hline
+		Code de retour & Description \\
+		\hline
+		
+	\end{tabular}[|c|c|]
+\end{center}
+
 % \end{document}
