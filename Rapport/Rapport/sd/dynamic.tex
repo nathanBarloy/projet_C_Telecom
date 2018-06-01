@@ -229,4 +229,30 @@ Elle n'est pas utilisée dans la version actuelle du programme, mais pourrait be
 \end{lstlisting}
 Cette structure est utilisée excluvisement coté serveur, elle permet de faire une association entre une connexion d'un utilisateur, et son Id.\par
 Lorsque que l'utilisateur envoie des identifiants valide, le serveur génére un nouvelle gession, avec un Id de session associé. Cet Id est renvoyé au client qui l'utilise ensuite à la manière qu'un cookie de session pour réaliser des requêtes sans avoir a transmettre les identifiants à chaque fois.
+
+\subsubsection{Requête au serveur}
+\begin{lstlisting}
+{
+			"Sid"	:	"",
+			"Type"	:	"",
+			"Query"	:	{queryObject}
+}
+\end{lstlisting}
+
+Cette structure est envoyée par le client, et receptionnée par le serveur pour faire une requête au serveur. Le champ \og Sid \fg (peut être vide) correspond à la session courante de l'utilisateur.
+Le champ \og Type \fg permet de spécifier le type de requête à traiter par le serveur.
+\of Query \fg est un champ contenant les données à traiter. Vous trouverez davantage d'informations dans la partie expliquant le protocole réseau.
+
+\subsubsection{Reponse du serveur}
+\begin{lstlisting}
+{
+			"Type"	:	"",
+			"Time"	:	0,
+			"Code"	:	0,
+			"Error"	:	"",
+			"Answer"	:	{answerObject}
+}
+\end{lstlisting}
+Cette structure permet de recevoir les réponses du serveur, \og Type \fg est initialement pour préciser le type de réponse dans le cas de multiples requêtes, mais n'est pas utilisé dans cette version car le protocole ne peut pas avoir ce type de conflits. \og Time \fg est initialement prévu pour indiquer à quel moment à été effectué la requête en cas de conflit avec de multiples requêtes, mais il n'est pas utilisé dans cette version car le protocole ne peut pas avoir ce type de problèmes. \og Code \fg contient le code de retour de la requête, voir le tableau contenant les codes de retour dans le détail du protocole. \og Error \fg contient une chaine représentant l'erreur (le cas échant) qui s'est produite lors du traitement de la requête. \og Answer \fg contient les données de reponse de la requête.
+
 % \end{document}
