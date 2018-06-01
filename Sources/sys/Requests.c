@@ -442,7 +442,7 @@ RequestAnswer ServerRequest_getUserRates(Client client, RequestQuery request)
 		{
 			printf("Liste correctement récupérée\n");
 			unlock(client->bdd);
-			return RequestAnswerOk(request, JSONObject_getCopy(rates));
+			return RequestAnswerOk(request, JSONArray_getCopy(rates));
 		}
 		printf("Liste User err.\n");
 		unlock(client->bdd);

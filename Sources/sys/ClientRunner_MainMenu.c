@@ -410,8 +410,6 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			ClientRunner_showFilm(connexion, id);
 		}
 		JSONObject_delete(export);
-		JSONObject_delete(reco);
-		freeVectorWithPtr(MainMenu_choices, freeVoidString);
 	}
 	else
 	{
