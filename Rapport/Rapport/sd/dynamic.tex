@@ -23,7 +23,7 @@
 Cette structure représente un film dans la base de donnée, les films sont toujours traités par le programme sous cette forme, coté client comme serveur.
 Chaque film à un Id unique, qui commence à 1, et un titre. Les autres données sont facultatives en fonction des données que nous avons sur chaque film.
 Cette structure permet de gérer l'intégralité des données d'un film (ou d'une série).
-Les array en JSON permettent de stocker indépendament chaque acteur, genre, réalisateur, etc...
+Les array en JSON permettent de stocker indépendamment chaque acteur, genre, réalisateur, etc...
 \subsubsection{User (utilisateur)}
 \begin{lstlisting}
 {
@@ -40,15 +40,15 @@ Les array en JSON permettent de stocker indépendament chaque acteur, genre, ré
 }
 \end{lstlisting}
 
-Cette structure représente un utilsiateur dans la base de donnée, les utilisateurs sont toujours traités par le programme sous cette forme, coté client comme serveur.
+Cette structure représente un utilsiateur dans la base de données, les utilisateurs sont toujours traités par le programme sous cette forme, coté client comme serveur.
 Chaque utilisateur à un Id unique qui commence à 1, ainsi qu'un login, et un mot de passe.
-Les autres données sont facultatives, et initialisées à leur valeur par défaut si innexistantes.
+Les autres données sont facultatives, et initialisées à leur valeur par défaut si inexistantes.
 \par
-Cette structure permet de conserver des informations d'authentification d'un utilisateur.
-Initialement, il était prévu de pouvoir permettre la sauvegarde d'un historique, ainsi qu'un certain nombre d'amis, ou de personnes que l'utilisateur pourrait suivre, ce qui permettrait d'améliorer les recommendations.
+Cette structure permet de conserver les informations d'authentification d'un utilisateur.
+Initialement, il était prévu de pouvoir permettre la sauvegarde d'un historique, ainsi qu'un certain nombre d'amis, ou de personnes que l'utilisateur pourrait suivre, ce qui permettrait d'améliorer les recommandations.
 Cette fonctionnalité n'a pas été implémentée par manque de temps, mais reste envisageable pour des évolutions futures du projet.
 L'historique était prévu pour stocker l'intégralité des actions de l'utilisateur afin de pouvoir analyser son comportement et lui suggérer un contenu plus pertinent.
-Dans la version actuelle du projet, l'historique n'est utilisé que pour sauvegarder les notes que chaque utilisateur donne à un film, ce qui permet de lui suggérer du contenu, de générer des tendances, et d'établir une liste des films vus par l'utilisateur.
+Dans la version actuelle du projet, l'historique n'est utilisé que pour sauvegarder les notes que chaque utilisateur donne à un film, ce qui permet de lui suggérer du contenu, de générer des tendances et d'établir une liste des films vus par l'utilisateur.
 
 \subsubsection{Date}
 \begin{lstlisting}
@@ -68,8 +68,8 @@ En JSON, la date est représentée de cette façon.
 	"DynamicPreferences" : {DynamicPreferences}
 }
 \end{lstlisting}
-Ces préférences ont été prévues pour permettre de nourir l'algorithme de recommendation avec les préférences d'un utilisateur.
-Elles ne sont pas utilisées dans cette version du programme, mais pourraient permettre des recomendations beaucoup plus pertinentes une fois implémentée.
+Ces préférences ont été prévues pour permettre de nourrir l'algorithme de recommandation avec les préférences d'un utilisateur.
+Elles ne sont pas utilisées dans cette version du programme, mais pourraient permettre des recommandations beaucoup plus pertinentes une fois implémentée.
 
 
 \subsubsection{StaticPreferences}
@@ -98,7 +98,7 @@ Elles ne sont pas utilisées dans cette version du programme, mais pourraient pe
 }
 }
 \end{lstlisting}
-Non utilisée dans cette version du programme, elle à été pensée pour stocker les préférences d'un utilisateur, afin d'améliorer les recommendations.
+Non utilisée dans cette version du programme, elle à été pensée pour stocker les préférences d'un utilisateur, afin d'améliorer les recommandations.
 \subsubsection{DynamicPreferences}
 
 \begin{lstlisting}
@@ -126,7 +126,7 @@ Non utilisée dans cette version du programme, elle à été pensée pour stocke
 }
 \end{lstlisting}
 
-Non utilisée dans cette version du programme, l'idée derrière les préférences dynamiques était d'utiliser l'historique de l'utilisateur, et les notes moyennes en fonction des films pour générer des \og traits \fg spécifiques à cet utilisateur.\par
+Non utilisée dans cette version du programme, l'idée derrière les préférences dynamiques était d'utiliser l'historique de l'utilisateur et les notes moyennes en fonction des films pour générer des \og traits \fg spécifiques à cet utilisateur.\par
 En somme, cela permettra d'avoir un profil dynamique qui garde une mémoire de ses préférences, et qui évolue au fur et à mesure des interactions entre l'utilisateur et le programme, toujours dans le but de suggérer implicitement un contenu plus pertinent.
 
 \subsubsection{History}
@@ -175,7 +175,7 @@ Cette structure a été pensée pour sauvegarder les actions de l'utilisateur, e
 "Times" : [0, ...],
 }
 \end{lstlisting}
-Cette structure a été pensée pour sauvegarder l'historique des films vus par l'utilisateur, et les dates auxquelles il les à consultés (timestamp).
+Cette structure a été pensée pour sauvegarder l'historique des films vus par l'utilisateur, ainsi que les dates auxquelles il les a consultés (timestamp).
 Elle n'est pas utilisée dans cette version du programme.
 
 \subsubsection{HistorySearched}
@@ -204,7 +204,7 @@ Elle n'est pas utilisée dans cette version du programme car nous aurions eu bes
 "Used" : [0, ...]
 }
 \end{lstlisting}
-Cette structure a été  pensée pour sauvegarder l'historique des recommendations proposées à l'utilisateur, dans le but de pouvoir les faire varier si les éléments n'attirent pas le clic au bout d'un certain temps. Elle n'est pas utilisée dans cette version du programme mais pourrait constituer une amélioration future prometteuse.
+Cette structure a été  pensée pour sauvegarder l'historique des recommandations proposées à l'utilisateur, dans le but de pouvoir les faire varier si les éléments n'attirent pas le clic au bout d'un certain temps. Elle n'est pas utilisée dans cette version du programme mais pourrait constituer une amélioration prometteuse.
 
 \subsubsection{HistoryDisplayed}
 
@@ -217,7 +217,7 @@ Cette structure a été  pensée pour sauvegarder l'historique des recommendatio
 }, ...]
 }
 \end{lstlisting}
-Cette structure a été pensée pour garder une trace des recommendations qui ont été affichées à l'utilisateur, dans le but de pouvoir compter le nombre d'apparition de chaque recommendation, noter si elles ont attiré le clic ou pas, à quel moment elles ont été recommandées, dans quelle position, etc... dans le but d'avoir des recommendations changeantes si l'utililisateur ne semble pas interessé par ce qu'on lui propose.
+Cette structure a été pensée pour garder une trace des recommandations qui ont été affichées à l'utilisateur, dans le but de pouvoir compter le nombre d'apparition de chaque recommandation, noter si elles ont attiré le clic ou pas, à quel moment elles ont été recommandées, dans quelle position, etc... dans le but d'avoir des recommandations changeantes si l'utililisateur ne semble pas interessé par ce qu'on lui propose.
 Elle n'est pas utilisée dans la version actuelle du programme, mais pourrait beaucoup servir dans des améliorations futures.
 
 \subsubsection{Section}
@@ -227,8 +227,8 @@ Elle n'est pas utilisée dans la version actuelle du programme, mais pourrait be
 "UserId": 0,
 }
 \end{lstlisting}
-Cette structure est utilisée excluvisement coté serveur, elle permet de faire une association entre une connexion d'un utilisateur, et son Id.\par
-Lorsque que l'utilisateur envoie des identifiants valide, le serveur génére un nouvelle gession, avec un Id de session associé. Cet Id est renvoyé au client qui l'utilise ensuite à la manière qu'un cookie de session pour réaliser des requêtes sans avoir a transmettre les identifiants à chaque fois.
+Cette structure est utilisée exclusivement coté serveur, elle permet de faire une association entre une connexion d'un utilisateur, et son Id.\par
+Lorsque que l'utilisateur envoie des identifiants valides, le serveur génère un nouvelle session, avec un Id de session associé. Cet Id est renvoyé au client qui l'utilise ensuite à la manière qu'un cookie de session pour réaliser des requêtes sans avoir à transmettre les identifiants à chaque fois.
 
 \subsubsection{Requête au serveur}
 \begin{lstlisting}
@@ -253,6 +253,6 @@ Le champ \og Type \fg permet de spécifier le type de requête à traiter par le
 			"Answer"	:	{answerObject}
 }
 \end{lstlisting}
-Cette structure permet de recevoir les réponses du serveur, \og Type \fg est initialement pour préciser le type de réponse dans le cas de multiples requêtes, mais n'est pas utilisé dans cette version car le protocole ne peut pas avoir ce type de conflits. \og Time \fg est initialement prévu pour indiquer à quel moment à été effectué la requête en cas de conflit avec de multiples requêtes, mais il n'est pas utilisé dans cette version car le protocole ne peut pas avoir ce type de problèmes. \og Code \fg contient le code de retour de la requête, voir le tableau contenant les codes de retour dans le détail du protocole. \og Error \fg contient une chaine représentant l'erreur (le cas échant) qui s'est produite lors du traitement de la requête. \og Answer \fg contient les données de reponse de la requête.
+Cette structure permet de recevoir les réponses du serveur, \og Type \fg est initialement conçue pour préciser le type de réponse dans le cas de multiples requêtes, mais n'est pas utilisé dans cette version car le protocole ne peut pas avoir ce type de conflits. \og Time \fg est initialement prévue pour indiquer à quel moment a été effectuée la requête en cas de conflit avec de multiples requêtes, mais elle n'est pas utilisée dans cette version car le protocole ne peut pas avoir ce type de problèmes. \og Code \fg contient le code de retour de la requête, voire le tableau contenant les codes de retour dans le détail du protocole. \og Error \fg contient une chaîne représentant l'erreur (le cas échant) qui s'est produite lors du traitement de la requête. \og Answer \fg contient les données de réponse de la requête.
 
 % \end{document}
