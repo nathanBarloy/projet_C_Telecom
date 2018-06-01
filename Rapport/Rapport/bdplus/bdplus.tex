@@ -1,24 +1,24 @@
 \section{Amélioration de la base de données}
-Dans le but d'améliorer l'expérience de l'utilisateur sur l'interface graphique, nous avons décider de compléter la base de données mise à disposition afin d'y inclure les liens vers les bandes annonces des films ainsi que leurs affiches respectives.
+Dans le but d'améliorer l'expérience de l'utilisateur sur l'interface graphique, nous avons décidé de compléter la base de données mise à disposition afin d'y inclure les liens vers les bandes-annonces des films ainsi que leurs affiches respectives.
 De plus, le fonctionnement de l'algorithme de recommandation collaboratif requière une base de données d'utilisateurs ayant notés plusieurs films.
-\par Nous avons décidé de réaliser ces opérations à partir de scripts python qui sont plus simple et rapide à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne. Il est important de remarquer que ces scripts ont été exécutés en amont afin de récupérer les éléments souhaités mais ne font en rien partie du code du programme.
+\par Nous avons décidé de réaliser ces opérations à partir de scripts python qui sont plus simples et rapides à mettre en oeuvre, grâce notamment à ses nombreuses librairies disponibles en ligne. Il est important de remarquer que ces scripts ont été exécutés en amont afin de récupérer les éléments souhaités mais ne font en rien partie du code du programme.
 
 \subsection{Liens des bandes annonces}
-Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur youtube avec la bande annonce.
+Comme notre interface graphique sera gérée grâce à la librairie WebKitWebView, il sera possible d'intégrer à notre page un lecteur youtube avec la bande-annonce.
 Il suffit donc de récupérer les liens URL des vidéos pour que l'ensemble fonctionne. Ces résultats seront alors stockés dans un fichier texte avant d'inclure les liens au fichier JSON.\par
 Les grandes étapes dans la réalisation de ce script ont étés :
 \begin{itemize}
 	\item Générer la requête à partir du lien youtube (\url{www.youtube.com/results?search\_query=})
-	\item Récupérer l'intégralité du code HTML générer l'exécution de cette requête
+	\item Récupérer l'intégralité du code HTML et générer l'exécution de cette requête
 	\item Scanner le contenu HTML afin de ne conserver que le lien du premier résultat (on suppose que l'algorithme de recommandation youtube est efficace)
-	\item Isoler la partie utile du lien récupérer (il s'agit des 11 derniers caractères après \url{https://www.youtube.com/watch?v=})
+	\item Isoler la partie utile du lien récupéré (il s'agit des 11 derniers caractères après \url{https://www.youtube.com/watch?v=})
 	\item Stocker ce résultat dans la base de données
 \end{itemize}
 
 \subsection{Récupération des affiches des films}
 Avoir une affiche de chaque film de la base de données permet une fois de plus d'améliorer grandement l'interface graphique.
 Après plusieurs recherches, nous avons décidé de récupérer les images du site \href{https://www.themoviedb.org}[TheMovieDB].\par
-Pour ce faire nous avons, de la même manière que pour les liens youtube utilisé les url pour effectuer nos recherches. Puis nous avons scanné le contenu de la page html résultante pour détecter le résultat correspond à notre recherche (correspondance des dates notamment). Une fois trouvé, nous naviguons vers la page du résultat et scannons à nouveau la page à la recherche de l'image souhaité avant de la télécharger dans un dossier spécifique et d'inclure le chemin d'accès dans notre base de données.
+Pour ce faire nous avons, de la même manière que pour les liens youtube, utilisé les url pour effectuer nos recherches. Puis nous avons scanné le contenu de la page html résultante pour détecter le résultat correspondant à notre recherche (correspondance des dates notamment). Une fois trouvé, nous naviguons vers la page du résultat et scannons à nouveau la page à la recherche de l'image souhaitée avant de la télécharger dans un dossier spécifique et d'inclure le chemin d'accès dans notre base de données.
 
 \subsection{Création d'une base de données utilisateurs}
 Indispensable au fonctionnement de la méthode de recommandation collaborative, une base de données d'uilisateurs ayant attribués des notes aux films était nécessaire. Plusieurs pistes ont été explorées :
@@ -27,5 +27,5 @@ Indispensable au fonctionnement de la méthode de recommandation collaborative, 
 	\item Création d'un formulaire à partager avec des amis pour constituer notre propre base de données
 	\item Trouver ces informations en ligne
 \end{itemize}
-Nous avons au final retenu cette dernière solution après avoir trouvé une base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] qui regroupe près de 100000 notes d'utilisateurs sur 10000 films. Le seul inconvénient est que cette base de données ne prenne pas en compte les séries. Par conséquent, les résultats exposés ne seront des plus justes mais permettra d'avoir un aperçu de cette algorithme.\par
-La base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] est au format csv, il était donc très simple de récupérer les données souhaitées. Le seul problème était les titres des films qui étaient en anglais et ne correspondaient pas toujours à nos titres. Il a donc fallu prendre quelques minutes pour manuellement faire correspondre leurs titres avec nos id de films. Ensuite il n'est plus que question d'extraire les bons éléments du fichier csv et le tour est joué !
+Nous avons au final retenu cette dernière solution après avoir trouvé une base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] qui regroupe près de 100000 notes d'utilisateurs sur 10000 films. Le seul inconvénient est que cette base de données ne prend pas en compte les séries. Par conséquent, les résultats exposés ne seront pas les plus justes mais permettront d'avoir un aperçu de cet algorithme.\par
+La base de données de \href{https://grouplens.org/datasets/movielens/}[MovieLens] est au format csv, il était donc très simple de récupérer les données souhaitées. Le seul problème était les titres des films qui étaient en anglais et ne correspondaient pas toujours à nos titres. Il a donc fallu prendre quelques minutes pour manuellement faire correspondre leurs titres avec nos id de films. Ensuite il n'est plus question que d'extraire les bons éléments du fichier csv et le tour est joué !
