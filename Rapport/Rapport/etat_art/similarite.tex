@@ -9,18 +9,19 @@ La distance euclidienne est obtenue par la formule suivante :
 \begin{equation}
     L(\vec{x}, \vec{y}) = \sqrt{\sum_{i=1}^m (x_i - y_i)^2}
 \end{equation}
-Paragraphe à terminer...
 
 \subsection{Distance cosinus}
+
 On considère les vecteurs ligne de x et y. Le but est de calculer la distance, l’angle entre ces deux vecteurs. Dans notre cas, les vecteurs x et y seront des vecteurs associés aux profils de deux utilisateurs par exemple.
 
 \begin{equation}
     CosSim(\vec{x}, \vec{y}) = \frac{\sum_{i=1}^m x_i y_i}{\sqrt{\sum_{i=1}^m x_i ^2}\sqrt{\sum_{i=1}^m y_i ^2}}
 \end{equation}
 
-L'inconvénient majeur de cette méthode est quelle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
+L'inconvénient majeur de cette méthode est qu'elle considère tout film non noté comme un zéro, qui est une mauvaise note, ce qui va réduire la distance entre deux utilisateurs qui en réalité seraient jugés différents.
 
 \subsection{Corrélation de Pearson}
+
 Afin de pallier le problème cité précédemment, il est possible de normaliser au préalable les notes en leur soustrayant la moyenne des notes données par l'utilisateur. Cette méthode est également appelé la distance cosinus centrée.
 On a alors :
 \begin{equation}
