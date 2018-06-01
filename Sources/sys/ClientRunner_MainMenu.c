@@ -331,7 +331,7 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 		}
 		else
 		{
-			printf("Echec d'obtention des recommendations.\n");
+			printf("Echec d'obtention des recommandations.\n");
 		}
 		JSONObject_delete(film);
 		printf("Entrez le nom d'un film pour accéder à sa fiche (ou début du nom).\n- \"exporter\" pour sauvegarder ces résultats.\n");
@@ -819,7 +819,7 @@ enum ClientRunnerMode ClientRunner_ShowRecommendations(Connexion_t connexion)
 		{
 			clearTerminal();
 			c = 0;
-			printf("Affichage des recommendations personnalisées: %lu - %lu / %lu\n", (base + 1), (base + 10 < size ? base + 10 : size - base), size);
+			printf("Affichage des recommandations personnalisées: %lu - %lu / %lu\n", (base + 1), (base + 10 < size ? base + 10 : size - base), size);
 			Vector_t MainMenu_choices = newVector();
 			addToVector(MainMenu_choices, newStringFromCharStar(""));
 			addToVector(MainMenu_choices, newStringFromCharStar("quit"));
@@ -835,7 +835,7 @@ enum ClientRunnerMode ClientRunner_ShowRecommendations(Connexion_t connexion)
 				printf("\t- \"%s\"\n", cString(JSONObject_stringValueOf(tmp, autoString("Title"))));
 				++c;
 			}
-			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite, \"exporter\" pour exporter les recommendations, \"quit\" / \"exit\" pour quitter.\n");
+			printf("Entrez le nom d'un film (ou une partie de son nom) pour voir le détail.\nAppuyez sur enter pour afficher la suite, \"exporter\" pour exporter les recommandations, \"quit\" / \"exit\" pour quitter.\n");
 			String_t sel = StandardPrompt(MainMenu_choices);
 			if(sel != 0)
 			{

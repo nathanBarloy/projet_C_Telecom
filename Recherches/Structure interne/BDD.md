@@ -51,7 +51,7 @@ Un utilisateur est représenté par l'élement suivant:
 - Birth permet de stocker la date de naissance, afin de calculer l'age de l'utilisateur (pour cibler le public).
 - Preferences permet de stocker les préférences d'un utilisateur dans une structure dédiée (voir plus bas).
 - History permet de stocker l'historique de l'utilisateur dans un objet dédié (voir plus bas).
-- Friends correspond a la liste d'amis des utilisateurs, ça permet de lui recommander des films que des amis auraient aimé, et de nourrir l'algo de recommendation si celui ci à encore faim.
+- Friends correspond a la liste d'amis des utilisateurs, ça permet de lui recommander des films que des amis auraient aimé, et de nourrir l'algo de recommandation si celui ci à encore faim.
 - Follow permet à l'utilisateur de définir des gens qu'il suit car le contenu qu'ils regardent les interessent. Cela permet d'utiliser des données d'un autre utilisateur pour alimenter celui ci.
 
 ## Date
