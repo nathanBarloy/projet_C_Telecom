@@ -13,8 +13,5 @@ Le but de ce projet est de créer un **algorithme de recommandation** de films e
 - Le rapport est écrit en Latex.
 - Les bases de données sont manipulées au format JSON.
 
-## Progression
-En cours.
-
-## Interface
-En cours.
+## Rapport
+Dans: Rapport/Rapport/Final/Rapport.pdf
