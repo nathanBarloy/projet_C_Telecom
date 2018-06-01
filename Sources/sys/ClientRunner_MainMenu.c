@@ -168,6 +168,7 @@ enum ClientRunnerMode ClientRunner_ShowFilms(Connexion_t connexion)
 				{
 					printf("Retour au menu...\n");
 					selected = true;
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
 					break;
 				}
 				else
@@ -284,6 +285,7 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 					}
 					++c;
 				}
+				JSONObject_delete(arr);
 			}
 			String_t rt = 0;
 			if(rate != 0)
@@ -404,6 +406,8 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			ClientRunner_showFilm(connexion, id);
 		}
 		JSONObject_delete(export);
+		JSONObject_delete(reco);
+		freeVectorWithPtr(MainMenu_choices, freeVoidString);
 	}
 	else
 	{
@@ -536,6 +540,7 @@ enum ClientRunnerMode ClientRunner_ShowMyFilms(Connexion_t connexion)
 				{
 					printf("Retour au menu...\n");
 					selected = true;
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
 					break;
 				}
 				else if(eq(sel, "exporter"))
@@ -643,6 +648,7 @@ enum ClientRunnerMode ClientRunner_ShowTrends(Connexion_t connexion)
 				{
 					printf("Retour au menu...\n");
 					selected = true;
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
 					break;
 				}
 				else
@@ -744,6 +750,7 @@ enum ClientRunnerMode ClientRunner_ShowRandom(Connexion_t connexion)
 				{
 					printf("Retour au menu...\n");
 					selected = true;
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
 					break;
 				}
 				else
@@ -847,6 +854,7 @@ enum ClientRunnerMode ClientRunner_ShowRecommendations(Connexion_t connexion)
 				{
 					printf("Retour au menu...\n");
 					selected = true;
+					freeVectorWithPtr(MainMenu_choices, freeVoidString);
 					break;
 				}
 				else if(eq(sel, "exporter"))
