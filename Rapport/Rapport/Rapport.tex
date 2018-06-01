@@ -126,6 +126,22 @@ L'avantage de cette méthode est donc de réduire le temps de calcul pour déter
 Le but de ce projet est de concevoir un système de recommandation comme le propose Netflix, Google (Youtube), Amazon et beaucoup d'autres pour la recommandation de leurs produits.\par
 Au cours de ce rapport, nous aborderons les choix que nous avons pris tout au long de ce projet, la présentation du code réalisé, le choix des structures ainsi que l'analyse des résultats obtenus.
 
+\section{Les objectifs}
+Nous avons vu dans l'Etat de l'art les principales fonctions présentent dans un système de recommandation. Toutefois, nous ne les implémenterons pas toutes en raison du temps disponible à la réalisation du projet.\par
+Pour commencer, nous avons jugé qu'il était intéressant d'aborder les deux types de recommandations (par le contenu et collaborative) car il s'agit des deux approches différentes qui présentent des avantages et inconvénients différents.\par
+La méthode TF-IDF aurait pû être intéressante dans la recommandation basée sur le contenu, mais nous avons estimé que la taille des synopsis ne permettrait pas de fournir des résultats suffisamment pertinents.\par
+De la même manière, nous avons écarté l'idée d'implémenter une méthode de clustering afin de réduire les matrices en raison du nombre d'items et d'utilisateurs présents dans notre base de données. En effet, avec 100 films et une centaine d'utilisateurs, l'exécution du programme ne sera pas ralentit par la taille de la base de données. À l'inverse, réduire le nombre de données traités entraînera une perte d'information réduisant la qualité de la recommandation.\par
+\vspace{0.5cm}
+Pour ce qui est des interfaces, nous souhaitons développer une interface console ainsi qu'une interface graphique qui disposerons des mêmes fonctionnalités :
+\begin{itemize}
+	\item Identification avec un compte
+	\item Consultation de tous les films
+	\item Notation d'un film
+	\item Visualisation des recommandations par les 2 méthodes
+	\item Visulation des tendances (films classés par les moyennes)
+	\item Exportation des résultats
+\end{itemize}
+
 \subfile{bdplus/bdplus.tex}
 
 \section{Création d'une distance entre les films}
@@ -227,6 +243,6 @@ Une fois qu'on a une méthode qui nous calcule une distance entre 2 films, on pe
 \includepdf[pages=-]{../Reunion/latex/2018-04-16_Reunion_3.pdf}
 \includepdf[pages=-]{../Reunion/latex/2018-04-19_Reunion_4.pdf}
 \includepdf[pages=-]{../Reunion/latex/2018-05-07_Reunion_5.pdf}
-
+\includepdf[pages=-]{../Reunion/latex/2018-05-14_Reunion_6.pdf}
 
 \end{document}
