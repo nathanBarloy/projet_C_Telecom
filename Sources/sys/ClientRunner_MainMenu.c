@@ -28,7 +28,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 		addToVector(MainMenu_choices, newStringFromCharStar("mes recommandations"));
 		addToVector(MainMenu_choices, newStringFromCharStar("recommandations"));
 		addToVector(MainMenu_choices, newStringFromCharStar("mes films"));
-		addToVector(MainMenu_choices, newStringFromCharStar("voir profil"));
+		//addToVector(MainMenu_choices, newStringFromCharStar("voir profil"));
 		addToVector(MainMenu_choices, newStringFromCharStar("deconnexion"));
 	}
 	else
@@ -42,7 +42,7 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 	if(connexion->user != 0)
 	{
 		printf("- Deconnexion\n");
-		printf("- Voir profil\n");
+		//printf("- Voir profil\n");
 		printf("- Mes recommandations\n");
 		printf("- Mes films\n");
 	}
@@ -85,10 +85,10 @@ enum ClientRunnerMode ClientRunner_MainMenu(Connexion_t connexion)
 		{
 			ret = SHOW_RANDOM;
 		}
-		else if(eq(sel, "mon profil"))
+		/*else if(eq(sel, "mon profil"))
 		{
 			ret = SHOW_USER_PROFILE;
-		}
+		}*/
 		else if(eq(sel, "deconnexion"))
 		{
 			ret = DISCONNECT_USER;
