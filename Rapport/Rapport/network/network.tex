@@ -1,5 +1,6 @@
 % \documentclass{report}
 % \begin{document}
+\newpage
 \section{Protocole de communication entre client et serveur}
 Le protocole est basé sur un système similaire au REST qui utilise HTTP, cependant notre projet n'utilise pas HTTP.
 La requête s'effectue exclusivement en JSON, une fois la requête en JSON reçue par le serveur et selon la structure définie dans la section concernant les structure dynamiques, il va regarder si le type de requête correspond à ce qu'il sait gérer, si ce n'est pas le cas il retournera une réponse d'erreur.\par
