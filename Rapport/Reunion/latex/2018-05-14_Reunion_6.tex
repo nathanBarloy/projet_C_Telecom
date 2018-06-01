@@ -1,0 +1,48 @@
+\documentclass[11pt]{meetingmins}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcommittee{Compte rendu de réunion 6}
+
+\setdate{May 14, 2018, 17h - 25mins}
+\setmembers{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\setpresent{
+	Nathan BARLOY,
+	\chair {Johan TOMBRE},
+	Valentin CRÔNE
+}
+\absent{aucun}
+
+\begin{document}
+\maketitle
+
+\section{Ordre du jour}
+\begin{hiddenitems}
+	\item Montrer les avancés sur l'interface graphique
+	\item Explication et démonstration des codes de requêtes
+	\item Répartition des tâches sur la fin du projet
+\end{hiddenitems}
+\section{Compte rendu}
+Valentin a codé la base de l'interface graphique qui consiste à générer du code html à partir de fonctions en C pour être utilisé avec la libraire GTKWebKitWebView.\par
+Johan a enrichit la base de données avec les affiches des films à l'aide d'un script python.\par
+Nathan a réalisé le code permettant un calcul de la distance entre genres à partir d'une matrice.
+\vspace{0.5cm}
+\section{A faire pour la prochaine réunion}
+Les principaux éléments sont en place, il reste à avancer sur l'intégration des différentes parties dans les différentes interfaces (graphique et console).\par
+À partir de maintenant, le groupe se réunira pour des stand-up meetings si besoin.
+Les attributions des tâches sont :
+\begin{items}
+	\item Générer une base de données utilisateur afin de tester l'algorithme de distance entre utilisateurs (Johan TOMBRE)
+	\item Finir l'algorithme collaboratif = estimations de notes et tri des résultats (Johan TOMBRE)
+	\item Réalisation des outils de gestion de projet (Nathan BARLOY)
+	\item Réalisation de l'interface graphique (Valentin CRÔNE et Johan TOMBRE)
+	\item Réalisation interface console (Valentin CRÔNE)
+	\item Gestion des exports (Valentin CRÔNE)
+	\item Rédaction du rapport (Tous)
+\end{items}
+
+\end{document}
