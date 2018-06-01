@@ -247,12 +247,17 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 	}
 	return result;
 }
-
+void freeJSONObject(void* o)
+{
+	JSONObject_delete((JSONObject_t) o);
+}
 JSONArray_t collaborative_recommendation(BDD bdd, int user_id)
 {
 	JSONArray_t array = rates_estimations(bdd, user_id);
 	Vector_t vector = fromArrayToVector(array);
 	Vector_t sorted_vector = quick_sort(vector);
 	JSONArray_t sorted_array = fromVectorToArray(sorted_vector);
+	JSONArray_delete(array);
+	freeVector(sorted_vector);
 	return sorted_array;
 }

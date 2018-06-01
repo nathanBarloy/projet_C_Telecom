@@ -371,6 +371,7 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 		if(JSONArray_size(films) == 0)
 		{
 			unlock(client->bdd);
+			JSONArray_delete(films);
 			return RequestAnswerOk(request, JSONArray_new());
 		}
 		JSONArray_t ten_first = JSONArray_new();
@@ -382,8 +383,8 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 			//printf("Voilà !\n");
 			JSONArray_add(ten_first, JSONObject_getCopy(JSONArray_get(films, size-i)));
 		}
-		JSONArray_delete(films);
 		unlock(client->bdd);
+		JSONArray_delete(films);
 		return RequestAnswerOk(request, ten_first);
 	}
 	unlock(client->bdd);

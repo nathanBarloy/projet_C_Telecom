@@ -285,7 +285,6 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 					}
 					++c;
 				}
-				JSONObject_delete(arr);
 			}
 			String_t rt = 0;
 			if(rate != 0)
@@ -300,8 +299,13 @@ void ClientRunner_showFilm(Connexion_t connexion, int id)
 			}
 			printf("Votre note: %s\n", cString(rt));
 			fString(rt);
+			if(arr != 0)
+			{
+				JSONArray_delete(arr);
+			}
 		}
 		fString(id_s);
+		fString(rate_s);
 		fString(rate);
 		printf("\n\nRecommandés si vous aimez ce film:\n");
 		JSONArray_t reco = serverGetFilmRecommendation(connexion, id);

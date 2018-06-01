@@ -454,7 +454,7 @@ bool BDD_setFilmRateOfUser(BDD bdd, int film_id, int user_id, int rate)
 
 JSONArray_t BDD_getUserRates(BDD bdd, int user_id)
 {
-	JSONArray_t users = JSONObject_getCopy(BDD_Users(bdd));
+	JSONArray_t users = BDD_Users(bdd);
 	int i;
 	JSONObject_t current_user = JSONObject_new();
 	int id = 0;

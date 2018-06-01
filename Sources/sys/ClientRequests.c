@@ -212,8 +212,8 @@ JSONArray_t serverGetUserRates(Connexion_t connexion)
 	freeRequestQuery(q);
 	if(a != 0)
 	{
-		JSONObject_t answer = JSONObject_get(a->obj, AS("Answer"));
-		JSONObject_remove(a->obj, AS("Answer"), false);
+		JSONObject_t answer = JSONObject_getCopy(JSONObject_get(a->obj, AS("Answer")));
+		//JSONObject_remove(a->obj, AS("Answer"), false);
 		freeRequestAnswer(a);
 		return answer;
 	}

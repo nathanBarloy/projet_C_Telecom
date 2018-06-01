@@ -140,7 +140,10 @@ AutoString_t ReadPasswordWithMsg(String_t dsp)
 	{
 		dsp = autoString(">>> ");
 	}
-	return autoString(getpass(cString(dsp)));
+	char* a = getpass(cString(dsp));
+	AutoString_t s = autoString(a);
+	free(a);
+	return s;
 }
 Date_t ReadDate()
 {
