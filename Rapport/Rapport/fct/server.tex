@@ -1,4 +1,11 @@
 % \documentclass{report}
 % \begin{document}
 \subsection{Fonctionnement du serveur}
+Au démarrage, le serveur charge la base de données, il est le seul à y avoir accès. Il vérifie l'intégrité des données pour prevenir des crashs dans les autres fonctions plus tard, et supprime automatiquement les données invalides. Ensuite il écoute sur le port 10000 en tcp et attend de recevoir un client. Quand un client se connecte, le serveur crée un thread qui sera chargé d'interagir avec lui.\par
+
+Ce thread attend d'abord l'envoi de données de la part du client, dès que celui ci envoie un 0 (valeur entière) cela indique qu'il a fini d'envoyer.
+Il essaye alors de parser en JSON les données reçues avec JSONParser, si il y parviens, il interprete la requête, et la transmet a la fonction permettant son traitement en se basant sur le type de requête obtenue. L'association entre le type de requête et la fonction se fait via une HashMap de type Map\_t. En cas de problème le serveur retourne automatiquement un erreur au client. En cas de succès le serveur retourne une réponse au format JSON au client contenant les données attendues. Dans tous les cas, le serveur termine sa réponse par un 0 (valeur entière) afin d'indiquer au client qu'il a terminé.
+Suite à cela, la connexion se termine entre le client et le serveur.\par
+
+La base de données du serveur est sauvegardée automatiquement par celui-ci à chaque modification et à l'extinction, et un backup est crée afin de pouvoir revenir en arrière en cas de problème.
 % \end{document}
