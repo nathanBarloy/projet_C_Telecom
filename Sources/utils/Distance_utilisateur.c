@@ -245,6 +245,7 @@ JSONArray_t rates_estimations(BDD bdd, int id_user)
 			JSONArray_add(result, film);
 		}
 	}
+	JSONArray_delete(dist);
 	return result;
 }
 void freeJSONObject(void* o)

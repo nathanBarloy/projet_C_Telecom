@@ -456,7 +456,7 @@ JSONArray_t BDD_getUserRates(BDD bdd, int user_id)
 {
 	JSONArray_t users = BDD_Users(bdd);
 	int i;
-	JSONObject_t current_user = JSONObject_new();
+	JSONObject_t current_user = 0;
 	int id = 0;
 	int size = JSONArray_size(users);
 	for(i=0 ; i<size ; i++)

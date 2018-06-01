@@ -46,7 +46,10 @@ Vector_t quick_sort(Vector_t list)
 
 		freeVector(d);
 		freeVector(g);
-		return merge_quick(newG, c, newD);
+		Vector_t r = merge_quick(newG, c, newD);
+		freeVector(newG);
+		freeVector(newD);
+		return r;
 	}
 }
 

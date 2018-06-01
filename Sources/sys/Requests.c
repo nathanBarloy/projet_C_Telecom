@@ -393,7 +393,7 @@ RequestAnswer ServerRequest_getCollaborativeRecommendation(Client client, Reques
 RequestAnswer ServerRequest_getRandRecommendation(Client client, RequestQuery request)
 {
 	lock(client->bdd);
-	JSONArray_t films = JSONObject_getCopy(RandomReco(client->bdd));
+	JSONArray_t films = RandomReco(client->bdd);
 	unlock(client->bdd);
 	return RequestAnswerOk(request, films);
 }
